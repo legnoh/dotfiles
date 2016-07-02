@@ -1,5 +1,6 @@
+source ~/.zplug/init.zsh
+
 zplug "plugins/autoenv", from:oh-my-zsh
-zplug "plugins/aws", from:oh-my-zsh
 zplug "plugins/boot2docker", from:oh-my-zsh
 zplug "plugins/bower", from:oh-my-zsh
 zplug "plugins/branch", from:oh-my-zsh
@@ -38,6 +39,10 @@ zplug "plugins/yum", from:oh-my-zsh
 zplug "plugins/zsh_reload", from:oh-my-zsh
 zplug "plugins/zsh-navigation-tools", from:oh-my-zsh
 zplug "themes/robbyrussell", from:oh-my-zsh
+zplug "frodenas/cf-zsh-autocomplete-plugin", if:"(( $+commands[git] ))"
+zplug "frodenas/bosh-zsh-autocomplete-plugin", if:"(( $+commands[bosh] ))"
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
 
-zplug "Dannyzen/cf-zsh-autocomplete-plugin"
-zplug "frodenas/bosh-zsh-autocomplete-plugin"
+zplug load --verbose

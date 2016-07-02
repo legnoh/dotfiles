@@ -1,0 +1,2 @@
+zplug "plugins/git"
+zplug "frodenas/cf-zsh-autocomplete-plugin"

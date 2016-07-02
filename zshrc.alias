@@ -1,0 +1,21 @@
+# alias
+
+## ghq
+alias gg="ghq get"
+alias gl="ghq look"
+
+## ls
+alias ls="ls -alhG"
+
+## make ssl certificate
+alias skgrsa="ssh-keygen -t rsa -b 2048 -T`date +%s`"
+
+## sync dotfile
+alias rr="source ~/.zshrc"
+alias rrr="cd ~/src/github.com/legnoh/dotfiles && git pull && cd - && source ~/.zshrc"
+
+## ssh
+alias ssh="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;ssh"
+alias scp="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;scp"
+alias git="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;git"
+alias knife="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;knife"

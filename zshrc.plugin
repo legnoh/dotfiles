@@ -1,2 +1,2 @@
-zplug "plugins/git"
-zplug "frodenas/cf-zsh-autocomplete-plugin"
+zplug "Dannyzen/cf-zsh-autocomplete-plugin"
+zplug "frodenas/bosh-zsh-autocomplete-plugin"

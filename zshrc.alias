@@ -4,6 +4,9 @@
 alias gg="ghq get"
 alias gl="ghq look"
 
+## colordiff
+alias diff="colordiff"
+
 ## ls
 alias ls="ls -alhG"
 

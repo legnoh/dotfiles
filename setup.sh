@@ -22,9 +22,12 @@ if [ "$(uname)" == 'Darwin' ]; then
   /usr/local/bin/brew tap legnoh/anyenv
   /usr/local/bin/brew tap caskroom/cask
   /usr/local/bin/brew update
-  /usr/local/bin/brew install cf-cli colordiff ctags curl ghq hub mercurial openssl peco tree wget zplug zsh
+  /usr/local/bin/brew install cf-cli colordiff ctags curl ghq hub mercurial openssl peco tree wget zsh
   /usr/local/bin/brew install anyenv --HEAD
 fi
+
+# install zplug
+curl -sL get.zplug.sh | zsh
 
 # reload
 exec $SHELL -l

@@ -1,13 +1,13 @@
 source ~/.zplug/init.zsh
-
-zplug "plugins/autoenv", from:oh-my-zsh
+zplug "Dannyzen/cf-zsh-autocomplete-plugin"
+zplug "frodenas/bosh-zsh-autocomplete-plugin"
+zplug "sbodiu-pivotal/fly-zsh-autocomplete-plugin"
 zplug "plugins/aws", from:oh-my-zsh
 zplug "plugins/boot2docker", from:oh-my-zsh
 zplug "plugins/bower", from:oh-my-zsh
 zplug "plugins/branch", from:oh-my-zsh
 zplug "plugins/brew-cask", from:oh-my-zsh
 zplug "plugins/bundler", from:oh-my-zsh
-zplug "plugins/cask", from:oh-my-zsh
 zplug "plugins/composer", from:oh-my-zsh
 zplug "plugins/emoji-clock", from:oh-my-zsh
 zplug "plugins/emoji", from:oh-my-zsh
@@ -39,11 +39,8 @@ zplug "plugins/xcode", from:oh-my-zsh
 zplug "plugins/yum", from:oh-my-zsh
 zplug "plugins/zsh_reload", from:oh-my-zsh
 zplug "plugins/zsh-navigation-tools", from:oh-my-zsh
-zplug "themes/robbyrussell", from:oh-my-zsh
-zplug "frodenas/cf-zsh-autocomplete-plugin", if:"(( $+commands[git] ))"
-zplug "frodenas/bosh-zsh-autocomplete-plugin", if:"(( $+commands[bosh] ))"
-zplug "zsh-users/zsh-history-substring-search"
+zplug "themes/cloud", from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
-
-zplug load --verbose
+zplug "zsh-users/zsh-history-substring-search"
+zplug load

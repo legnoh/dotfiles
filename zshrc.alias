@@ -16,6 +16,7 @@ alias skged="ssh-keygen -t ed25519 -T`date +%s`"
 
 ## sync dotfile
 alias rr="source ~/.zshrc"
+alias rrs="~/.dotfiles/setup.sh"
 alias rrr="cd ~/src/github.com/legnoh/dotfiles && git pull && cd - && source ~/.zshrc"
 
 ## ssh

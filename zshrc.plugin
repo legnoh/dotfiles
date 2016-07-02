@@ -37,6 +37,7 @@ zplug "plugins/xcode", from:oh-my-zsh
 zplug "plugins/yum", from:oh-my-zsh
 zplug "plugins/zsh_reload", from:oh-my-zsh
 zplug "plugins/zsh-navigation-tools", from:oh-my-zsh
+zplug "themes/robbyrussell", from:oh-my-zsh
 
 zplug "Dannyzen/cf-zsh-autocomplete-plugin"
 zplug "frodenas/bosh-zsh-autocomplete-plugin"

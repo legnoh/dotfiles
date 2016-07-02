@@ -1,7 +1,7 @@
 #!/bin/bash
 DOTPATH=~/.dotfiles; export DOTPATH
 DOTFILES_GITHUB="https://github.com/legnoh/dotfiles.git"; export DOTFILES_GITHUB
-DOT_FILES=(zshrc zshrc.custom zshrc.alias gitconfig gitignore vimrc gemrc ssh/conf.d ssh/config)
+DOT_FILES=(zshrc zshrc.custom zshrc.alias zshrc.plugin gitconfig gitignore vimrc gemrc ssh/conf.d ssh/config)
 
 mkdir -p ~/src/github.com/legnoh
 cd ~/src/github.com/legnoh

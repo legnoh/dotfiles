@@ -1,6 +1,7 @@
 source ~/.zplug/init.zsh
 
 zplug "plugins/autoenv", from:oh-my-zsh
+zplug "plugins/aws", from:oh-my-zsh
 zplug "plugins/boot2docker", from:oh-my-zsh
 zplug "plugins/bower", from:oh-my-zsh
 zplug "plugins/branch", from:oh-my-zsh

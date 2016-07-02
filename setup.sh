@@ -1,19 +1,20 @@
 #!/bin/bash
-DOTPATH=~/.dotfiles; export DOTPATH
+=~/src/github.com/legnoh/dotfiles; export DOTPATH
 DOTFILES_GITHUB="https://github.com/legnoh/dotfiles.git"; export DOTFILES_GITHUB
 DOT_FILES=(zshrc zshrc.custom zshrc.alias zshrc.plugin gitconfig gitignore vimrc gemrc ssh/conf.d ssh/config)
 
+# install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# install dotfiles
 mkdir -p ~/src/github.com/legnoh
-cd ~/src/github.com/legnoh
 git clone --recursive "$DOTFILES_GITHUB" "$DOTPATH"
 
 for file in ${DOT_FILES[@]}
 do
     ln -fs ~/src/github.com/legnoh/dotfiles/$file $HOME/.$file
 done
-
-# install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+ln -fs ~/src/github.com/legnoh/dotfiles ~/.dotfiles
 
 # install homebrew and core utils
 if [ "$(uname)" == 'Darwin' ]; then

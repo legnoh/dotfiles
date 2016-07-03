@@ -18,14 +18,14 @@ done
 
 # install muitl os utils & apps
 if [ "$(uname)" == 'Darwin' ]; then
-  echo "OS:macOS"
-  $DOTPATH/setup_osx.sh
+  echo "OS: macOS"
+  ~/src/github.com/legnoh/dotfiles/setup_macos.sh
 elif [ -e /etc/lsb-release ]; then
-  echo "OS:Ubuntu"
-  $DOTPATH/setup_ubuntu.sh
+  echo "OS: Ubuntu"
+  ~/src/github.com/legnoh/dotfiles/setup_ubuntu.sh
 elif [ -e /etc/redhat-release ]; then
-  echo "OS:CentOS"
-  $DOTPATH/setup_centos.sh
+  echo "OS: CentOS"
+  ~/src/github.com/legnoh/dotfiles/setup_centos.sh
 fi
 
 # install anyenv

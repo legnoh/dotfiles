@@ -300,7 +300,7 @@ atompackage=(
 )
 
 echo "installing Atom packages..."
-apm install ${atompackage[@]}
+/usr/local/bin/apm install ${atompackage[@]}
 
 ### CF CLI PLugins ###
 cf install-plugin -r CF-Community -f "doctor"

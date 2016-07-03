@@ -66,3 +66,5 @@ Temporary Items
 *.pem
 *.key
 *.crt
+
+ssh/config

@@ -22,7 +22,7 @@ if [ "$(uname)" == 'Darwin' ]; then
   /usr/local/bin/brew tap legnoh/anyenv
   /usr/local/bin/brew tap caskroom/cask
   /usr/local/bin/brew update
-  /usr/local/bin/brew install Caskroom/cask/qlstephen cf-cli colordiff ctags curl ghq hub libxml2 mercurial openssh openssl peco tree wget zsh
+  /usr/local/bin/brew install Caskroom/cask/qlstephen cf-cli colordiff ctags curl ghq gpg2 hub libxml2 mercurial openssh openssl peco tree wget zsh
   /usr/local/bin/brew install anyenv --HEAD
   /usr/local/bin/brew link openssl --force
   /usr/local/bin/brew link libxml2 --force

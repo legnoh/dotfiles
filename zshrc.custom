@@ -6,3 +6,6 @@ eval "$(anyenv init -)"
 
 # go
 export GOPATH="$HOME"
+
+# setting
+setopt nonomatch

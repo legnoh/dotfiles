@@ -1,6 +1,7 @@
 [user]
   name = Ryoma Kai
   email = legknmj@rkai.jp
+	signingkey = E45114EB
 
 [color]
   # colorの設定(以下のコマンドは自動で色つける)
@@ -10,14 +11,23 @@
   interactive = auto
   grep = auto
 
-[push]
-  default = current            # defaultのpush先は今いるブランチのみ
-
 [core]
   excludesfile = ~/.gitignore  # globalな.gitignoreの指定
   autocrlf = input             # CRLFを自動変換
   editor = vim
   quotepath = false
+
+[gpg]
+  program = gpg2
+
+[commit]
+  gpgsign = true
+
+[pull]
+  rebase = true
+
+[push]
+  default = current            # defaultのpush先は今いるブランチのみ
 
 [merge]
   tool = vimdiff
@@ -25,9 +35,6 @@
 
 [branch]
   autosetuprebase = always
-
-[pull]
-  rebase = true
 
 [alias]
   # status

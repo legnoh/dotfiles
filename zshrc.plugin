@@ -17,6 +17,7 @@ zplug "plugins/github", from:oh-my-zsh
 zplug "plugins/gitignore", from:oh-my-zsh
 zplug "plugins/go", from:oh-my-zsh
 zplug "plugins/golang", from:oh-my-zsh
+zplug "plugins/gpg-agent", from:oh-my-zsh
 zplug "plugins/jump", from:oh-my-zsh
 zplug "plugins/knife_ssh", from:oh-my-zsh
 zplug "plugins/knife", from:oh-my-zsh
@@ -27,9 +28,6 @@ zplug "plugins/postgres", from:oh-my-zsh
 zplug "plugins/pyenv", from:oh-my-zsh
 zplug "plugins/rbenv", from:oh-my-zsh
 zplug "plugins/themes", from:oh-my-zsh
-zplug "plugins/tmux-cssh", from:oh-my-zsh
-zplug "plugins/tmux", from:oh-my-zsh
-zplug "plugins/tmuxinator", from:oh-my-zsh
 zplug "plugins/ubuntu", from:oh-my-zsh
 zplug "plugins/vagrant", from:oh-my-zsh
 zplug "plugins/vault", from:oh-my-zsh

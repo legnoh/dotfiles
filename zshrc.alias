@@ -24,3 +24,10 @@ alias ssh="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;ssh"
 alias scp="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;scp"
 alias git="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;git"
 alias knife="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;knife"
+
+## gpg2
+alias gpg="gpg2"
+
+## pcf
+alias cflp='cf login -a https://api.run.pivotal.io'
+alias cfldev='cf login -a https://api.local.pcfdev.io -u admin -o "pcfdev-org" -s pcfdev-space --skip-ssl-validation -p admin'

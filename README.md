@@ -27,7 +27,8 @@ $ bash -c "$(curl -fsSL https://raw.githubusercontent.com/legnoh/dotfiles/master
 - [**PDF Outliner**](https://itunes.apple.com/jp/app/pdfoutliner/id420874236)
 - [**PopClip**](https://itunes.apple.com/jp/app/popclip/id445189367)
   - [Extension](https://pilotmoon.com/popclip/extensions/)
-- [**ReceiptKeeper**](https://itunes.apple.com/jp/app/receiptkeeper/id413449473) 
+- [**ReceiptKeeper**](https://itunes.apple.com/jp/app/receiptkeeper/id413449473)
+- [XCode](https://itunes.apple.com/jp/app/xcode/id497799835)
 
 ### Download
 - [**LINE**](https://itunes.apple.com/jp/app/line/id539883307)

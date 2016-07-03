@@ -55,6 +55,7 @@ packages=(
   nkf
   openssh
   openssl
+  parse-plist
   peco
   pkg-config
   postgres --client-only
@@ -88,6 +89,7 @@ apps=(
   bettertouchtool
   boot2docker
   cheatsheet
+  chefdk
   citrix-receiver
   clipy
   cocoarestclient
@@ -112,6 +114,7 @@ apps=(
   omnigraffle
   parallels-desktop
   popclip
+  qlstephen
   sequel-pro
   silverlight
   skitch

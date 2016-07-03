@@ -1,6 +1,9 @@
 # homebrew
 export PATH="/usr/local/sbin:$PATH"
 
+# gpg
+export GPG_TTY=$(tty)
+
 # anyenv
 eval "$(anyenv init -)"
 

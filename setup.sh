@@ -4,6 +4,7 @@ DOTFILES_GITHUB="https://github.com/legnoh/dotfiles.git"; export DOTFILES_GITHUB
 DOT_FILES=(zshrc zshrc.custom zshrc.alias zshrc.plugin zshenv gitconfig gitignore vimrc gemrc ssh/conf.d ssh/config)
 
 # ssh directory
+mkdir -p ~/.ssh
 ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 # install dotfiles

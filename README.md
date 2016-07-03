@@ -39,7 +39,8 @@ $ bash -c "$(curl -fsSL https://raw.githubusercontent.com/legnoh/dotfiles/master
 
 ### SSH,GPG
 ```bash
-$ ssh-add ~/.ssh/jp.legnoh.ssh
+$ open ~/.ssh
+$ chmod 400 ~/.ssh/jp.legnoh.ssh && ssh-add ~/.ssh/jp.legnoh.ssh
 $ gpg2 --import --allow-secret-key-import $HOME/Desktop/jp.legnoh.gpg
 $ gpg2 --edit-key 232E422D
 

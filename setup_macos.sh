@@ -53,7 +53,6 @@ packages=(
   mysql --client-only
   nkf
   openssh
-  parse-plist
   peco
   pkg-config
   postgres --client-only

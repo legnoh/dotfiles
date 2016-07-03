@@ -46,6 +46,7 @@ packages=(
   jq
   libevent
   libpng
+  libxml2
   libyaml
   markdown
   mcrypt
@@ -53,6 +54,7 @@ packages=(
   mysql --client-only
   nkf
   openssh
+  openssl
   peco
   pkg-config
   postgres --client-only
@@ -68,6 +70,9 @@ packages=(
 
 echo "installing binaries..."
 brew install ${packages[@]} && brew cleanup
+
+brew link libxml2 --force
+brew link openssl --force
 
 # Apps
 apps=(

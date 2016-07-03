@@ -42,13 +42,13 @@ packages=(
   markdown
   mcrypt
   mercurial
-  mysql
+  mysql --client-only
   nkf
   openssh
   openssl
   peco
   pkg-config
-  postgres
+  postgres --client-only
   proctools
   readline
   rmtrash

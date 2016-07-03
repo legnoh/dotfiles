@@ -32,19 +32,5 @@ fi
 git clone https://github.com/riywo/anyenv ~/.anyenv
 
 # install zplug
-curl -sL get.zplug.sh | zplug install
-
-# reload
-exec $SHELL -l
-
-# install **env
-anyenv install rbenv
-anyenv install plenv
-anyenv install pyenv
-anyenv install phpenv
-anyenv install ndenv
-anyenv install denv
-anyenv install jenv
-anyenv install luaenv
-anyenv install goenv
-exec $SHELL -l
+curl -sL get.zplug.sh | zsh
+echo "please exec 'zplug install'"

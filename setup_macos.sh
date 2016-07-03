@@ -33,7 +33,6 @@ packages=(
   coreutils
   ctags
   curl
-  dmm-player
   gettext
   ghq
   gibo
@@ -97,6 +96,7 @@ apps=(
   cocoarestclient
   cyberduck
   dash
+  dmm-player
   evernote
   firefox
   flash

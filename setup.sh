@@ -19,7 +19,7 @@ done
 # install muitl os utils & apps
 if [ "$(uname)" == 'Darwin' ]; then
   echo "OS:macOS"
-  setup_homebrew.sh
+  setup_osx.sh
 elif [ -e /etc/lsb-release ]; then
   echo "OS:Ubuntu"
   setup_ubuntu.sh

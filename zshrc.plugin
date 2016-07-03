@@ -1,4 +1,5 @@
 source ~/.zplug/init.zsh
+
 zplug "Dannyzen/cf-zsh-autocomplete-plugin"
 zplug "frodenas/bosh-zsh-autocomplete-plugin"
 zplug "sbodiu-pivotal/fly-zsh-autocomplete-plugin"
@@ -41,4 +42,5 @@ zplug "themes/cloud", from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-history-substring-search"
+
 zplug load

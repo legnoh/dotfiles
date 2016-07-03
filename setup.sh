@@ -9,38 +9,38 @@ git clone --recursive "$DOTFILES_GITHUB" "$DOTPATH"
 
 for file in ${DOT_FILES[@]}
 do
-    ln -fs ~/src/github.com/legnoh/dotfiles/$file $HOME/.$file
+    ln -fs ~/src/github.com/legnoh/dotfiles/$file ~/.$file
 done
 
-# install homebrew and core utils
+# install muitl os utils & apps
 if [ "$(uname)" == 'Darwin' ]; then
-  /usr/bin/xcode-select --install
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  /usr/local/bin/brew tap homebrew/dupes
-  /usr/local/bin/brew tap homebrew/versions
-  /usr/local/bin/brew tap cloudfoundry/tap
-  /usr/local/bin/brew tap legnoh/anyenv
-  /usr/local/bin/brew tap caskroom/cask
-  /usr/local/bin/brew update
-  /usr/local/bin/brew install Caskroom/cask/qlstephen cf-cli colordiff ctags curl ghq gpg2 hub libxml2 mercurial openssh openssl peco tree wget zsh
-  /usr/local/bin/brew install anyenv --HEAD
-  /usr/local/bin/brew link openssl --force
-  /usr/local/bin/brew link libxml2 --force
-
-  # install **env
-  anyenv install rbenv
-  anyenv install plenv
-  anyenv install pyenv
-  anyenv install phpenv
-  anyenv install ndenv
-  anyenv install denv
-  anyenv install jenv
-  anyenv install luaenv
-  anyenv install goenv
+  echo "OS:macOS"
+  setup_homebrew.sh
+elif [ -e /etc/lsb-release ]; then
+  echo "OS:Ubuntu"
+  setup_ubuntu.sh
+elif [ -e /etc/redhat-release ]; then
+  echo "OS:CentOS"
+  setup_centos.sh
 fi
+
+# install anyenv
+git clone https://github.com/riywo/anyenv ~/.anyenv
 
 # install zplug
 curl -sL get.zplug.sh | zsh
 
 # reload
+exec $SHELL -l
+
+# install **env
+anyenv install rbenv
+anyenv install plenv
+anyenv install pyenv
+anyenv install phpenv
+anyenv install ndenv
+anyenv install denv
+anyenv install jenv
+anyenv install luaenv
+anyenv install goenv
 exec $SHELL -l

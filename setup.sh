@@ -35,5 +35,5 @@ git clone https://github.com/riywo/anyenv ~/.anyenv
 curl -sL get.zplug.sh | zsh
 
 # reload
-echo "please exec 'zplug install && rr && $HOME/src/github.com/legnoh/dotfiles/setup_anyenv.sh'"
-exec $SHELL -l
+echo "please exec 'exec $SHELL -l && zplug install && rr && $HOME/src/github.com/legnoh/dotfiles/setup_anyenv.sh'"
+

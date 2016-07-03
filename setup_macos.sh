@@ -33,6 +33,7 @@ packages=(
   coreutils
   ctags
   curl
+  erlang
   gettext
   ghq
   gibo

@@ -33,4 +33,6 @@ git clone https://github.com/riywo/anyenv ~/.anyenv
 
 # install zplug
 curl -sL get.zplug.sh | zsh
-echo "please exec 'zplug install'"
+
+# reload
+exec $SHELL -l && zplug install

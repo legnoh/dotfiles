@@ -69,10 +69,6 @@ packages=(
 echo "installing binaries..."
 brew install ${packages[@]} && brew cleanup
 
-# link
-brew link openssl --force
-brew link libxml2 --force
-
 # Apps
 apps=(
   0xed

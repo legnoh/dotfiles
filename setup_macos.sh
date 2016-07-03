@@ -33,14 +33,19 @@ packages=(
   coreutils
   ctags
   curl
+  gettext
   ghq
   gibo
   gist
   git
+  git-flow-avh
   gpg2
   hub
   imagemagick
+  jpeg
   jq
+  libevent
+  libpng
   libyaml
   libxml2
   markdown
@@ -58,6 +63,7 @@ packages=(
   rmtrash
   tig
   tree
+  vault
   wget
   zsh
 )
@@ -78,6 +84,7 @@ apps=(
   alfred
   atom
   audacity
+  bathyscaphe
   bettertouchtool
   boot2docker
   cheatsheet
@@ -106,7 +113,9 @@ apps=(
   parallels-desktop
   popclip
   sequel-pro
+  silverlight
   skitch
+  skype
   slack
   sublime-text
   the-unarchiver

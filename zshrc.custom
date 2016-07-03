@@ -8,5 +8,7 @@ eval "$(anyenv init -)"
 # go
 export GOPATH="$HOME"
 
+export PATH="$HOME/.gem/ruby/2.3.0/bin"
+
 # setting
 setopt nonomatch

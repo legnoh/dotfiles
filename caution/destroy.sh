@@ -18,7 +18,6 @@ brew untap caskroom/cask
 brew untap caskroom/fonts
 brew untap caskroom/versions
 brew untap cloudfoundry/tap
-cd /usr/local/ && sudo rm -rf $(brew list --unbrewed)
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
 
 # remove app info

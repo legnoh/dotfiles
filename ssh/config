@@ -1,1 +1,6 @@
-
+Host github.com
+  Hostname github.com
+  User legnoh
+  ForwardAgent yes
+  IdentityFile ~/.ssh/jp.legnoh.ssh
+  StrictHostKeyChecking Yes

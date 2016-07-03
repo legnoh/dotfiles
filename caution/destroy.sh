@@ -8,8 +8,8 @@
 chsh -s /bin/bash
 
 # uninstall homebrew and apps
-brew uninstall --force $(brew list)
-brew cask uninstall --force $(brew cask list)
+brew uninstall --force $(brew list) && brew cleanup
+brew cask uninstall --force $(brew cask list) && brew cask cleanup
 brew untap homebrew/dupes
 brew untap homebrew/versions
 brew untap homebrew/binary

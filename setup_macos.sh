@@ -134,6 +134,7 @@ echo "installing fonts..."
 brew cask install ${fonts[@]}
 
 ################### Mac設定 ###################
+echo "setting mac..."
 
 ### finder ###
 
@@ -302,6 +303,7 @@ atompackage=(
 echo "installing Atom packages..."
 /usr/local/bin/apm install ${atompackage[@]}
 
+echo "installing CF Plugin packages..."
 ### CF CLI PLugins ###
 cf install-plugin -r CF-Community -f "doctor"
 cf install-plugin -r CF-Community -f "Download Droplet"
@@ -315,11 +317,13 @@ cf install-plugin -r CF-Community -f "Live Stats"
 
 
 ##### Finder と Dock を再起動
+echo "restart Finder and Docks...."
 kilall Finder
 kilall Dock
 
 
 ### インストールしたAppの中で、設定が必要なものを一気に全て開く
+echo "Open Apps...."
 open "/Applications/1Password 6.app"
 open "/Applications/ADPassMon.app"
 open "/Applications/Alfred 3.app"

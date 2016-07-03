@@ -88,6 +88,7 @@ apps=(
   audacity
   bathyscaphe
   bettertouchtool
+  betterzipql
   boot2docker
   cheatsheet
   chefdk
@@ -115,7 +116,14 @@ apps=(
   omnigraffle
   parallels-desktop
   popclip
+  qlcolorcode
+  qlimagesize
+  qlmarkdown
+  qlprettypatch
   qlstephen
+  quicklook-csv
+  quicklook-json
+  webpquicklook
   sequel-pro
   silverlight
   skitch
@@ -354,7 +362,6 @@ open "/Applications/Citrix Receiver.app"
 open "/Applications/Clipy.app"
 open "/Applications/Cyberduck.app"
 open "/Applications/Dash.app"
-open "/Applications/Evernote.app"
 open "/Applications/FaceTime.app"
 open "/Applications/Flux.app"
 open "/Applications/GitHub Desktop.app"

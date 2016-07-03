@@ -31,7 +31,7 @@ $ bash -c "$(curl -fsSL https://raw.githubusercontent.com/legnoh/dotfiles/master
 
 ### Download
 - [**LINE**](https://itunes.apple.com/jp/app/line/id539883307)
-- [**PCF Dev**](https://github.com/pivotal-cf/pcfdev/releases)
+- [**PCF Dev**](https://network.pivotal.io/products/pcfdev)
 - [**Silverlight**](https://www.microsoft.com/silverlight/)
   - Cask版が正常に動作しない
 - [**SimpleComic**](http://dancingtortoise.com/simplecomic/)

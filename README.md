@@ -24,18 +24,18 @@ $ bash -c "$(curl -fsSL https://raw.githubusercontent.com/legnoh/dotfiles/master
   - 非公開になったため「購入済み」の方から導入する(´・ω・`) 
 - [**OmniGraffle**](https://itunes.apple.com/jp/app/omnigraffle-6/id711830901)
   - AppStore版から通常版に移行可能なら良いのだが...
-- [PDF Outliner](https://itunes.apple.com/jp/app/pdfoutliner/id420874236)
+- [**PDF Outliner**](https://itunes.apple.com/jp/app/pdfoutliner/id420874236)
 - [**PopClip**](https://itunes.apple.com/jp/app/popclip/id445189367)
   - [Extension](https://pilotmoon.com/popclip/extensions/)
-- [ReceiptKeeper](https://itunes.apple.com/jp/app/receiptkeeper/id413449473) 
+- [**ReceiptKeeper**](https://itunes.apple.com/jp/app/receiptkeeper/id413449473) 
 
 ### Download
-- [LINE](https://itunes.apple.com/jp/app/line/id539883307)
-- [PCF Dev](https://github.com/pivotal-cf/pcfdev/releases)
+- [**LINE**](https://itunes.apple.com/jp/app/line/id539883307)
+- [**PCF Dev**](https://github.com/pivotal-cf/pcfdev/releases)
 - [**Silverlight**](https://www.microsoft.com/silverlight/)
   - Cask版が正常に動作しない
-- [SimpleComic](http://dancingtortoise.com/simplecomic/)
-- [TDEnc2](http://tdenc.com/TDEnc2/download/)
+- [**SimpleComic**](http://dancingtortoise.com/simplecomic/)
+- [**TDEnc2**](http://tdenc.com/TDEnc2/download/)
 
 ### SSH,GPG
 ```bash

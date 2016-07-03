@@ -20,6 +20,10 @@ brew tap caskroom/fonts
 brew tap caskroom/versions
 brew tap cloudfoundry/tap
 
+# Dropboxだけ優先的に設定を済ませる
+brew cask install --appdir="/Applications" dropbox
+open "/Applications/Dropbox.app"
+
 packages=(
   ag
   autoconf
@@ -73,6 +77,7 @@ apps=(
   adpassmon
   alfred
   atom
+  audacity
   bettertouchtool
   boot2docker
   cheatsheet
@@ -81,7 +86,6 @@ apps=(
   cocoarestclient
   cyberduck
   dash
-  dropbox
   evernote
   firefox
   flash
@@ -99,6 +103,7 @@ apps=(
   licecap
   omnifocus
   omnigraffle
+  parallels-desktop
   popclip
   sequel-pro
   skitch
@@ -108,6 +113,7 @@ apps=(
   virtualbox
   vagrant
   vagrant-manager
+  vlc
   wireshark
   xerox-print-driver
 )
@@ -227,6 +233,7 @@ sudo defaults write /Library/Preferences/com.apple.alf allowsignedenabled -int 1
 sudo defaults write /Library/Preferences/com.apple.alf stealthenabled -int 1
 
 # ログインシェルをHomebrew版Zshに変更する(後で再起動する)
+sudo sh -c 'echo "¥n/usr/local/bin/zsh" >> /etc/shells'
 chsh -s /usr/local/bin/zsh
 
 ### TrackPad ###
@@ -334,7 +341,6 @@ open "/Applications/Citrix Receiver.app"
 open "/Applications/Clipy.app"
 open "/Applications/Cyberduck.app"
 open "/Applications/Dash.app"
-open "/Applications/Dropbox.app"
 open "/Applications/Evernote.app"
 open "/Applications/FaceTime.app"
 open "/Applications/Flux.app"

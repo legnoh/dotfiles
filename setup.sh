@@ -32,7 +32,7 @@ fi
 git clone https://github.com/riywo/anyenv ~/.anyenv
 
 # install zplug
-curl -sL get.zplug.sh | zsh
+curl -sL get.zplug.sh | zplug install
 
 # reload
 exec $SHELL -l

@@ -33,6 +33,7 @@ packages=(
   coreutils
   ctags
   curl
+  dmm-player
   gettext
   ghq
   gibo

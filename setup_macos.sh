@@ -47,14 +47,12 @@ packages=(
   libevent
   libpng
   libyaml
-  libxml2
   markdown
   mcrypt
   mercurial
   mysql --client-only
   nkf
   openssh
-  openssl
   parse-plist
   peco
   pkg-config

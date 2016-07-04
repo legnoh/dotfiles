@@ -1,1 +1,0 @@
-/Users/legnoh/src/github.com/legnoh/dotfiles/ssh/conf.d

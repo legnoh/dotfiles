@@ -87,7 +87,6 @@ apps=(
   bathyscaphe
   bettertouchtool
   betterzipql
-  boot2docker
   cheatsheet
   chefdk
   citrix-receiver
@@ -95,7 +94,9 @@ apps=(
   cocoarestclient
   cyberduck
   dash
+  devcenter
   dmm-player
+  docker
   evernote
   firefox
   flash
@@ -107,7 +108,8 @@ apps=(
   google-drive
   google-hangouts
   hosts
-  java7
+  java
+  kafka-tool
   karabiner
   kindle
   licecap

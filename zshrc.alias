@@ -32,3 +32,4 @@ alias gpg="gpg2"
 ## pcf
 alias cflp='cf login -a https://api.run.pivotal.io'
 alias cfldev='cf login -a https://api.local.pcfdev.io -u admin -o "pcfdev-org" -s pcfdev-space --skip-ssl-validation -p admin'
+alias amn='open https://console.local.pcfdev.io/2'

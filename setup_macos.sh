@@ -124,6 +124,8 @@ apps=(
   qlstephen
   quicklook-csv
   quicklook-json
+  rabbitmq
+  rdm
   webpquicklook
   sequel-pro
   silverlight

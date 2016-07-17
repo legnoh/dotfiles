@@ -4,7 +4,7 @@ dotfiles
 ٩( 'ω' )و  MY DOTFILES  ٩( 'ω' )و
 
 ```
-$ bash -c "$(curl -fsSL https://raw.githubusercontent.com/legnoh/dotfiles/master/setup.sh)"
+$ bash -c "$(curl -L l.cfapps.io)"
 ```
 
 ## policy

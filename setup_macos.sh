@@ -8,7 +8,7 @@ if test ! $(which brew); then
 fi
 
 brew tap homebrew/bundle
-brew bundle ~/src/github.com/legnoh/dotfiles/Brewfile
+brew bundle --file=~/src/github.com/legnoh/dotfiles/Brewfile
 brew link libxml2 --force
 brew link openssl --force
 brew cask alfred link

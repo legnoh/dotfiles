@@ -54,7 +54,6 @@ packages=(
   mercurial
   mysql --client-only
   nkf
-  openssh
   openssl
   peco
   pkg-config
@@ -325,6 +324,7 @@ atompackage=(
   plantuml-viewer
   project-manager
   project-view
+  show-ideographic-space
   sort-lines
   terminal-plus
   tester-go

@@ -18,23 +18,22 @@ $ bash -c "$(curl -fsSL https://raw.githubusercontent.com/legnoh/dotfiles/master
 ##  手動導入
 
 ### MacAppStore
-- [**Airmail**](https://itunes.apple.com/jp/app/airmail-3/id918858936)
-- [**DesktopCalendarPlus**](https://itunes.apple.com/jp/app/desktop-calendar-plus/id524688159)
-- [**Eggy**](https://itunes.apple.com/jp/app/eggy/id564780170)
-  - 非公開になったため「購入済み」の方から導入する(´・ω・`) 
-- [**OmniGraffle**](https://itunes.apple.com/jp/app/omnigraffle-6/id711830901)
+- [**Airmail**](https://itunes.apple.com/jp/app/id918858936)
+- [**DesktopCalendarPlus**](https://itunes.apple.com/jp/app/id524688159)
+- [**Eggy**](https://itunes.apple.com/jp/app/id564780170)
+  - 非公開になったため「購入済み」の方から導入する(´・ω・`)
+- [**Kobito**](https://itunes.apple.com/jp/app/id896624060)
+- [**LINE**](https://itunes.apple.com/jp/app/id539883307)
+- [**OmniGraffle**](https://itunes.apple.com/jp/app/id711830901)
   - AppStore版から通常版に移行可能なら良いのだが...
-- [**PDF Outliner**](https://itunes.apple.com/jp/app/pdfoutliner/id420874236)
-- [**PopClip**](https://itunes.apple.com/jp/app/popclip/id445189367)
+- [**PDF Outliner**](https://itunes.apple.com/jp/app/id420874236)
+- [**PopClip**](https://itunes.apple.com/jp/app/id445189367)
   - [Extension](https://pilotmoon.com/popclip/extensions/)
-- [**ReceiptKeeper**](https://itunes.apple.com/jp/app/receiptkeeper/id413449473)
-- [XCode](https://itunes.apple.com/jp/app/xcode/id497799835)
+- [**ReceiptKeeper**](https://itunes.apple.com/jp/app/id413449473)
+- [XCode](https://itunes.apple.com/jp/app/id497799835)
 
 ### Download
-- [**LINE**](https://itunes.apple.com/jp/app/line/id539883307)
 - [**PCF Dev**](https://network.pivotal.io/products/pcfdev)
-- [**Silverlight**](https://www.microsoft.com/silverlight/)
-  - Cask版が正常に動作しない
 - [**SimpleComic**](http://dancingtortoise.com/simplecomic/)
 - [**TDEnc2**](http://tdenc.com/TDEnc2/download/)
 
@@ -42,7 +41,7 @@ $ bash -c "$(curl -fsSL https://raw.githubusercontent.com/legnoh/dotfiles/master
 ```bash
 $ open ~/.ssh
 $ chmod 400 ~/.ssh/jp.legnoh.ssh
-$ ssh-add ~/.ssh/jp.legnoh.ssh
+$ ssh-add -K ~/.ssh/jp.legnoh.ssh
 $ gpg2 --import --allow-secret-key-import ~/Desktop/jp.legnoh.gpg
 $ gpg2 --edit-key 232E422D
 

@@ -44,6 +44,8 @@ defaults write -g AppleScrollerPagingBehavior -bool true
 # 使用可能な場合は LCD で滑らかな文字を使用
 defaults -currentHost write -g AppleFontSmoothing -int 0
 
+# 「ライブラリ」を常時表示
+chflags nohidden ~/Library
 
 ### Dock ###
 

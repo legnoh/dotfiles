@@ -165,6 +165,12 @@ brew cask install ${fonts[@]}
 ################### Mac設定 ###################
 echo "setting mac..."
 
+### system ###
+
+# 起動音を鳴らす
+nvram -d SystemAudioVolume
+
+
 ### finder ###
 
 # アピアランスをブルーに

@@ -1,7 +1,7 @@
 #!/bin/bash
 DOTPATH=~/src/github.com/legnoh/dotfiles; export DOTPATH
 DOTFILES_GITHUB="https://github.com/legnoh/dotfiles.git"; export DOTFILES_GITHUB
-DOTFILES_TARBAL="https://github.com/legnoh/dotfiles/archive/master.tar.gz"; export DOTFILES_TARBAL
+DOTFILES_TARBAL="https://codeload.github.com/legnoh/dotfiles/tar.gz/master"; export DOTFILES_TARBAL
 DOT_FILES=(
   gemrc
   gitconfig
@@ -29,9 +29,8 @@ mkdir -p ~/.gnupg
 
 # install dotfiles
 mkdir -p ~/src/github.com/legnoh
-cd /tmp && curl -LO $DOTFILES_TARBALL
-tar zxf /tmp/master.tar.gz
-mv /tmp/dotfiles-master $DOTPATH
+curl -L $DOTFILES_TARBALL | tar zxf -å
+mv dotfiles-master $DOTPATH
 
 for file in ${DOT_FILES[@]}
 do

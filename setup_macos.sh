@@ -7,6 +7,7 @@ if test ! $(which brew); then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
+brew tap homebrew/bundle
 brew bundle ~/src/github.com/legnoh/dotfiles/Brewfile
 brew link libxml2 --force
 brew link openssl --force

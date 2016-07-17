@@ -51,3 +51,6 @@ rm -rf ~/.v*
 rm -rf ~/.z*
 rm -rf ~/.*_history
 rm -rf ~/src
+
+# remove command line tools
+rm -rf /Library/Developer/CommandLineTools

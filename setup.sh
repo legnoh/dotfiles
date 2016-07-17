@@ -28,9 +28,9 @@ ssh-keyscan github.com >> ~/.ssh/known_hosts
 mkdir -p ~/.gnupg
 
 # install dotfiles
-mkdir -p ~/src/github.com/legnoh
-curl -L "$DOTFILES_TARBAL" | tar zxf -
-mv dotfiles-master $DOTPATH
+mkdir -p ~/src/github.com/legnoh/dotfiles
+curl -L "$DOTFILES_TARBAL" -o /tmp/dotfiles
+tar zxvf /tmp/dotfiles -C ~/src/github.com/legnoh/dotfiles --strip-components 1
 
 for file in ${DOT_FILES[@]}
 do

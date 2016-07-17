@@ -11,7 +11,6 @@ brew tap homebrew/bundle
 brew bundle --file=~/src/github.com/legnoh/dotfiles/Brewfile
 brew link libxml2 --force
 brew link openssl --force
-brew cask alfred link
 
 ################### Mac setting ###################
 echo "setting mac..."

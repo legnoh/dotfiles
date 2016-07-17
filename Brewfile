@@ -40,6 +40,7 @@ brew 'mysql', args: ['client-only']
 brew 'nkf'
 brew 'openssl'
 brew 'peco'
+brew 'pinentry-mac'
 brew 'pkg-config'
 brew 'postgres'
 brew 'proctools'

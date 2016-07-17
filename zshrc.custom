@@ -1,6 +1,11 @@
 # homebrew
 export PATH="/usr/local/sbin:$PATH"
 
+# brew-file
+if [ -f $(brew --prefix)/etc/brew-wrap ];then
+  source $(brew --prefix)/etc/brew-wrap
+fi
+
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"

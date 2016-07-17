@@ -1,168 +1,18 @@
-# install command-line-tools
+################### command-line-tools ###################
 xcode-select --install
 
-# Check for Homebrew,Install if we don't have it
+################### Homebrew ###################
 if test ! $(which brew); then
     echo "Installing homebrew..."
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-brew update
-brew upgrade
-
-# Add Repository
-brew tap homebrew/dupes
-brew tap homebrew/versions
-brew tap homebrew/binary
-brew tap thoughtbot/formulae
-brew tap caskroom/cask
-brew tap caskroom/fonts
-brew tap caskroom/versions
-brew tap cloudfoundry/tap
-
-# Dropboxだけ優先的に設定を済ませる
-brew cask install --appdir="/Applications" dropbox
-open "/Applications/Dropbox.app"
-
-packages=(
-  ag
-  autoconf
-  bash
-  cf-cli
-  colordiff
-  coreutils
-  ctags
-  curl
-  erlang
-  gettext
-  ghq
-  gibo
-  gist
-  git
-  git-flow-avh
-  gpg2
-  hub
-  imagemagick
-  jpeg
-  jq
-  libevent
-  libpng
-  libxml2
-  libyaml
-  markdown
-  mcrypt
-  mercurial
-  mysql --client-only
-  nkf
-  openssl
-  peco
-  pkg-config
-  postgres --client-only
-  proctools
-  readline
-  rmtrash
-  tig
-  tree
-  vault
-  wget
-  zsh
-)
-
-echo "installing binaries..."
-brew install ${packages[@]} && brew cleanup
-
+brew bundle ~/src/github.com/legnoh/dotfiles/Brewfile
 brew link libxml2 --force
 brew link openssl --force
-
-# Apps
-apps=(
-  0xed
-  1password
-  adapter
-  adpassmon
-  alfred
-  atom
-  audacity
-  bathyscaphe
-  bettertouchtool
-  betterzipql
-  cheatsheet
-  chefdk
-  citrix-receiver
-  clipy
-  cocoarestclient
-  cyberduck
-  dash
-  devcenter
-  dmm-player
-  docker
-  evernote
-  firefox
-  flash
-  flip4mac
-  flux
-  gimp
-  github-desktop
-  google-chrome
-  google-drive
-  google-hangouts
-  hosts
-  java
-  kafka-tool
-  karabiner
-  kindle
-  licecap
-  omnifocus
-  omnigraffle
-  parallels-desktop
-  popclip
-  qlcolorcode
-  qlimagesize
-  qlmarkdown
-  qlprettypatch
-  qlstephen
-  quicklook-csv
-  quicklook-json
-  rabbitmq
-  rdm
-  webpquicklook
-  sequel-pro
-  silverlight
-  skitch
-  skype
-  slack
-  sublime-text
-  the-unarchiver
-  virtualbox
-  vagrant
-  vagrant-manager
-  vlc
-  wireshark
-  xerox-print-driver
-)
-
-# Install apps to /Applications
-echo "installing apps..."
-brew cask install --appdir="/Applications" ${apps[@]}
-
-# We need to link it
 brew cask alfred link
 
-# fonts
-fonts=(
-  font-m-plus
-  font-source-code-pro
-  font-clear-sans
-  font-roboto
-  font-fontawesome
-  font-ricty-diminished
-)
-
-# install fonts
-echo "installing fonts..."
-brew cask install ${fonts[@]}
-
-################### Mac設定 ###################
+################### Mac setting ###################
 echo "setting mac..."
 
 ### system ###
@@ -273,7 +123,7 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -int 
 
 ### keyboard ###
 
-#　カーソル移動は最速
+# カーソル移動は最速
 defaults write -g KeyRepeat -int 2
 defaults write -g InitialKeyRepeat -int 15
 
@@ -296,52 +146,12 @@ defaults write com.apple.Safari AlwaysShowTabBarInFullScreen 1
 
 
 ### Atom.io ###
-atompackage=(
-  atom-material-syntax
-  atom-material-ui
-  autocomplete-go
-  builder-go
-  color-picker
-  environment
-  file-icons
-  genesis-ui
-  git-plus
-  git-status
-  gitignore-snippets
-  go-config
-  go-get
-  go-plus
-  gofmt
-  gometalinter-linter
-  gorename
-  haskell-grammar
-  highlight-selected
-  japanese-menu
-  language-babel
-  language-ini
-  language-plantuml
-  language-thrift
-  linter
-  merge-conflicts
-  minimap
-  navigator-godef
-  nuclide
-  php-cs-fixer
-  plantuml-viewer
-  project-manager
-  project-view
-  show-ideographic-space
-  sort-lines
-  terminal-plus
-  tester-go
-  tool-bar
-)
-
 echo "installing Atom packages..."
-/usr/local/bin/apm install ${atompackage[@]}
+apm install --packages-file ~/src/github.com/legnoh/dotfiles/Atomfile
 
-echo "installing CF Plugin packages..."
+
 ### CF CLI PLugins ###
+echo "installing CF Plugin packages..."
 cf install-plugin -r CF-Community -f "doctor"
 cf install-plugin -r CF-Community -f "Download Droplet"
 cf install-plugin -r CF-Community -f "fastpush"
@@ -361,25 +171,18 @@ kilall Dock
 
 ### インストールしたAppの中で、設定が必要なものを一気に全て開く
 echo "Open Apps...."
-open "/Applications/1Password 6.app"
 open "/Applications/ADPassMon.app"
 open "/Applications/Alfred 3.app"
-open "/Applications/Atom.app"
-open "/Applications/BetterTouchTool.app"
 open "/Applications/CheatSheet.app"
 open "/Applications/Citrix Receiver.app"
-open "/Applications/Clipy.app"
-open "/Applications/Cyberduck.app"
-open "/Applications/Dash.app"
+open "/Applications/Dropbox.app"
 open "/Applications/FaceTime.app"
-open "/Applications/Flux.app"
 open "/Applications/GitHub Desktop.app"
 open "/Applications/Google Chrome.app"
-open "/Applications/Karabiner.app"
-open "/Applications/Kindle.app"
-open "/Applications/OmniFocus.app"
-open "/Applications/OmniGraffle.app"
-open "/Applications/Popclip.app"
 open "/Applications/Safari.app"
 open "/Applications/Slack.app"
 open "/Applications/The Unarchiver.app"
+
+
+### Dropboxの設定が終わったら、mackupで設定の同期を開始するようガイダンスする
+echo "please execute 'mackup restore' after dropbox synced!"

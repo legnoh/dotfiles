@@ -23,15 +23,30 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 # remove app info
 sudo rm -rf /usr/local/Caskroom
 sudo rm -rf /usr/local/Celler
-sudo rm -rf /opt/vagrant
+sudo rm -rf /opt/*
 
 # remove anyenv, zplug, etc
 rm -rf ~/.account
 rm -rf ~/.anyenv
+rm -rf ~/.atom
+rm -rf ~/.bash*
+rm -rf ~/.brewfile
 rm -rf ~/.cf
-rm -rf ~/.gemrc
+rm -rf ~/.composer
+rm -rf ~/.config
+rm -rf ~/.devcenter
+rm -rf ~/.dropbox
+rm -rf ~/.erlang*
+rm -rf ~/.gem*
 rm -rf ~/.git*
+rm -rf ~/.*_history
+rm -rf ~/.gnupg
+rm -rf ~/.kafkatool
+rm -rf ~/.mackup.cfg
+rm -rf ~/.pcfdev
 rm -rf ~/.ssh
-rm -rf ~/.vimrc
+rm -rf ~/.subversion
+rm -rf ~/.v*
 rm -rf ~/.z*
+rm -rf ~/.*_history
 rm -rf ~/src

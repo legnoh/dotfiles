@@ -23,9 +23,12 @@ mkdir -p ~/.ssh/conf.d
 touch ~/.ssh/config
 ssh-keyscan github.com >> ~/.ssh/known_hosts
 
+# gpg directory
+mkdir -p ~/.gnupg
+
 # install dotfiles
 mkdir -p ~/src/github.com/legnoh
-git clone --recursive "$DOTFILES_GITHUB" "$DOTPATH"
+git clone "$DOTFILES_GITHUB" "$DOTPATH"
 
 for file in ${DOT_FILES[@]}
 do

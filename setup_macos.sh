@@ -185,6 +185,8 @@ open "/Applications/Safari.app"
 open "/Applications/Slack.app"
 open "/Applications/The Unarchiver.app"
 
+### Mackup settings ###
+ln -fs ~/src/github.com/legnoh/dotfiles/mackup.cfg ~/.mackup.cfg
 
 ### Dropboxの設定が終わったら、mackupで設定の同期を開始するようガイダンスする
 echo "please execute 'mackup restore' after dropbox synced!"

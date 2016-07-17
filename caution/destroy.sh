@@ -43,6 +43,7 @@ rm -rf ~/.*_history
 rm -rf ~/.gnupg
 rm -rf ~/.kafkatool
 rm -rf ~/.mackup.cfg
+rm -rf ~/.oracle_jre_usage
 rm -rf ~/.pcfdev
 rm -rf ~/.ssh
 rm -rf ~/.subversion

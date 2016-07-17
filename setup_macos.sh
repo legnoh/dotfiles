@@ -2,9 +2,8 @@
 if [[ ! -d /Library/Developer/CommandLineTools ]]; then
     echo "Installing command-line-tools"
     xcode-select --install
-    echo -n “Completed? Press 'ok'.  ”
-    read answer
-    if [ “$answer” != “ok” ]; then
+    printf "Completed? [Y/n]: " && read ANS
+    if [ "${ANS}" = "n" ]; then
       echo “Stoped...”
       exit;
     fi
@@ -199,11 +198,11 @@ ln -fs ~/src/github.com/legnoh/dotfiles/mackup.cfg ~/.mackup.cfg
 
 ### Dropboxの設定が終わったら、mackupで設定の同期を開始するようガイダンスする
 echo "please execute dropbox settings!"
-echo -n “Completed? Press 'ok'.  ”
-read answer
-if [ “$answer” != “ok” ]; then
-  echo “Stoped.....”
-  exit;
+printf "Completed? [Y/n]: " && read ANS
+if [ "${ANS}" = "n" ]; then
+    echo “Stoped.....”
+    exit;
 fi
+
 echo "Initializing Mackup......"
 mackup restore

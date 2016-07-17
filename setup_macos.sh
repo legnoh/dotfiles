@@ -1,5 +1,14 @@
 ################### command-line-tools ###################
-xcode-select --install
+if [[ ! -d /Library/Developer/CommandLineTools ]]; then
+    echo "Installing command-line-tools"
+    xcode-select --install
+    echo -n “Completed? Press 'ok'.”
+    read answer
+    if [ “$answer” != “ok” ]; then
+      echo “Stoped...”
+      exit;
+    fi
+fi
 
 ################### Homebrew ###################
 if test ! $(which brew); then
@@ -189,4 +198,12 @@ open "/Applications/The Unarchiver.app"
 ln -fs ~/src/github.com/legnoh/dotfiles/mackup.cfg ~/.mackup.cfg
 
 ### Dropboxの設定が終わったら、mackupで設定の同期を開始するようガイダンスする
-echo "please execute 'mackup restore' after dropbox synced!"
+echo "please execute dropbox settings!"
+echo -n “Completed? Press 'ok'.”
+read answer
+if [ “$answer” != “ok” ]; then
+  echo “Stoped.....”
+  exit;
+fi
+echo "Initializing Mackup......"
+mackup restore

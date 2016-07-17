@@ -5,7 +5,7 @@ if [[ ! -d /Library/Developer/CommandLineTools ]]; then
     printf "Completed? [Y/n]: " && read ANS
     if [ "${ANS}" = "n" ]; then
       echo “Stoped...”
-      exit;
+      exit 1;
     fi
 fi
 
@@ -201,7 +201,7 @@ echo "please execute dropbox settings!"
 printf "Completed? [Y/n]: " && read ANS
 if [ "${ANS}" = "n" ]; then
     echo “Stoped.....”
-    exit;
+    exit 1;
 fi
 
 echo "Initializing Mackup......"

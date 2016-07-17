@@ -29,8 +29,9 @@ mkdir -p ~/.gnupg
 
 # install dotfiles
 mkdir -p ~/src/github.com/legnoh
-curl -L "$DOTFILES_TARBALL" | tar xv -
-mv -f dotfiles-master "$DOTPATH"
+cd /tmp && curl -LO $DOTFILES_TARBALL
+tar zxf /tmp/master.tar.gz
+mv /tmp/dotfiles-master $DOTPATH
 
 for file in ${DOT_FILES[@]}
 do

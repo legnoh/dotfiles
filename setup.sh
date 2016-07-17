@@ -55,13 +55,11 @@ git clone https://github.com/riywo/anyenv ~/.anyenv
 # install zplug
 git clone https://github.com/zplug/zplug ~/.zplug
 
-# reload
-exec $SHELL -l
-source ~/.zshrc
-zplug install
-
 # git config to dotfiles
 cd $DOTPATH && git remote add origin https://github.com/legnoh/dotfiles.git
 
 # install *env
 ~/src/github.com/legnoh/dotfiles/setup_anyenv.sh
+
+# Completed!
+printf "Completed! please execute exit, and 'zplug install && rr && $DOT/setup_anyenv.sh"

@@ -1,11 +1,6 @@
 # homebrew
 export PATH="/usr/local/sbin:$PATH"
 
-# brew-file
-if [ -f $(brew --prefix)/etc/brew-wrap ];then
-  source $(brew --prefix)/etc/brew-wrap
-fi
-
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
@@ -18,3 +13,6 @@ export PATH="$HOME/.gem/ruby/2.3.0/bin:$PATH"
 
 # setting
 setopt nonomatch
+
+# dotfiles
+export DOT="$HOME/src/github.com/legnoh/dotfiles/"

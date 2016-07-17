@@ -1,6 +1,7 @@
 #!/bin/bash
 DOTPATH=~/src/github.com/legnoh/dotfiles; export DOTPATH
 DOTFILES_GITHUB="https://github.com/legnoh/dotfiles.git"; export DOTFILES_GITHUB
+DOTFILES_TARBAL="https://github.com/legnoh/dotfiles/archive/master.tar.gz"; export DOTFILES_TARBAL
 DOT_FILES=(
   gemrc
   gitconfig
@@ -16,7 +17,7 @@ DOT_FILES=(
   zshrc.alias
   zshrc.custom
   zshrc.plugin
-)
+); export DOT_FILES
 
 # ssh directory
 mkdir -p ~/.ssh/conf.d
@@ -28,7 +29,8 @@ mkdir -p ~/.gnupg
 
 # install dotfiles
 mkdir -p ~/src/github.com/legnoh
-git clone "$DOTFILES_GITHUB" "$DOTPATH"
+curl -L "$tarball" | tar xv -
+mv -f dotfiles-master "$DOTPATH"
 
 for file in ${DOT_FILES[@]}
 do
@@ -51,7 +53,15 @@ fi
 git clone https://github.com/riywo/anyenv ~/.anyenv
 
 # install zplug
-curl -sL get.zplug.sh | zsh
+git clone https://github.com/zplug/zplug ~/.zplug
 
 # reload
-echo "please exec 'exec $SHELL -l && zplug install && rr && $HOME/src/github.com/legnoh/dotfiles/setup_anyenv.sh'"
+exec $SHELL -l
+source ~/.zshrc
+zplug install
+
+# git config to dotfiles
+cd $DOTPATH && git remote add origin https://github.com/legnoh/dotfiles.git
+
+# install *env
+~/src/github.com/legnoh/dotfiles/setup_anyenv.sh

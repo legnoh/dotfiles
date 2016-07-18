@@ -30,17 +30,6 @@ $ bash -c "$(curl -L l.cfapps.io)"
 $ open ~/.ssh
 $ chmod 400 ~/.ssh/jp.legnoh.ssh && ssh-add -K ~/.ssh/jp.legnoh.ssh
 $ gpg --import --allow-secret-key-import ~/Desktop/jp.legnoh.gpg
-$ gpg --edit-key 232E422D trust quit
-...
-  1 = I don't know or won't say
-  2 = I do NOT trust
-  3 = I trust marginally
-  4 = I trust fully
-  5 = I trust ultimately
-  m = back to the main menu
-...
-Your decision? 5
-
 $ rm ~/Desktop/jp.legnoh.gpg
 ```
 - GPG Keychainから、鍵の信頼度を「永久」に変更しておく

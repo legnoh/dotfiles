@@ -43,3 +43,4 @@ Your decision? 5
 
 $ rm ~/Desktop/jp.legnoh.gpg
 ```
+- GPG Keychainから、鍵の信頼度を「永久」に変更しておく

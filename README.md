@@ -32,4 +32,4 @@ $ chmod 400 ~/.ssh/jp.legnoh.ssh && ssh-add -K ~/.ssh/jp.legnoh.ssh
 $ gpg --import --allow-secret-key-import ~/Desktop/jp.legnoh.gpg
 $ rm ~/Desktop/jp.legnoh.gpg
 ```
-- GPG Keychainから、鍵の信頼度を「永久」に変更しておく
+- GPG Keychainから、鍵の信頼度を「Ultimate」に変更しておく

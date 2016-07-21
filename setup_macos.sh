@@ -206,3 +206,6 @@ fi
 
 echo "Initializing Mackup......"
 mackup restore
+
+### macでは、homebrewのupdateとupgradeを定期時間で常にやるようにする
+crontab ~/src/github.com/legnoh/dotfiles/crontab

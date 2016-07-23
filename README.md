@@ -29,7 +29,5 @@ $ bash -c "$(curl -L l.cfapps.io)"
 ```bash
 $ open ~/.ssh
 $ chmod 400 ~/.ssh/jp.legnoh.ssh && ssh-add -K ~/.ssh/jp.legnoh.ssh
-$ gpg --import --allow-secret-key-import ~/Desktop/jp.legnoh.gpg
-$ rm ~/Desktop/jp.legnoh.gpg
 ```
-- GPG Keychainから、鍵の信頼度を「Ultimate」に変更しておく
+- GPG Keychainを開いてGPG鍵を放り込み、鍵の信頼度を「Ultimate」に変更しておく

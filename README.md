@@ -31,3 +31,9 @@ $ open ~/.ssh
 $ chmod 400 ~/.ssh/jp.legnoh.ssh && ssh-add -K ~/.ssh/jp.legnoh.ssh
 ```
 - GPG Keychainを開いてGPG鍵を放り込み、鍵の信頼度を「Ultimate」に変更しておく
+
+### ウイルス対策
+環境によって異なるので、必要な場合はavastを導入する。
+```bash
+$ brew cask install avast
+```

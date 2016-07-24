@@ -123,6 +123,7 @@ mas '1Password', id:443987910
 mas 'Airmail 3', id:918858936
 mas 'Dash', id:449589707
 mas 'Desktop Calendar Plus', id:524688159
+mas 'Eggy', id:564780170
 mas 'Keynote', id:409183694
 mas 'Kobito', id:896624060
 mas 'LINE', id:539883307

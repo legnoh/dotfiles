@@ -183,6 +183,7 @@ kilall Dock
 echo "Open Apps...."
 open "/Applications/ADPassMon.app"
 open "/Applications/Alfred 3.app"
+open "/Applications/Eggy.app"
 open "/Applications/CheatSheet.app"
 open "/Applications/Citrix Receiver.app"
 open "/Applications/Dropbox.app"

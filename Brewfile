@@ -52,8 +52,10 @@ brew 'vault'
 brew 'wget'
 brew 'zsh'
 
+
 cask 'adapter'
 cask 'alfred'
+cask 'animated-gif-quicklook'
 cask 'atom'
 cask 'audacity'
 cask 'bartender'

@@ -8,16 +8,16 @@
 chsh -s /bin/bash
 
 # uninstall homebrew and apps
-brew uninstall --force $(brew list) && brew cleanup
 brew cask uninstall --force $(brew cask list) && brew cask cleanup
-brew untap homebrew/dupes
-brew untap homebrew/versions
-brew untap homebrew/binary
-brew untap thoughtbot/formulae
+brew uninstall --force $(brew list) && brew cleanup
+brew untap cloudfoundry/tap
 brew untap caskroom/cask
 brew untap caskroom/fonts
 brew untap caskroom/versions
-brew untap cloudfoundry/tap
+brew untap thoughtbot/formulae
+brew untap homebrew/dupes
+brew untap homebrew/versions
+brew untap homebrew/binary
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
 
 # remove app info

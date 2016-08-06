@@ -29,25 +29,25 @@ ssh-keyscan github.com >> ~/.ssh/known_hosts
 mkdir -p ~/.gnupg
 
 # install dotfiles
-mkdir -p ~/src/github.com/legnoh/dotfiles
+mkdir -p $DOTPATH
 curl -L "$DOTFILES_TARBAL" -o /tmp/dotfiles
-tar zxvf /tmp/dotfiles -C ~/src/github.com/legnoh/dotfiles --strip-components 1
+tar zxvf /tmp/dotfiles -C $DOTPATH --strip-components 1
 
 for file in ${DOT_FILES[@]}
 do
-    ln -fs ~/src/github.com/legnoh/dotfiles/dot/$file ~/.$file
+    ln -fs $DOTPATH/dot/$file ~/.$file
 done
 
 # install muitl os utils & apps
 if [ "$(uname)" == 'Darwin' ]; then
   echo "OS: macOS"
-  ~/src/github.com/legnoh/dotfiles/etc/setup_macos.sh
+  $DOTPATH/etc/setup_macos.sh
 elif [ -e /etc/lsb-release ]; then
   echo "OS: Ubuntu"
-  ~/src/github.com/legnoh/dotfiles/etc/setup_ubuntu.sh
+  $DOTPATH/etc/setup_ubuntu.sh
 elif [ -e /etc/redhat-release ]; then
   echo "OS: CentOS"
-  ~/src/github.com/legnoh/dotfiles/etc/setup_centos.sh
+  $DOTPATH/etc/setup_centos.sh
 fi
 
 # install anyenv
@@ -57,8 +57,8 @@ git clone https://github.com/riywo/anyenv ~/.anyenv
 git clone https://github.com/zplug/zplug ~/.zplug
 
 # git config to dotfiles
-rm -rf ~/src/github.com/legnoh/dotfiles
-git clone https://github.com/legnoh/dotfiles ~/src/github.com/legnoh/dotfiles
+rm -rf $DOTPATH
+git clone https://github.com/legnoh/dotfiles $DOTPATH
 
 # Completed!
-printf "Completed! please execute exit, and 'zplug install && rr && $DOT/etc/setup_anyenv.sh"
+printf "Completed! please execute exit, and 'zplug install && rr && $DOTPATH/etc/setup_anyenv.sh"

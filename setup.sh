@@ -12,7 +12,6 @@ DOT_FILES=(
   gnupg/gpg-agent.conf
   ssh/conf.d/01.basic.conf
   vimrc
-  zshenv
   zshrc
   zshrc.alias
   zshrc.custom

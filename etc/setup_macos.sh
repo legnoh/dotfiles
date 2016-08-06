@@ -16,7 +16,7 @@ if test ! $(which brew); then
 fi
 
 brew tap homebrew/bundle
-brew bundle --file=~/src/github.com/legnoh/dotfiles/Brewfile
+brew bundle --file=~/src/github.com/legnoh/dotfiles/pkg/Brewfile
 brew link libxml2 --force
 brew link openssl --force
 
@@ -157,7 +157,7 @@ defaults write com.apple.Safari AlwaysShowTabBarInFullScreen 1
 
 ### Atom.io ###
 echo "installing Atom packages..."
-apm install --packages-file ~/src/github.com/legnoh/dotfiles/Atomfile
+apm install --packages-file ~/src/github.com/legnoh/dotfiles/pkg/Atomfile
 
 
 ### CF CLI PLugins ###
@@ -181,21 +181,19 @@ kilall Dock
 
 ### インストールしたAppの中で、設定が必要なものを一気に全て開く
 echo "Open Apps...."
-open "/Applications/ADPassMon.app"
 open "/Applications/Alfred 3.app"
 open "/Applications/Eggy.app"
 open "/Applications/CheatSheet.app"
 open "/Applications/Citrix Receiver.app"
 open "/Applications/Dropbox.app"
 open "/Applications/FaceTime.app"
-open "/Applications/GitHub Desktop.app"
 open "/Applications/Google Chrome.app"
 open "/Applications/Safari.app"
 open "/Applications/Slack.app"
 open "/Applications/The Unarchiver.app"
 
 ### Mackup settings ###
-ln -fs ~/src/github.com/legnoh/dotfiles/mackup.cfg ~/.mackup.cfg
+ln -fs ~/src/github.com/legnoh/dotfiles/dot/mackup.cfg ~/.mackup.cfg
 
 ### Dropboxの設定が終わったら、mackupで設定の同期を開始するようガイダンスする
 echo "please execute dropbox settings!"
@@ -209,4 +207,4 @@ echo "Initializing Mackup......"
 mackup restore
 
 ### macでは、homebrewのupdateとupgradeを定期時間で常にやるようにする
-crontab ~/src/github.com/legnoh/dotfiles/crontab
+crontab ~/src/github.com/legnoh/dotfiles/pkg/crontab

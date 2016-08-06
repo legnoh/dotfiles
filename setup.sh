@@ -17,6 +17,7 @@ DOT_FILES=(
   zshrc.alias
   zshrc.custom
   zshrc.plugin
+  zshrc.setting
 ); export DOT_FILES
 
 # ssh directory
@@ -34,19 +35,19 @@ tar zxvf /tmp/dotfiles -C ~/src/github.com/legnoh/dotfiles --strip-components 1
 
 for file in ${DOT_FILES[@]}
 do
-    ln -fs ~/src/github.com/legnoh/dotfiles/$file ~/.$file
+    ln -fs ~/src/github.com/legnoh/dotfiles/dot/$file ~/.$file
 done
 
 # install muitl os utils & apps
 if [ "$(uname)" == 'Darwin' ]; then
   echo "OS: macOS"
-  ~/src/github.com/legnoh/dotfiles/setup_macos.sh
+  ~/src/github.com/legnoh/dotfiles/etc/setup_macos.sh
 elif [ -e /etc/lsb-release ]; then
   echo "OS: Ubuntu"
-  ~/src/github.com/legnoh/dotfiles/setup_ubuntu.sh
+  ~/src/github.com/legnoh/dotfiles/etc/setup_ubuntu.sh
 elif [ -e /etc/redhat-release ]; then
   echo "OS: CentOS"
-  ~/src/github.com/legnoh/dotfiles/setup_centos.sh
+  ~/src/github.com/legnoh/dotfiles/etc/setup_centos.sh
 fi
 
 # install anyenv
@@ -60,4 +61,4 @@ rm -rf ~/src/github.com/legnoh/dotfiles
 git clone https://github.com/legnoh/dotfiles ~/src/github.com/legnoh/dotfiles
 
 # Completed!
-printf "Completed! please execute exit, and 'zplug install && rr && $DOT/setup_anyenv.sh"
+printf "Completed! please execute exit, and 'zplug install && rr && $DOT/etc/setup_anyenv.sh"

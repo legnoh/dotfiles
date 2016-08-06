@@ -4,7 +4,6 @@ zplug "Dannyzen/cf-zsh-autocomplete-plugin"
 zplug "frodenas/bosh-zsh-autocomplete-plugin"
 zplug "sbodiu-pivotal/fly-zsh-autocomplete-plugin"
 zplug "plugins/aws", from:oh-my-zsh
-zplug "plugins/boot2docker", from:oh-my-zsh
 zplug "plugins/bower", from:oh-my-zsh
 zplug "plugins/branch", from:oh-my-zsh
 zplug "plugins/brew-cask", from:oh-my-zsh

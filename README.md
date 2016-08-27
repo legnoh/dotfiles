@@ -18,14 +18,14 @@ $ bash -c "$(curl -L l.cfapps.io)"
 
 ### VM
 - [**PCF Dev**](https://network.pivotal.io/products/pcfdev)
-  - ```cd ~/Downloads && unzip pcfdev-v* && rm -rf pcfdev-*.zip && ./pcfdev-* && cf dev start```
+  - ```cd ~/Downloads && unzip pcfdev-v* && rm -rf pcfdev-*.zip && ./pcfdev-* && cf dev start && rm -rf pcfdev-* && cd -```
   - **CLI:** ```cf login -a api.local.pcfdev.io --skip-ssl-validation -u admin -p admin```
   - **AppsManager:** https://local.pcfdev.io/
 
 
 
 - [**Concourse**](http://concourse.ci/vagrant.html)
-  - ```mkdir -p ~/src/vagfiles/concourse && cd ~/src/vagfiles/concourse && vagrant init concourse/lite && vagrant up```
+  - ```mkdir -p ~/src/vagfiles/concourse && cd ~/src/vagfiles/concourse && vagrant init concourse/lite && vagrant up && cd -```
   - **CLI:** ```fly -t lite login -c http://192.168.100.4:8080```
   - **GUI:** http://192.168.100.4:8080/
 

@@ -10,6 +10,9 @@ alias diff="colordiff"
 ## ls
 alias ls="ls -alhG"
 
+## rmtrash
+alias rm="rmtrash"
+
 ## make ssl certificate
 alias skgrsa="ssh-keygen -t rsa -b 2048 -T`date +%s`"
 alias skged="ssh-keygen -t ed25519 -T`date +%s`"

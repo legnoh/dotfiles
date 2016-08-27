@@ -26,6 +26,7 @@ $ bash -c "$(curl -L l.cfapps.io)"
 
 - [**Concourse**](http://concourse.ci/vagrant.html)
   - ```mkdir -p ~/src/vagfiles/concourse && cd ~/src/vagfiles/concourse && vagrant init concourse/lite && vagrant up && cd -```
+  - ```curl -o fly -L http://192.168.100.4:8080/api/v1/cli\?arch=amd64\&platform=darwin && chmod 755 fly && mv fly /usr/local/bin/fly```
   - **CLI:** ```fly -t lite login -c http://192.168.100.4:8080```
   - **GUI:** http://192.168.100.4:8080/
 

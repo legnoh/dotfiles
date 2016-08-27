@@ -16,14 +16,18 @@ $ bash -c "$(curl -L l.cfapps.io)"
 - 言語ランタイム環境はanyenvを使う形で統一
 - Windows環境のセットアップは未定。Chocolateyを使うところまでは決定
 
-##  手動導入
-- Twitter
-  - 「設定」->「その他」で新規ツイートのグローバルショートカットが可能（⌘⌥⌃+T に設定する）
-
-### Download
+### VM
 - [**PCF Dev**](https://network.pivotal.io/products/pcfdev)
-- [**SimpleComic**](http://dancingtortoise.com/simplecomic/)
-- [**TDEnc2**](http://tdenc.com/TDEnc2/download/)
+  - ```cd ~/Downloads && unzip pcfdev-v* && rm -rf pcfdev-*.zip && ./pcfdev-* && cf dev start```
+  - **CLI:** ```cf login -a api.local.pcfdev.io --skip-ssl-validation -u admin -p admin```
+  - **AppsManager:** https://local.pcfdev.io/
+
+
+
+- [**Concourse**](http://concourse.ci/vagrant.html)
+  - ```mkdir -p ~/src/vagfiles/concourse && cd ~/src/vagfiles/concourse && vagrant init concourse/lite && vagrant up```
+  - **CLI:** ```fly -t lite login -c http://192.168.100.4:8080```
+  - **GUI:** http://192.168.100.4:8080/
 
 ### SSH
 ```bash

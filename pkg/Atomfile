@@ -14,6 +14,7 @@ gofmt
 gometalinter-linter
 gorename
 haskell-grammar
+hex
 highlight-selected
 japanese-menu
 language-babel

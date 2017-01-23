@@ -86,7 +86,7 @@
   d1 = diff HEAD~            # HEADから1つ前とdiff
 
 [http]
-  sslVerify = false
+  sslVerify = true
 
 [ghq]
   root = ~/src

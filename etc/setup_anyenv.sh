@@ -1,6 +1,5 @@
 #!/bin/bash
 anyenv install exenv
-anyenv install goenv
 anyenv install jenv
 anyenv install ndenv
 anyenv install phpenv

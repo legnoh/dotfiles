@@ -16,16 +16,15 @@ $ bash -c "$(curl -L l.cfapps.io)"
 - 言語ランタイム環境はanyenvを使う形で統一
 - Windows環境のセットアップは未定。Chocolateyを使うところまでは決定
 
-### VM
+### VM/Docker
 - [**PCF Dev**](https://network.pivotal.io/products/pcfdev)
   - ```cd ~/Downloads && unzip pcfdev-v* && rm -rf pcfdev-*.zip && ./pcfdev-* && cf dev start && rm -rf pcfdev-* && cd -```
   - **CLI:** ```cf login -a api.local.pcfdev.io --skip-ssl-validation -u admin -p admin```
   - **AppsManager:** https://local.pcfdev.io/
 
-
-
 - [**Concourse**](http://concourse.ci/vagrant.html)
-  - ```mkdir -p ~/src/vagfiles/concourse && cd ~/src/vagfiles/concourse && vagrant init concourse/lite && vagrant up && cd -```
+  - ```mkdir -p ~/src/concourse && cd ~/src/concourse && vi docker-compose.yml```
+    - [docker-compose.yml](http://concourse.ci/docker-repository.html)
   - ```curl -o fly -L http://192.168.100.4:8080/api/v1/cli\?arch=amd64\&platform=darwin && chmod 755 fly && mv fly /usr/local/bin/fly```
   - **CLI:** ```fly -t lite login -c http://192.168.100.4:8080```
   - **GUI:** http://192.168.100.4:8080/
@@ -36,6 +35,15 @@ $ open ~/.ssh
 $ chmod 400 ~/.ssh/jp.legnoh.ssh && ssh-add -K ~/.ssh/jp.legnoh.ssh
 ```
 - GPG Keychainを開いてGPG鍵を放り込み、鍵の信頼度を「Ultimate」に変更しておく
+
+### Pleiades
+- [mergedoc.osdn.jp/pleiades-redirect/4.6/pleiades_platform-mac_jre.zip.html](http://mergedoc.osdn.jp/pleiades-redirect/4.6/pleiades_platform-mac_jre.zip.html)
+
+### GVM
+```
+$ bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+$ gvm install go1.7.3 -B && gvm use go1.7.3 --default
+```
 
 ### ウイルス対策
 環境によって異なるので、必要な場合はavastを導入する。

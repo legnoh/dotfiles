@@ -21,7 +21,6 @@ brew 'ghq'
 brew 'gibo'
 brew 'gist'
 brew 'git'
-brew 'git-flow-avh'
 brew 'gpg2'
 brew 'hub'
 brew 'imagemagick'
@@ -66,7 +65,7 @@ cask 'citrix-receiver'
 cask 'clipy'
 cask 'cocoapacketanalyzer'
 cask 'cocoarestclient'
-cask 'cyberduck'
+cask 'dash'
 cask 'devcenter'
 cask 'dmm-player'
 cask 'docker'
@@ -89,6 +88,7 @@ cask 'hosts'
 cask 'java'
 cask 'kafka-tool'
 cask 'kindle'
+cask 'kitematic'
 cask 'licecap'
 cask 'lyrics-master'
 cask 'parallels-desktop'
@@ -118,7 +118,7 @@ cask 'webpquicklook'
 
 mas '1Password', id:443987910
 mas 'Airmail 3', id:918858936
-mas 'Dash', id:449589707
+mas 'Bee', id:726099620
 mas 'Desktop Calendar Plus', id:524688159
 mas 'Eggy', id:564780170
 mas 'Keynote', id:409183694
@@ -126,9 +126,8 @@ mas 'Kobito', id:896624060
 mas 'LINE', id:539883307
 mas 'Numbers', id:409203825
 mas 'OmniFocus', id:867299399
-mas 'OmniGraffle', id:711830901
 mas 'PDF Outliner', id:420874236
 mas 'PopClip', id:445189367
-mas 'ReceiptKeeper', id:413449473
+mas 'Transmit', id:403388562
 mas 'Tweetbot', id:557168941
 mas 'XCode', id:497799835

@@ -13,6 +13,9 @@ alias ls="ls -alhG"
 ## rmtrash
 alias rm="rmtrash"
 
+## airport
+alias airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
+
 ## make ssl certificate
 alias skgrsa="ssh-keygen -t rsa -b 2048 -T`date +%s`"
 alias skged="ssh-keygen -t ed25519 -T`date +%s`"

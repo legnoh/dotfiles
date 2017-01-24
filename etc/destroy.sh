@@ -23,6 +23,8 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 # remove app info
 sudo rm -rf /usr/local/Caskroom
 sudo rm -rf /usr/local/Celler
+sudo rm -rf /usr/local/Framework
+sudo rm -rf /usr/local/Homebrew
 sudo rm -rf /opt/*
 
 # remove anyenv, zplug, etc

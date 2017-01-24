@@ -32,6 +32,7 @@ brew 'libxml2'
 brew 'libyaml'
 brew 'mackup'
 brew 'mas'
+brew 'maven'
 brew 'mcrypt'
 brew 'mercurial'
 brew 'mysql', args: ['client-only']

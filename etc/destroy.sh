@@ -30,27 +30,45 @@ rm -rf ~/.account
 rm -rf ~/.anyenv
 rm -rf ~/.atom
 rm -rf ~/.bash*
+rm -rf ~/.berkshelf
+rm -rf ~/.bundle
 rm -rf ~/.brewfile
+rm -rf ~/.cache
+rm -rf ~/.chef
+rm -rf ~/.chefdk
 rm -rf ~/.cf
 rm -rf ~/.composer
 rm -rf ~/.config
 rm -rf ~/.devcenter
 rm -rf ~/.dropbox
+rm -rf ~/.eclipse
 rm -rf ~/.erlang*
+rm -rf ~/.flyrc
 rm -rf ~/.gem*
 rm -rf ~/.git*
-rm -rf ~/.*_history
+rm -rf ~/.glide
 rm -rf ~/.gnupg
+rm -rf ~/.gradle
+rm -rf ~/.gvm
+rm -rf ~/.*_history
+rm -rf ~/.JIRAClient
 rm -rf ~/.kafkatool
+rm -rf ~/.m2
 rm -rf ~/.mackup.cfg
+rm -rf ~/.npm
 rm -rf ~/.oracle_jre_usage
+rm -rf ~/.p2
 rm -rf ~/.pcfdev
 rm -rf ~/.ssh
 rm -rf ~/.subversion
+rm -rf ~/.tooling
+rm -rf ~/.uaac
 rm -rf ~/.v*
+rm -rf ~/.wget-hsts
 rm -rf ~/.z*
 rm -rf ~/.*_history
 rm -rf ~/src
+rm -rf ~/VirtualBox\ VMs
 
 # remove command line tools
 sudo rm -rf /Library/Developer/CommandLineTools

@@ -72,7 +72,7 @@ cask 'dmm-player'
 cask 'docker'
 cask 'dropbox'
 cask 'evernote'
-cask 'firefox' args: { language: 'ja' }
+cask 'firefox', args: { language: 'ja' }
 cask 'flash'
 cask 'flip4mac'
 cask 'flux'

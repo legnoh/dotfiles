@@ -70,6 +70,7 @@ rm -rf ~/.wget-hsts
 rm -rf ~/.z*
 rm -rf ~/.*_history
 rm -rf ~/Library/Fonts/*
+rm -rf ~/Library/Quicklook/*
 rm -rf ~/src
 rm -rf ~/VirtualBox\ VMs
 

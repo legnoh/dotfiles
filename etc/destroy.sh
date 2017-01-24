@@ -25,6 +25,8 @@ sudo rm -rf /usr/local/Caskroom
 sudo rm -rf /usr/local/Celler
 sudo rm -rf /usr/local/Framework
 sudo rm -rf /usr/local/Homebrew
+sudo rm -rf /usr/local/MacGPG2
+sudo rm -rf /usr/local/bin/*
 sudo rm -rf /opt/*
 
 # remove anyenv, zplug, etc

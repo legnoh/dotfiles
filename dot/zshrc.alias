@@ -11,7 +11,7 @@ alias diff="colordiff"
 alias ls="ls -alhG"
 
 ## rmtrash
-alias rm="rmtrash"
+alias rmt="rmtrash"
 
 ## airport
 alias airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"

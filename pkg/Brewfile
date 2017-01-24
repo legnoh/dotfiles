@@ -77,7 +77,7 @@ cask 'docker'
 cask 'dropbox'
 cask 'evernote'
 cask 'firefox', args: { language: 'ja' }
-cask 'flash'
+cask 'flash-player'
 cask 'flip4mac'
 cask 'flux'
 cask 'font-clear-sans'

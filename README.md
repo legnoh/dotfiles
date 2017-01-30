@@ -48,6 +48,16 @@ $ gvm install go1.7.3 -B && gvm use go1.7.3 --default
 ### Oracle Database
 - [Oracle SQL Developer](http://www.oracle.com/technetwork/jp/developer-tools/sql-developer/downloads/index.html)
 - [Instant Client](http://www.oracle.com/technetwork/topics/intel-macsoft-096467.html)
+```
+cd ~/Downloads \
+&& unzip instantclient-basic-macos.x64-12.1.0.2.0.zip \
+&& unzip instantclient-sqlplus-macos.x64-12.1.0.2.0.zip \
+&& mv instantclient_12_1 $HOME/Applications/ \
+&& cd $HOME/Applications/instantclient_12_1 \
+&& ln -s libclntsh.dylib.12.1 libclntsh.dylib \
+&& ln -s libocci.dylib.12.1 libocci.dylib \
+&& rr
+```
 
 
 ### ウイルス対策

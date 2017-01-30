@@ -13,8 +13,10 @@ DOT_FILES=(
   ssh/conf.d/01.basic.conf
   vimrc
   zshrc
-  zshrc.alias
-  zshrc.custom
+  zshrc.alias.external
+  zshrc.alias.internal
+  zshrc.custom.external
+  zshrc.custom.internal
   zshrc.plugin
   zshrc.setting
 ); export DOT_FILES

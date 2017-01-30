@@ -45,6 +45,11 @@ $ bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/bi
 $ gvm install go1.7.3 -B && gvm use go1.7.3 --default
 ```
 
+### Oracle Database
+- [Oracle SQL Developer](http://www.oracle.com/technetwork/jp/developer-tools/sql-developer/downloads/index.html)
+- [Instant Client](http://www.oracle.com/technetwork/topics/intel-macsoft-096467.html)
+
+
 ### ウイルス対策
 環境によって異なるので、必要な場合はavastを導入する。
 ```bash

@@ -16,3 +16,6 @@ export DOT="$HOME/src/github.com/legnoh/dotfiles/"
 
 # direnv
 eval "$(direnv hook zsh)"
+
+# oracle
+export PATH="$HOME/instantclient_12_1:$PATH"

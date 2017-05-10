@@ -41,6 +41,7 @@ rm -rf ~/.cache
 rm -rf ~/.chef
 rm -rf ~/.chefdk
 rm -rf ~/.cf
+rm -rf ~/.dlv
 rm -rf ~/.composer
 rm -rf ~/.config
 rm -rf ~/.devcenter
@@ -48,6 +49,7 @@ rm -rf ~/.dropbox
 rm -rf ~/.eclipse
 rm -rf ~/.erlang*
 rm -rf ~/.flyrc
+rm -rf ~/.gem
 rm -rf ~/.gem*
 rm -rf ~/.git*
 rm -rf ~/.glide
@@ -59,14 +61,17 @@ rm -rf ~/.JIRAClient
 rm -rf ~/.kafkatool
 rm -rf ~/.m2
 rm -rf ~/.mackup.cfg
+rm -rf ~/.node-gyp
 rm -rf ~/.npm
 rm -rf ~/.oracle_jre_usage
 rm -rf ~/.p2
 rm -rf ~/.pcfdev
+rm -rf ~/.sqldeveloper
 rm -rf ~/.ssh
 rm -rf ~/.subversion
 rm -rf ~/.tooling
 rm -rf ~/.uaac
+rm -rf ~/.uaac.yml
 rm -rf ~/.v*
 rm -rf ~/.wget-hsts
 rm -rf ~/.z*

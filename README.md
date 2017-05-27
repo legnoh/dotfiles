@@ -43,6 +43,8 @@ $ chmod 400 ~/.ssh/jp.legnoh.ssh && ssh-add -K ~/.ssh/jp.legnoh.ssh
   - ```redis-start```
 - 9000 : [**Minio**](https://hub.docker.com/r/minio/minio/)
   - ```minio-start```
+  - http://localhost:9000/
+  - [help/en/howto/minio – Cyberduck](https://trac.cyberduck.io/wiki/help/en/howto/minio)
 
 ### ウイルス対策
 環境によって異なるので、必要な場合はavastを導入する。

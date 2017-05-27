@@ -65,8 +65,5 @@ git clone https://github.com/zplug/zplug ~/.zplug
 rm -rf $DOTPATH
 git clone https://github.com/legnoh/dotfiles $DOTPATH
 
-# make docker directory in src
-cp -r $DOTPATH/docker ~/src/docker
-
 # Completed!
 printf "Completed! please execute exit, and 'zplug install && rr && $DOTPATH/etc/setup_anyenv.sh"

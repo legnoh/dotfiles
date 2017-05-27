@@ -165,10 +165,19 @@ echo "installing Pleiades plugin..."
 curl -L http://svn.osdn.jp/svnroot/mergedoc/trunk/Pleiades/build/pleiades.zip -o /tmp/pleiades.zip
 mkdir /tmp/pleiades
 unzip -q /tmp/pleiades.zip -d /tmp/pleiades
-mv /tmp/pleiades/features/* /Applications/Eclipse\ JEE.app/Contents/Eclipse/features/
-mv /tmp/pleiades/plugins/* /Applications/Eclipse\ JEE.app/Contents/Eclipse/plugins/
+
+#### eclipse
+cp -r /tmp/pleiades/features/* /Applications/Eclipse\ JEE.app/Contents/Eclipse/features/
+cp -r /tmp/pleiades/plugins/* /Applications/Eclipse\ JEE.app/Contents/Eclipse/plugins/
 echo '-Xverify:none' >> /Applications/Eclipse\ JEE.app/Contents/Eclipse/eclipse.ini
 echo '-javaagent:../Eclipse/plugins/jp.sourceforge.mergedoc.pleiades/pleiades.jar' >> /Applications/Eclipse\ JEE.app/Contents/Eclipse/eclipse.ini
+
+#### STS
+cp -r /tmp/pleiades/features/* /Applications/STS.app/Contents/Eclipse/features/
+cp -r /tmp/pleiades/plugins/* /Applications/STS.app/Contents/Eclipse/plugins/
+echo '-Xverify:none' >> /Applications/STS.app/Contents/Eclipse/STS.ini
+echo '-javaagent:../Eclipse/plugins/jp.sourceforge.mergedoc.pleiades/pleiades.jar=default.splash' >> /Applications/STS.app/Contents/Eclipse/STS.ini
+
 rm -rf /tmp/pleiades /tmp/pleiades.zip
 
 

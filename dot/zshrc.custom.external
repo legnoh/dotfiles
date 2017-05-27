@@ -7,17 +7,17 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
+# dotfiles
+export DOT="$HOME/src/github.com/legnoh/dotfiles/"
+
 # GVM
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 # ruby
 export PATH="$HOME/.gem/ruby/2.4.0/bin:$PATH"
 
-# dotfiles
-export DOT="$HOME/src/github.com/legnoh/dotfiles/"
-
 # direnv
 eval "$(direnv hook zsh)"
 
-# oracle
-export PATH="$HOME/Applications/instantclient_12_1:$PATH"
+# concourse
+export CONCOURSE_EXTERNAL_URL=http://`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | head -n 1`:50000

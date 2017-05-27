@@ -41,4 +41,23 @@ alias gpg="gpg2"
 ## pcf
 alias cflpws='cf login -a https://api.run.pivotal.io'
 alias cfldev='cf login -a https://api.local.pcfdev.io -u admin -o "pcfdev-org" -s pcfdev-space --skip-ssl-validation -p admin'
-alias cfadev='open https://console.local.pcfdev.io/2'
+alias cfadev='open https://apps.local.pcfdev.io'
+
+## pcfdev
+alias pdev-start="$DOT/etc/pcfdev-start.sh"
+
+## concourse
+alias con-start="cd $DOT/docker/concourse && docker-compose up -d && sleep 60s && docker start concourse_concourse-web_1 && cd .."
+alias fll="fly login -c $CONCOURSE_EXTERNAL_URL -t l && fly sync -t l"
+
+## mariadb
+alias maria-start="cd $DOT/docker/mariadb && docker-compose up -d && cd -"
+
+## postgres
+alias psgl-start="cd $DOT/docker/postgres && docker-compose up -d && cd -"
+
+## minio
+alias minio-start="cd $DOT/docker/minio && docker-compose up -d && cd -"
+
+## redis
+alias redis-start="cd $DOT/docker/redis && docker-compose up -d && cd -"

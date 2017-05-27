@@ -160,6 +160,18 @@ echo "installing Atom packages..."
 apm install --packages-file ~/src/github.com/legnoh/dotfiles/pkg/Atomfile
 
 
+### Eclipse ###
+echo "installing Pleiades plugin..."
+curl -L http://svn.osdn.jp/svnroot/mergedoc/trunk/Pleiades/build/pleiades.zip -o /tmp/pleiades.zip
+mkdir /tmp/pleiades
+unzip -q /tmp/pleiades.zip -d /tmp/pleiades
+mv /tmp/pleiades/features/* /Applications/Eclipse\ JEE.app/Contents/Eclipse/features/
+mv /tmp/pleiades/plugins/* /Applications/Eclipse\ JEE.app/Contents/Eclipse/plugins/
+echo '-Xverify:none' >> /Applications/Eclipse\ JEE.app/Contents/Eclipse/eclipse.ini
+echo '-javaagent:../Eclipse/plugins/jp.sourceforge.mergedoc.pleiades/pleiades.jar' >> /Applications/Eclipse\ JEE.app/Contents/Eclipse/eclipse.ini
+rm -rf /tmp/pleiades /tmp/pleiades.zip
+
+
 ### CF CLI PLugins ###
 echo "installing CF Plugin packages..."
 cf install-plugin -r CF-Community -f "doctor"
@@ -173,7 +185,18 @@ cf install-plugin -r CF-Community -f "Open"
 cf install-plugin -r CF-Community -f "Live Stats"
 
 
-##### Finder と Dock を再起動
+### Concourse
+echo "preparing Concourse Containers..."
+ssh-keygen -t rsa -f ~/src/docker/concourse/keys/web/tsa_host_key -N ''
+ssh-keygen -t rsa -f ~/src/docker/concourse/keys/web/session_signing_key -N ''
+ssh-keygen -t rsa -f ~/src/docker/concourse/keys/worker/worker_key -N ''
+cp ~/src/docker/concourse/keys/worker/worker_key.pub ~/src/docker/concourse/keys/web/authorized_worker_keys
+cp ~/src/docker/concourse/keys/web/tsa_host_key.pub ~/src/docker/concourse/keys/worker
+
+### GVM
+curl -sf https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer | sh -s
+
+### Finder と Dock を再起動
 echo "restart Finder and Docks...."
 kilall Finder
 kilall Dock

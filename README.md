@@ -16,19 +16,6 @@ $ bash -c "$(curl -L l.cfapps.io)"
 - 言語ランタイム環境はanyenvを使う形で統一
 - Windows環境のセットアップは未定。Chocolateyを使うところまでは決定
 
-### VM/Docker
-- [**PCF Dev**](https://network.pivotal.io/products/pcfdev)
-  - ```cd ~/Downloads && unzip pcfdev-v* && rm -rf pcfdev-*.zip && ./pcfdev-* && cf dev start && rm -rf pcfdev-* && cd -```
-  - **CLI:** ```cf login -a api.local.pcfdev.io --skip-ssl-validation -u admin -p admin```
-  - **AppsManager:** https://local.pcfdev.io/
-
-- [**Concourse**](http://concourse.ci/vagrant.html)
-  - ```mkdir -p ~/src/concourse && cd ~/src/concourse && vi docker-compose.yml```
-    - [docker-compose.yml](http://concourse.ci/docker-repository.html)
-  - ```curl -o fly -L http://192.168.100.4:8080/api/v1/cli\?arch=amd64\&platform=darwin && chmod 755 fly && mv fly /usr/local/bin/fly```
-  - **CLI:** ```fly -t lite login -c http://192.168.100.4:8080```
-  - **GUI:** http://192.168.100.4:8080/
-
 ### SSH
 ```bash
 $ open ~/.ssh
@@ -36,29 +23,26 @@ $ chmod 400 ~/.ssh/jp.legnoh.ssh && ssh-add -K ~/.ssh/jp.legnoh.ssh
 ```
 - GPG Keychainを開いてGPG鍵を放り込み、鍵の信頼度を「Ultimate」に変更しておく
 
-### Pleiades
-- [mergedoc.osdn.jp/pleiades-redirect/4.6/pleiades_platform-mac_jre.zip.html](http://mergedoc.osdn.jp/pleiades-redirect/4.6/pleiades_platform-mac_jre.zip.html)
+### local PF
+- [**PCF Dev**](https://network.pivotal.io/products/pcfdev)
+  - ```pdev-start```
+  - **CLI:** ```cfldev```
+  - **AppsManager:** https://local.pcfdev.io/
 
-### GVM
-```
-$ bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-$ gvm install go1.7.3 -B && gvm use go1.7.3 --default
-```
+- [**Concourse**](http://concourse.ci/docker-repository.html)
+  - ```conc-start```
+  - **CLI:** ```fll```
+  - **GUI:** http://localhost:50000/
 
-### Oracle Database
-- [Oracle SQL Developer](http://www.oracle.com/technetwork/jp/developer-tools/sql-developer/downloads/index.html)
-- [Instant Client](http://www.oracle.com/technetwork/topics/intel-macsoft-096467.html)
-```
-cd ~/Downloads \
-&& unzip instantclient-basic-macos.x64-12.1.0.2.0.zip \
-&& unzip instantclient-sqlplus-macos.x64-12.1.0.2.0.zip \
-&& mv instantclient_12_1 $HOME/Applications/ \
-&& cd $HOME/Applications/instantclient_12_1 \
-&& ln -s libclntsh.dylib.12.1 libclntsh.dylib \
-&& ln -s libocci.dylib.12.1 libocci.dylib \
-&& rr
-```
-
+### local DB/S3
+- 3306 : [**MariaDB**](https://hub.docker.com/_/mariadb/)
+  - ```maria-start```
+- 5432 : [Postgres](https://hub.docker.com/_/postgres/)
+  - ```psgl-start```
+- 6379 : [**Redis**](https://hub.docker.com/_/redis/)
+  - ```redis-start```
+- 9000 : [**Minio**](https://hub.docker.com/r/minio/minio/)
+  - ```minio-start```
 
 ### ウイルス対策
 環境によって異なるので、必要な場合はavastを導入する。

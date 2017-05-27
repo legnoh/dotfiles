@@ -30,7 +30,7 @@ ssh-keyscan github.com >> ~/.ssh/known_hosts
 # gpg directory
 mkdir -p ~/.gnupg
 
-# install dotfiles
+# install dotfiles by tarball
 mkdir -p $DOTPATH
 curl -L "$DOTFILES_TARBAL" -o /tmp/dotfiles
 tar zxvf /tmp/dotfiles -C $DOTPATH --strip-components 1
@@ -55,12 +55,18 @@ fi
 # install anyenv
 git clone https://github.com/riywo/anyenv ~/.anyenv
 
+# install GVM
+curl -sf https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer | sh -s
+
 # install zplug
 git clone https://github.com/zplug/zplug ~/.zplug
 
-# git config to dotfiles
+# re-install dotfiles by git
 rm -rf $DOTPATH
 git clone https://github.com/legnoh/dotfiles $DOTPATH
+
+# make docker directory in src
+cp -r $DOTPATH/docker ~/src/docker
 
 # Completed!
 printf "Completed! please execute exit, and 'zplug install && rr && $DOTPATH/etc/setup_anyenv.sh"

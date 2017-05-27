@@ -186,7 +186,7 @@ cf install-plugin -r CF-Community -f "Live Stats"
 
 
 ### Concourse
-echo "preparing Concourse Containers..."
+echo "preparing Concourse Containers...."
 ssh-keygen -t rsa -f ~/src/docker/concourse/keys/web/tsa_host_key -N ''
 ssh-keygen -t rsa -f ~/src/docker/concourse/keys/web/session_signing_key -N ''
 ssh-keygen -t rsa -f ~/src/docker/concourse/keys/worker/worker_key -N ''
@@ -194,16 +194,21 @@ cp ~/src/docker/concourse/keys/worker/worker_key.pub ~/src/docker/concourse/keys
 cp ~/src/docker/concourse/keys/web/tsa_host_key.pub ~/src/docker/concourse/keys/worker
 
 ### GVM
+echo "install GVM..."
 curl -sf https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer | sh -s
 
+###glide
+echo "install glide..."
+curl https://glide.sh/get | sh
+
 ### Finder と Dock を再起動
-echo "restart Finder and Docks...."
+echo "restart Finder and Docks..."
 kilall Finder
 kilall Dock
 
 
 ### インストールしたAppの中で、設定が必要なものを一気に全て開く
-echo "Open Apps...."
+echo "Open Apps..."
 open "/Applications/Alfred 3.app"
 open "/Applications/Eggy.app"
 open "/Applications/CheatSheet.app"
@@ -226,7 +231,7 @@ if [ "${ANS}" = "n" ]; then
     exit 1;
 fi
 
-echo "Initializing Mackup......"
+echo "Initializing Mackup..."
 mackup restore
 
 ### macでは、homebrewのupdateとupgradeを定期時間で常にやるようにする

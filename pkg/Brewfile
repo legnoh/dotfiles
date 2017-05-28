@@ -5,7 +5,6 @@ tap 'caskroom/fonts'
 tap 'caskroom/versions'
 tap 'cloudfoundry/tap'
 tap 'pivotal/tap'
-tap 'concourse/tap'
 cask_args appdir: '/Applications'
 
 brew 'ag'

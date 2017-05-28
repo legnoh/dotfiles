@@ -1,11 +1,11 @@
-tap 'homebrew/dupes'
-tap 'homebrew/versions'
 tap 'homebrew/binary'
+tap 'homebrew/versions'
 tap 'caskroom/cask'
 tap 'caskroom/fonts'
 tap 'caskroom/versions'
 tap 'cloudfoundry/tap'
 tap 'pivotal/tap'
+tap 'concourse/tap'
 cask_args appdir: '/Applications'
 
 brew 'ag'

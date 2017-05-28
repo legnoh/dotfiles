@@ -202,23 +202,18 @@ ssh-keygen -t rsa -f ~/src/docker/concourse/keys/worker/worker_key -N ''
 cp ~/src/docker/concourse/keys/worker/worker_key.pub ~/src/docker/concourse/keys/web/authorized_worker_keys
 cp ~/src/docker/concourse/keys/web/tsa_host_key.pub ~/src/docker/concourse/keys/worker
 
-### GVM
-echo "install GVM..."
-curl -sf https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer | sh -s
-
-###glide
-echo "install glide..."
-curl https://glide.sh/get | sh
 
 ### Finder と Dock を再起動
 echo "restart Finder and Docks..."
 kilall Finder
 kilall Dock
 
+
 ### Mackup&Dropbox settings ###
 open "/Applications/Dropbox.app"
 open "/Applications/1Password.app"
 ln -fs ~/src/github.com/legnoh/dotfiles/dot/mackup.cfg ~/.mackup.cfg
+
 
 ### Dropboxの設定が終わったら、mackupで設定の同期を開始するようガイダンスする
 echo "please execute dropbox settings!"
@@ -227,9 +222,9 @@ if [ "${ANS}" = "n" ]; then
     echo “Stoped.....”
     exit 1;
 fi
-
 echo "Initializing Mackup..."
 mackup restore
+
 
 ### インストールしたAppの中で、設定が必要なものを一気に全て開く
 echo "Open Apps..."
@@ -250,6 +245,7 @@ open "/Applications/PopClip.app"
 open "/Applications/Slack.app"
 open "/Applications/The Unarchiver.app"
 
+
 ### 環境によって開くかどうか異なる場合は一度聞いてから開く
 printf "Do you need setting external App? [y/N]: " && read ANS
 if [ "${ANS}" = "y" ]; then
@@ -262,6 +258,7 @@ if [ "${ANS}" = "y" ]; then
     open "/Applications/Skype.app"
     open "/Applications/Tweetbot.app"
 fi
+
 
 ### macでは、homebrewのupdateとupgradeを定期時間で常にやるようにする
 crontab ~/src/github.com/legnoh/dotfiles/pkg/crontab

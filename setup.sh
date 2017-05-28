@@ -53,17 +53,32 @@ elif [ -e /etc/redhat-release ]; then
 fi
 
 # install anyenv
+echo "install anyenv..."
 git clone https://github.com/riywo/anyenv ~/.anyenv
 
-# install GVM
+### GVM
+echo "install GVM..."
 curl -sf https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer | sh -s
 
+###glide
+echo "install glide..."
+curl https://glide.sh/get | sh
+
 # install zplug
+echo "install zplug..."
 git clone https://github.com/zplug/zplug ~/.zplug
 
 # re-install dotfiles by git
 rm -rf $DOTPATH
-git clone https://github.com/legnoh/dotfiles $DOTPATH
+git clone https://github.com/legnoh/dotfiles.git $DOTPATH
+printf "Do you want to change dotfile remote to git protocol? [y/N]: " && read ANS
+if [ "${ANS}" = "y" ]; then
+    cd $DOTPATH
+    git config --unset-all remote.origin.fetch
+    git config --unset-all remote.origin.url
+    git remote add origin git@github.com:legnoh/dotfiles.git
+    cd -
+fi
 
 # Completed!
 printf "Completed! please execute exit, and 'zplug install && rr && $DOTPATH/etc/setup_anyenv.sh"

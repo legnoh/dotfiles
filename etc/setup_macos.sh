@@ -249,7 +249,7 @@ open "/Applications/The Unarchiver.app"
 ### 環境によって開くかどうか異なる場合は一度聞いてから開く
 printf "Do you need setting external App? [y/N]: " && read ANS
 if [ "${ANS}" = "y" ]; then
-    echo “Open Apps(External).....”
+    echo "Open Apps(External)....."
     open "/Applications/Airmail 3.app"
     open "/Applications/BathyScaphe.app"
     open "/Applications/Kobito.app"

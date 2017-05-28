@@ -215,21 +215,9 @@ echo "restart Finder and Docks..."
 kilall Finder
 kilall Dock
 
-
-### インストールしたAppの中で、設定が必要なものを一気に全て開く
-echo "Open Apps..."
-open "/Applications/Alfred 3.app"
-open "/Applications/Eggy.app"
-open "/Applications/CheatSheet.app"
-open "/Applications/Citrix Receiver.app"
+### Mackup&Dropbox settings ###
 open "/Applications/Dropbox.app"
-open "/Applications/FaceTime.app"
-open "/Applications/Google Chrome.app"
-open "/Applications/Safari.app"
-open "/Applications/Slack.app"
-open "/Applications/The Unarchiver.app"
-
-### Mackup settings ###
+open "/Applications/1Password.app"
 ln -fs ~/src/github.com/legnoh/dotfiles/dot/mackup.cfg ~/.mackup.cfg
 
 ### Dropboxの設定が終わったら、mackupで設定の同期を開始するようガイダンスする
@@ -242,6 +230,38 @@ fi
 
 echo "Initializing Mackup..."
 mackup restore
+
+### インストールしたAppの中で、設定が必要なものを一気に全て開く
+echo "Open Apps..."
+open "/Applications/Alfred 3.app"
+open "/Applications/Bartender 2.app"
+open "/Applications/BetterTouchTool.app"
+open "/Applications/CheatSheet.app"
+open "/Applications/Clipy.app"
+open "/Applications/Docker.app"
+open "/Applications/FaceTime.app"
+open "/Applications/Google Chrome.app"
+open "/Applications/GPG Keychain.app"
+open "/Applications/Keynote.app"
+open "/Applications/Kitematic (Beta).app"
+open "/Applications/Kindle.app"
+open "/Applications/Numbers.app"
+open "/Applications/PopClip.app"
+open "/Applications/Slack.app"
+open "/Applications/The Unarchiver.app"
+
+### 環境によって開くかどうか異なる場合は一度聞いてから開く
+printf "Do you need setting external App? [y/N]: " && read ANS
+if [ "${ANS}" = "y" ]; then
+    echo “Open Apps(External).....”
+    open "/Applications/Airmail 3.app"
+    open "/Applications/BathyScaphe.app"
+    open "/Applications/Kobito.app"
+    open "/Applications/LINE.app"
+    open "/Applications/Parallels Desktop.app"
+    open "/Applications/Skype.app"
+    open "/Applications/Tweetbot.app"
+fi
 
 ### macでは、homebrewのupdateとupgradeを定期時間で常にやるようにする
 crontab ~/src/github.com/legnoh/dotfiles/pkg/crontab

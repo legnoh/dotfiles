@@ -74,7 +74,6 @@ cask 'cocoapacketanalyzer'
 cask 'cocoarestclient'
 cask 'cyberduck'
 cask 'dbeaver-enterprise'
-cask 'dmm-player'
 cask 'docker'
 cask 'dropbox'
 cask 'eclipse-jee'
@@ -120,7 +119,6 @@ cask 'webpquicklook'
 mas '1 Password', id:443987910
 mas 'Airmail 3', id:918858936
 mas 'Bee', id:726099620
-mas 'Eggy', id:564780170
 mas 'Keynote', id:409183694
 mas 'Kobito', id:896624060
 mas 'LINE', id:539883307

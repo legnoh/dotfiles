@@ -3,6 +3,7 @@ source ~/.zplug/init.zsh
 zplug "Dannyzen/cf-zsh-autocomplete-plugin"
 zplug "frodenas/bosh-zsh-autocomplete-plugin"
 zplug "sbodiu-pivotal/fly-zsh-autocomplete-plugin"
+zplug "felixr/docker-zsh-completion"
 zplug "plugins/aws", from:oh-my-zsh
 zplug "plugins/bower", from:oh-my-zsh
 zplug "plugins/branch", from:oh-my-zsh

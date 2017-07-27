@@ -6,7 +6,8 @@ export LANG=ja_JP.UTF-8
 
 source ~/.zshrc.plugin
 source ~/.zshrc.setting
-source ~/.zshrc.alias.internal
-source ~/.zshrc.alias.external
-source ~/.zshrc.custom.internal
+
 source ~/.zshrc.custom.external
+source ~/.zshrc.custom.internal
+source ~/.zshrc.alias.external
+source ~/.zshrc.alias.internal

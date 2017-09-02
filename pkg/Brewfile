@@ -116,6 +116,7 @@ cask 'sts'
 cask 'suspicious-package'
 cask 'the-unarchiver'
 cask 'virtualbox'
+cask 'visual-studio-code'
 cask 'vlc'
 cask 'webpquicklook'
 

@@ -215,7 +215,7 @@ kilall Dock
 ### Mackup&Dropbox settings ###
 open "/Applications/Dropbox.app"
 open "/Applications/1Password.app"
-ln -fs ~/src/github.com/legnoh/dotfiles/dot/mackup.cfg ~/.mackup.cfg
+ln -fs ~/code/src/github.com/legnoh/dotfiles/dot/mackup.cfg ~/.mackup.cfg
 
 
 ### Dropboxの設定が終わったら、mackupで設定の同期を開始するようガイダンスする
@@ -257,7 +257,6 @@ if [ "${ANS}" = "y" ]; then
     open "/Applications/BathyScaphe.app"
     open "/Applications/Kobito.app"
     open "/Applications/LINE.app"
-    open "/Applications/Parallels Desktop.app"
     open "/Applications/Skype.app"
     open "/Applications/Tweetbot.app"
 fi

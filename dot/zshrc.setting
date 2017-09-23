@@ -1,8 +1,0 @@
-setopt nonomatch
-
-# history
-export HISTFILE=~/.zsh_history
-export HISTSIZE=1000000
-export SAVEHIST=1000000
-export LISTMAX=50
-export PROMPT_COMMAND='history -a; history -r'

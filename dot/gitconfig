@@ -3,7 +3,6 @@
   path = ~/.gitconfig.internal
 
 [color]
-  # colorの設定(以下のコマンドは自動で色つける)
   status = auto
   diff = auto
   branch = auto
@@ -11,9 +10,9 @@
   grep = auto
 
 [core]
-  excludesfile = ~/.gitignore  # globalな.gitignoreの指定
-  autocrlf = input             # CRLFを自動変換
+  autocrlf = input # CRLFを自動変換
   editor = vim
+  excludesfile = ~/.gitignore
   quotepath = false
 
 [gpg]
@@ -26,7 +25,7 @@
   rebase = true
 
 [push]
-  default = current            # defaultのpush先は今いるブランチのみ
+  default = current # defaultのpush先は今いるブランチのみ
 
 [merge]
   tool = vimdiff
@@ -36,65 +35,24 @@
   autosetuprebase = always
 
 [alias]
-  # status
   s   = status
-  ss  = status -s
-
-  # push
-  po  = push origin         # push origin
-
-  # commit
-  a   = add
-  aa  = add --all
-  c   = commit
-  ci  = commit -a           # modifiedなファイルを全てstageへ
-  cav = commit -av
-  caa = commit -a --amend   # 直前のcommitを修正
-  co  = checkout
-  cb  = checkout -b         # branch切ってcheckoutする
-  cm  = checkout master
-
-  # branch関連
   b   = branch
-  ba  = branch -a           # originも含めた全てのbranchを表示
-  bm  = branch --merged     # merge済みのbranchを表示
-  bn  = branch --no-merged  # mergeしてないbranchを表示
-  br  = branch -r           # remote branchを表示
-
-  # log関連
+  br  = branch -r          # remote branchを表示
   l   = log --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn%x09%Creset%s' # onelineでlogを出す
-  ld  = log -p              # diffも一緒に出す
-  lo  = log origin          # originのlog
-
-  # logをtree表示
-  log-graph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
-  log-all   = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
-
-  # reset
-  r   = reset HEAD
-  r1  = reset HEAD~
-  rs  = reset --soft HEAD
-  rs1 = reset --soft HEAD~
-  rh  = reset --hard HEAD
-  rh1 = reset --hard HEAD~
-
-  # diff関連
-  di = diff
-  dm = diff master           # masterとのdiff
-  dw = diff --color-words    # 単語単位でいろつけてdiff
-  dc = diff --cached         # addされているものとのdiff
-  d1 = diff HEAD~            # HEADから1つ前とdiff
+  ld  = log -p             # diffも一緒に出す
+  lo  = log origin         # originのlog
+  log-graph = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s' # logをtree表示
+  log-all   = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset' # logをtree表示
+  dm = diff master         # masterとのdiff
+  dw = diff --color-words  # 単語単位でいろつけてdiff
+  dc = diff --cached       # addされているものとのdiff
+  d1 = diff HEAD~          # HEADから1つ前とdiff
 
 [http]
   sslVerify = true
 
 [ghq]
-  root = ~/src
+  root = ~/code/src
 
 [credential]
-	helper = cache --timeout=3600
-
-[filter "lfs"]
-	smudge = git-lfs smudge %f
-	required = true
-	clean = git-lfs clean %f
+  helper = cache --timeout=3600

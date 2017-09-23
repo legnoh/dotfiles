@@ -1,5 +1,5 @@
 #!/bin/bash
-DOTPATH=~/src/github.com/legnoh/dotfiles; export DOTPATH
+DOTPATH=~/code/src/github.com/legnoh/dotfiles; export DOTPATH
 DOTFILES_GITHUB="https://github.com/legnoh/dotfiles.git"; export DOTFILES_GITHUB
 DOTFILES_TARBAL="https://codeload.github.com/legnoh/dotfiles/tar.gz/master"; export DOTFILES_TARBAL
 DOT_FILES=(
@@ -60,8 +60,8 @@ git clone https://github.com/riywo/anyenv ~/.anyenv
 echo "install zplug..."
 git clone https://github.com/zplug/zplug ~/.zplug
 
-# mkdir gopath
-mkdir -p ~/gopath/bin ~/gopath/pkg ~/gopath/src
+# mkdir codepath
+mkdir -p ~/code/bin ~/code/pkg ~/code/src
 
 # re-install dotfiles by git
 rm -rf $DOTPATH

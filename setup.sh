@@ -56,17 +56,12 @@ fi
 echo "install anyenv..."
 git clone https://github.com/riywo/anyenv ~/.anyenv
 
-### GVM
-echo "install GVM..."
-curl -sf https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer | sh -s
-
-###glide
-echo "install glide..."
-curl https://glide.sh/get | sh
-
 # install zplug
 echo "install zplug..."
 git clone https://github.com/zplug/zplug ~/.zplug
+
+# mkdir gopath
+mkdir -p ~/gopath/bin ~/gopath/pkg ~/gopath/src
 
 # re-install dotfiles by git
 rm -rf $DOTPATH

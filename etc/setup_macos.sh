@@ -20,6 +20,9 @@ brew bundle --file=~/src/github.com/legnoh/dotfiles/pkg/Brewfile
 brew link libxml2 --force
 brew link openssl --force
 
+# accept Xcode license
+xcodebuild -license accept
+
 ################### Mac setting ###################
 echo "setting mac..."
 

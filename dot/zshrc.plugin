@@ -4,11 +4,10 @@ zplug "Dannyzen/cf-zsh-autocomplete-plugin"
 zplug "frodenas/bosh-zsh-autocomplete-plugin"
 zplug "sbodiu-pivotal/fly-zsh-autocomplete-plugin"
 zplug "felixr/docker-zsh-completion"
-zplug "plugins/aws", from:oh-my-zsh
-zplug "plugins/bower", from:oh-my-zsh
 zplug "plugins/branch", from:oh-my-zsh
-zplug "plugins/brew-cask", from:oh-my-zsh
+zplug "plugins/brew", from:oh-my-zsh
 zplug "plugins/bundler", from:oh-my-zsh
+zplug "plugins/cask", from:oh-my-zsh
 zplug "plugins/composer", from:oh-my-zsh
 zplug "plugins/emoji-clock", from:oh-my-zsh
 zplug "plugins/emoji", from:oh-my-zsh
@@ -16,7 +15,6 @@ zplug "plugins/emotty", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/github", from:oh-my-zsh
 zplug "plugins/gitignore", from:oh-my-zsh
-zplug "plugins/go", from:oh-my-zsh
 zplug "plugins/golang", from:oh-my-zsh
 zplug "plugins/gpg-agent", from:oh-my-zsh
 zplug "plugins/jump", from:oh-my-zsh

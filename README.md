@@ -59,16 +59,25 @@ $ chmod 400 ~/.ssh/jp.legnoh.ssh && ssh-add -K ~/.ssh/jp.legnoh.ssh
   - [Google Translate](http://pilotmoon.com/popclip/extensions/ext/GoogleTranslate.popclipextz)
   - [UnixTimeJP](https://github.com/legnoh/unixtime-jp.popclipext/releases/download/v1.0/unixtime-jp.zip)
 
-### manual install(private only)
+#### (private only)
 - [**Serato DJ**](https://serato.com/dj/downloads/mac)
 - [**Studio One 3 Prime**](https://my.presonus.com/products/software)
 - [**VOCALOID**](https://www.vocaloid.com/articles/activation_deactivation_02#phase01)
   - [VOCALOID製品のアクティベーションについて \| サポート \| VOCALOID \( ボーカロイド・ボカロ \)](https://www.vocaloid.com/articles/online_activation#Mac)
 
-### Before Mac Initialize
+
+### initialize mac
 - [iTunes](https://support.apple.com/ja-jp/HT204385)
   - `アカウント > 認証 > このコンピュータの認証を解除`
 - [icloud.com](https://www.icloud.com/#settings)
   - 「マイデバイス」から対象の端末を削除
+- iMassage
+  - メインアカウントをサインアウトする
+- [macOS を再インストールする方法 \- Apple サポート](https://support.apple.com/ja-jp/HT204904)
+  - "opt + command + R"で起動
+  - "ディスクユーティリティ"を起動し、ルートディスクを選択して消去
+  - macOS を再インストール
+
+#### (private only)
 - [**VOCALOID**](https://www.vocaloid.com/articles/activation_deactivation_02#phase02)
     - [VOCALOID製品のディアクティベーションについて \| サポート \| VOCALOID \( ボーカロイド・ボカロ \)](https://www.vocaloid.com/articles/online_deactivation#Mac)

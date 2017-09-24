@@ -16,13 +16,13 @@ if test ! $(which brew); then
 fi
 
 brew tap homebrew/bundle
-brew bundle --file=~/src/code/github.com/legnoh/dotfiles/pkg/Brewfile
+brew bundle --file=~/code/src/github.com/legnoh/dotfiles/pkg/Brewfile
 brew link libxml2 --force
 brew link openssl --force
 
 printf "Do you need private App? [y/N]: " && read PRIVATE
 if [ "${PRIVATE}" = "y" ]; then
-    brew bundle --file=~/src/code/github.com/legnoh/dotfiles/pkg/Brewfile.private
+    brew bundle --file=~/code/src/github.com/legnoh/dotfiles/pkg/Brewfile.private
 fi
 
 # accept Xcode license
@@ -159,7 +159,7 @@ defaults write com.apple.Safari AlwaysShowTabBarInFullScreen 1
 
 ### Atom.io ###
 echo "installing Atom packages..."
-apm install --packages-file ~/src/code/github.com/legnoh/dotfiles/pkg/Atomfile
+apm install --packages-file ~/code/src/github.com/legnoh/dotfiles/pkg/Atomfile
 
 ### Eclipse ###
 echo "installing Pleiades plugin..."
@@ -200,11 +200,11 @@ cf install-plugin -r CF-Community -f "top"
 
 ### Concourse
 echo "preparing Concourse Containers...."
-ssh-keygen -t rsa -f ~/src/code/docker/concourse/keys/web/tsa_host_key -N ''
-ssh-keygen -t rsa -f ~/src/code/docker/concourse/keys/web/session_signing_key -N ''
-ssh-keygen -t rsa -f ~/src/code/docker/concourse/keys/worker/worker_key -N ''
-cp ~/src/code/docker/concourse/keys/worker/worker_key.pub ~/src/code/docker/concourse/keys/web/authorized_worker_keys
-cp ~/src/code/docker/concourse/keys/web/tsa_host_key.pub ~/src/code/docker/concourse/keys/worker
+ssh-keygen -t rsa -f ~/code/src/docker/concourse/keys/web/tsa_host_key -N ''
+ssh-keygen -t rsa -f ~/code/src/docker/concourse/keys/web/session_signing_key -N ''
+ssh-keygen -t rsa -f ~/code/src/docker/concourse/keys/worker/worker_key -N ''
+cp ~/code/src/docker/concourse/keys/worker/worker_key.pub ~/code/src/docker/concourse/keys/web/authorized_worker_keys
+cp ~/code/src/docker/concourse/keys/web/tsa_host_key.pub ~/code/src/docker/concourse/keys/worker
 
 
 ### Finder と Dock を再起動
@@ -248,4 +248,4 @@ fi
 
 
 ### macでは、homebrewのupdateとupgradeを定期時間で常にやるようにする
-crontab ~/src/code/github.com/legnoh/dotfiles/pkg/crontab
+crontab ~/code/src/github.com/legnoh/dotfiles/pkg/crontab

@@ -47,9 +47,28 @@ $ chmod 400 ~/.ssh/jp.legnoh.ssh && ssh-add -K ~/.ssh/jp.legnoh.ssh
   - http://localhost:9000/
   - [help/en/howto/minio – Cyberduck](https://trac.cyberduck.io/wiki/help/en/howto/minio)
 
+### manual install
+- [**BTT Settings**](https://raw.githubusercontent.com/legnoh/dotfiles/master/pkg/btt-presets.json)
+  - `open ~/code/src/github.com/legnoh/dotfiles/pkg/`
+- [**PopClip**](http://pilotmoon.com/popclip/extensions/)
+  - Open Link
+  - [Open in Firefox](http://pilotmoon.com/popclip/extensions/ext/OpenInFirefox.popclipextz)
+  - Search
+  - Copy
+  - [Paste and Match Style](http://pilotmoon.com/popclip/extensions/ext/PasteAndMatch.popclipextz)
+  - [Google Translate](http://pilotmoon.com/popclip/extensions/ext/GoogleTranslate.popclipextz)
+  - [UnixTimeJP](https://github.com/legnoh/unixtime-jp.popclipext/releases/download/v1.0/unixtime-jp.zip)
+
 ### manual install(private only)
 - [**Serato DJ**](https://serato.com/dj/downloads/mac)
 - [**Studio One 3 Prime**](https://my.presonus.com/products/software)
-- [**VOCALOID**](https://www.vocaloid.com/articles/activation_deactivation_02#phase02)
-  - [VOCALOID製品のディアクティベーションについて \| サポート \| VOCALOID \( ボーカロイド・ボカロ \)](https://www.vocaloid.com/articles/online_deactivation#Mac)
+- [**VOCALOID**](https://www.vocaloid.com/articles/activation_deactivation_02#phase01)
   - [VOCALOID製品のアクティベーションについて \| サポート \| VOCALOID \( ボーカロイド・ボカロ \)](https://www.vocaloid.com/articles/online_activation#Mac)
+
+### Before Mac Initialize
+- [iTunes](https://support.apple.com/ja-jp/HT204385)
+  - `アカウント > 認証 > このコンピュータの認証を解除`
+- [icloud.com](https://www.icloud.com/#settings)
+  - 「マイデバイス」から対象の端末を削除
+- [**VOCALOID**](https://www.vocaloid.com/articles/activation_deactivation_02#phase02)
+    - [VOCALOID製品のディアクティベーションについて \| サポート \| VOCALOID \( ボーカロイド・ボカロ \)](https://www.vocaloid.com/articles/online_deactivation#Mac)

@@ -5,20 +5,12 @@ DOTFILES_TARBAL="https://codeload.github.com/legnoh/dotfiles/tar.gz/master"; exp
 DOT_FILES=(
   gemrc
   gitconfig
-  gitconfig.external
   gitconfig.internal
-  gitignore
   gnupg/gpg.conf
   gnupg/gpg-agent.conf
   ssh/conf.d/01.basic.conf
   vimrc
   zshrc
-  zshrc.alias.external
-  zshrc.alias.internal
-  zshrc.custom.external
-  zshrc.custom.internal
-  zshrc.plugin
-  zshrc.setting
 ); export DOT_FILES
 
 # ssh directory
@@ -52,13 +44,8 @@ elif [ -e /etc/redhat-release ]; then
   $DOTPATH/etc/setup_centos.sh
 fi
 
-# install anyenv
-echo "install anyenv..."
-git clone https://github.com/riywo/anyenv ~/.anyenv
-
-# install zplug
-echo "install zplug..."
-git clone https://github.com/zplug/zplug ~/.zplug
+# hashlogin
+touch ~/.hushlogin
 
 # mkdir codepath
 mkdir -p ~/code/bin ~/code/pkg ~/code/src
@@ -77,3 +64,4 @@ fi
 
 # Completed!
 printf "Completed! please execute exit, and 'zplug install && rr && $DOTPATH/etc/setup_anyenv.sh"
+printf "If you use mac, please execute it: open $ZPLUG_HOME/repos/legnoh/materialshell/materialshell-dark.terminal"

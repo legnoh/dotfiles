@@ -161,7 +161,6 @@ defaults write com.apple.Safari AlwaysShowTabBarInFullScreen 1
 echo "installing Atom packages..."
 apm install --packages-file ~/src/code/github.com/legnoh/dotfiles/pkg/Atomfile
 
-
 ### Eclipse ###
 echo "installing Pleiades plugin..."
 curl -L http://svn.osdn.jp/svnroot/mergedoc/trunk/Pleiades/build/pleiades.zip -o /tmp/pleiades.zip
@@ -185,15 +184,18 @@ rm -rf /tmp/pleiades /tmp/pleiades.zip
 
 ### CF CLI PLugins ###
 echo "installing CF Plugin packages..."
-cf install-plugin -r CF-Community -f "doctor"
-cf install-plugin -r CF-Community -f "Download Droplet"
-cf install-plugin -r CF-Community -f "fastpush"
-cf install-plugin -r CF-Community -f "CLI-Recorder"
-cf install-plugin -r CF-Community -f "Targets"
-cf install-plugin -r CF-Community -f "Statistics"
 cf install-plugin -r CF-Community -f "Buildpack Usage"
-cf install-plugin -r CF-Community -f "Open"
+cf install-plugin -r CF-Community -f "Download Droplet"
 cf install-plugin -r CF-Community -f "Live Stats"
+cf install-plugin -r CF-Community -f "Open"
+cf install-plugin -r CF-Community -f "Statistics"
+cf install-plugin -r CF-Community -f "Targets"
+cf install-plugin -r CF-Community -f "Usage Report"
+cf install-plugin -r CF-Community -f "bg-restage"
+cf install-plugin -r CF-Community -f "doctor"
+cf install-plugin -r CF-Community -f "fastpush"
+cf install-plugin -r CF-Community -f "service-use"
+cf install-plugin -r CF-Community -f "top"
 
 
 ### Concourse
@@ -211,25 +213,10 @@ kilall Finder
 kilall Dock
 
 
-### Mackup&Dropbox settings ###
-open "/Applications/Dropbox.app"
-open "/Applications/1Password.app"
-ln -fs ~/code/src/code/github.com/legnoh/dotfiles/dot/mackup.cfg ~/.mackup.cfg
-
-
-### Dropboxの設定が終わったら、mackupで設定の同期を開始するようガイダンスする
-echo "please execute dropbox settings!"
-printf "Completed? [Y/n]: " && read ANS
-if [ "${ANS}" = "n" ]; then
-    echo “Stoped.....”
-    exit 1;
-fi
-echo "Initializing Mackup..."
-mackup restore
-
-
 ### インストールしたAppの中で、設定が必要なものを一気に全て開く
 echo "Open Apps..."
+open "/Applications/Dropbox.app"
+open "/Applications/1Password.app"
 open "/Applications/Alfred 3.app"
 open "/Applications/Bartender 2.app"
 open "/Applications/BetterTouchTool.app"
@@ -248,12 +235,17 @@ open "/Applications/Slack.app"
 open "/Applications/The Unarchiver.app"
 if [ "${PRIVATE}" = "y" ]; then
     open "/Applications/Airmail 3.app"
+    open "/Applications/Avast.app"
     open "/Applications/BathyScaphe.app"
+    open "/Applications/Evernote.app"
     open "/Applications/Kobito.app"
     open "/Applications/LINE.app"
     open "/Applications/Skype.app"
     open "/Applications/Tweetbot.app"
+    open "/Applications/Utilities/Adobe Creative Cloud/ACC/Creative Cloud.app"
+    open "/Applications/Wacom Tablet.localized/Wacom Desktop Center.app"
 fi
+
 
 ### macでは、homebrewのupdateとupgradeを定期時間で常にやるようにする
 crontab ~/src/code/github.com/legnoh/dotfiles/pkg/crontab

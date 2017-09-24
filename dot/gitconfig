@@ -1,5 +1,9 @@
+[user]
+  name = Ryoma Kai
+  email = legknmj@gmail.com
+  signingkey = D298E6AD
+
 [include]
-  path = ~/.gitconfig.external
   path = ~/.gitconfig.internal
 
 [color]
@@ -12,7 +16,7 @@
 [core]
   autocrlf = input # CRLFを自動変換
   editor = vim
-  excludesfile = ~/.gitignore
+  excludesfile = ~/code/src/github.com/legnoh/dotfiles/dot/gitignore
   quotepath = false
 
 [gpg]

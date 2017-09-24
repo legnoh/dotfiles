@@ -16,21 +16,20 @@ if test ! $(which brew); then
 fi
 
 brew tap homebrew/bundle
-brew bundle --file=~/src/github.com/legnoh/dotfiles/pkg/Brewfile
+brew bundle --file=~/src/code/github.com/legnoh/dotfiles/pkg/Brewfile
 brew link libxml2 --force
 brew link openssl --force
+
+printf "Do you need private App? [y/N]: " && read PRIVATE
+if [ "${PRIVATE}" = "y" ]; then
+    brew bundle --file=~/src/code/github.com/legnoh/dotfiles/pkg/Brewfile.private
+fi
 
 # accept Xcode license
 xcodebuild -license accept
 
 ################### Mac setting ###################
 echo "setting mac..."
-
-### system ###
-
-# 起動音を鳴らす
-nvram -d SystemAudioVolume
-
 
 ### finder ###
 
@@ -160,7 +159,7 @@ defaults write com.apple.Safari AlwaysShowTabBarInFullScreen 1
 
 ### Atom.io ###
 echo "installing Atom packages..."
-apm install --packages-file ~/src/github.com/legnoh/dotfiles/pkg/Atomfile
+apm install --packages-file ~/src/code/github.com/legnoh/dotfiles/pkg/Atomfile
 
 
 ### Eclipse ###
@@ -199,11 +198,11 @@ cf install-plugin -r CF-Community -f "Live Stats"
 
 ### Concourse
 echo "preparing Concourse Containers...."
-ssh-keygen -t rsa -f ~/src/docker/concourse/keys/web/tsa_host_key -N ''
-ssh-keygen -t rsa -f ~/src/docker/concourse/keys/web/session_signing_key -N ''
-ssh-keygen -t rsa -f ~/src/docker/concourse/keys/worker/worker_key -N ''
-cp ~/src/docker/concourse/keys/worker/worker_key.pub ~/src/docker/concourse/keys/web/authorized_worker_keys
-cp ~/src/docker/concourse/keys/web/tsa_host_key.pub ~/src/docker/concourse/keys/worker
+ssh-keygen -t rsa -f ~/src/code/docker/concourse/keys/web/tsa_host_key -N ''
+ssh-keygen -t rsa -f ~/src/code/docker/concourse/keys/web/session_signing_key -N ''
+ssh-keygen -t rsa -f ~/src/code/docker/concourse/keys/worker/worker_key -N ''
+cp ~/src/code/docker/concourse/keys/worker/worker_key.pub ~/src/code/docker/concourse/keys/web/authorized_worker_keys
+cp ~/src/code/docker/concourse/keys/web/tsa_host_key.pub ~/src/code/docker/concourse/keys/worker
 
 
 ### Finder と Dock を再起動
@@ -215,7 +214,7 @@ kilall Dock
 ### Mackup&Dropbox settings ###
 open "/Applications/Dropbox.app"
 open "/Applications/1Password.app"
-ln -fs ~/code/src/github.com/legnoh/dotfiles/dot/mackup.cfg ~/.mackup.cfg
+ln -fs ~/code/src/code/github.com/legnoh/dotfiles/dot/mackup.cfg ~/.mackup.cfg
 
 
 ### Dropboxの設定が終わったら、mackupで設定の同期を開始するようガイダンスする
@@ -247,12 +246,7 @@ open "/Applications/Numbers.app"
 open "/Applications/PopClip.app"
 open "/Applications/Slack.app"
 open "/Applications/The Unarchiver.app"
-
-
-### 環境によって開くかどうか異なる場合は一度聞いてから開く
-printf "Do you need setting external App? [y/N]: " && read ANS
-if [ "${ANS}" = "y" ]; then
-    echo "Open Apps(External)....."
+if [ "${PRIVATE}" = "y" ]; then
     open "/Applications/Airmail 3.app"
     open "/Applications/BathyScaphe.app"
     open "/Applications/Kobito.app"
@@ -261,6 +255,5 @@ if [ "${ANS}" = "y" ]; then
     open "/Applications/Tweetbot.app"
 fi
 
-
 ### macでは、homebrewのupdateとupgradeを定期時間で常にやるようにする
-crontab ~/src/github.com/legnoh/dotfiles/pkg/crontab
+crontab ~/src/code/github.com/legnoh/dotfiles/pkg/crontab

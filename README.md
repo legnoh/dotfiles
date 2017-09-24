@@ -47,8 +47,9 @@ $ chmod 400 ~/.ssh/jp.legnoh.ssh && ssh-add -K ~/.ssh/jp.legnoh.ssh
   - http://localhost:9000/
   - [help/en/howto/minio – Cyberduck](https://trac.cyberduck.io/wiki/help/en/howto/minio)
 
-### ウイルス対策
-環境によって異なるので、必要な場合はavastを導入する。
-```bash
-$ brew cask install avast-mac-security
-```
+### manual install(private only)
+- [**Serato DJ**](https://serato.com/dj/downloads/mac)
+- [**Studio One 3 Prime**](https://my.presonus.com/products/software)
+- [**VOCALOID**](https://www.vocaloid.com/articles/activation_deactivation_02#phase02)
+  - [VOCALOID製品のディアクティベーションについて \| サポート \| VOCALOID \( ボーカロイド・ボカロ \)](https://www.vocaloid.com/articles/online_deactivation#Mac)
+  - [VOCALOID製品のアクティベーションについて \| サポート \| VOCALOID \( ボーカロイド・ボカロ \)](https://www.vocaloid.com/articles/online_activation#Mac)

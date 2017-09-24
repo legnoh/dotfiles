@@ -4,82 +4,53 @@
 # this script cause your machine to cleanup.
 # Please backup your local data before it exucute.
 
+shopt -s dotglob
+cd ~
 # change default shell
+echo "#1: change default shell to /bin/bash..."
 chsh -s /bin/bash
 
 # uninstall homebrew and apps
-brew cask uninstall --force $(brew cask list) && brew cask cleanup
+echo "#2: uninstall all homebrew formula..."
+brew cask zap $(brew cask list) && brew cask cleanup
 brew uninstall --force $(brew list) && brew cleanup
-brew untap cloudfoundry/tap
-brew untap caskroom/cask
-brew untap caskroom/fonts
-brew untap caskroom/versions
-brew untap thoughtbot/formulae
-brew untap homebrew/dupes
-brew untap homebrew/versions
-brew untap homebrew/binary
+for tap in $(brew tap); do
+  echo "#1: untap: $tap ..."
+  brew untap $tap
+done
+echo "#3: uninstall homebrew..."
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
 
-# remove app info
-sudo rm -rf /usr/local/Caskroom
-sudo rm -rf /usr/local/Celler
-sudo rm -rf /usr/local/Framework
-sudo rm -rf /usr/local/Homebrew
-sudo rm -rf /usr/local/MacGPG2
-sudo rm -rf /usr/local/bin/*
-sudo rm -rf /opt/*
+# remove garbage files in system directory
+echo "#4: uninstall gomi file..."
+sudo rm -rf /usr/local/Caskroom /usr/local/Celler /usr/local/Homebrew /usr/local/MacGPG2 /opt/*
 
-# remove anyenv, zplug, etc
-rm -rf ~/.account
-rm -rf ~/.anyenv
-rm -rf ~/.atom
-rm -rf ~/.bash*
-rm -rf ~/.berkshelf
-rm -rf ~/.bundle
-rm -rf ~/.brewfile
-rm -rf ~/.cache
-rm -rf ~/.chef
-rm -rf ~/.chefdk
-rm -rf ~/.cf
-rm -rf ~/.dlv
-rm -rf ~/.composer
-rm -rf ~/.config
-rm -rf ~/.devcenter
-rm -rf ~/.dropbox
-rm -rf ~/.eclipse
-rm -rf ~/.erlang*
-rm -rf ~/.flyrc
-rm -rf ~/.gem
-rm -rf ~/.gem*
-rm -rf ~/.git*
-rm -rf ~/.glide
-rm -rf ~/.gnupg
-rm -rf ~/.gradle
-rm -rf ~/.gvm
-rm -rf ~/.*_history
-rm -rf ~/.JIRAClient
-rm -rf ~/.kafkatool
-rm -rf ~/.m2
-rm -rf ~/.mackup.cfg
-rm -rf ~/.node-gyp
-rm -rf ~/.npm
-rm -rf ~/.oracle_jre_usage
-rm -rf ~/.p2
-rm -rf ~/.pcfdev
-rm -rf ~/.sqldeveloper
-rm -rf ~/.ssh
-rm -rf ~/.subversion
-rm -rf ~/.tooling
-rm -rf ~/.uaac
-rm -rf ~/.uaac.yml
-rm -rf ~/.v*
-rm -rf ~/.wget-hsts
-rm -rf ~/.z*
-rm -rf ~/.*_history
-rm -rf ~/Library/Fonts/*
-rm -rf ~/Library/Quicklook/*
-rm -rf ~/src
-rm -rf ~/VirtualBox\ VMs
+# remove users files
+echo "#5: uninstall users file"
+default_files=('.CFUserTextEncoding',
+               '.DS_Store',
+               '.Trash',
+               'Applications',
+               'Desktop',
+               'Documents',
+               'Downloads',
+               'Library',
+               'Movies',
+               'Music',
+               'Pictures',
+               'Public');
+for file in *; do
+  if `echo ${default_files[@]} | grep -q "$file"` ; then
+    echo "  existed: $file"
+  else
+    echo "  removing: $file"
+    rm -rf $file
+  fi
+done
 
 # remove command line tools
+echo "#6: uninstall command line tools"
 sudo rm -rf /Library/Developer/CommandLineTools
+
+echo "destroy successfull. Please reboot machine or Please restore machine"
+echo "https://support.apple.com/kb/PH25649?locale=ja_JP&viewlocale=ja_JP"

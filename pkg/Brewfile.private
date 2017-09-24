@@ -1,0 +1,28 @@
+tap 'caskroom/cask'
+tap 'caskroom/drivers'
+tap 'caskroom/fonts'
+tap 'caskroom/eid'
+tap 'legnoh/etc'
+cask_args appdir: '/Applications'
+
+cask 'adapter'
+cask 'adobe-creative-cloud'
+cask 'audacity'
+cask 'avast-mac-security'
+cask 'bathyscaphe'
+cask 'clip-studio-paint'
+cask 'eid-jp'
+cask 'eid-jp-gpki'
+# cask 'eid-jp-myna'
+cask 'evernote'
+cask 'lyrics-master'
+# cask 'nttcom-smart-card-reader-driver'
+cask 'sdcardformatter'
+cask 'simple-comic'
+cask 'skype'
+cask 'wacom-intuos-tablet'
+
+mas 'Airmail 3', id:918858936
+mas 'Kobito', id:896624060
+mas 'LINE', id:539883307
+mas 'Tweetbot', id:557168941

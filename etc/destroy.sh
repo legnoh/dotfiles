@@ -12,7 +12,7 @@ chsh -s /bin/bash
 
 # uninstall homebrew and apps
 echo "#2: uninstall all homebrew formula..."
-brew cask zap $(brew cask list) && brew cask cleanup
+brew cask uninstall $(brew cask list) && brew cask cleanup
 brew uninstall --force $(brew list) && brew cleanup
 for tap in $(brew tap); do
   echo "#1: untap: $tap ..."

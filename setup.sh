@@ -52,6 +52,9 @@ mkdir -p ~/code/bin ~/code/pkg ~/code/src
 # install anyenv
 git clone https://github.com/riywo/anyenv ~/.anyenv
 
+# install zplug
+git clone https://github.com/zplug/zplug ~/.zplug
+
 # re-install dotfiles by git
 rm -rf $DOTPATH
 git clone https://github.com/legnoh/dotfiles.git $DOTPATH

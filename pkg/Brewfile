@@ -56,7 +56,6 @@ brew 'tree'
 brew 'uncrustify'
 brew 'vault'
 brew 'wget'
-brew 'zplug'
 brew 'zsh'
 
 cask 'alfred'

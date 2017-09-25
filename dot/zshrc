@@ -5,7 +5,7 @@ export LANG=ja_JP.UTF-8
        PROMPT_COMMAND='history -a; history -r' \
        DOT="$HOME/code/src/github.com/legnoh/dotfiles" \
        PATH="$HOME/.anyenv/bin:$HOME/code/src/github.com/legnoh/dotfiles/bin:$PATH" \
-       ZPLUG_HOME=/usr/local/opt/zplug \
+       ZPLUG_HOME=$HOME/.zplug \
        GOPATH="$HOME/code" \
        CONCOURSE_EXTERNAL_URL=http://`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | head -n 1`:50000
 setopt nonomatch

@@ -49,6 +49,9 @@ touch ~/.hushlogin
 # mkdir codepath
 mkdir -p ~/code/bin ~/code/pkg ~/code/src
 
+# install anyenv
+git clone https://github.com/riywo/anyenv ~/.anyenv
+
 # re-install dotfiles by git
 rm -rf $DOTPATH
 git clone https://github.com/legnoh/dotfiles.git $DOTPATH

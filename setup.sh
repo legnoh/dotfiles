@@ -16,7 +16,6 @@ DOT_FILES=(
 # ssh directory
 mkdir -p ~/.ssh/conf.d
 touch ~/.ssh/config
-ssh-keyscan -R github.com
 ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 # gpg directory

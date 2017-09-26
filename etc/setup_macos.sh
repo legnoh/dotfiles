@@ -26,7 +26,7 @@ if [ "${PRIVATE}" = "y" ]; then
 fi
 
 # accept Xcode license
-xcodebuild -license accept
+sudo xcodebuild -license accept
 
 ################### Mac setting ###################
 echo "setting mac..."

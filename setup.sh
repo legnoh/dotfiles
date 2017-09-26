@@ -11,6 +11,7 @@ DOT_FILES=(
   ssh/conf.d/01.basic.conf
   vimrc
   zshrc
+  zshrc.optional
 ); export DOT_FILES
 
 # ssh directory

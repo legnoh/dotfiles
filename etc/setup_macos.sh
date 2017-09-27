@@ -184,12 +184,8 @@ rm -rf /tmp/pleiades /tmp/pleiades.zip
 
 ### CF CLI PLugins ###
 echo "installing CF Plugin packages..."
-cf install-plugin -r CF-Community -f "Buildpack Usage"
 cf install-plugin -r CF-Community -f "Download Droplet"
-cf install-plugin -r CF-Community -f "Live Stats"
 cf install-plugin -r CF-Community -f "Open"
-cf install-plugin -r CF-Community -f "Statistics"
-cf install-plugin -r CF-Community -f "Targets"
 cf install-plugin -r CF-Community -f "Usage Report"
 cf install-plugin -r CF-Community -f "bg-restage"
 cf install-plugin -r CF-Community -f "doctor"

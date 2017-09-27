@@ -3,7 +3,7 @@
 set PW [lindex $argv 0]
 set Prompt "\[#$%>\]"
 
-set timeout 5
+set timeout 86400
 
 spawn mas install 497799835
 expect {

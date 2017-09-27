@@ -3,7 +3,7 @@
 set PW [lindex $argv 0]
 set Prompt "\[#$%>\]"
 
-set timeout 5
+set timeout 86400
 
 spawn brew install maven gradle
 expect {

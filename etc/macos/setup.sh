@@ -22,13 +22,13 @@ brew tap homebrew/bundle
 brew install mas
 
 # brew, cask, mas(xcode)
-sh ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-brew.sh $PASSWORD &
+~/code/src/github.com/legnoh/dotfiles/etc/macos/install-brew.sh $PASSWORD &
 pid1=$!
-sh ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-cask.sh $PASSWORD &
+~/code/src/github.com/legnoh/dotfiles/etc/macos/install-cask.sh $PASSWORD &
 pid2=$!
-sh ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-mas.sh $PASSWORD &
+~/code/src/github.com/legnoh/dotfiles/etc/macos/install-mas.sh $PASSWORD &
 pid3=$!
-sh ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-xcode.sh $PASSWORD &
+~/code/src/github.com/legnoh/dotfiles/etc/macos/install-xcode.sh $PASSWORD &
 pid4=$!
 wait $pid1 $pid2 $pid3 $pid4
 
@@ -36,12 +36,12 @@ wait $pid1 $pid2 $pid3 $pid4
 sudo xcodebuild -license accept
 
 # atom, maven, gradle, private-app
-sh ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-atom.sh $PASSWORD &
+~/code/src/github.com/legnoh/dotfiles/etc/macos/install-atom.sh $PASSWORD &
 pid5=$!
-sh ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-mvngradle.sh $PASSWORD &
+~/code/src/github.com/legnoh/dotfiles/etc/macos/install-mvngradle.sh $PASSWORD &
 pid6=$!
 if [ "${PRIVATE}" = "y" ]; then
-    sh ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-private.sh $PASSWORD &
+    ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-private.sh $PASSWORD &
     pid7=$!
 fi
 

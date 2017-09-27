@@ -163,7 +163,7 @@ apm install --packages-file ~/code/src/github.com/legnoh/dotfiles/pkg/Atomfile
 
 ### Eclipse ###
 echo "installing Pleiades plugin..."
-curl -L http://svn.osdn.jp/svnroot/mergedoc/trunk/Pleiades/build/pleiades.zip -o /tmp/pleiades.zip
+curl -L http://ftp.jaist.ac.jp/pub/mergedoc/pleiades/build/stable/pleiades-mac.zip -o /tmp/pleiades.zip
 mkdir /tmp/pleiades
 unzip -q /tmp/pleiades.zip -d /tmp/pleiades
 

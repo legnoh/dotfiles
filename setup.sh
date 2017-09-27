@@ -35,13 +35,13 @@ done
 # install muitl os utils & apps
 if [ "$(uname)" == 'Darwin' ]; then
   echo "OS: macOS"
-  $DOTPATH/etc/setup_macos.sh
+  $DOTPATH/etc/macos/setup.sh
 elif [ -e /etc/lsb-release ]; then
   echo "OS: Ubuntu"
-  $DOTPATH/etc/setup_ubuntu.sh
+  $DOTPATH/etc/ubuntu/setup.sh
 elif [ -e /etc/redhat-release ]; then
   echo "OS: CentOS"
-  $DOTPATH/etc/setup_centos.sh
+  $DOTPATH/etc/centos/setup.sh
 fi
 
 # hashlogin

@@ -1,6 +1,6 @@
 # read answers
 echo -e "\e[35mDo you need private App? [y/N]: \e[m" && read PRIVATE
-echo -e "\e[35mWhat's your sudo password?: \e[m" && read PASSWORD -sp
+echo -e "\e[35mWhat's your sudo password?: \e[m" && read PASSWORD -s
 
 # command-line-tools
 if [[ ! -d /Library/Developer/CommandLineTools ]]; then

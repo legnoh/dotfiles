@@ -2,6 +2,17 @@
 DOTPATH=~/code/src/github.com/legnoh/dotfiles; export DOTPATH
 DOTFILES_GITHUB="https://github.com/legnoh/dotfiles.git"; export DOTFILES_GITHUB
 DOTFILES_TARBAL="https://codeload.github.com/legnoh/dotfiles/tar.gz/master"; export DOTFILES_TARBAL
+DOT_FILES=(
+  gemrc
+  gitconfig
+  gitconfig.internal
+  gnupg/gpg.conf
+  gnupg/gpg-agent.conf
+  ssh/conf.d/01.basic.conf
+  vimrc
+  zshrc
+  zshrc.optional
+); export DOT_FILES
 
 # prepare install dotfile
 mkdir -p ~/.ssh/conf.d ~/.gnupg ~/code/bin ~/code/pkg $DOTPATH
@@ -11,7 +22,7 @@ ssh-keyscan github.com >> ~/.ssh/known_hosts
 # install dotfiles by tarball
 curl -L "$DOTFILES_TARBAL" -o /tmp/dotfiles
 tar zxvf /tmp/dotfiles -C $DOTPATH --strip-components 1
-for file in $(ls $DOTPATH/dot)
+for file in ${DOT_FILES[@]}
 do
     ln -fs $DOTPATH/dot/$file ~/.$file
 done
@@ -45,5 +56,6 @@ if [ "${REMOTEPROTOCOL}" = "y" ]; then
     cd -
 fi
 
+# Completed!
 echo -e "\e[32mCompleted! please execute exit, and 'zplug install && rr && $DOTPATH/etc/setup_anyenv.sh\e[m"
 echo -e "\e[35mIf you use mac, please execute it: open $ZPLUG_HOME/repos/legnoh/materialshell/materialshell-dark.terminal\e[m"

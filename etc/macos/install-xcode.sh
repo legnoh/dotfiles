@@ -15,8 +15,3 @@ expect {
         send "${PW}\n"
     }
 }
-expect {
-    "\\\$" {
-      exit 0
-    }
-}

@@ -31,13 +31,13 @@ echo -e "\e[35mDo you want to change dotfile remote to git protocol? [y/N]: \e[m
 
 # install muitl os utils & apps
 if [ "$(uname)" == 'Darwin' ]; then
-  echo "\e[34mOS: macOS\e[m"
+  echo -e "\e[34mOS: macOS\e[m"
   $DOTPATH/etc/macos/setup.sh
 elif [ -e /etc/lsb-release ]; then
-  echo "\e[34mOS: Ubuntu\e[m"
+  echo -e "\e[34mOS: Ubuntu\e[m"
   $DOTPATH/etc/ubuntu/setup.sh
 elif [ -e /etc/redhat-release ]; then
-  echo "\e[34mOS: CentOS\e[m"
+  echo -e "\e[34mOS: CentOS\e[m"
   $DOTPATH/etc/centos/setup.sh
 fi
 

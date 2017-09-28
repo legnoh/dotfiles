@@ -11,12 +11,10 @@ ssh-keyscan github.com >> ~/.ssh/known_hosts
 # install dotfiles by tarball
 curl -L "$DOTFILES_TARBAL" -o /tmp/dotfiles
 tar zxvf /tmp/dotfiles -C $DOTPATH --strip-components 1
-cd $DOTPATH/dot
-for file in *
+for file in $(ls $DOTPATH/dot)
 do
     ln -fs $DOTPATH/dot/$file ~/.$file
 done
-cd -
 
 echo -e "\e[35mDo you want to change dotfile remote to git protocol? [y/N]: \e[m" && read REMOTEPROTOCOL
 

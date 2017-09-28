@@ -1,12 +1,12 @@
 # read answers
-printf "Do you need private App? [y/N]: " && read PRIVATE
-printf "What's your sudo password?: " && read PASSWORD
+echo -e "\e[35mDo you need private App? [y/N]: \e[m" && read PRIVATE
+echo -e "\e[35mWhat's your sudo password?: \e[m" && read PASSWORD
 
 # command-line-tools
 if [[ ! -d /Library/Developer/CommandLineTools ]]; then
-    echo "Installing command-line-tools"
+    echo "\e[34mInstalling command-line-tools\e[m"
     xcode-select --install
-    printf "Completed? [Y/n]: " && read ANS
+    echo -e "\e[35mCompleted? [Y/n]: \e[m" && read ANS
     if [ "${ANS}" = "n" ]; then
       echo “Stoped...”
       exit 1;
@@ -15,34 +15,31 @@ fi
 
 # Homebrew
 if test ! $(which brew); then
-    echo "Installing homebrew..."
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    echo "\e[34mInstalling homebrew...\e[m"
+    ~/code/src/github.com/legnoh/dotfiles/etc/macos/setup-homebrew.sh $PASSWORD
 fi
 brew tap homebrew/bundle
 brew install mas
 
+echo -e "\e[35mPlease signin app store\e[m"
+mas install 420874236
+
 # brew, cask, mas(xcode)
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-brew.sh $PASSWORD &
-pid1=$!
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-cask.sh $PASSWORD &
-pid2=$!
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-mas.sh $PASSWORD &
-pid3=$!
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-xcode.sh $PASSWORD &
-pid4=$!
-wait $pid1 $pid2 $pid3 $pid4
+wait
 
 # accept Xcode license
-sudo xcodebuild -license accept
+~/code/src/github.com/legnoh/dotfiles/etc/macos/accept-license.sh $PASSWORD &
+wait
 
 # atom, maven, gradle, private-app
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-atom.sh $PASSWORD &
-pid5=$!
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-mvngradle.sh $PASSWORD &
-pid6=$!
 if [ "${PRIVATE}" = "y" ]; then
     ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-private.sh $PASSWORD &
-    pid7=$!
 fi
 
 # settings
@@ -57,7 +54,7 @@ chsh -s /usr/local/bin/zsh
 crontab ~/code/src/github.com/legnoh/dotfiles/pkg/crontab
 
 # Pleiades
-echo "installing Pleiades plugin..."
+echo "\e[34minstalling Pleiades plugin...\e[m"
 curl -L http://ftp.jaist.ac.jp/pub/mergedoc/pleiades/build/stable/pleiades-mac.zip -o /tmp/pleiades.zip
 mkdir /tmp/pleiades
 unzip -q /tmp/pleiades.zip -d /tmp/pleiades
@@ -76,7 +73,7 @@ echo '-javaagent:../Eclipse/plugins/jp.sourceforge.mergedoc.pleiades/pleiades.ja
 rm -rf /tmp/pleiades /tmp/pleiades.zip
 
 # CF CLI PLugins
-echo "installing CF Plugin packages..."
+echo "\e[34minstalling CF Plugin packages...\e[m"
 cf install-plugin -r CF-Community -f "Download Droplet"
 cf install-plugin -r CF-Community -f "Open"
 cf install-plugin -r CF-Community -f "Usage Report"
@@ -87,21 +84,17 @@ cf install-plugin -r CF-Community -f "service-use"
 cf install-plugin -r CF-Community -f "top"
 
 # Concourse
-echo "preparing Concourse Containers...."
+echo "\e[34mpreparing Concourse Containers....\e[m"
 ssh-keygen -t rsa -f ~/code/src/docker/concourse/keys/web/tsa_host_key -N ''
 ssh-keygen -t rsa -f ~/code/src/docker/concourse/keys/web/session_signing_key -N ''
 ssh-keygen -t rsa -f ~/code/src/docker/concourse/keys/worker/worker_key -N ''
 cp ~/code/src/docker/concourse/keys/worker/worker_key.pub ~/code/src/docker/concourse/keys/web/authorized_worker_keys
 cp ~/code/src/docker/concourse/keys/web/tsa_host_key.pub ~/code/src/docker/concourse/keys/worker
 
-if [ "${PRIVATE}" = "y" ]; then
-    wait $pid5 $pid6 $pid7
-  else
-    wait $pid5 $pid6
-fi
+wait
 
 ### インストールしたAppの中で、設定が必要なものを一気に全て開く
-echo "Open Apps..."
+echo "\e[34mOpen Apps...\e[m"
 open "/Applications/Dropbox.app"
 open "/Applications/1Password.app"
 open "/Applications/Alfred 3.app"

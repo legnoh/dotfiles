@@ -14,53 +14,41 @@ DOT_FILES=(
   zshrc.optional
 ); export DOT_FILES
 
-# ssh directory
-mkdir -p ~/.ssh/conf.d
-touch ~/.ssh/config
+# prepare install dotfile
+mkdir -p ~/.ssh/conf.d ~/.gnupg ~/code/bin ~/code/pkg $DOTPATH
+touch ~/.hushlogin ~/.ssh/config
 ssh-keyscan github.com >> ~/.ssh/known_hosts
 
-# gpg directory
-mkdir -p ~/.gnupg
-
 # install dotfiles by tarball
-mkdir -p $DOTPATH
 curl -L "$DOTFILES_TARBAL" -o /tmp/dotfiles
 tar zxvf /tmp/dotfiles -C $DOTPATH --strip-components 1
-
 for file in ${DOT_FILES[@]}
 do
     ln -fs $DOTPATH/dot/$file ~/.$file
 done
 
+echo -e "\e[35mDo you want to change dotfile remote to git protocol? [y/N]: \e[m" && read REMOTEPROTOCOL
+
 # install muitl os utils & apps
 if [ "$(uname)" == 'Darwin' ]; then
-  echo "OS: macOS"
+  echo "\e[34mOS: macOS\e[m"
   $DOTPATH/etc/macos/setup.sh
 elif [ -e /etc/lsb-release ]; then
-  echo "OS: Ubuntu"
+  echo "\e[34mOS: Ubuntu\e[m"
   $DOTPATH/etc/ubuntu/setup.sh
 elif [ -e /etc/redhat-release ]; then
-  echo "OS: CentOS"
+  echo "\e[34mOS: CentOS\e[m"
   $DOTPATH/etc/centos/setup.sh
 fi
 
-# hashlogin
-touch ~/.hushlogin
-
-# mkdir codepath
-mkdir -p ~/code/bin ~/code/pkg ~/code/src
-
-# install anyenv
+# install anyenv & zplug
 git clone https://github.com/riywo/anyenv ~/.anyenv
-
-# install zplug
 git clone https://github.com/zplug/zplug ~/.zplug
 
 # re-install dotfiles by git
 rm -rf $DOTPATH
 git clone https://github.com/legnoh/dotfiles.git $DOTPATH
-printf "Do you want to change dotfile remote to git protocol? [y/N]: " && read ANS
-if [ "${ANS}" = "y" ]; then
+if [ "${REMOTEPROTOCOL}" = "y" ]; then
     cd $DOTPATH
     git config --unset-all remote.origin.fetch
     git config --unset-all remote.origin.url
@@ -69,5 +57,5 @@ if [ "${ANS}" = "y" ]; then
 fi
 
 # Completed!
-printf "Completed! please execute exit, and 'zplug install && rr && $DOTPATH/etc/setup_anyenv.sh"
-printf "If you use mac, please execute it: open $ZPLUG_HOME/repos/legnoh/materialshell/materialshell-dark.terminal"
+echo -e "\e[32mCompleted! please execute exit, and 'zplug install && rr && $DOTPATH/etc/setup_anyenv.sh\e[m"
+echo -e "\e[35mIf you use mac, please execute it: open $ZPLUG_HOME/repos/legnoh/materialshell/materialshell-dark.terminal\e[m"

@@ -5,7 +5,7 @@ set Prompt "\[#$%>\]"
 
 set timeout 86400
 
-spawn brew bundle --file=~/code/src/github.com/legnoh/dotfiles/pkg/Brewfile.private
+spawn sudo xcodebuild -license accept
 expect {
     "(yes/no)?" {
         send "yes\n"

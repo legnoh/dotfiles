@@ -21,26 +21,22 @@ fi
 brew tap homebrew/bundle
 brew install mas
 
-echo -e "\e[35mPlease signin app store\e[m"
-mas install 420874236
+# install xcode and accept license
+~/code/src/github.com/legnoh/dotfiles/etc/macos/install-xcode.sh $PASSWORD
+~/code/src/github.com/legnoh/dotfiles/etc/macos/accept-license.sh $PASSWORD
 
-# brew, cask, mas(xcode)
+# brew, cask, mas
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-brew.sh $PASSWORD &
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-cask.sh $PASSWORD &
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-mas.sh $PASSWORD &
-~/code/src/github.com/legnoh/dotfiles/etc/macos/install-xcode.sh $PASSWORD &
-wait
-
-# accept Xcode license
-~/code/src/github.com/legnoh/dotfiles/etc/macos/accept-license.sh $PASSWORD &
-wait
-
-# atom, maven, gradle, private-app
-~/code/src/github.com/legnoh/dotfiles/etc/macos/install-atom.sh $PASSWORD &
-~/code/src/github.com/legnoh/dotfiles/etc/macos/install-mvngradle.sh $PASSWORD &
 if [ "${PRIVATE}" = "y" ]; then
     ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-private.sh $PASSWORD &
 fi
+
+wait
+
+# install apm package
+apm install --packages-file ~/code/src/github.com/legnoh/dotfiles/pkg/Atomfile &
 
 # settings
 ## 「ライブラリ」を常時表示
@@ -91,14 +87,12 @@ ssh-keygen -t rsa -f ~/code/src/docker/concourse/keys/worker/worker_key -N ''
 cp ~/code/src/docker/concourse/keys/worker/worker_key.pub ~/code/src/docker/concourse/keys/web/authorized_worker_keys
 cp ~/code/src/docker/concourse/keys/web/tsa_host_key.pub ~/code/src/docker/concourse/keys/worker
 
-wait
-
 ### インストールしたAppの中で、設定が必要なものを一気に全て開く
 echo "\e[34mOpen Apps...\e[m"
 open "/Applications/Dropbox.app"
 open "/Applications/1Password.app"
 open "/Applications/Alfred 3.app"
-open "/Applications/Bartender 2.app"
+open "/Applications/Bartender 3.app"
 open "/Applications/BetterTouchTool.app"
 open "/Applications/CheatSheet.app"
 open "/Applications/Clipy.app"
@@ -111,7 +105,6 @@ open "/Applications/PopClip.app"
 open "/Applications/Slack.app"
 open "/Applications/The Unarchiver.app"
 if [ "${PRIVATE}" = "y" ]; then
-    open "/Applications/Airmail 3.app"
     open "/Applications/BathyScaphe.app"
     open "/Applications/Evernote.app"
     open "/Applications/Kobito.app"

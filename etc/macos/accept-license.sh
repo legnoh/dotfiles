@@ -7,11 +7,7 @@ set timeout 86400
 
 spawn sudo xcodebuild -license accept
 expect {
-    "(yes/no)?" {
-        send "yes\n"
-        exp_continue
-    }
-    "Password:" {
+    "password" {
         send "${PW}\n"
     }
 }

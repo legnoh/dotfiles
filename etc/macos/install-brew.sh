@@ -7,10 +7,6 @@ set timeout 86400
 
 spawn brew bundle --file=~/code/src/github.com/legnoh/dotfiles/pkg/Brewfile
 expect {
-    "(yes/no)?" {
-        send "yes\n"
-        exp_continue
-    }
     "password" {
         send "${PW}\n"
     }

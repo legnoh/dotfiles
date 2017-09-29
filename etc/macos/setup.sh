@@ -22,7 +22,7 @@ brew tap homebrew/bundle
 brew install mas
 
 # install xcode and accept license
-~/code/src/github.com/legnoh/dotfiles/etc/macos/install-xcode.sh $PASSWORD
+mas install 497799835
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/accept-license.sh $PASSWORD
 
 # brew, cask, mas

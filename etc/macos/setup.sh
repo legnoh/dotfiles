@@ -1,12 +1,12 @@
 # read answers
-echo -e "\e[35mDo you need private App? [y/N]: \e[m" && read PRIVATE
-echo -e "\e[35mWhat's your sudo password?: \e[m" && read -sp "Password: " PASSWORD
+echo "Do you need private App? [y/N]: " && read PRIVATE
+echo "What's your sudo password?: " && read -sp "Password: " PASSWORD
 
 # command-line-tools
 if [[ ! -d /Library/Developer/CommandLineTools ]]; then
-    echo "\e[34mInstalling command-line-tools\e[m"
+    echo "Installing command-line-tools"
     xcode-select --install
-    echo -e "\e[35mCompleted? [Y/n]: \e[m" && read ANS
+    echo "Completed? [Y/n]: " && read ANS
     if [ "${ANS}" = "n" ]; then
       echo “Stoped...”
       exit 1;
@@ -15,7 +15,7 @@ fi
 
 # Homebrew
 if test ! $(which brew); then
-    echo "\e[34mInstalling homebrew...\e[m"
+    echo "Installing homebrew..."
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 brew tap homebrew/bundle
@@ -50,7 +50,7 @@ chsh -s /usr/local/bin/zsh
 crontab ~/code/src/github.com/legnoh/dotfiles/pkg/crontab
 
 # Pleiades
-echo "\e[34minstalling Pleiades plugin...\e[m"
+echo "installing Pleiades plugin..."
 curl -L http://ftp.jaist.ac.jp/pub/mergedoc/pleiades/build/stable/pleiades-mac.zip -o /tmp/pleiades.zip
 mkdir /tmp/pleiades
 unzip -q /tmp/pleiades.zip -d /tmp/pleiades
@@ -69,7 +69,7 @@ echo '-javaagent:../Eclipse/plugins/jp.sourceforge.mergedoc.pleiades/pleiades.ja
 rm -rf /tmp/pleiades /tmp/pleiades.zip
 
 # CF CLI PLugins
-echo "\e[34minstalling CF Plugin packages...\e[m"
+echo "installing CF Plugin packages..."
 cf install-plugin -r CF-Community -f "Download Droplet"
 cf install-plugin -r CF-Community -f "Open"
 cf install-plugin -r CF-Community -f "Usage Report"
@@ -80,7 +80,7 @@ cf install-plugin -r CF-Community -f "service-use"
 cf install-plugin -r CF-Community -f "top"
 
 # Concourse
-echo "\e[34mpreparing Concourse Containers....\e[m"
+echo "preparing Concourse Containers...."
 ssh-keygen -t rsa -f ~/code/src/docker/concourse/keys/web/tsa_host_key -N ''
 ssh-keygen -t rsa -f ~/code/src/docker/concourse/keys/web/session_signing_key -N ''
 ssh-keygen -t rsa -f ~/code/src/docker/concourse/keys/worker/worker_key -N ''
@@ -88,7 +88,7 @@ cp ~/code/src/docker/concourse/keys/worker/worker_key.pub ~/code/src/docker/conc
 cp ~/code/src/docker/concourse/keys/web/tsa_host_key.pub ~/code/src/docker/concourse/keys/worker
 
 ### インストールしたAppの中で、設定が必要なものを一気に全て開く
-echo "\e[34mOpen Apps...\e[m"
+echo "Open Apps..."
 open "/Applications/Dropbox.app"
 open "/Applications/1Password.app"
 open "/Applications/Alfred 3.app"

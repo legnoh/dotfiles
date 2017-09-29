@@ -114,3 +114,5 @@ if [ "${PRIVATE}" = "y" ]; then
     open "/Applications/Utilities/Adobe Creative Cloud/ACC/Creative Cloud.app"
     open "/Applications/Wacom Tablet.localized/Wacom Desktop Center.app"
 fi
+
+wait

@@ -20,7 +20,6 @@ cask 'simple-comic'
 cask 'skype'
 cask 'wacom-intuos-tablet'
 
-mas 'Airmail 3', id:918858936
 mas 'Kobito', id:896624060
 mas 'LINE', id:539883307
 mas 'Tweetbot', id:557168941

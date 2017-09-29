@@ -16,7 +16,7 @@ fi
 # Homebrew
 if test ! $(which brew); then
     echo "\e[34mInstalling homebrew...\e[m"
-    ~/code/src/github.com/legnoh/dotfiles/etc/macos/setup-homebrew.sh $PASSWORD
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 brew tap homebrew/bundle
 brew install mas

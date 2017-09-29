@@ -27,17 +27,17 @@ do
     ln -fs $DOTPATH/dot/$file ~/.$file
 done
 
-echo -e "\e[35mDo you want to change dotfile remote to git protocol? [y/N]: \e[m" && read REMOTEPROTOCOL
+echo "Do you want to change dotfile remote to git protocol? [y/N]: " && read REMOTEPROTOCOL
 
 # install muitl os utils & apps
 if [ "$(uname)" == 'Darwin' ]; then
-  echo -e "\e[34mOS: macOS\e[m"
+  echo "==> OS: macOS"
   $DOTPATH/etc/macos/setup.sh
 elif [ -e /etc/lsb-release ]; then
-  echo -e "\e[34mOS: Ubuntu\e[m"
+  echo "==> OS: Ubuntu"
   $DOTPATH/etc/ubuntu/setup.sh
 elif [ -e /etc/redhat-release ]; then
-  echo -e "\e[34mOS: CentOS\e[m"
+  echo "==> OS: CentOS"
   $DOTPATH/etc/centos/setup.sh
 fi
 
@@ -57,5 +57,5 @@ if [ "${REMOTEPROTOCOL}" = "y" ]; then
 fi
 
 # Completed!
-echo -e "\e[32mCompleted! please execute exit, and 'zplug install && rr && $DOTPATH/etc/setup_anyenv.sh\e[m"
-echo -e "\e[35mIf you use mac, please execute it: open $ZPLUG_HOME/repos/legnoh/materialshell/materialshell-dark.terminal\e[m"
+echo "Completed! please execute exit, and 'zplug install && rr && $DOTPATH/etc/setup_anyenv.sh"
+echo "If you use mac, please execute it: open $ZPLUG_HOME/repos/legnoh/materialshell/materialshell-dark.terminal"

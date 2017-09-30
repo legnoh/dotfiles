@@ -1,7 +1,7 @@
 [user]
   name = Ryoma Kai
   email = legknmj@icloud.com
-  signingkey = 21934D4E
+  signingkey = A14AE3FB
 
 [include]
   path = ~/.gitconfig.internal

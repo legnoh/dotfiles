@@ -23,7 +23,8 @@ brew install mas
 
 # install xcode and accept license
 mas install 497799835
-~/code/src/github.com/legnoh/dotfiles/etc/macos/accept-license.sh $PASSWORD
+~/code/src/github.com/legnoh/dotfiles/etc/macos/accept-license.sh $PASSWORD &
+wait
 
 # brew, cask, mas
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-brew.sh $PASSWORD &

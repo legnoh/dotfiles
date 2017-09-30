@@ -3,7 +3,7 @@
 set PW [lindex $argv 0]
 set Prompt "\[#$%>\]"
 
-set timeout 86400
+set timeout 100000000
 
 spawn sudo xcodebuild -license accept
 expect {

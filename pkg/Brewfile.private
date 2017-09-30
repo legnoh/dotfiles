@@ -5,7 +5,6 @@ cask_args appdir: '/Applications'
 
 cask 'adapter'
 cask 'adobe-creative-cloud'
-cask 'audacity'
 # cask 'avast-mac-security'
 cask 'bathyscaphe'
 cask 'clip-studio-paint'

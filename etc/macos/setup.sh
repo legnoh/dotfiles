@@ -27,6 +27,7 @@ mas install 497799835
 wait
 
 # brew, cask, mas
+brew update
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-brew.sh $PASSWORD &
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-cask.sh $PASSWORD &
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-mas.sh $PASSWORD &

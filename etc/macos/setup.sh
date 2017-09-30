@@ -37,6 +37,9 @@ fi
 
 wait
 
+# caskだけ妙に失敗するので、再度手打ちで回す
+brew bundle --file=~/code/src/github.com/legnoh/dotfiles/pkg/Brewfile.cask
+
 # install apm package
 apm install --packages-file ~/code/src/github.com/legnoh/dotfiles/pkg/Atomfile &
 

@@ -37,8 +37,11 @@ fi
 
 wait
 
-# caskだけ妙に失敗するので、再度手打ちで回す
+# caskだけ妙に失敗するので、念を入れて再度手打ちで回す
 brew bundle --file=~/code/src/github.com/legnoh/dotfiles/pkg/Brewfile.cask
+if [ "${PRIVATE}" = "y" ]; then
+    brew bundle --file=~/code/src/github.com/legnoh/dotfiles/pkg/Brewfile.private
+fi
 
 # install apm package
 apm install --packages-file ~/code/src/github.com/legnoh/dotfiles/pkg/Atomfile &

@@ -7,7 +7,7 @@ set timeout 86400
 
 spawn brew bundle --file=~/code/src/github.com/legnoh/dotfiles/pkg/Brewfile.mas
 expect {
-    "password" {
+    "Password:" {
         send "${PW}\n"
     }
 }

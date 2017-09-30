@@ -11,7 +11,7 @@ expect {
         send "yes\n"
         exp_continue
     }
-    "password" {
+    "Password:" {
         send "${PW}\n"
     }
 }

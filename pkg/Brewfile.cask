@@ -14,7 +14,6 @@ cask 'cocoapacketanalyzer'
 cask 'cyberduck'
 cask 'dbeaver-enterprise'
 cask 'docker'
-cask 'dropbox'
 cask 'eclipse-jee'
 cask 'firefox', args: { language: 'ja' }
 cask 'flip4mac'

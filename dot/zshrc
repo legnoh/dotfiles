@@ -17,7 +17,7 @@ zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-completions'
 alias airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport" \
       cfadev='open https://apps.local.pcfdev.io' \
-      cfdev-start="$DOT/etc/pcfdev-start.sh" \
+      cfdev-start="$DOT/etc/macos/pcfdev-start.sh" \
       cfldev='cf login -a api.local.pcfdev.io -u admin -p admin -o pcfdev-org -s pcfdev-space' \
       cflpws='cf login -a api.run.pivotal.io' \
       concs-start="cd $DOT/docker/concourse && docker-compose up -d && sleep 60s && docker start concourse_concourse-web_1 && cd -" \

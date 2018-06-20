@@ -4,7 +4,7 @@ export LANG=ja_JP.UTF-8
        SAVEHIST=1000000000000 \
        PROMPT_COMMAND='history -a; history -r' \
        DOT=$HOME/code/src/github.com/legnoh/dotfiles \
-       PATH=$HOME/.anyenv/bin:$HOME/code/src/github.com/legnoh/dotfiles/bin:/$HOME/.gem/ruby/2.4.0/bin:$PATH \
+       PATH=$HOME/.anyenv/bin:$HOME/code/src/github.com/legnoh/dotfiles/bin:/$HOME/.gem/ruby/2.5.0/bin:$PATH \
        ZPLUG_HOME=$HOME/.zplug
 setopt nonomatch
 source $ZPLUG_HOME/init.zsh

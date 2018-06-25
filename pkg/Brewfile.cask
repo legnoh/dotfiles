@@ -13,6 +13,7 @@ cask 'clipy'
 cask 'cocoapacketanalyzer'
 cask 'cyberduck'
 cask 'dbeaver-enterprise'
+cask 'discord'
 cask 'docker'
 cask 'eclipse-jee'
 cask 'firefox', args: { language: 'ja' }

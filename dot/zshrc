@@ -4,7 +4,8 @@ export LANG=ja_JP.UTF-8
        SAVEHIST=1000000000000 \
        PROMPT_COMMAND='history -a; history -r' \
        DOT=$HOME/code/src/github.com/legnoh/dotfiles \
-       PATH=$HOME/.anyenv/bin:$HOME/code/src/github.com/legnoh/dotfiles/bin:/$HOME/.gem/ruby/2.5.0/bin:$PATH \
+       GOPATH=$HOME/code \
+       PATH=$HOME/.anyenv/bin:$HOME/code/src/github.com/legnoh/dotfiles/bin:/$HOME/.gem/ruby/$(rbenv global|sed -E 's/.[0-9]$/.0/g')/bin:$HOME/code/bin:$PATH \
        ZPLUG_HOME=$HOME/.zplug
 setopt nonomatch
 source $ZPLUG_HOME/init.zsh
@@ -20,9 +21,8 @@ alias airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/C
       cfdev-start="$DOT/etc/macos/pcfdev-start.sh" \
       cfldev='cf login -a api.local.pcfdev.io -u admin -p admin -o pcfdev-org -s pcfdev-space' \
       cflpws='cf login -a api.run.pivotal.io' \
-      concs-start="cd $DOT/docker/concourse && docker-compose up -d && sleep 60s && docker start concourse_concourse-web_1 && cd -" \
       diff="colordiff" \
-      flll="fly login -c $CONCOURSE_EXTERNAL_URL -t l && fly sync -t l" \
+      flkj="fly login -c http://concourse.pf.lkj.io -t l && fly sync -t l" \
       git="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;git" \
       gl="ghq look" \
       gpg="gpg2" \
@@ -43,6 +43,3 @@ source $HOME/.zshrc.optional
 #source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 #source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 zplug load
-export GOPATH=$HOME/code \
-       PATH=$HOME/code/bin:$PATH \
-       CONCOURSE_EXTERNAL_URL=http://`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | head -n 1`:50000

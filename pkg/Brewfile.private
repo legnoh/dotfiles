@@ -1,23 +1,7 @@
-tap 'caskroom/drivers'
-tap 'caskroom/eid'
 tap 'legnoh/etc'
 cask_args appdir: '/Applications'
 
-cask 'adapter'
-cask 'adobe-creative-cloud'
 cask 'avast-security'
 cask 'bathyscaphe'
-cask 'clip-studio-paint'
-cask 'eid-jp'
-cask 'eid-jp-gpki'
-cask 'eid-jp-myna'
 cask 'lyrics-master'
-cask 'nttcom-smart-card-reader-driver'
-cask 'sdformatter'
 cask 'silverlight'
-cask 'skype'
-cask 'wacom-intuos-tablet'
-
-mas 'Kobito', id:896624060
-mas 'LINE', id:539883307
-mas 'Tweetbot', id:557168941

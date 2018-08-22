@@ -97,7 +97,6 @@ cp ~/code/src/docker/concourse/keys/web/tsa_host_key.pub ~/code/src/docker/conco
 
 ### インストールしたAppの中で、設定が必要なものを一気に全て開く
 echo "Open Apps..."
-open "/Applications/Dropbox.app"
 open "/Applications/1Password.app"
 open "/Applications/Alfred 3.app"
 open "/Applications/Bartender 3.app"
@@ -111,15 +110,5 @@ open "/Applications/Kitematic (Beta).app"
 open "/Applications/PopClip.app"
 open "/Applications/Slack.app"
 open "/Applications/The Unarchiver.app"
-if [ "${PRIVATE}" = "y" ]; then
-    open "/Applications/BathyScaphe.app"
-    open "/Applications/Evernote.app"
-    open "/Applications/Kobito.app"
-    open "/Applications/LINE.app"
-    open "/Applications/Skype.app"
-    open "/Applications/Tweetbot.app"
-    open "/Applications/Utilities/Adobe Creative Cloud/ACC/Creative Cloud.app"
-    open "/Applications/Wacom Tablet.localized/Wacom Desktop Center.app"
-fi
 
 wait

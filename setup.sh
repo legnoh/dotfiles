@@ -33,12 +33,6 @@ echo "Do you want to change dotfile remote to git protocol? [y/N]: " && read REM
 if [ "$(uname)" == 'Darwin' ]; then
   echo "==> OS: macOS"
   $DOTPATH/etc/macos/setup.sh
-elif [ -e /etc/lsb-release ]; then
-  echo "==> OS: Ubuntu"
-  $DOTPATH/etc/ubuntu/setup.sh
-elif [ -e /etc/redhat-release ]; then
-  echo "==> OS: CentOS"
-  $DOTPATH/etc/centos/setup.sh
 fi
 
 # install anyenv & zplug

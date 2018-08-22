@@ -30,11 +30,6 @@ $ chmod 400 ~/.ssh/jp.legnoh.ssh && ssh-add -K ~/.ssh/jp.legnoh.ssh
   - **CLI:** `cfldev`
   - **AppsManager:** https://local.pcfdev.io/
 
-- [**Concourse**](http://concourse.ci/docker-repository.html)
-  - `concs-start`
-  - **CLI:** `flll`
-  - **WebUI:** http://localhost:50000/
-
 ### local DB/S3
 - 3306 : [**MariaDB**](https://hub.docker.com/_/mariadb/)
   - `maria-start`

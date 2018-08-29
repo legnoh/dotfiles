@@ -3,4 +3,3 @@ cask_args appdir: '/Applications'
 
 cask 'avast-security'
 cask 'lyrics-master'
-cask 'silverlight'

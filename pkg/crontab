@@ -1,4 +1,6 @@
-55 5 * * * open -a 'Sleep Alarm Clock Pro'
+57 5 * * * osascript -e "set volume 60/100*7"
+58 5 * * * open -a 'Sleep Alarm Clock Pro'
+59 5 * * * osascript -e "tell application \"Sleep Alarm Clock Pro\"" -e "activate" -e "tell application \"System Events\"" -e "keystroke \"f\" using {control down, command down}" -e "end tell" -e "end tell"
 
 0 15 * * * /usr/local/bin/brew update && /usr/local/bin/brew upgrade && /usr/local/bin/brew cleanup
 0 15 * * * /usr/local/bin/mas upgrade

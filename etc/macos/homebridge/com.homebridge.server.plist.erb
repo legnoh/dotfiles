@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>RunAtLoad</key>
+        <true/>
+    <key>KeepAlive</key>
+        <true/>
+    <key>Label</key>
+        <string>com.homebridge.server</string>
+    <key>ProgramArguments</key>
+        <array>
+             <string>/Users/<%= ENV['USER'] %>/.anyenv/envs/ndenv/shims/homebridge</string>
+             <string>-I</string>
+        </array>
+    <key>StandardOutPath</key>
+        <string>/Users/<%= ENV['USER'] %>/.homebridge/logfile.log</string>
+    <key>StandardErrorPath</key>
+        <string>/Users/<%= ENV['USER'] %>/.homebridge/logfile.log</string>
+    <key>EnvironmentVariables</key>
+        <dict>
+        <key>PATH</key>
+            <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/<%= ENV['USER'] %>/.anyenv/envs/ndenv/shims/</string>
+        <key>HOME</key>
+            <string>/Users/<%= ENV['USER'] %></string>
+        </dict>
+</dict>
+</plist>

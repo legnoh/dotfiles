@@ -57,25 +57,6 @@ chsh -s /usr/local/bin/zsh
 ## homebrewのupdateとupgradeを定期時間で常にやるようにする
 crontab ~/code/src/github.com/legnoh/dotfiles/pkg/crontab
 
-# Pleiades
-echo "installing Pleiades plugin..."
-curl -L http://ftp.jaist.ac.jp/pub/mergedoc/pleiades/build/stable/pleiades-mac.zip -o /tmp/pleiades.zip
-mkdir /tmp/pleiades
-unzip -q /tmp/pleiades.zip -d /tmp/pleiades
-
-## eclipse
-cp -r /tmp/pleiades/features/* /Applications/Eclipse\ JEE.app/Contents/Eclipse/features/
-cp -r /tmp/pleiades/plugins/* /Applications/Eclipse\ JEE.app/Contents/Eclipse/plugins/
-echo '-Xverify:none' >> /Applications/Eclipse\ JEE.app/Contents/Eclipse/eclipse.ini
-echo '-javaagent:../Eclipse/plugins/jp.sourceforge.mergedoc.pleiades/pleiades.jar' >> /Applications/Eclipse\ JEE.app/Contents/Eclipse/eclipse.ini
-
-## STS
-cp -r /tmp/pleiades/features/* /Applications/STS.app/Contents/Eclipse/features/
-cp -r /tmp/pleiades/plugins/* /Applications/STS.app/Contents/Eclipse/plugins/
-echo '-Xverify:none' >> /Applications/STS.app/Contents/Eclipse/STS.ini
-echo '-javaagent:../Eclipse/plugins/jp.sourceforge.mergedoc.pleiades/pleiades.jar=default.splash' >> /Applications/STS.app/Contents/Eclipse/STS.ini
-rm -rf /tmp/pleiades /tmp/pleiades.zip
-
 # CF CLI PLugins
 echo "installing CF Plugin packages..."
 cf install-plugin -r CF-Community -f "Download Droplet"
@@ -86,14 +67,6 @@ cf install-plugin -r CF-Community -f "fastpush"
 cf install-plugin -r CF-Community -f "open"
 cf install-plugin -r CF-Community -f "service-use"
 cf install-plugin -r CF-Community -f "top"
-
-# Concourse
-echo "preparing Concourse Containers...."
-ssh-keygen -t rsa -f ~/code/src/docker/concourse/keys/web/tsa_host_key -N ''
-ssh-keygen -t rsa -f ~/code/src/docker/concourse/keys/web/session_signing_key -N ''
-ssh-keygen -t rsa -f ~/code/src/docker/concourse/keys/worker/worker_key -N ''
-cp ~/code/src/docker/concourse/keys/worker/worker_key.pub ~/code/src/docker/concourse/keys/web/authorized_worker_keys
-cp ~/code/src/docker/concourse/keys/web/tsa_host_key.pub ~/code/src/docker/concourse/keys/worker
 
 ### インストールしたAppの中で、設定が必要なものを一気に全て開く
 echo "Open Apps..."

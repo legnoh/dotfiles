@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>RunAtLoad</key>
+        <true/>
+    <key>KeepAlive</key>
+        <true/>
+    <key>Label</key>
+        <string>com.cecclient.server</string>
+    <key>ProgramArguments</key>
+        <array>
+             <string>/usr/local/bin/cec-client</string>
+             <string>-d</string>
+             <string>1</string>
+        </array>
+    <key>StandardOutPath</key>
+        <string>/Users/<%= ENV['USER'] %>/.homebridge/cec-client.log</string>
+    <key>StandardErrorPath</key>
+        <string>/Users/<%= ENV['USER'] %>/.homebridge/cec-client.log</string>
+    <key>EnvironmentVariables</key>
+        <dict>
+        <key>PATH</key>
+            <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>HOME</key>
+            <string>/Users/<%= ENV['USER'] %></string>
+        </dict>
+</dict>
+</plist>

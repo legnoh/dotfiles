@@ -7,7 +7,7 @@ ndenv rehash
 
 echo "#### Install homebridge..."
 npm -g install homebridge --unsafe-perm
-npm -g install homebridge-cmdswitch2
+npm -g install homebridge-itunes
 exec $SHELL -l
 
 # generate config.json and plist

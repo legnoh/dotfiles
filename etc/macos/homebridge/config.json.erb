@@ -6,18 +6,6 @@
     "pin": "<%= ENV['HOMEBRIDGE_PIN'] %>"
   },
   "platforms": [{
-    "platform": "cmdSwitch2",
-    "name": "CMD Switch",
-    "switches": [{
-       "name" : "Display",
-       "on_cmd": "echo 'on 0' | cec-client -d 1 -s",
-       "off_cmd": "echo 'standby 0' | cec-client -d 1 -s",
-       "state_cmd": "echo 'pow 0' | cec-client -d 1 -s | tail -1 | grep -p 'power status: on'",
-       "polling": true,
-       "interval": 60,
-       "timeout": 10000,
-       "manufacturer": "IODATA",
-       "model": "LCD-M4K552XDB"
-    }]
+        "platform": "iTunes"
   }]
 }

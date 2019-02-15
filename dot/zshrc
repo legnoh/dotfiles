@@ -11,7 +11,7 @@ source $ZPLUG_HOME/init.zsh
 zplug 'legnoh/materialshell', as:theme
 zplug 'felixr/docker-zsh-completion'
 zplug 'frodenas/bosh-zsh-autocomplete-plugin'
-zplug 'sbodiu-pivotal/fly-zsh-autocomplete-plugin'
+zplug 'legnoh/fly-zsh-autocomplete-plugin'
 zplug 'psprint/zsh-navigation-tools'
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-completions'
@@ -21,18 +21,16 @@ alias airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/C
       cfldev='cf login -a api.local.pcfdev.io -u admin -p admin -o pcfdev-org -s pcfdev-space' \
       cflpws='cf login -a api.run.pivotal.io' \
       diff="colordiff" \
-      fll="fly -t l login -c http://127.0.0.1:8080 -u test -p test && fly -t l sync" \
+      fll="fly -t l login -c http://127.0.0.1:8080 -b && fly -t l sync" \
       git="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;git" \
       gl="ghq look" \
       gpg="gpg2" \
       knife="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;knife" \
       ls="ls -alhG" \
-      concourse-start="cd $DOT/docker/concourse && docker-compose up -d && cd -" \
-      maria-start="cd $DOT/docker/mariadb && docker-compose up -d && cd -" \
-      minio-start="cd $DOT/docker/minio && docker-compose up -d && cd -" \
-      pstgr-start="cd $DOT/docker/postgres && docker-compose up -d && cd -" \
-      redis-start="cd $DOT/docker/redis && docker-compose up -d && cd -" \
-      rmt="rmtrash" \
+      concourse-up="docker-compose -p concourse -f $DOT/docker/concourse/docker-compose.yml up -d && sleep 15 && fll && open http://127.0.0.1:8080/" \
+      concourse-start="docker-compose -p concourse -f $DOT/docker/concourse/docker-compose.yml start && sleep 1 && fll && open http://127.0.0.1:8080/" \
+      concourse-stop="docker-compose -p concourse -f $DOT/docker/concourse/docker-compose.yml stop" \
+      concourse-down="docker-compose -p concourse -f $DOT/docker/concourse/docker-compose.yml down" \
       rr="source ~/.zshrc" \
       scp="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;scp" \
       ssh="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;ssh"

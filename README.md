@@ -14,9 +14,16 @@ $ bash -c "$(curl -L dot.lkj.io)"
 - Jetbrains IDE
 - docker platforms
 
-### gpg setting
+### manual setting
 
 - Open GPG Keychain , drop gpg file, and change to "Ultimate"
+- Call it later below
+
+```sh
+open /tmp/PasteAndMatch.popclipextz
+open /tmp/GoogleTranslate.popclipextz
+open /tmp/unixtime-jp.popclipext
+```
 
 ### essential
 

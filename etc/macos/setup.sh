@@ -35,14 +35,14 @@ EOS
 
 expect <<EOS &
 set timeout 100000000
-spawn brew bundle --file=~/code/src/github.com/legnoh/dotfiles/pkg/Brewfile.private
+spawn brew bundle --file=~/code/src/github.com/legnoh/dotfiles/pkg/Brewfile.mas
 expect "Password:" { send "${PASSWORD}\n" }
 EOS
 
 if [ "${PRIVATE}" = "y" ]; then
     expect <<EOS &
     set timeout 100000000
-    spawn brew bundle --file=~/code/src/github.com/legnoh/dotfiles/pkg/Brewfile.mas
+    spawn brew bundle --file=~/code/src/github.com/legnoh/dotfiles/pkg/Brewfile.private
     expect "Password:" { send "${PASSWORD}\n" }
     EOS
 fi

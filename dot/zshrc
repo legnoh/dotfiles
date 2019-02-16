@@ -6,8 +6,7 @@ export PROMPT_COMMAND='history -a; history -r'
 export ZPLUG_HOME=/usr/local/opt/zplug
 export DOT=$HOME/code/src/github.com/legnoh/dotfiles
 export GOPATH=$HOME/code
-export RUBY_VERSION=$($HOME/.anyenv/envs/rbenv/bin/rbenv global|sed -E 's/.[0-9]$/.0/g')
-export PATH=$HOME/.anyenv/bin:$DOT/bin:/$HOME/.gem/ruby/$RUBY_VERSION/bin:$GOPATH/bin:$PATH
+export PATH=$DOT/bin:$GOPATH/bin:$PATH
 
 source $ZPLUG_HOME/init.zsh
 zstyle ":zplug:tag" depth 1
@@ -24,8 +23,8 @@ zplug 'zsh-users/zsh-completions'
 zplug "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc", from:local
 zplug "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc", from:local
 
-alias cflpws='cf login -a api.run.pivotal.io'
-alias fll="fly -t l login -c http://127.0.0.1:8080 -b && fly -t l sync && open http://127.0.0.1:8080/"
+alias cflpws='cf l -a api.run.pivotal.io'
+alias fll="fly -t l l -c http://127.0.0.1:8080 -b && fly -t l s && open http://127.0.0.1:8080/"
 alias gl="ghq look"
 alias gpg="gpg2"
 alias ls="ls -alhG"

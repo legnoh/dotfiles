@@ -1,34 +1,22 @@
 dotfiles
 ========
 
-٩( 'ω' )و  MY DOTFILES  ٩( 'ω' )و
+:innocent:  MY DOTFILES  :sunglasses:
 
 ```
-$ bash -c "$(curl -L l.cfapps.io)"
+$ bash -c "$(curl -L dot.lkj.io)"
 ```
 
-## infomation
-- zsh + zplug, Jetbrains IDEs
-- docker + docker-compose
-- anyenv
+## goods
 
-### ssh
-```bash
-$ open ~/.ssh
-$ chmod 400 ~/.ssh/jp.legnoh.ssh && ssh-add -K ~/.ssh/jp.legnoh.ssh
-```
+- zsh + zplug
+- anyenv language control
+- Jetbrains IDE
+- docker platforms
+
+### gpg setting
+
 - Open GPG Keychain , drop gpg file, and change to "Ultimate"
-
-### manual install
-- [**BTT Settings**](https://raw.githubusercontent.com/legnoh/dotfiles/master/pkg/btt-presets.json)
-  - `open ~/code/src/github.com/legnoh/dotfiles/pkg/`
-- [**PopClip**](http://pilotmoon.com/popclip/extensions/)
-  - Open Link
-  - Search
-  - Copy
-  - [Paste and Match Style](http://pilotmoon.com/popclip/extensions/ext/PasteAndMatch.popclipextz)
-  - [Google Translate](http://pilotmoon.com/popclip/extensions/ext/GoogleTranslate.popclipextz)
-  - [UnixTimeJP](https://github.com/legnoh/unixtime-jp.popclipext/releases/download/v1.0/unixtime-jp.zip)
 
 ### essential
 

@@ -17,11 +17,13 @@ fi
 if test ! $(which brew); then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew tap homebrew/bundle
+    brew tap caskroom/cask
 fi
 
 # install brew packages
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-brew.sh $PASSWORD &
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-cask.sh $PASSWORD &
+~/code/src/github.com/legnoh/dotfiles/etc/macos/install-jetbrains.sh $PASSWORD &
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-mas.sh $PASSWORD &
 if [ "${PRIVATE}" = "y" ]; then
     ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-private.sh $PASSWORD &

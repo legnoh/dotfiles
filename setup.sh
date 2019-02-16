@@ -35,6 +35,7 @@ rm -rf $DOT
 git clone $DOT_GITHUB $DOT
 
 # install *env
+/usr/local/bin/anyenv install --init
 eval "$(/usr/local/bin/anyenv init -)"
 /usr/local/bin/anyenv install jenv
 /usr/local/bin/anyenv install ndenv

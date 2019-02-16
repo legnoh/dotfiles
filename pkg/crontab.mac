@@ -1,0 +1,5 @@
+57 5 * * * osascript -e "set volume 60/100*7"
+
+0 15 * * * /usr/local/bin/brew update && /usr/local/bin/brew cleanup
+0 15 * * * /usr/local/bin/mas upgrade
+0 16 * * * rm -rf /var/mail/$USER

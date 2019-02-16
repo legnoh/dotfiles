@@ -1,23 +1,21 @@
 #!/bin/bash
+
 DOT=~/code/src/github.com/legnoh/dotfiles; export DOT
 DOT_GITHUB="https://github.com/legnoh/dotfiles.git"; export DOT_GITHUB
 DOT_TARBAL="https://codeload.github.com/legnoh/dotfiles/tar.gz/master"; export DOT_TARBAL
 DOT_FILES=(
-  gemrc
-  gitconfig
-  gitconfig.internal
   gnupg/gpg.conf
   gnupg/gpg-agent.conf
-  ssh/conf.d/01.basic.conf
+  gitconfig
+  gitconfig.optional
+  gitignore
   vimrc
   zshrc
   zshrc.optional
 ); export DOT_FILES
 
 # prepare install dotfile
-mkdir -p ~/.ssh/conf.d ~/.gnupg ~/code/bin ~/code/pkg $DOT
-touch ~/.hushlogin ~/.ssh/config
-ssh-keyscan github.com >> ~/.ssh/known_hosts
+mkdir -p ~/.gnupg ~/code/bin ~/code/pkg $DOT
 
 # install dotfiles by tarball
 curl -L "$DOT_TARBAL" -o /tmp/dotfiles
@@ -27,31 +25,21 @@ do
     ln -fs $DOT/dot/$file ~/.$file
 done
 
-echo "Do you want to change dotfile remote to git protocol? [y/N]: " && read REMOTEPROTOCOL
-
 # install muitl os utils & apps
 if [ "$(uname)" == 'Darwin' ]; then
-  echo "==> OS: macOS"
   $DOT/etc/macos/setup.sh
 fi
 
-# re-install dotfiles by git
+# re-install dotfiles by https
 rm -rf $DOT
-git clone https://github.com/legnoh/dotfiles.git $DOT
-if [ "${REMOTEPROTOCOL}" = "y" ]; then
-    cd $DOT
-    git config --unset-all remote.origin.fetch
-    git config --unset-all remote.origin.url
-    git remote add origin git@github.com:legnoh/dotfiles.git
-    cd -
-fi
+git clone $DOT_GITHUB $DOT
 
 # install *env
-eval "$(~/.anyenv/bin/anyenv init -)"
-~/.anyenv/bin/anyenv install jenv
-~/.anyenv/bin/anyenv install ndenv
-~/.anyenv/bin/anyenv install phpenv
-~/.anyenv/bin/anyenv install pyenv
-~/.anyenv/bin/anyenv install rbenv
+eval "$(/usr/local/bin/anyenv init -)"
+/usr/local/bin/anyenv install jenv
+/usr/local/bin/anyenv install ndenv
+/usr/local/bin/anyenv install phpenv
+/usr/local/bin/anyenv install pyenv
+/usr/local/bin/anyenv install rbenv
 
 exec $SHELL -l

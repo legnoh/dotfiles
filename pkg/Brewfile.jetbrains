@@ -1,0 +1,9 @@
+cask_args appdir: '/Applications'
+
+cask 'datagrip'
+cask 'goland'
+cask 'intellij-idea'
+cask 'jetbrains-toolbox'
+cask 'phpstorm'
+cask 'pycharm'
+cask 'webstorm'

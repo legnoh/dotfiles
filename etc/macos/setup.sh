@@ -43,7 +43,7 @@ crontab ~/code/src/github.com/legnoh/dotfiles/pkg/crontab.mac
 cf install-plugin -r CF-Community -f "cfdev"
 
 ## BetterTouchTool
-open -a BetterTouchTool ~/code/src/github.com/legnoh/dotfiles/pkg/Default.bttpreset
+open ~/code/src/github.com/legnoh/dotfiles/pkg/Default.bttpreset
 
 ## Popclip
 curl -L http://pilotmoon.com/popclip/extensions/ext/PasteAndMatch.popclipextz -o /tmp/PasteAndMatch.popclipextz

@@ -33,8 +33,8 @@ wait
 # settings
 
 ## change shell to zsh
-~/code/src/github.com/legnoh/dotfiles/etc/macos/add-etcshell-zsh.sh $PASSWORD &
-sudo sh -c 'echo "¥n/usr/local/bin/zsh" >> /etc/shells'
+~/code/src/github.com/legnoh/dotfiles/etc/macos/add-etcshells.sh $PASSWORD &
+wait
 chsh -s /usr/local/bin/zsh
 
 ## crontab

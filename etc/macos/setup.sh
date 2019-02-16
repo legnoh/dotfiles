@@ -33,6 +33,7 @@ wait
 # settings
 
 ## change shell to zsh
+~/code/src/github.com/legnoh/dotfiles/etc/macos/add-etcshell-zsh.sh $PASSWORD &
 sudo sh -c 'echo "¥n/usr/local/bin/zsh" >> /etc/shells'
 chsh -s /usr/local/bin/zsh
 
@@ -40,7 +41,6 @@ chsh -s /usr/local/bin/zsh
 crontab ~/code/src/github.com/legnoh/dotfiles/pkg/crontab.mac
 
 ## CF CLI plugins
-echo "installing CF Plugin packages..."
 cf install-plugin -r CF-Community -f "cfdev"
 
 ## BetterTouchTool
@@ -50,9 +50,11 @@ open -a BetterTouchTool ~/code/src/github.com/legnoh/dotfiles/pkg/Default.bttpre
 curl -L http://pilotmoon.com/popclip/extensions/ext/PasteAndMatch.popclipextz -o /tmp/PasteAndMatch.popclipextz
 curl -L http://pilotmoon.com/popclip/extensions/ext/GoogleTranslate.popclipextz -o /tmp/GoogleTranslate.popclipextz
 curl -L https://github.com/legnoh/unixtime-jp.popclipext/releases/download/v1.0/unixtime-jp.zip -o /tmp/unixtime-jp.zip
-open /tmp/PasteAndMatch.popclipextz
-open /tmp/GoogleTranslate.popclipextz
-unzip /tmp/unixtime-jp.zip && open unixtime-jp.popclipext
+unzip /tmp/unixtime-jp.zip -d /tmp
+echo "please call it later:"
+echo "open /tmp/PasteAndMatch.popclipextz"
+echo "open /tmp/GoogleTranslate.popclipextz"
+echo "open /tmp/unixtime-jp.popclipext"
 
 # other gui app setting
 open "/Applications/1Password.app"
@@ -62,6 +64,5 @@ open "/Applications/Clipy.app"
 open "/Applications/Docker.app"
 open "/Applications/Google Chrome.app"
 open "/Applications/GPG Keychain.app"
-open "/Applications/PopClip.app"
 open "/Applications/Slack.app"
 open "/Applications/The Unarchiver.app"

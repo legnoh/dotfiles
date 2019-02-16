@@ -2,7 +2,7 @@
 ========
 
 ```
-$ bash -c "$(curl -L dot.lkj.io)"
+bash -c "$(curl -L dot.lkj.io)"
 ```
 
 ## goods

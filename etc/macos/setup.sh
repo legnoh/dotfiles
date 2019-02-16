@@ -21,7 +21,12 @@ if test ! $(which brew); then
 fi
 
 # install brew packages
-~/code/src/github.com/legnoh/dotfiles/etc/macos/install-brew.sh $PASSWORD &
+/usr/bin/expect <<EOD
+set timeout 100000000
+spawn brew bundle --file=~/code/src/github.com/legnoh/dotfiles/pkg/Brewfile
+expect "Password:" { send "${PASSWORD}\n" }
+EOD &
+
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-cask.sh $PASSWORD &
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-mas.sh $PASSWORD &
 if [ "${PRIVATE}" = "y" ]; then

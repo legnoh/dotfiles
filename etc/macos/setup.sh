@@ -21,28 +21,28 @@ if test ! $(which brew); then
 fi
 
 # install brew packages
-expect <<EOS &
+/usr/bin/expect <<EOS &
 set timeout 100000000
-spawn brew bundle --file=~/code/src/github.com/legnoh/dotfiles/pkg/Brewfile
+spawn brew bundle --file=$HOME/code/src/github.com/legnoh/dotfiles/pkg/Brewfile
 expect "Password:" { send "${PASSWORD}\n" }
 EOS
 
-expect <<EOS &
+/usr/bin/expect <<EOS &
 set timeout 100000000
-spawn brew bundle --file=~/code/src/github.com/legnoh/dotfiles/pkg/Brewfile.cask
+spawn brew bundle --file=$HOME/code/src/github.com/legnoh/dotfiles/pkg/Brewfile.cask
 expect "Password:" { send "${PASSWORD}\n" }
 EOS
 
-expect <<EOS &
+/usr/bin/expect <<EOS &
 set timeout 100000000
-spawn brew bundle --file=~/code/src/github.com/legnoh/dotfiles/pkg/Brewfile.mas
+spawn brew bundle --file=$HOME/code/src/github.com/legnoh/dotfiles/pkg/Brewfile.mas
 expect "Password:" { send "${PASSWORD}\n" }
 EOS
 
 if [ "${PRIVATE}" = "y" ]; then
-    expect <<EOS &
+    /usr/bin/expect <<EOS &
     set timeout 100000000
-    spawn brew bundle --file=~/code/src/github.com/legnoh/dotfiles/pkg/Brewfile.private
+    spawn brew bundle --file=$HOME/code/src/github.com/legnoh/dotfiles/pkg/Brewfile.private
     expect "Password:" { send "${PASSWORD}\n" }
     EOS
 fi

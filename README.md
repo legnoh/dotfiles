@@ -15,6 +15,7 @@ bash -c "$(curl -L dot.lkj.io)"
 ### manual setting
 
 - Open GPG Keychain , drop gpg file, and change to "Ultimate"
+- [minikube/drivers\.md at master · kubernetes/minikube](https://github.com/kubernetes/minikube/blob/master/docs/drivers.md#hyperkit-driver)
 - Call it later below
 
 ```sh

@@ -1,3 +1,4 @@
+brew 'mas'
 mas '1 Password', id:443987910
 mas 'Pixelmater Pro', id:1289583905
 mas 'Keynote', id:409183694

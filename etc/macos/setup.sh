@@ -1,3 +1,5 @@
+DOT=~/code/src/github.com/legnoh/dotfiles; export DOT
+
 # read answers
 echo "Do you need private App? [y/N]: " && read PRIVATE
 echo "What's your sudo password?: " && read -sp "Password: " PASSWORD
@@ -21,36 +23,36 @@ if test ! $(which brew); then
 fi
 
 # install brew packages
-expect $PASSWORD $HOME<<EOS &
+expect $PASSWORD $DOT <<EOS &
 set timeout 100000000
 set PW [lindex $argv 0]
-set HOME [lindex $argv 1]
-spawn brew bundle --file=${HOME}/code/src/github.com/legnoh/dotfiles/pkg/Brewfile
+set DOT [lindex $argv 1]
+spawn brew bundle --file=$DOT/pkg/Brewfile
 expect "Password:" { send "${PW}\n" }
 EOS
 
-expect $PASSWORD $HOME<<EOS &
+expect $PASSWORD $DOT <<EOS &
 set timeout 100000000
 set PW [lindex $argv 0]
-set HOME [lindex $argv 1]
-spawn brew bundle --file=${HOME}/code/src/github.com/legnoh/dotfiles/pkg/Brewfile.cask
+set DOT [lindex $argv 1]
+spawn brew bundle --file=$DOT/pkg/Brewfile.cask
 expect "Password:" { send "${PW}\n" }
 EOS
 
-expect $PASSWORD $HOME<<EOS &
+expect $PASSWORD $DOT <<EOS &
 set timeout 100000000
 set PW [lindex $argv 0]
-set HOME [lindex $argv 1]
-spawn brew bundle --file=${HOME}/code/src/github.com/legnoh/dotfiles/pkg/Brewfile.mas
+set DOT [lindex $argv 1]
+spawn brew bundle --file=$DOT/pkg/Brewfile.mas
 expect "Password:" { send "${PW}\n" }
 EOS
 
 if [ "${PRIVATE}" = "y" ]; then
-    expect $PASSWORD $HOME<<EOS &
+    expect $PASSWORD $DOT <<EOS &
     set timeout 100000000
     set PW [lindex $argv 0]
-    set HOME [lindex $argv 1]
-    spawn brew bundle --file=${HOME}/code/src/github.com/legnoh/dotfiles/pkg/Brewfile.private
+    set DOT [lindex $argv 1]
+    spawn brew bundle --file=$DOT/pkg/Brewfile.private
     expect "Password:" { send "${PW}\n" }
     EOS
 fi

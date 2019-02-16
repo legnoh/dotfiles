@@ -44,7 +44,7 @@ echo "installing CF Plugin packages..."
 cf install-plugin -r CF-Community -f "cfdev"
 
 ## BetterTouchTool
-open -a BetterTouchTool $DOT/pkg/Default.bttpreset
+open -a BetterTouchTool ~/code/src/github.com/legnoh/dotfiles/pkg/Default.bttpreset
 
 ## Popclip
 curl -L http://pilotmoon.com/popclip/extensions/ext/PasteAndMatch.popclipextz -o /tmp/PasteAndMatch.popclipextz

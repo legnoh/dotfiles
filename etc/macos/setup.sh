@@ -23,38 +23,11 @@ if test ! $(which brew); then
 fi
 
 # install brew packages
-expect $PASSWORD $DOT <<EOS &
-set timeout 100000000
-set PW [lindex $argv 0]
-set DOT [lindex $argv 1]
-spawn brew bundle --file=$DOT/pkg/Brewfile
-expect "Password:" { send "${PW}\n" }
-EOS
-
-expect $PASSWORD $DOT <<EOS &
-set timeout 100000000
-set PW [lindex $argv 0]
-set DOT [lindex $argv 1]
-spawn brew bundle --file=$DOT/pkg/Brewfile.cask
-expect "Password:" { send "${PW}\n" }
-EOS
-
-expect $PASSWORD $DOT <<EOS &
-set timeout 100000000
-set PW [lindex $argv 0]
-set DOT [lindex $argv 1]
-spawn brew bundle --file=$DOT/pkg/Brewfile.mas
-expect "Password:" { send "${PW}\n" }
-EOS
-
+~/code/src/github.com/legnoh/dotfiles/etc/macos/install-brew.sh $PASSWORD &
+~/code/src/github.com/legnoh/dotfiles/etc/macos/install-cask.sh $PASSWORD &
+~/code/src/github.com/legnoh/dotfiles/etc/macos/install-mas.sh $PASSWORD &
 if [ "${PRIVATE}" = "y" ]; then
-    expect $PASSWORD $DOT <<EOS &
-    set timeout 100000000
-    set PW [lindex $argv 0]
-    set DOT [lindex $argv 1]
-    spawn brew bundle --file=$DOT/pkg/Brewfile.private
-    expect "Password:" { send "${PW}\n" }
-    EOS
+    ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-private.sh $PASSWORD &
 fi
 wait
 

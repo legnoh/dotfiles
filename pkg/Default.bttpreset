@@ -130,7 +130,7 @@
     "BTTTouchBarVisible" : false,
     "BTTTouchBarUseMonoSpacedFont" : true
   },
-  "BTTPresetUUID" : "8DB99C60-1FFF-4380-A26A-F3F910A3A701",
+  "BTTPresetUUID" : "AC291826-2EC7-4F22-B39E-973D9D1CD058",
   "BTTPresetContent" : [
     {
       "BTTAppBundleIdentifier" : "com.apple.iWork.Numbers",
@@ -531,7 +531,7 @@
           "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
           "BTTPredefinedActionType" : -1,
           "BTTPredefinedActionName" : "No Action",
-          "BTTShortcutToSend" : "59,58,55,19",
+          "BTTShortcutToSend" : "58,55,19",
           "BTTEnabled2" : 1,
           "BTTUUID" : "2F3B8F33-4C29-49B2-83F9-5935956593AD",
           "BTTEnabled" : 1,

@@ -1,5 +1,3 @@
-DOT=~/code/src/github.com/legnoh/dotfiles; export DOT
-
 # read answers
 echo "Do you need private App? [y/N]: " && read PRIVATE
 echo "What's your sudo password?: " && read -sp "Password: " PASSWORD

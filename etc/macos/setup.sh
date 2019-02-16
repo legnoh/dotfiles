@@ -15,7 +15,7 @@ fi
 
 # install Homebrew, bundle, mas
 if test ! $(which brew); then
-    ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-homebrew.sh $PASSWORD
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew tap homebrew/bundle
     brew install mas
 fi

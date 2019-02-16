@@ -29,7 +29,7 @@ spawn brew bundle --file=${HOME}/code/src/github.com/legnoh/dotfiles/pkg/Brewfil
 expect "Password:" { send "${PW}\n" }
 EOS
 
-expect $PASSWORD <<EOS &
+expect $PASSWORD $HOME<<EOS &
 set timeout 100000000
 set PW [lindex $argv 0]
 set HOME [lindex $argv 1]
@@ -37,7 +37,7 @@ spawn brew bundle --file=${HOME}/code/src/github.com/legnoh/dotfiles/pkg/Brewfil
 expect "Password:" { send "${PW}\n" }
 EOS
 
-expect $PASSWORD <<EOS &
+expect $PASSWORD $HOME<<EOS &
 set timeout 100000000
 set PW [lindex $argv 0]
 set HOME [lindex $argv 1]
@@ -46,7 +46,7 @@ expect "Password:" { send "${PW}\n" }
 EOS
 
 if [ "${PRIVATE}" = "y" ]; then
-    expect $PASSWORD <<EOS &
+    expect $PASSWORD $HOME<<EOS &
     set timeout 100000000
     set PW [lindex $argv 0]
     set HOME [lindex $argv 1]

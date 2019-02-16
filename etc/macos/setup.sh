@@ -21,16 +21,30 @@ if test ! $(which brew); then
 fi
 
 # install brew packages
-/usr/bin/expect <<EOD
+expect <<EOS &
 set timeout 100000000
 spawn brew bundle --file=~/code/src/github.com/legnoh/dotfiles/pkg/Brewfile
 expect "Password:" { send "${PASSWORD}\n" }
-EOD &
+EOS
 
-~/code/src/github.com/legnoh/dotfiles/etc/macos/install-cask.sh $PASSWORD &
-~/code/src/github.com/legnoh/dotfiles/etc/macos/install-mas.sh $PASSWORD &
+expect <<EOS &
+set timeout 100000000
+spawn brew bundle --file=~/code/src/github.com/legnoh/dotfiles/pkg/Brewfile.cask
+expect "Password:" { send "${PASSWORD}\n" }
+EOS
+
+expect <<EOS &
+set timeout 100000000
+spawn brew bundle --file=~/code/src/github.com/legnoh/dotfiles/pkg/Brewfile.mas
+expect "Password:" { send "${PASSWORD}\n" }
+EOS
+
 if [ "${PRIVATE}" = "y" ]; then
-    ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-private.sh $PASSWORD &
+    expect <<EOS &
+    set timeout 100000000
+    spawn brew bundle --file=~/code/src/github.com/legnoh/dotfiles/pkg/Brewfile.mas
+    expect "Password:" { send "${PASSWORD}\n" }
+    EOS
 fi
 wait
 

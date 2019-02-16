@@ -20,6 +20,7 @@ if test ! $(which brew); then
 fi
 
 # brew, cask, mas
+brew tap homebrew/bundle
 brew install mas
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-brew.sh $PASSWORD &
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-cask.sh $PASSWORD &

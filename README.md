@@ -1,7 +1,5 @@
-dotfiles
+:innocent: dotfiles :sunglasses:
 ========
-
-:innocent:  MY DOTFILES  :sunglasses:
 
 ```
 $ bash -c "$(curl -L dot.lkj.io)"

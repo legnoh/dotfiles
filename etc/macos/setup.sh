@@ -2,7 +2,7 @@
 echo "Do you need private App? [y/N]: " && read PRIVATE
 echo "What's your sudo password?: " && read -sp "Password: " PASSWORD
 
-# command-line-tools
+# install command-line-tools
 if [[ ! -d /Library/Developer/CommandLineTools ]]; then
     echo "Installing command-line-tools"
     xcode-select --install
@@ -13,15 +13,14 @@ if [[ ! -d /Library/Developer/CommandLineTools ]]; then
     fi
 fi
 
-# Homebrew
+# install Homebrew, bundle, mas
 if test ! $(which brew); then
-    echo "Installing homebrew..."
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-homebrew.sh $PASSWORD
+    brew tap homebrew/bundle
+    brew install mas
 fi
 
-# brew, cask, mas
-brew tap homebrew/bundle
-brew install mas
+# install brew packages
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-brew.sh $PASSWORD &
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-cask.sh $PASSWORD &
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-mas.sh $PASSWORD &
@@ -33,8 +32,7 @@ wait
 # settings
 
 ## change shell to zsh
-~/code/src/github.com/legnoh/dotfiles/etc/macos/add-etcshells.sh $PASSWORD &
-wait
+~/code/src/github.com/legnoh/dotfiles/etc/macos/add-etcshells.sh $PASSWORD
 chsh -s /usr/local/bin/zsh
 
 ## crontab

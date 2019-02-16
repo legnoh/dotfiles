@@ -1,8 +1,9 @@
-[user]
-  name = Ryoma Kai
-  email = legknmj@icloud.com
-  signingkey = A14AE3FB
-  
+[core]
+  autocrlf = input # CRLFを自動変換
+  editor = vim
+  excludesfile = ~/code/src/github.com/legnoh/dotfiles/dot/gitignore
+  quotepath = false
+
 [color]
   status = auto
   diff = auto
@@ -10,23 +11,11 @@
   interactive = auto
   grep = auto
 
-[core]
-  autocrlf = input # CRLFを自動変換
-  editor = vim
-  excludesfile = ~/code/src/github.com/legnoh/dotfiles/dot/gitignore
-  quotepath = false
-
-[gpg]
-  program = /usr/local/MacGPG2/bin/gpg2
-
-[commit]
-  gpgsign = true
-
 [pull]
   rebase = true
 
 [push]
-  default = current # defaultのpush先は今いるブランチのみ
+  default = current
 
 [merge]
   tool = vimdiff
@@ -49,11 +38,17 @@
   dc = diff --cached       # addされているものとのdiff
   d1 = diff HEAD~          # HEADから1つ前とdiff
 
+[ghq]
+  root = ~/code/src
+
 [http]
   sslVerify = true
 
-[ghq]
-  root = ~/code/src
+[commit]
+  gpgsign = true
+
+[gpg]
+  program = /usr/local/MacGPG2/bin/gpg2
 
 [credential]
   helper = osxkeychain

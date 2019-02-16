@@ -1,44 +1,43 @@
 export LANG=ja_JP.UTF-8
-       HISTFILE=~/.zsh_history \
-       HISTSIZE=1000000000000 \
-       SAVEHIST=1000000000000 \
-       PROMPT_COMMAND='history -a; history -r' \
-       DOT=$HOME/code/src/github.com/legnoh/dotfiles \
-       PATH=$HOME/.anyenv/bin:$HOME/code/src/github.com/legnoh/dotfiles/bin:/$HOME/.gem/ruby/$($HOME/.anyenv/envs/rbenv/bin/rbenv global|sed -E 's/.[0-9]$/.0/g')/bin:$HOME/code/bin:$PATH \
-       ZPLUG_HOME=$HOME/.zplug
+export HISTFILE=~/.zsh_history
+export HISTSIZE=1000000000000
+export SAVEHIST=1000000000000
+export PROMPT_COMMAND='history -a; history -r'
+export ZPLUG_HOME=/usr/local/opt/zplug
+export DOT=$HOME/code/src/github.com/legnoh/dotfiles
+export GOPATH=$HOME/code
+export RUBY_VERSION=$($HOME/.anyenv/envs/rbenv/bin/rbenv global|sed -E 's/.[0-9]$/.0/g')
+export PATH=$HOME/.anyenv/bin:$DOT/bin:/$HOME/.gem/ruby/$RUBY_VERSION/bin:$GOPATH/bin:$PATH
+
 setopt nonomatch
+
 source $ZPLUG_HOME/init.zsh
-zplug 'legnoh/materialshell', as:theme
+zstyle ":zplug:tag" depth 1
+zstyle ":zplug:tag" defer 2
+zplug 'legnoh/materialshell', as:theme, hook-build:"open $ZPLUG_HOME/repos/legnoh/materialshell/materialshell-dark.terminal"
 zplug 'felixr/docker-zsh-completion'
+zplug 'docker/cli', use:contrib/completion/zsh/_docker
+zplug 'docker/compose', use:contrib/completion/zsh/_docker-compose
 zplug 'frodenas/bosh-zsh-autocomplete-plugin'
 zplug 'legnoh/fly-zsh-autocomplete-plugin'
 zplug 'psprint/zsh-navigation-tools'
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-completions'
-alias airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport" \
-      cfadev='open https://apps.local.pcfdev.io' \
-      cfdev-start="$DOT/etc/macos/pcfdev-start.sh" \
-      cfldev='cf login -a api.local.pcfdev.io -u admin -p admin -o pcfdev-org -s pcfdev-space' \
-      cflpws='cf login -a api.run.pivotal.io' \
+zplug "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc", from:local
+zplug "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc", from:local
+
+alias cflpws='cf login -a api.run.pivotal.io' \
       diff="colordiff" \
-      fll="fly -t l login -c http://127.0.0.1:8080 -b && fly -t l sync" \
+      fll="fly -t l login -c http://127.0.0.1:8080 -b && fly -t l sync && open http://127.0.0.1:8080/" \
       git="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;git" \
       gl="ghq look" \
       gpg="gpg2" \
-      knife="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;knife" \
       ls="ls -alhG" \
-      concourse-up="docker-compose -p concourse -f $DOT/docker/concourse/docker-compose.yml up -d && sleep 15 && fll && open http://127.0.0.1:8080/" \
-      concourse-start="docker-compose -p concourse -f $DOT/docker/concourse/docker-compose.yml start && sleep 1 && fll && open http://127.0.0.1:8080/" \
-      concourse-stop="docker-compose -p concourse -f $DOT/docker/concourse/docker-compose.yml stop" \
-      concourse-down="docker-compose -p concourse -f $DOT/docker/concourse/docker-compose.yml down" \
-      rr="source ~/.zshrc" \
-      scp="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;scp" \
-      ssh="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;ssh"
+      conpose="docker-compose -p concourse -f $DOT/docker/concourse/docker-compose.yml" \
+      ssh="cat ~/.ssh/conf.d/*.conf > ~/.ssh/config;ssh" \
+      zclr="rm -rf $ZPLUG_HOME && git clone --depth 1 https://github.com/zplug/zplug.git $ZPLUG_HOME && exec $SHELL -l"
+
 eval "$(anyenv init -)" "$(direnv hook zsh)"
 source $HOME/.zshrc.optional
-source <(helm completion zsh)
-source <(kubectl completion zsh)
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-export GOPATH=$HOME/code
+if ! zplug check; then zplug install; fi
 zplug load

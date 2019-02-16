@@ -8,6 +8,7 @@ services:
     - POSTGRES_PASSWORD=concourse_pass
     - POSTGRES_USER=concourse_user
     - PGDATA=/database
+    restart: always
 
   concourse:
     image: concourse/concourse
@@ -24,3 +25,4 @@ services:
     - CONCOURSE_ADD_LOCAL_USER=legnoh:$$2a$$10$$.ZpQLVLY9ulsdJLCAMMuyu3jpB2unwh88IGKMhBjxOGxF30DoZzA6
     - CONCOURSE_MAIN_TEAM_ALLOW_ALL_USERS=true
     - CONCOURSE_WORKER_GARDEN_NETWORK
+    restart: always

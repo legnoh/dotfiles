@@ -2,10 +2,7 @@
   name = Ryoma Kai
   email = legknmj@icloud.com
   signingkey = A14AE3FB
-
-[include]
-  path = ~/.gitconfig.internal
-
+  
 [color]
   status = auto
   diff = auto
@@ -59,4 +56,7 @@
   root = ~/code/src
 
 [credential]
-  helper = cache --timeout=3600
+  helper = osxkeychain
+
+[include]
+  path = ~/.gitconfig.optional # gitconfig.optional overwritten default settings!

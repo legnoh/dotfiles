@@ -18,13 +18,7 @@ if test ! $(which brew); then
     echo "Installing homebrew..."
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
-brew tap homebrew/bundle
 brew install mas
-
-# install xcode and accept license
-mas install 497799835
-~/code/src/github.com/legnoh/dotfiles/etc/macos/accept-license.sh $PASSWORD &
-wait
 
 # brew, cask, mas
 brew update
@@ -59,13 +53,7 @@ crontab ~/code/src/github.com/legnoh/dotfiles/pkg/crontab
 
 # CF CLI PLugins
 echo "installing CF Plugin packages..."
-cf install-plugin -r CF-Community -f "Download Droplet"
-cf install-plugin -r CF-Community -f "Usage Report"
-cf install-plugin -r CF-Community -f "bg-restage"
-cf install-plugin -r CF-Community -f "doctor"
-cf install-plugin -r CF-Community -f "fastpush"
-cf install-plugin -r CF-Community -f "open"
-cf install-plugin -r CF-Community -f "service-use"
+cf install-plugin -r CF-Community -f "cfdev"
 cf install-plugin -r CF-Community -f "top"
 
 ### インストールしたAppの中で、設定が必要なものを一気に全て開く

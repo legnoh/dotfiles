@@ -15,6 +15,7 @@ DOT_FILES=(
 
 # prepare install dotfiles
 mkdir -p ~/.gnupg ~/code/bin ~/code/pkg ${DOT}
+touch ~/.hushlogin
 
 # install dotfiles by tarball
 curl -L "${DOT_TARBAL}" -o /tmp/dotfiles

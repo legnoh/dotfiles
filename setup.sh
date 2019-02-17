@@ -8,7 +8,6 @@ DOT_FILES=(
   gnupg/gpg-agent.conf
   gitconfig
   gitconfig.optional
-  gitignore
   vimrc
   zshrc
   zshrc.optional

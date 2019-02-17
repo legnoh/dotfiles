@@ -23,7 +23,6 @@ fi
 # install brew packages
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-brew.sh $PASSWORD &
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-cask.sh $PASSWORD &
-~/code/src/github.com/legnoh/dotfiles/etc/macos/install-jetbrains.sh $PASSWORD &
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-mas.sh $PASSWORD &
 if [ "${PRIVATE}" = "y" ]; then
     ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-private.sh $PASSWORD &

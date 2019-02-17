@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # read answers
 echo "Do you need private App? [y/N]: " && read PRIVATE
 echo "What's your sudo password?: " && read -sp "Password: " PASSWORD
@@ -21,11 +23,11 @@ if test ! $(which brew); then
 fi
 
 # install brew packages
-~/code/src/github.com/legnoh/dotfiles/etc/macos/install-brew.sh $PASSWORD &
-~/code/src/github.com/legnoh/dotfiles/etc/macos/install-cask.sh $PASSWORD &
-~/code/src/github.com/legnoh/dotfiles/etc/macos/install-mas.sh $PASSWORD &
+~/code/src/github.com/legnoh/dotfiles/etc/macos/install-brew.sh ${PASSWORD} &
+~/code/src/github.com/legnoh/dotfiles/etc/macos/install-cask.sh ${PASSWORD} &
+~/code/src/github.com/legnoh/dotfiles/etc/macos/install-mas.sh ${PASSWORD} &
 if [ "${PRIVATE}" = "y" ]; then
-    ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-private.sh $PASSWORD &
+    ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-private.sh ${PASSWORD} &
 fi
 wait
 
@@ -44,15 +46,11 @@ cf install-plugin -r CF-Community -f "cfdev"
 ## BetterTouchTool
 open ~/code/src/github.com/legnoh/dotfiles/pkg/Default.bttpreset
 
-## Popclip
+## PopClip
 curl -L http://pilotmoon.com/popclip/extensions/ext/PasteAndMatch.popclipextz -o /tmp/PasteAndMatch.popclipextz
 curl -L http://pilotmoon.com/popclip/extensions/ext/GoogleTranslate.popclipextz -o /tmp/GoogleTranslate.popclipextz
 curl -L https://github.com/legnoh/unixtime-jp.popclipext/releases/download/v1.0/unixtime-jp.zip -o /tmp/unixtime-jp.zip
 unzip /tmp/unixtime-jp.zip -d /tmp
-echo "please call it later:"
-echo "open /tmp/PasteAndMatch.popclipextz"
-echo "open /tmp/GoogleTranslate.popclipextz"
-echo "open /tmp/unixtime-jp.popclipext"
 
 # other gui app setting
 open "/Applications/1Password.app"

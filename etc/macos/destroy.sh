@@ -38,10 +38,10 @@ default_files=('.CFUserTextEncoding',
                'Public');
 for file in *; do
   if `echo ${default_files[@]} | grep -q "$file"` ; then
-    echo "  existed: $file"
+    echo "  existed: ${file}"
   else
-    echo "  removing: $file"
-    rm -rf $file
+    echo "  removing: ${file}"
+    rm -rf ${file}
   fi
 done
 
@@ -50,4 +50,5 @@ echo "#6: uninstall command line tools"
 sudo rm -rf /Library/Developer/CommandLineTools
 
 echo "destroy successfull. Please reboot machine or Please restore machine"
-echo "https://support.apple.com/kb/PH25649?locale=ja_JP&viewlocale=ja_JP"
+echo "FYI: Reinstall macOS - Apple Support"
+echo "https://support.apple.com/guide/mac-help/reinstall-macos-mchlp1599/mac"

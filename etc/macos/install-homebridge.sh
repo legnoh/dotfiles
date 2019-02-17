@@ -11,8 +11,8 @@ npm -g install homebridge-itunes
 exec $SHELL -l
 
 # generate config.json and plist
-cp ~/Downloads/mac-bridge.envrc $DOT/etc/macos/homebridge/.envrc
-cd $DOT/etc/macos/homebridge
+cp ~/Downloads/mac-bridge.envrc ${DOT}/etc/macos/homebridge/.envrc
+cd ${DOT}/etc/macos/homebridge
 direnv allow
 mkdir -p ~/.homebridge
 erb config.json.erb > ~/.homebridge/config.json

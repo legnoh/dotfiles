@@ -38,6 +38,7 @@ git clone ${DOT_GITHUB} ${DOT}
 /usr/local/bin/anyenv install --init
 eval "$(/usr/local/bin/anyenv init -)"
 /usr/local/bin/anyenv install jenv
+/usr/local/bin/anyenv install nodenv
 /usr/local/bin/anyenv install phpenv
 /usr/local/bin/anyenv install pyenv
 /usr/local/bin/anyenv install rbenv

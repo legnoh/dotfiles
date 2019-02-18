@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0cc5e99b-f957-47e3-8da6-4f26932f1b8c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/Brewfile.mas" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/Brewfile.mas" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/Brewfile.private" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/Brewfile.private" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -159,7 +157,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550479586842" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550479609697" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RunDashboard">
@@ -187,7 +185,7 @@
       <workItem from="1550359931484" duration="730000" />
       <workItem from="1550360742571" duration="3092000" />
       <workItem from="1550366781403" duration="2598000" />
-      <workItem from="1550477322260" duration="2226000" />
+      <workItem from="1550477322260" duration="2858000" />
     </task>
     <task id="LOCAL-00001" summary="add idea settings, fix ndenv to nodenv">
       <created>1550366478987</created>
@@ -238,17 +236,24 @@
       <option name="project" value="LOCAL" />
       <updated>1550478354561</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="remove avast-security">
+      <created>1550479608686</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1550479608686</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8646000" />
+    <option name="totallyTimeSpent" value="9278000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="884" y="23" width="1676" height="1417" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21481028" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21481028" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -263,10 +268,10 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.20301887" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.499388" weight="0.20301887" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.19924529" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.499388" visible="true" weight="0.19924529" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.500612" side_tool="true" visible="true" weight="0.19924529" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32981133" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -369,7 +374,8 @@
     <MESSAGE value="edit crontab" />
     <MESSAGE value="add workspace.yml" />
     <MESSAGE value="remove some cask" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove some cask" />
+    <MESSAGE value="remove avast-security" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove avast-security" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/dot/gitignore" />

@@ -2,7 +2,6 @@ tap 'caskroom/fonts'
 tap 'caskroom/versions'
 cask_args appdir: '/Applications'
 
-cask 'adapter'
 cask 'alfred'
 cask 'bettertouchtool'
 cask 'betterzip'

@@ -9,7 +9,7 @@ if [[ ! -d /Library/Developer/CommandLineTools ]]; then
     echo "Installing command-line-tools"
     xcode-select --install
     echo "Completed? [Y/n]: " && read ANS
-    if [ "${ANS}" = "n" ]; then
+    if [[ "${ANS}" = "n" ]]; then
       echo "Stoped..."
       exit 1;
     fi
@@ -26,7 +26,7 @@ fi
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-brew.sh ${PASSWORD} &
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-cask.sh ${PASSWORD} &
 ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-mas.sh ${PASSWORD} &
-if [ "${PRIVATE}" = "y" ]; then
+if [[ "${PRIVATE}" = "y" ]]; then
     ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-private.sh ${PASSWORD} &
 fi
 wait

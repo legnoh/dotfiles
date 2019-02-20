@@ -16,6 +16,7 @@ bash -c "$(curl -L dot.lkj.io)"
 
 - Open GPG Keychain , drop gpg file, and change to "Ultimate"
 - [minikube/drivers\.md at master · kubernetes/minikube](https://github.com/kubernetes/minikube/blob/master/docs/drivers.md#hyperkit-driver)
+- [Install failed, "zlib not available" on macOS Mojave · Issue \#1219 · pyenv/pyenv](https://github.com/pyenv/pyenv/issues/1219)
 - Call it later below
 
 ```sh

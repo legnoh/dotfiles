@@ -1,8 +1,8 @@
 #!/bin/bash
 
 echo "#### Install nodejs..."
-ndenv install v10.14.2
-ndenv global v10.14.2
+ndenv install v10.15.1
+ndenv global v10.15.1
 ndenv rehash
 
 echo "#### Install homebridge..."

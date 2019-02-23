@@ -6,7 +6,7 @@ export PROMPT_COMMAND='history -a; history -r'
 export ZPLUG_HOME=/usr/local/opt/zplug
 export DOT=$HOME/code/src/github.com/legnoh/dotfiles
 export GOPATH=$HOME/code
-export GO111MODULE=auto
+export GO111MODULE=on
 export PATH=$DOT/bin:$GOPATH/bin:$PATH
 
 source $ZPLUG_HOME/init.zsh

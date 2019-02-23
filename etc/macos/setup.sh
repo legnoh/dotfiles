@@ -37,6 +37,10 @@ wait
 sudo sh -c 'echo "¥n/usr/local/bin/zsh" >> /etc/shells'
 chsh -s /usr/local/bin/zsh
 
+## gitignore
+/usr/local/bin/gibo update && /usr/local/bin/gibo dump macOS Windows Linux JetBrains Vim > ~/.gitignore
+echo "\n.idea/workspace.xml" >> ~/.gitignore
+
 ## crontab
 crontab ~/code/src/github.com/legnoh/dotfiles/pkg/crontab.mac
 

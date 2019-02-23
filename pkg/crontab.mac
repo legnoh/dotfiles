@@ -8,4 +8,4 @@
 
 # daily update ~/.gitignore
 0 15 * * * /usr/local/bin/gibo update && /usr/local/bin/gibo dump macOS Linux JetBrains Vim > ~/.gitignore
-1 15 * * * echo ".idea/workspace.xml" >> ~/.gitignore
+1 15 * * * echo "\n.idea/workspace.xml" >> ~/.gitignore

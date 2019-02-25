@@ -1,9 +1,9 @@
 #!/bin/bash
 
 echo "#### Install nodejs..."
-ndenv install v10.15.1
-ndenv global v10.15.1
-ndenv rehash
+nodenv install v10.15.1
+nodenv global v10.15.1
+nodenv rehash
 
 echo "#### Install homebridge..."
 npm -g install homebridge --unsafe-perm

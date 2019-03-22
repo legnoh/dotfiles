@@ -1,6 +1,6 @@
 # set morning/night music
-30 5 * * * ~/src/github.com/legnoh/dotfiles/bin/morning-music.sh
-0 21 * * * ~/src/github.com/legnoh/dotfiles/bin/night-music.sh
+30 5 * * * ~/code/src/github.com/legnoh/dotfiles/bin/morning-music.sh
+0 21 * * * ~/code/src/github.com/legnoh/dotfiles/bin/night-music.sh
 
 # daily update homebrew package
 0 15 * * * /usr/local/bin/brew update && /usr/local/bin/brew cleanup

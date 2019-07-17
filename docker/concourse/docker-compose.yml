@@ -11,7 +11,7 @@ services:
     restart: always
 
   concourse:
-    image: concourse/concourse:4.2.3
+    image: concourse/concourse:5.3.0
     command: quickstart
     privileged: true
     depends_on: [concourse-db]

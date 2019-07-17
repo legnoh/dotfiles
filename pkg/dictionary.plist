@@ -10,9 +10,21 @@
 	</dict>
 	<dict>
 		<key>phrase</key>
+		<string>(ﾉ∀`)ｱﾁｬｰ</string>
+		<key>shortcut</key>
+		<string>あちゃ</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
 		<string>( ꒪q꒪)</string>
 		<key>shortcut</key>
 		<string>あばば</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
+		<string>(･3･)ｱﾙｪｰ?</string>
+		<key>shortcut</key>
+		<string>あるぇ</string>
 	</dict>
 	<dict>
 		<key>phrase</key>
@@ -34,7 +46,7 @@
 	</dict>
 	<dict>
 		<key>phrase</key>
-		<string>( ・ᴗ・)b</string>
+		<string>Σd(・ᴗ・ )</string>
 		<key>shortcut</key>
 		<string>ぐっ</string>
 	</dict>
@@ -100,6 +112,12 @@
 	</dict>
 	<dict>
 		<key>phrase</key>
+		<string>／(^o^)＼ﾅﾝﾃｺｯﾀｲ</string>
+		<key>shortcut</key>
+		<string>なんてこったい</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
 		<string>( ・ᴗ・)ﾉｼ</string>
 		<key>shortcut</key>
 		<string>のし</string>
@@ -109,12 +127,6 @@
 		<string>ʅ(´◔౪◔)ʃ</string>
 		<key>shortcut</key>
 		<string>はぁ</string>
-	</dict>
-	<dict>
-		<key>phrase</key>
-		<string>( ・ᴗ・)d</string>
-		<key>shortcut</key>
-		<string>ふぁっきゅー</string>
 	</dict>
 	<dict>
 		<key>phrase</key>
@@ -157,12 +169,6 @@
 		<string>｡оО(｡´•ㅅ•｡)Оо。</string>
 		<key>shortcut</key>
 		<string>みくおじ</string>
-	</dict>
-	<dict>
-		<key>phrase</key>
-		<string>ʅ(◔౪◔ʅ)三(ʃ◔౪◔)ʃ</string>
-		<key>shortcut</key>
-		<string>みなぎってきた</string>
 	</dict>
 	<dict>
 		<key>phrase</key>

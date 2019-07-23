@@ -6,5 +6,5 @@ services:
     ports: ["9000:9000"]
     environment:
       MINIO_ACCESS_KEY: minio
-      MINIO_SECRET_KEY: miniokey
+      MINIO_SECRET_KEY: 7dJQ6;Jy4o+g@X4VRMNijvp7&8,jRg^z6sumTx3g=nuqBrxYD9%U]A7ZKFpdz=MY
     command: server /export

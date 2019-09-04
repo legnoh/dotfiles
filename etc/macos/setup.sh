@@ -44,6 +44,26 @@ echo "\n.idea/workspace.xml" >> ~/.gitignore
 ## crontab
 crontab ~/code/src/github.com/legnoh/dotfiles/pkg/crontab.mac
 
+## VSCode settings.json and locale.json
+ln -fs ~/code/src/github.com/legnoh/dotfiles/pkg/vsc-settings.json ~/Library/Application\ Support/Code/User/settings.json
+ln -fs ~/code/src/github.com/legnoh/dotfiles/pkg/vsc-locale.json ~/Library/Application\ Support/Code/User/locale.json
+
+## VSCode plugins
+code --install-extension bungcip.better-toml
+code --install-extension GitHub.vscode-pull-request-github
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension MS-CEINTL.vscode-language-pack-ja
+code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
+code --install-extension ms-vscode.Go
+code --install-extension Pivotal.vscode-bosh
+code --install-extension Pivotal.vscode-concourse
+code --install-extension Pivotal.vscode-manifest-yaml
+code --install-extension redhat.vscode-yaml
+code --install-extension VisualStudioExptTeam.vscodeintellicode
+code --install-extension vscjava.vscode-spring-initializr
+code --install-extension vscode-icons-team.vscode-icons
+code --install-extension wdstar.vscode-screwdriver
+
 ## CF CLI plugins
 cf install-plugin -r CF-Community -f "cfdev"
 

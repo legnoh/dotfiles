@@ -1,0 +1,10 @@
+{
+    "editor.fontSize": 14,
+    "explorer.confirmDelete": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    "githubPullRequests.defaultMergeMethod": "squash",
+    "git.confirmSync": false,
+    "workbench.iconTheme": "vscode-icons"
+}

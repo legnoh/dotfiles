@@ -1,0 +1,17 @@
+#!/bin/zsh
+
+### gitconfig Switcher
+
+set -eu
+
+FILE="gitconfig.optional"
+
+if [[ $(git config user.email) = "legknmj@icloud.com" ]] ; then
+  ln -fs ${IDOT}/dot/${FILE} ~/.${FILE}
+  echo "switch to internal config"
+else
+  ln -fs ${DOT}/dot/${FILE} ~/.${FILE}
+  echo "switch to external config"
+fi
+
+git config --get-regexp "user.*"

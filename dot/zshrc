@@ -14,7 +14,6 @@ zstyle ":zplug:tag" defer 2
 zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 zplug 'felixr/docker-zsh-completion'
 zplug 'frodenas/bosh-zsh-autocomplete-plugin'
-zplug 'legnoh/fly-zsh-autocomplete-plugin'
 zplug 'psprint/zsh-navigation-tools'
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-completions'

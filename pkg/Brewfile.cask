@@ -1,5 +1,6 @@
 cask_args appdir: '/Applications'
 
+cask 'aerial'
 cask 'alfred'
 cask 'bettertouchtool'
 cask 'betterzip'

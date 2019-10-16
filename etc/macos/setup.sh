@@ -1,5 +1,7 @@
 #!/bin/bash
 
+DOTDIR=~/code/src/github.com/legnoh/dotfiles
+
 # read answers
 echo "Do you need private App? [y/N]: " && read PRIVATE
 echo "What's your sudo password?: " && read -sp "Password: " PASSWORD
@@ -23,11 +25,11 @@ if test ! $(which brew); then
 fi
 
 # install brew packages
-~/code/src/github.com/legnoh/dotfiles/etc/macos/install-brew.sh ${PASSWORD} &
-~/code/src/github.com/legnoh/dotfiles/etc/macos/install-cask.sh ${PASSWORD} &
-~/code/src/github.com/legnoh/dotfiles/etc/macos/install-mas.sh ${PASSWORD} &
+${DOTDIR}/etc/macos/install-brew.sh ${PASSWORD} &
+${DOTDIR}/etc/macos/install-cask.sh ${PASSWORD} &
+${DOTDIR}/etc/macos/install-mas.sh ${PASSWORD} &
 if [[ "${PRIVATE}" = "y" ]]; then
-    ~/code/src/github.com/legnoh/dotfiles/etc/macos/install-private.sh ${PASSWORD} &
+    ${DOTDIR}/etc/macos/install-private.sh ${PASSWORD} &
 fi
 wait
 
@@ -42,11 +44,11 @@ chsh -s /usr/local/bin/zsh
 echo "\n.idea/workspace.xml" >> ~/.gitignore
 
 ## crontab
-crontab ~/code/src/github.com/legnoh/dotfiles/pkg/crontab.mac
+crontab ${DOTDIR}/pkg/crontab.mac
 
 ## VSCode settings.json and locale.json
-ln -fs ~/code/src/github.com/legnoh/dotfiles/pkg/vsc-settings.json ~/Library/Application\ Support/Code/User/settings.json
-ln -fs ~/code/src/github.com/legnoh/dotfiles/pkg/vsc-locale.json ~/Library/Application\ Support/Code/User/locale.json
+ln -fs ${DOTDIR}/pkg/vsc-settings.json ~/Library/Application\ Support/Code/User/settings.json
+ln -fs ${DOTDIR}/pkg/vsc-locale.json ~/Library/Application\ Support/Code/User/locale.json
 
 ## VSCode plugins
 code --install-extension bungcip.better-toml
@@ -55,14 +57,9 @@ code --install-extension ms-azuretools.vscode-docker
 code --install-extension MS-CEINTL.vscode-language-pack-ja
 code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
 code --install-extension ms-vscode.Go
-code --install-extension Pivotal.vscode-bosh
-code --install-extension Pivotal.vscode-concourse
-code --install-extension Pivotal.vscode-manifest-yaml
 code --install-extension redhat.vscode-yaml
 code --install-extension VisualStudioExptTeam.vscodeintellicode
-code --install-extension vscjava.vscode-spring-initializr
 code --install-extension vscode-icons-team.vscode-icons
-code --install-extension wdstar.vscode-screwdriver
 
 ## CF CLI plugins
 cf install-plugin -r CF-Community -f "cfdev"
@@ -84,5 +81,6 @@ open "/Applications/Clipy.app"
 open "/Applications/Docker.app"
 open "/Applications/Google Chrome.app"
 open "/Applications/GPG Keychain.app"
+open "/Applications/Notion.app"
 open "/Applications/Slack.app"
 open "/Applications/The Unarchiver.app"

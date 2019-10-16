@@ -1,11 +1,15 @@
 {
     "editor.fontSize": 14,
+    "editor.suggestSelection": "first",
     "explorer.confirmDelete": false,
     "files.insertFinalNewline": true,
     "git.autofetch": true,
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
     "githubPullRequests.defaultMergeMethod": "squash",
+    "go.useLanguageServer": true,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "window.zoomLevel": 0,
     "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "newUntitledFile"
 }

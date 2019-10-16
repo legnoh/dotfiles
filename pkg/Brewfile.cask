@@ -1,3 +1,4 @@
+tap 'homebrew/cask-fonts'
 cask_args appdir: '/Applications'
 
 cask 'aerial'
@@ -9,6 +10,7 @@ cask 'clipy'
 cask 'discord'
 cask 'docker'
 cask 'fly'
+cask 'font-meslo-for-powerline'
 cask 'google-chrome'
 cask 'gpg-suite'
 cask 'java'

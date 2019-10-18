@@ -1,4 +1,3 @@
-tap 'legnoh/etc'
 cask_args appdir: '/Applications'
 
 cask 'lyrics-master'

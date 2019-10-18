@@ -22,13 +22,17 @@ curl -L "${DOT_TARBAL}" -o /tmp/dotfiles
 tar zxvf /tmp/dotfiles -C ${DOT} --strip-components 1
 for file in ${DOT_FILES[@]}
 do
-    ln -fs ${DOT}/dot/${file} ~/.${file}
+    ln -fs ${DOT}/dot/${file} ~/${file}
 done
 
 # install multi os utils & apps
 if [[ "$(uname)" == 'Darwin' ]]; then
   ${DOT}/etc/macos/setup.sh
 fi
+
+# install zplugin
+mkdir ~/.zplugin
+git clone https://github.com/zdharma/zplugin.git ~/.zplugin/bin
 
 # re-install dotfiles by https
 rm -rf ${DOT}

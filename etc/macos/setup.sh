@@ -52,6 +52,7 @@ ln -fs ${DOTDIR}/pkg/vsc-locale.json ~/Library/Application\ Support/Code/User/lo
 
 ## VSCode plugins
 code --install-extension bungcip.better-toml
+code --install-extension cocopon.iceberg-theme
 code --install-extension GitHub.vscode-pull-request-github
 code --install-extension ms-azuretools.vscode-docker
 code --install-extension MS-CEINTL.vscode-language-pack-ja
@@ -73,12 +74,14 @@ curl -L http://pilotmoon.com/popclip/extensions/ext/GoogleTranslate.popclipextz 
 curl -L https://github.com/legnoh/unixtime-jp.popclipext/releases/download/v1.0/unixtime-jp.zip -o /tmp/unixtime-jp.zip
 unzip /tmp/unixtime-jp.zip -d /tmp
 
+## terminal theme
+open ~/code/src/github.com/legnoh/dotfiles/pkg/iceberg.terminal
+
 # other gui app setting
-open "/Applications/1Password.app"
-open "/Applications/Alfred 3.app"
+open "/Applications/1Password 7.app"
+open "/Applications/Alfred 4.app"
 open "/Applications/CheatSheet.app"
 open "/Applications/Clipy.app"
-open "/Applications/Docker.app"
 open "/Applications/Google Chrome.app"
 open "/Applications/GPG Keychain.app"
 open "/Applications/Notion.app"

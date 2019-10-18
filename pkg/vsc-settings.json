@@ -23,11 +23,11 @@
     "window.openFoldersInNewWindow": "on",
     "explorer.confirmDragAndDrop": false,
     "search.globalFindClipboard": true,
-    "search.location": "panel",
     "debug.console.fontSize": 14,
     "terminal.integrated.fontSize": 14,
     "terminal.integrated.enableBell": true,
     "vsicons.presets.jsonOfficial": true,
     "vsicons.presets.jsOfficial": true,
-    "vsicons.presets.tsOfficial": true
+    "vsicons.presets.tsOfficial": true,
+    "search.location": "panel"
 }

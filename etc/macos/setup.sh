@@ -59,6 +59,7 @@ code --install-extension MS-CEINTL.vscode-language-pack-ja
 code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
 code --install-extension ms-vscode.Go
 code --install-extension redhat.vscode-yaml
+code --install-extension tyriar.sort-lines
 code --install-extension VisualStudioExptTeam.vscodeintellicode
 code --install-extension vscode-icons-team.vscode-icons
 

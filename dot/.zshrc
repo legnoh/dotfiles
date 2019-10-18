@@ -24,5 +24,7 @@ alias cflpws='cf l -a api.run.pivotal.io'
 alias gl="ghq look"
 alias ls="ls -alhG"
 
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
 zpcompinit
 zpcdreplay

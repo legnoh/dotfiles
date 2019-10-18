@@ -8,6 +8,7 @@ export GOPATH=$HOME/code
 export PATH=$DOT/bin:$GOPATH/bin:$PATH
 export SPACESHIP_GIT_SYMBOL='🌳 '
 export SPACESHIP_DIR_LOCK_SYMBOL='🔒 '
+export SPACESHIP_GIT_SUFFIX=" 🤓 $(git config user.email) "
 export SYSTEMICON='/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources'
 
 zstyle ':notify:*' success-icon "${SYSTEMICON}/AlertNoteIcon.icns"

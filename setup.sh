@@ -22,7 +22,7 @@ curl -L "${DOT_TARBAL}" -o /tmp/dotfiles
 tar zxvf /tmp/dotfiles -C ${DOT} --strip-components 1
 for file in ${DOT_FILES[@]}
 do
-    ln -fs ${DOT}/dot/${file} ~/.${file}
+    ln -fs ${DOT}/dot/${file} ~/${file}
 done
 
 # install multi os utils & apps
@@ -34,14 +34,9 @@ fi
 rm -rf ${DOT}
 git clone ${DOT_GITHUB} ${DOT}
 
-# install *env
-/usr/local/bin/anyenv install --init
-eval "$(/usr/local/bin/anyenv init -)"
-/usr/local/bin/anyenv install jenv
-/usr/local/bin/anyenv install nodenv
-/usr/local/bin/anyenv install phpenv
-/usr/local/bin/anyenv install pyenv
-/usr/local/bin/anyenv install rbenv
+# install zplugin
+mkdir ~/.zplugin
+git clone https://github.com/zdharma/zplugin.git ~/.zplugin/bin
 
 echo "Complete: please restart Terminal and continue manual settings"
 echo "https://github.com/legnoh/dotfiles#manual-setting"

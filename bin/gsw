@@ -4,13 +4,13 @@
 
 set -eu
 
-FILE="gitconfig.optional"
+FILE=".gitconfig.local"
 
 if [[ $(git config user.email) = "legknmj@icloud.com" ]] ; then
-  ln -fs ${IDOT}/dot/${FILE} ~/.${FILE}
+  ln -fs ${IDOT}/dot/${FILE} ~/${FILE}
   echo "switch to internal config"
 else
-  ln -fs ${DOT}/dot/${FILE} ~/.${FILE}
+  ln -fs ${DOT}/dot/${FILE} ~/${FILE}
   echo "switch to external config"
 fi
 

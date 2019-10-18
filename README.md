@@ -7,17 +7,15 @@ bash -c "$(curl -L dot.lkj.io)"
 
 ## goods
 
-- zsh + zplug
-- anyenv language control
-- Jetbrains IDE
-- docker platforms
+- shell: [Zsh](http://www.zsh.org/)
+  - plugin manager: [Zplugin](https://github.com/zdharma/zplugin)
+  - theme: [Iceberg](https://cocopon.github.io/iceberg.vim/)
+- ide: [Visual Studio Code](https://code.visualstudio.com/)
+- environment: unix(macOS) + [Docker CE](https://github.com/docker/docker-ce)
 
 ### manual setting
 
 - Open GPG Keychain , drop gpg file, and change to "Ultimate"
-- [minikube/drivers\.md at master · kubernetes/minikube](https://github.com/kubernetes/minikube/blob/master/docs/drivers.md#hyperkit-driver)
-- [Install failed, "zlib not available" on macOS Mojave · Issue \#1219 · pyenv/pyenv](https://github.com/pyenv/pyenv/issues/1219)
-- Call it later below
 
 ```sh
 open /tmp/PasteAndMatch.popclipextz
@@ -25,19 +23,5 @@ open /tmp/GoogleTranslate.popclipextz
 open /tmp/unixtime-jp.popclipext
 ```
 
-### essential
-
-- `conpose` ... local concourse in docker-compose c.f.) `conpose up`, `conpose stop`
-- other's db is ready. check in `docker` directory!
-
-### initialize mac
-- [iTunes](https://support.apple.com/ja-jp/HT204385)
-  - `アカウント > 認証 > このコンピュータの認証を解除`
-- [icloud.com](https://www.icloud.com/#settings)
-  - 「マイデバイス」から対象の端末を削除
-- iMassage
-  - メインアカウントをサインアウトする
-- [macOS を再インストールする方法 \- Apple サポート](https://support.apple.com/ja-jp/HT204904)
-  - "opt + command + R"で起動
-  - "ディスクユーティリティ"を起動し、ルートディスクを選択して消去
-  - macOS を再インストール
+### initialize
+- [What to do before you sell, give away, or trade in your Mac \- Apple Support](https://support.apple.com/en-us/HT201065)

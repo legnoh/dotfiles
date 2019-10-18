@@ -54,4 +54,4 @@
   helper = osxkeychain
 
 [include]
-  path = ~/.gitconfig.optional # gitconfig.optional overwritten default settings!
+  path = ~/.gitconfig.local # gitconfig.optional overwritten default settings!

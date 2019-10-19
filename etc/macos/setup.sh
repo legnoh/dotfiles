@@ -40,8 +40,7 @@ sudo sh -c 'echo "¥n/usr/local/bin/zsh" >> /etc/shells'
 chsh -s /usr/local/bin/zsh
 
 ## gitignore
-/usr/local/bin/gibo update && /usr/local/bin/gibo dump macOS Windows Linux JetBrains Vim > ~/.gitignore
-echo "\n.idea/workspace.xml" >> ~/.gitignore
+/usr/local/bin/gibo update && /usr/local/bin/gibo dump macOS VisualStudioCode Vim > ~/.gitignore
 
 ## crontab
 crontab ${DOTDIR}/pkg/crontab.mac
@@ -84,7 +83,6 @@ open "/Applications/Alfred 4.app"
 open "/Applications/CheatSheet.app"
 open "/Applications/Clipy.app"
 open "/Applications/Google Chrome.app"
-open "/Applications/GPG Keychain.app"
 open "/Applications/Notion.app"
 open "/Applications/Slack.app"
 open "/Applications/The Unarchiver.app"

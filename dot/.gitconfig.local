@@ -1,4 +1,10 @@
+[gpg]
+  format = x509
+
+[gpg "x509"]
+  program = smimesign
+
 [user]
   name = Ryoma Kai
   email = legknmj@icloud.com
-  signingkey = A14AE3FB
+  signingkey = c538b0d2c82d84b4995870edf22c8d0faedbf940

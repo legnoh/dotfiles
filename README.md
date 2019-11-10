@@ -25,3 +25,5 @@ open /tmp/unixtime-jp.popclipext
 
 ### initialize
 - [What to do before you sell, give away, or trade in your Mac \- Apple Support](https://support.apple.com/en-us/HT201065)
+
+test push

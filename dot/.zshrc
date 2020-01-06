@@ -22,7 +22,6 @@ zplugin light "marzocchi/zsh-notify"
 
 alias cflpws='cf l -a api.run.pivotal.io'
 alias gsw='gsw && source ~/.zshenv'
-alias gl="ghq look"
 alias ls="ls -alhG"
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local

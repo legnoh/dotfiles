@@ -68,6 +68,12 @@ cf install-plugin -r CF-Community -f "cfdev"
 ## BetterTouchTool
 open ~/code/src/github.com/legnoh/dotfiles/pkg/Default.bttpreset
 
+## Docker Completion
+etc=/Applications/Docker.app/Contents/Resources/etc
+ln -s $etc/docker.zsh-completion /usr/local/share/zsh/site-functions/_docker
+ln -s $etc/docker-machine.zsh-completion /usr/local/share/zsh/site-functions/_docker-machine
+ln -s $etc/docker-compose.zsh-completion /usr/local/share/zsh/site-functions/_docker-compose
+
 ## PopClip
 curl -L http://pilotmoon.com/popclip/extensions/ext/PasteAndMatch.popclipextz -o /tmp/PasteAndMatch.popclipextz
 curl -L http://pilotmoon.com/popclip/extensions/ext/GoogleTranslate.popclipextz -o /tmp/GoogleTranslate.popclipextz

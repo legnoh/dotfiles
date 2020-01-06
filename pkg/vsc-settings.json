@@ -28,6 +28,8 @@
     "workbench.fontAliasing": "auto",
     "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "newUntitledFile",
-    "workbench.statusBar.visible": false,
-    "workbench.tips.enabled": false
+    "workbench.statusBar.visible": true,
+    "workbench.tips.enabled": false,
+    "vsicons.dontShowNewVersionMessage": true,
+    "terminal.integrated.rendererType": "dom"
 }

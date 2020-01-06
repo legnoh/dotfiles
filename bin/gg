@@ -1,4 +1,4 @@
 #!/bin/sh
 
 /usr/local/bin/ghq get $1
-/usr/local/bin/ghq look $1
+cd `ghq list --full-path --exact $1`

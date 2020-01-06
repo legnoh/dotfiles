@@ -20,6 +20,9 @@ zplugin light direnv/direnv
 zplugin ice wait"0" silent
 zplugin light "marzocchi/zsh-notify"
 
+zplugin ice as"program" make'!' atclone'echo "source ~/.zplugin/plugins/b4b4r07---enhancd/init.sh" > zhook.zsh' src"zhook.zsh" silent
+zplugin load "b4b4r07/enhancd"
+
 alias cflpws='cf l -a api.run.pivotal.io'
 alias gsw='gsw && source ~/.zshenv'
 alias ls="ls -alhG"

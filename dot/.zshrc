@@ -27,6 +27,15 @@ alias cflpws='cf l -a api.run.pivotal.io'
 alias gsw='gsw && source ~/.zshenv'
 alias ls="ls -alhG"
 
+gg() {
+  ghq get --look $1
+}
+
+gcd() {
+  local repo_path=`ghq list --full-path | fzf --reverse --preview "less {1}/README.md"`
+  \cd ${repo_path}
+}
+
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 zpcompinit

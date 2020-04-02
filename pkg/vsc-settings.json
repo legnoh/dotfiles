@@ -1,5 +1,6 @@
 {
     "debug.console.fontSize": 14,
+    "diffEditor.ignoreTrimWhitespace": true,
     "editor.fontSize": 14,
     "editor.renderWhitespace": "all",
     "editor.suggestSelection": "first",
@@ -14,9 +15,10 @@
     "go.useLanguageServer": true,
     "screencastMode.onlyKeyboardShortcuts": true,
     "search.globalFindClipboard": true,
-    "search.location": "panel",
     "terminal.integrated.enableBell": true,
     "terminal.integrated.fontSize": 14,
+    "terminal.integrated.rendererType": "dom",
+    "vsicons.dontShowNewVersionMessage": true,
     "vsicons.presets.jsOfficial": true,
     "vsicons.presets.jsonOfficial": true,
     "vsicons.presets.tsOfficial": true,
@@ -29,7 +31,5 @@
     "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.statusBar.visible": true,
-    "workbench.tips.enabled": false,
-    "vsicons.dontShowNewVersionMessage": true,
-    "terminal.integrated.rendererType": "dom"
+    "workbench.tips.enabled": false
 }

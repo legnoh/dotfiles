@@ -4,8 +4,6 @@ DOT=~/code/src/github.com/legnoh/dotfiles; export DOT
 DOT_GITHUB="https://github.com/legnoh/dotfiles.git"; export DOT_GITHUB
 DOT_TARBAL="https://codeload.github.com/legnoh/dotfiles/tar.gz/master"; export DOT_TARBAL
 DOT_FILES=(
-  .gnupg/gpg.conf
-  .gnupg/gpg-agent.conf
   .gitconfig
   .gitconfig.optional
   .vimrc

@@ -12,8 +12,8 @@ chsh -s /bin/bash
 
 # uninstall homebrew and apps
 echo "#2: uninstall all homebrew formula..."
-brew uninstall --force --cask $(brew cask list)
-brew uninstall --force $(brew list)
+brew uninstall --force --cask $(brew list --cask)
+brew uninstall --force $(brew list --formula)
 
 echo "#3: uninstall homebrew..."
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"

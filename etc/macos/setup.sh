@@ -19,7 +19,7 @@ fi
 
 # install Homebrew, bundle, mas
 if test ! $(which brew); then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew tap homebrew/bundle
     brew tap caskroom/cask
 fi

@@ -21,7 +21,6 @@ fi
 if test ! $(which brew); then
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew tap homebrew/bundle
-    brew tap homebrew/cask
 fi
 
 # install brew packages

@@ -16,7 +16,7 @@ brew uninstall --force --zap $(brew list --cask)
 brew uninstall --force $(brew list --formula)
 
 echo "#3: uninstall homebrew..."
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall.sh)"
 
 # remove garbage files in system directory
 echo "#4: uninstall gomi file..."

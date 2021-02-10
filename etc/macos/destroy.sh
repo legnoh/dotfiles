@@ -14,6 +14,7 @@ chsh -s /bin/bash
 echo "#2: uninstall all homebrew formula..."
 brew uninstall --force --zap $(brew list --cask)
 brew uninstall --force $(brew list --formula)
+mas list | cut -d " " -f1 | while read line; do sudo mas uninstall ${line}; done
 
 echo "#3: uninstall homebrew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall.sh)"

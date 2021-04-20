@@ -7,6 +7,7 @@ DOT_FILES=(
   .gitconfig
   .gitconfig.optional
   .vimrc
+  .zshenv
   .zshrc
   .zshrc.optional
 ); export DOT_FILES

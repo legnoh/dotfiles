@@ -67,6 +67,10 @@ cf install-plugin -r CF-Community -f "cfdev"
 ## BetterTouchTool
 open ~/code/src/github.com/legnoh/dotfiles/pkg/Default.bttpreset
 
+## Quicklook for over Catalina
+## FYI: https://github.com/whomwah/qlstephen/issues/98#issuecomment-665375833
+xattr -d com.apple.quarantine ~/Library/QuickLook/QLStephen.qlgenerator
+
 ## Docker Completion
 etc=/Applications/Docker.app/Contents/Resources/etc
 ln -s $etc/docker.zsh-completion /usr/local/share/zsh/site-functions/_docker

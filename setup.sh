@@ -9,7 +9,7 @@ DOT_FILES=(
   .vimrc
   .zshenv
   .zshrc
-  .zshrc.optional
+  .zshrc.local
 ); export DOT_FILES
 
 # prepare install dotfiles

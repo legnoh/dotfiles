@@ -10,8 +10,8 @@ else
   UNAME_MACHINE="$(uname -m)"
   HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
 fi
-export PATH=$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$DOT/bin:$GOPATH/bin:$HOMEBREW_PREFIX/opt/go/bin:$HOMEBREW_PREFIX/opt/node/bin:$PATH
-export FPATH=$HOMEBREW_PREFIX/share/zsh/site-functions:$FPATH
+export PATH=${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:$DOT/bin:${GOPATH}/bin:${HOMEBREW_PREFIX}/opt/go/bin:${HOMEBREW_PREFIX}/opt/node/bin:${PATH}
+export FPATH=${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}
 
 source ~/.zplugin/bin/zplugin.zsh
 
@@ -38,7 +38,6 @@ zplugin light "marzocchi/zsh-notify"
 zplugin ice as"program" make'!' atclone'echo "source ~/.zplugin/plugins/b4b4r07---enhancd/init.sh" > zhook.zsh' src"zhook.zsh" silent
 zplugin load "b4b4r07/enhancd"
 
-alias cflpws='cf l -a api.run.pivotal.io'
 alias gsw='gsw && source ~/.zshenv'
 alias ls="ls -alhG"
 

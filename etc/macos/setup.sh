@@ -63,6 +63,7 @@ code --install-extension ms-azuretools.vscode-docker
 code --install-extension MS-CEINTL.vscode-language-pack-ja
 code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
 code --install-extension ms-vscode.Go
+code --install-extension ms-vscode-remote.remote-containers
 code --install-extension redhat.vscode-yaml
 code --install-extension tyriar.sort-lines
 code --install-extension VisualStudioExptTeam.vscodeintellicode

@@ -53,4 +53,5 @@ sudo rm -rf /Library/Developer/CommandLineTools
 
 echo "destroy successfull. Please reboot machine or Please restore machine"
 echo "FYI: Reinstall macOS - Apple Support"
-echo "https://support.apple.com/guide/mac-help/reinstall-macos-mchlp1599/mac"
+open "https://support.apple.com/ja-jp/HT201065"
+open "https://support.apple.com/ja-jp/HT204904"

@@ -10,9 +10,12 @@ cd ~
 # uninstall homebrew and apps
 echo "#2: uninstall all homebrew formula..."
 
-# https://github.com/mas-cli/mas/issues/313
+# remove mac app store in manually
+# FYI: https://github.com/mas-cli/mas/issues/313
 # mas list | cut -d " " -f1 | while read line; do sudo mas uninstall ${line}; done
 
+# add full disk access permission to terminal
+# FYI: https://support.apple.com/ja-jp/HT210595
 brew uninstall --force --zap $(brew list --cask)
 brew uninstall --force $(brew list --formula)
 

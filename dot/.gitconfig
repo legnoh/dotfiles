@@ -47,7 +47,7 @@
   sslVerify = true
 
 [include]
-  path = ~/.gitconfig.local # gitconfig.optional overwritten default settings!
+  path = ~/.gitconfig.optional # gitconfig.optional overwritten default settings!
 
 [merge]
   tool = vimdiff

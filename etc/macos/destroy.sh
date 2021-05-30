@@ -6,22 +6,23 @@
 
 shopt -s dotglob
 cd ~
-# change default shell
-echo "#1: change default shell to /bin/bash..."
-chsh -s /bin/bash
 
 # uninstall homebrew and apps
 echo "#2: uninstall all homebrew formula..."
-brew uninstall --force --zap $(brew list --cask)
-brew uninstall --force $(brew list --formula)
 mas list | cut -d " " -f1 | while read line; do sudo mas uninstall ${line}; done
+brew uninstall --force --zap $(brew list)
 
 echo "#3: uninstall homebrew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall.sh)"
 
 # remove garbage files in system directory
 echo "#4: uninstall gomi file..."
-sudo rm -rf /usr/local/Caskroom /usr/local/Celler /usr/local/Homebrew /usr/local/MacGPG2 /opt/*
+if [[ $(/usr/bin/uname -m) == "arm64" ]]; then
+    HOMEBREW_PREFIX="/opt/homebrew"
+else
+    HOMEBREW_PREFIX="/usr/local"
+fi
+sudo rm -rf ${HOMEBREW_PREFIX}/Caskroom ${HOMEBREW_PREFIX}/Celler ${HOMEBREW_PREFIX}/Homebrew ${HOMEBREW_PREFIX}/MacGPG2 /opt/*
 
 # remove users files
 echo "#5: uninstall users file"

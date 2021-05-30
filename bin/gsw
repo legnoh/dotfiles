@@ -4,7 +4,7 @@
 
 set -eu
 
-FILE=".gitconfig.local"
+FILE=".gitconfig.optional"
 
 if [[ $(git config user.email) = "legknmj@icloud.com" ]] ; then
   ln -fs ${IDOT}/dot/${FILE} ~/${FILE}

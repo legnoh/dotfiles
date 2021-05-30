@@ -1,3 +1,18 @@
+if [[ -z "${HOMEBREW_ON_LINUX-}" ]]; then
+  UNAME_MACHINE="$(/usr/bin/uname -m)"
+
+  if [[ "$UNAME_MACHINE" == "arm64" ]]; then
+    HOMEBREW_PREFIX="/opt/homebrew"
+  else
+    HOMEBREW_PREFIX="/usr/local"
+  fi
+else
+  UNAME_MACHINE="$(uname -m)"
+  HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+fi
+export PATH=$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$DOT/bin:$GOPATH/bin:$HOMEBREW_PREFIX/opt/go/bin:$HOMEBREW_PREFIX/opt/node/bin:$PATH
+export FPATH=$HOMEBREW_PREFIX/share/zsh/site-functions:$FPATH
+
 source ~/.zplugin/bin/zplugin.zsh
 
 zplugin light denysdovhan/spaceship-prompt

@@ -1,3 +1,14 @@
-cask_args appdir: '/Applications'
-
+cask 'balenaetcher'
+cask 'blackhole-2ch'
+cask 'blackhole-16ch'
+cask 'discord'
+cask 'homebrew/cask-drivers/fujitsu-scansnap-home'
 cask 'lyrics-master'
+cask 'obs'
+cask 'skype'
+
+mas 'Apple Developer', id:640199958
+mas 'Deliveries', id:290986013
+mas 'iMovie', id:408981434
+mas 'LINE', id:539883307
+mas 'Xcode', id:497799835

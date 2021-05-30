@@ -10,7 +10,8 @@ cd ~
 # uninstall homebrew and apps
 echo "#2: uninstall all homebrew formula..."
 mas list | cut -d " " -f1 | while read line; do sudo mas uninstall ${line}; done
-brew uninstall --force --zap $(brew list)
+brew uninstall --force --zap $(brew list --cask)
+brew uninstall --force $(brew list --formula)
 
 echo "#3: uninstall homebrew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall.sh)"

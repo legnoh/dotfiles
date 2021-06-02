@@ -1,6 +1,6 @@
 brew 'mas'
 mas '1 Password', id:1333542190
-mas 'Pixelmator Pro', id:1289583905
+mas 'iPreview', id:1519213509
 mas 'Keynote', id:409183694
 mas 'Kindle', id:405399194
 mas 'Mate Translate', id:1005088137
@@ -10,6 +10,7 @@ mas 'Numbers', id:409203825
 mas 'OmniFocus', id:1346203938
 mas 'OverPicture for Safari', id:1188020834
 mas 'Pages', id:409201541
+mas 'Pixelmator Pro', id:1289583905
 mas 'PopClip', id:445189367
 mas 'RSS Button for Safari', id:1437501942
 mas 'Slack for Desktop', id:803453959

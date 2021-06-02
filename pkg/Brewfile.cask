@@ -1,7 +1,6 @@
 cask 'aerial'
 cask 'alfred'
 cask 'bettertouchtool'
-cask 'clipy'
 cask 'docker'
 cask 'google-chrome'
 cask 'homebrew/cask-drivers/shureplus-motiv'

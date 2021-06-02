@@ -2,7 +2,6 @@ brew 'mas'
 mas '1 Password', id:1333542190
 mas 'Pixelmator Pro', id:1289583905
 mas 'Keynote', id:409183694
-mas 'LadioCast', id:411213048
 mas 'Mate Translate', id:1005088137
 mas 'Momentum', id:1564329434
 mas 'Numbers', id:409203825

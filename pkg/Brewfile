@@ -41,6 +41,7 @@ cask 'zoom'
 
 mas '1 Password', id:1333542190
 mas 'iPreview', id:1519213509
+mas 'Copy Link to Pasteboard', id:1551527433
 mas 'Keynote', id:409183694
 mas 'Kindle', id:405399194
 mas 'Mate Translate', id:1005088137

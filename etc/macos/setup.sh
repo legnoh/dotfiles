@@ -31,12 +31,13 @@ export PATH=${HOMEBREW_PREFIX}/bin:${PATH}
 if test ! $(which brew); then
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew tap homebrew/bundle
+    brew tap homebrew/cask
+    brew tap homebrew/cask-drivers
+    brew tap homebrew/cask-fonts
 fi
 
 # install brew packages
 ${DOTDIR}/etc/macos/install-brew.sh ${PASSWORD} Brewfile &
-${DOTDIR}/etc/macos/install-brew.sh ${PASSWORD} Brewfile.cask &
-${DOTDIR}/etc/macos/install-brew.sh ${PASSWORD} Brewfile.mas &
 if [[ "${PRIVATE}" = "y" ]]; then
     ${DOTDIR}/etc/macos/install-brew.sh ${PASSWORD} Brewfile.private &
 fi

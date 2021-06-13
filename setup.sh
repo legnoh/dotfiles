@@ -34,8 +34,8 @@ rm -rf ${DOT}
 git clone ${DOT_GITHUB} ${DOT}
 
 # install zplugin
-mkdir ~/.zplugin
-git clone https://github.com/zdharma/zplugin.git ~/.zplugin/bin
+mkdir ~/.zinit
+git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
 
 echo "Complete: please restart Terminal and continue manual settings"
 echo "https://github.com/legnoh/dotfiles#manual-setting"

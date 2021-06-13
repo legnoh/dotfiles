@@ -15,28 +15,28 @@ export FPATH=${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}
 
 source ~/.zplugin/bin/zplugin.zsh
 
-zplugin light denysdovhan/spaceship-prompt
+zinit light denysdovhan/spaceship-prompt
 
-zplugin ice wait"0" silent
-zplugin light zdharma/fast-syntax-highlighting
+zinit ice wait"0" silent
+zinit light zdharma/fast-syntax-highlighting
 
-zplugin ice wait"0" silent
-zplugin load psprint/zsh-navigation-tools
+zinit ice wait"0" silent
+zinit load psprint/zsh-navigation-tools
 
-zplugin ice wait"0" silent
-zplugin load zsh-users/zsh-completions
+zinit ice wait"0" silent
+zinit load zsh-users/zsh-completions
 
-zplugin ice wait"!0" atload"_zsh_autosuggest_start" silent
-zplugin load zsh-users/zsh-autosuggestions
+zinit ice wait"!0" atload"_zsh_autosuggest_start" silent
+zinit load zsh-users/zsh-autosuggestions
 
-zplugin ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' src"zhook.zsh" silent
-zplugin light direnv/direnv
+zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' src"zhook.zsh" silent
+zinit light direnv/direnv
 
-zplugin ice wait"0" silent
-zplugin light "marzocchi/zsh-notify"
+zinit ice wait"0" silent
+zinit light "marzocchi/zsh-notify"
 
-zplugin ice as"program" make'!' atclone'echo "source ~/.zplugin/plugins/b4b4r07---enhancd/init.sh" > zhook.zsh' src"zhook.zsh" silent
-zplugin load "b4b4r07/enhancd"
+zinit ice as"program" make'!' atclone'echo "source ~/.zplugin/plugins/b4b4r07---enhancd/init.sh" > zhook.zsh' src"zhook.zsh" silent
+zinit load "b4b4r07/enhancd"
 
 alias gsw='gsw && source ~/.zshenv'
 alias ls="ls -alhG"

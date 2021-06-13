@@ -48,6 +48,11 @@ wait
 
 # settings
 
+## brew + zinit
+## https://github.com/zsh-users/zsh-completions/issues/433#issuecomment-390600994
+chmod 755 ${HOMEBREW_PREFIX}/share/zsh/site-functions
+chmod 755 ${HOMEBREW_PREFIX}/share/zsh
+
 ## gitignore
 gibo update && gibo dump macOS VisualStudioCode Vim > ~/.gitignore
 

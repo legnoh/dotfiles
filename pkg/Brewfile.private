@@ -6,7 +6,6 @@ cask 'homebrew/cask-drivers/fujitsu-scansnap-home'
 cask 'lyrics-master'
 cask 'obs'
 cask 'skype'
-cask 'suspicious-package'
 
 mas 'Apple Developer', id:640199958
 mas 'Deliveries', id:290986013

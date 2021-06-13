@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTDIR=~/code/src/github.com/legnoh/dotfiles
+DOT=~/code/src/github.com/legnoh/dotfiles
 
 # read answers
 echo "Do you need private App? [y/N]: " && read PRIVATE
@@ -40,9 +40,9 @@ if test ! $(which brew); then
 fi
 
 # install brew packages
-${DOTDIR}/etc/macos/install-brew.sh ${PASSWORD} Brewfile &
+${DOT}/etc/macos/install-brew.sh ${PASSWORD} Brewfile &
 if [[ "${PRIVATE}" = "y" ]]; then
-    ${DOTDIR}/etc/macos/install-brew.sh ${PASSWORD} Brewfile.private &
+    ${DOT}/etc/macos/install-brew.sh ${PASSWORD} Brewfile.private &
 fi
 wait
 
@@ -57,12 +57,12 @@ chmod 755 ${HOMEBREW_PREFIX}/share/zsh
 gibo update && gibo dump macOS VisualStudioCode Vim > ~/.gitignore
 
 ## crontab
-crontab ${DOTDIR}/pkg/crontab.mac
+crontab ${DOT}/pkg/crontab.mac
 
 ## VSCode settings.json and locale.json
-VSCODE_CONF_DIR="~/Library/Application Support/Code/User"
-ln -fs "${DOTDIR}/pkg/vsc-settings.json" "${VSCODE_CONF_DIR}/settings.json"
-ln -fs "${DOTDIR}/pkg/vsc-locale.json" "${VSCODE_CONF_DIR}/locale.json"
+VSCODE_CONF_DIR="~/Library/Application\ Support/Code/User"
+ln -fs ${DOT}/pkg/vsc-settings.json ${VSCODE_CONF_DIR}/settings.json
+ln -fs ${DOT}/pkg/vsc-locale.json ${VSCODE_CONF_DIR}/locale.json
 
 ## VSCode plugins
 code --install-extension bungcip.better-toml
@@ -79,7 +79,7 @@ code --install-extension VisualStudioExptTeam.vscodeintellicode
 code --install-extension vscode-icons-team.vscode-icons
 
 ## BetterTouchTool
-open ${DOTDIR}/pkg
+open ${DOT}/pkg
 
 ## PopClip
 curl -L http://pilotmoon.com/popclip/extensions/ext/PasteAndMatch.popclipextz -o /tmp/PasteAndMatch.popclipextz
@@ -88,7 +88,7 @@ curl -L https://github.com/legnoh/unixtime-jp.popclipext/releases/download/v1.0/
 unzip -o /tmp/unixtime-jp.zip -d /tmp
 
 ## terminal theme
-open ${DOTDIR}/pkg/iceberg.terminal
+open ${DOT}/pkg/iceberg.terminal
 
 # other gui app setting
 open "/Applications/1Password 7.app"

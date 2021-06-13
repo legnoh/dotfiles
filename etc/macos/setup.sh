@@ -81,16 +81,11 @@ code --install-extension vscode-icons-team.vscode-icons
 ## BetterTouchTool
 open ${DOTDIR}/pkg
 
-## Docker Completion
-etc=/Applications/Docker.app/Contents/Resources/etc
-ln -s $etc/docker.zsh-completion ${HOMEBREW_PREFIX}/share/zsh/site-functions/_docker
-ln -s $etc/docker-compose.zsh-completion ${HOMEBREW_PREFIX}/share/zsh/site-functions/_docker-compose
-
 ## PopClip
 curl -L http://pilotmoon.com/popclip/extensions/ext/PasteAndMatch.popclipextz -o /tmp/PasteAndMatch.popclipextz
 curl -L http://pilotmoon.com/popclip/extensions/ext/GoogleTranslate.popclipextz -o /tmp/GoogleTranslate.popclipextz
 curl -L https://github.com/legnoh/unixtime-jp.popclipext/releases/download/v1.0/unixtime-jp.zip -o /tmp/unixtime-jp.zip
-unzip -o　/tmp/unixtime-jp.zip -d /tmp
+unzip -o /tmp/unixtime-jp.zip -d /tmp
 
 ## terminal theme
 open ${DOTDIR}/pkg/iceberg.terminal
@@ -112,5 +107,5 @@ if [[ "${PRIVATE}" = "y" ]]; then
     open "/Applications/LINE.app"
     open "/Applications/ScanSnapHomeMain.app"
     open "/Applications/Skype.app"
-    open "/Applications/XCode.app"
+    sudo xcodebuild -license
 fi

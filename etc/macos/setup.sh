@@ -60,7 +60,7 @@ gibo update && gibo dump macOS VisualStudioCode Vim > ~/.gitignore
 crontab ${DOT}/pkg/crontab.mac
 
 ## VSCode settings.json and locale.json
-VSCODE_CONF_DIR="~/Library/Application\ Support/Code/User"
+VSCODE_CONF_DIR=~/Library/Application\ Support/Code/User
 ln -fs ${DOT}/pkg/vsc-settings.json ${VSCODE_CONF_DIR}/settings.json
 ln -fs ${DOT}/pkg/vsc-locale.json ${VSCODE_CONF_DIR}/locale.json
 

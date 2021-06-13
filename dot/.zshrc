@@ -13,7 +13,7 @@ fi
 export PATH=${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:$DOT/bin:${GOPATH}/bin:${HOMEBREW_PREFIX}/opt/go/bin:${HOMEBREW_PREFIX}/opt/node/bin:${PATH}
 export FPATH=${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}
 
-source ~/.zplugin/bin/zplugin.zsh
+source ~/.zinit/bin/zinit.zsh
 
 zinit light denysdovhan/spaceship-prompt
 

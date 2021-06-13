@@ -21,6 +21,9 @@ fi
 if [[ $(/usr/bin/uname -m) == "arm64" ]]; then
     echo "architecture: M1 Mac"
     HOMEBREW_PREFIX="/opt/homebrew"
+    if [[ "${PRIVATE}" = "y" ]]; then
+        sudo softwareupdate --install-rosetta
+    fi
 else
     echo "architecture: Intel Mac"
     HOMEBREW_PREFIX="/usr/local"
@@ -53,8 +56,8 @@ crontab ${DOTDIR}/pkg/crontab.mac
 
 ## VSCode settings.json and locale.json
 VSCODE_CONF_DIR="~/Library/Application Support/Code/User"
-ln -fs ${DOTDIR}/pkg/vsc-settings.json ${VSCODE_CONF_DIR}/settings.json
-ln -fs ${DOTDIR}/pkg/vsc-locale.json ${VSCODE_CONF_DIR}/locale.json
+ln -fs "${DOTDIR}/pkg/vsc-settings.json" "${VSCODE_CONF_DIR}/settings.json"
+ln -fs "${DOTDIR}/pkg/vsc-locale.json" "${VSCODE_CONF_DIR}/locale.json"
 
 ## VSCode plugins
 code --install-extension bungcip.better-toml

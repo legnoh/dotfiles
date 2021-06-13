@@ -107,5 +107,5 @@ if [[ "${PRIVATE}" = "y" ]]; then
     open "/Applications/LINE.app"
     open "/Applications/ScanSnapHomeMain.app"
     open "/Applications/Skype.app"
-    sudo xcodebuild -license
+    sudo xcodebuild -license accept
 fi

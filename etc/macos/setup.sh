@@ -72,16 +72,6 @@ code --install-extension vscode-icons-team.vscode-icons
 ## BetterTouchTool
 open ${DOTDIR}/pkg
 
-## Quicklook for over Catalina
-## FYI: https://github.com/whomwah/qlstephen/issues/98#issuecomment-665375833
-xattr -d com.apple.quarantine ~/Library/QuickLook/QLColorCode.qlgenerator
-xattr -d com.apple.quarantine ~/Library/QuickLook/QLMarkdown.qlgenerator
-xattr -d com.apple.quarantine ~/Library/QuickLook/QLStephen.qlgenerator
-xattr -d com.apple.quarantine ~/Library/QuickLook/QuickLookCSV.qlgenerator
-xattr -d com.apple.quarantine ~/Library/QuickLook/QuickLookJSON.qlgenerator
-xattr -d com.apple.quarantine ~/Library/QuickLook/WebpQuickLook.qlgenerator
-xattr -d com.apple.quarantine ~/Library/QuickLook/qlImageSize.qlgenerator
-
 ## Docker Completion
 etc=/Applications/Docker.app/Contents/Resources/etc
 ln -s $etc/docker.zsh-completion ${HOMEBREW_PREFIX}/share/zsh/site-functions/_docker
@@ -99,12 +89,15 @@ open ${DOTDIR}/pkg/iceberg.terminal
 # other gui app setting
 open "/Applications/1Password 7.app"
 open "/Applications/Alfred 4.app"
-open "/Applications/CheatSheet.app"
-open "/Applications/Clipy.app"
-open "/Applications/Google Chrome.app"
+open "/Applications/BetterTouchTool.app"
+open "/Applications/Kindle.app"
+open "/Applications/Mate Translate.app"
+open "/Applications/Meeter.app"
 open "/Applications/Notion.app"
+open "/Applications/OmniFocus.app"
+open "/Applications/PopClip.app"
 open "/Applications/Slack.app"
-open "/Applications/The Unarchiver.app"
+open "/Applications/Zoom.us.app"
 if [[ "${PRIVATE}" = "y" ]]; then
     open "/Applications/Discord.app"
     open "/Applications/LINE.app"

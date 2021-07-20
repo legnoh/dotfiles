@@ -1,5 +1,6 @@
 brew 'colordiff'
 brew 'composer'
+brew 'coreutils'
 brew 'direnv'
 brew 'fzf'
 brew 'ghq'

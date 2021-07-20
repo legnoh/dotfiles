@@ -10,6 +10,7 @@ cask 'skype'
 mas 'Apple Developer', id:640199958
 mas 'Deliveries', id:290986013
 mas 'iMovie', id:408981434
+mas 'iPreview', id:1519213509
 mas 'LadioCast', id:411213048
 mas 'LINE', id:539883307
 mas 'Speedtest', id:1153157709

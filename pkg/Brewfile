@@ -25,6 +25,7 @@ brew 'terminal-notifier'
 brew 'tig'
 brew 'tree'
 brew 'wget'
+brew 'yarn'
 brew 'yq'
 brew 'zsh'
 

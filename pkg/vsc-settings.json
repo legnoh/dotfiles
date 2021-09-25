@@ -27,11 +27,24 @@
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "window.newWindowDimensions": "fullscreen",
     "window.openFoldersInNewWindow": "on",
-    "window.zoomLevel": 0,
     "workbench.colorTheme": "Iceberg",
     "workbench.fontAliasing": "auto",
     "workbench.iconTheme": "vscode-icons",
     "workbench.startupEditor": "newUntitledFile",
     "workbench.statusBar.visible": true,
-    "workbench.tips.enabled": false
+    "workbench.tips.enabled": false,
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": true,
+        "markdown": false,
+        "go": false
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "redhat.telemetry.enabled": false,
+    "go.inferGopath": true
 }

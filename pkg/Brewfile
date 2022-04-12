@@ -1,4 +1,6 @@
 brew 'awscli'
+cask 'blackhole-2ch'
+cask 'blackhole-16ch'
 brew 'colordiff'
 brew 'coreutils'
 brew 'direnv'
@@ -40,12 +42,9 @@ mas '1 Password', id:1333542190
 mas 'Copy Link to Pasteboard', id:1551527433
 mas 'Keynote', id:409183694
 mas 'Kindle', id:405399194
-mas 'Mate Translate', id:1005088137
+mas 'LadioCast', id:411213048
 mas 'Meeter', id:1510445899
-mas 'Momentum', id:1564329434
 mas 'Numbers', id:409203825
-mas 'OmniFocus', id:1346203938
-mas 'OmniGraffle', id:1142578753
 mas 'OverPicture for Safari', id:1188020834
 mas 'Pages', id:409201541
 mas 'Pixelmator Pro', id:1289583905
@@ -53,3 +52,4 @@ mas 'PopClip', id:445189367
 mas 'RSS Button for Safari', id:1437501942
 mas 'Slack for Desktop', id:803453959
 mas 'Tampermonkey', id:1482490089
+mas 'Todoist', id:585829637

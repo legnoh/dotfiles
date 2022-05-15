@@ -27,6 +27,7 @@ brew 'tree'
 brew 'yarn'
 brew 'yq'
 
+cask '1password'
 cask 'aerial'
 cask 'alfred'
 cask 'bettertouchtool'
@@ -38,7 +39,7 @@ cask 'paw'
 cask 'visual-studio-code'
 cask 'zoom'
 
-mas '1 Password', id:1333542190
+mas '1 Password for Safari', id:1569813296
 mas 'Copy Link to Pasteboard', id:1551527433
 mas 'Keynote', id:409183694
 mas 'Kindle', id:405399194

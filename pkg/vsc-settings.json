@@ -36,15 +36,24 @@
     "editor.inlineSuggest.enabled": true,
     "github.copilot.enable": {
         "*": true,
-        "yaml": false,
+        "yaml": true,
         "plaintext": true,
         "markdown": false,
-        "go": false
+        "go": false,
+        "lua": true,
+        "php": false,
+        "python": false
     },
     "security.workspace.trust.untrustedFiles": "open",
     "[html]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "redhat.telemetry.enabled": false,
-    "go.inferGopath": true
+    "go.inferGopath": true,
+    "editor.minimap.enabled": false,
+    "go.toolsManagement.autoUpdate": true,
+    "files.associations": {
+        ".env": "shellscript"
+    },
+    "editor.accessibilitySupport": "off"
 }

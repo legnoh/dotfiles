@@ -1,11 +1,7 @@
 brew 'awscli'
-brew 'colordiff'
 brew 'coreutils'
-brew 'direnv'
-brew 'fzf'
 brew 'ghq'
 brew 'gibo'
-brew 'git'
 brew 'gnu-sed'
 brew 'go'
 brew 'goreleaser'
@@ -15,11 +11,9 @@ brew 'kubernetes-helm'
 brew 'kustomize'
 brew 'mas'
 brew 'node'
-brew 'openssl'
 brew 'pipenv'
 brew 'python'
 brew 'ripgrep'
-brew 'smimesign'
 brew 'stern'
 brew 'terminal-notifier'
 brew 'tree'
@@ -31,12 +25,10 @@ cask '1password-cli'
 cask 'aerial'
 cask 'alfred'
 cask 'bettertouchtool'
-cask 'blackhole-2ch'
-cask 'blackhole-16ch'
 cask 'docker'
-cask 'homebrew/cask-drivers/logitech-g-hub'
+cask 'elgato-wave-link'
+cask 'elgato-stream-deck'
 cask 'homebrew/cask-fonts/font-jetbrains-mono'
-cask 'jetbrains-toolbox'
 cask 'notion'
 cask 'paw'
 cask 'visual-studio-code'
@@ -46,7 +38,6 @@ mas '1 Password for Safari', id:1569813296
 mas 'Copy Link to Pasteboard', id:1551527433
 mas 'Keynote', id:409183694
 mas 'Kindle', id:405399194
-mas 'LadioCast', id:411213048
 mas 'Meeter', id:1510445899
 mas 'Numbers', id:409203825
 mas 'OverPicture for Safari', id:1188020834
@@ -55,5 +46,5 @@ mas 'Pixelmator Pro', id:1289583905
 mas 'PopClip', id:445189367
 mas 'RSS Button for Safari', id:1437501942
 mas 'Slack for Desktop', id:803453959
-mas 'Tampermonkey', id:1482490089
 mas 'Todoist', id:585829637
+mas 'Userscripts', id:1463298887

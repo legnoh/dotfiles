@@ -1,15 +1,19 @@
-cask 'balenaetcher'
+brew 'aria2'
+brew 'gatsby-cli'
+brew 'youtube-dl'
+
 cask 'cycliq-cycliqplus'
 cask 'cycliqplus-firmware-updater'
 cask 'discord'
 cask 'homebrew/cask-drivers/fujitsu-scansnap-home'
 cask 'lyrics-master'
 cask 'obs'
+cask 'onecomme'
 cask 'raspberry-pi-imager'
-cask 'skype'
 
 mas 'Apple Developer', id:640199958
 mas 'Deliveries', id:290986013
+mas 'Genki Arcade', id:1555925018
 mas 'iMovie', id:408981434
 mas 'LINE', id:539883307
 mas 'OneDrive', id:823766827

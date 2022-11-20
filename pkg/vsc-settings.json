@@ -55,5 +55,6 @@
     "files.associations": {
         ".env": "shellscript"
     },
-    "editor.accessibilitySupport": "off"
+    "editor.accessibilitySupport": "off",
+    "Lua.telemetry.enable": false
 }

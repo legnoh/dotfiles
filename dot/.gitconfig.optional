@@ -1,10 +1,10 @@
 [gpg]
-  format = x509
+  format = ssh
 
-[gpg "x509"]
-  program = smimesign
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 
 [user]
   name = Ryoma Kai
   email = legknmj@icloud.com
-  signingkey = d3bec6e0d3ee7864d18951b174590db98a84fb86
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPVPvOf+qsRr7mZ2oLxC0favRnmKbZjXMtpSIypkPM4O

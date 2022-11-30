@@ -43,6 +43,12 @@
 [ghq]
   root = ~/code/src
 
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
 [http]
   sslVerify = true
 

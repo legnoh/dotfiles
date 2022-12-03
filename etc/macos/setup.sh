@@ -37,6 +37,7 @@ if test ! $(which brew); then
     brew tap homebrew/cask
     brew tap homebrew/cask-drivers
     brew tap homebrew/cask-fonts
+    brew tap legnoh/etc
 fi
 
 # install brew packages
@@ -79,33 +80,30 @@ code --install-extension VisualStudioExptTeam.vscodeintellicode
 code --install-extension vscode-icons-team.vscode-icons
 
 ## BetterTouchTool
-open ${DOT}/pkg
+open ${DOT}/pkg/Default.bttpreset
 
 ## PopClip
-curl -L http://pilotmoon.com/popclip/extensions/ext/PasteAndMatch.popclipextz -o /tmp/PasteAndMatch.popclipextz
-curl -L http://pilotmoon.com/popclip/extensions/ext/GoogleTranslate.popclipextz -o /tmp/GoogleTranslate.popclipextz
-curl -L https://github.com/legnoh/unixtime-jp.popclipext/releases/download/v1.0/unixtime-jp.zip -o /tmp/unixtime-jp.zip
-unzip -o /tmp/unixtime-jp.zip -d /tmp
+curl -L https://pilotmoon.com/popclip/extensions/ext/PasteAndMatch.popclipextz -o /tmp/PasteAndMatch.popclipextz
+curl -L https://pilotmoon.com/popclip/extensions/ext/GoogleTranslate.popclipextz -o /tmp/GoogleTranslate.popclipextz
+curl -L https://pilotmoon.com/popclip/extensions/ext/UnixTime.popclipextz -o /tmp/UnixTime.popclipextz
 
 ## terminal theme
 open ${DOT}/pkg/iceberg.terminal
 
 # other gui app setting
-open "/Applications/1Password 7.app"
-open "/Applications/Alfred 4.app"
+open "/Applications/1Password.app"
+open "/Applications/Alfred 5.app"
 open "/Applications/BetterTouchTool.app"
 open "/Applications/Kindle.app"
-open "/Applications/Mate Translate.app"
 open "/Applications/Meeter.app"
 open "/Applications/Notion.app"
-open "/Applications/OmniFocus.app"
+open "/Applications/Todoist.app"
 open "/Applications/PopClip.app"
 open "/Applications/Slack.app"
-open "/Applications/Zoom.us.app"
+open "/Applications/zoom.us.app"
 if [[ "${PRIVATE}" = "y" ]]; then
     open "/Applications/Discord.app"
     open "/Applications/LINE.app"
     open "/Applications/ScanSnapHomeMain.app"
-    open "/Applications/Skype.app"
     sudo xcodebuild -license accept
 fi

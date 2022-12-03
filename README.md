@@ -20,7 +20,7 @@ bash -c "$(curl -L dot.lkj.io)"
 ```sh
 open /tmp/PasteAndMatch.popclipextz
 open /tmp/GoogleTranslate.popclipextz
-open /tmp/unixtime-jp.popclipext
+open /tmp/UnixTime.popclipextz
 ```
 
 ### initialize

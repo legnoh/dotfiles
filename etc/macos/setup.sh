@@ -90,6 +90,9 @@ curl -L https://pilotmoon.com/popclip/extensions/ext/UnixTime.popclipextz -o /tm
 ## terminal theme
 open ${DOT}/pkg/iceberg.terminal
 
+# open gui installers
+open "${HOMEBREW_PREFIX}/Caskroom/logi-options-plus/latest/logioptionsplus_installer.app"
+
 # other gui app setting
 open "/Applications/1Password.app"
 open "/Applications/Alfred 5.app"

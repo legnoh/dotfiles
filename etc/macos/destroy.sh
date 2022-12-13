@@ -12,7 +12,7 @@ echo "#2: uninstall all homebrew formula..."
 
 # remove mac app store in manually
 # FYI: https://github.com/mas-cli/mas/issues/313
-# mas list | cut -d " " -f1 | while read line; do sudo mas uninstall ${line}; done
+mas list | cut -d " " -f1 | while read line; do sudo mas uninstall ${line}; done
 
 # add full disk access permission to terminal
 # FYI: https://support.apple.com/ja-jp/HT210595

@@ -1,5 +1,5 @@
 # daily update homebrew package
-0 10 * * * brew update && brew cleanup
+0 10 * * * brew update --greedy && brew cleanup
 0 10 * * * mas upgrade
 0 10 * * * rm -rf /var/mail/$USER
 

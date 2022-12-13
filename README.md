@@ -15,8 +15,6 @@ bash -c "$(curl -L dot.lkj.io)"
 
 ### manual setting
 
-- Open Keychain , drop p12 file(S/MIME sign)
-
 ```sh
 open /tmp/PasteAndMatch.popclipextz
 open /tmp/GoogleTranslate.popclipextz

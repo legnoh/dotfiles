@@ -11,8 +11,5 @@ cask 'raspberry-pi-imager'
 mas 'Apple Developer', id:640199958
 mas 'Deliveries', id:290986013
 mas 'Genki Arcade', id:1555925018
-mas 'iMovie', id:408981434
-mas 'LINE', id:539883307
-mas 'OneDrive', id:823766827
 mas 'Speedtest', id:1153157709
 mas 'Xcode', id:497799835

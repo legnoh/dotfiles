@@ -3,7 +3,6 @@ brew 'gatsby-cli'
 brew 'youtube-dl'
 
 cask 'cycliq-cycliqplus'
-cask 'cycliqplus-firmware-updater'
 cask 'discord'
 cask 'homebrew/cask-drivers/fujitsu-scansnap-home'
 cask 'lyrics-master'

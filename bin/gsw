@@ -6,7 +6,7 @@ set -eu
 
 FILE=".gitconfig.optional"
 
-if [[ $(git config user.email) = "legknmj@icloud.com" ]] ; then
+if [[ $(git config user.email) = "706834+legnoh@users.noreply.github.com" ]] ; then
   ln -fs ${IDOT}/dot/${FILE} ~/${FILE}
   echo "switch to internal config"
 else

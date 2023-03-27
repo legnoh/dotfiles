@@ -6,17 +6,6 @@ DOT=~/code/src/github.com/legnoh/dotfiles
 echo "Do you need private App? [y/N]: " && read PRIVATE
 echo "What's your sudo password?: " && read -sp "Password: " PASSWORD
 
-# install command-line-tools
-if [[ ! -d /Library/Developer/CommandLineTools ]]; then
-    echo "Installing command-line-tools"
-    xcode-select --install
-    echo "Completed? [Y/n]: " && read ANS
-    if [[ "${ANS}" = "n" ]]; then
-      echo "Stoped..."
-      exit 1;
-    fi
-fi
-
 # judge M1/Intel
 if [[ $(/usr/bin/uname -m) == "arm64" ]]; then
     echo "architecture: M1 Mac"
@@ -30,11 +19,10 @@ else
 fi
 export PATH=${HOMEBREW_PREFIX}/bin:${PATH}
 
-# install Homebrew, bundle, mas
+# install Homebrew(with CommandLineTools), bundle
 if test ! $(which brew); then
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew tap homebrew/bundle
-    brew tap homebrew/cask
     brew tap homebrew/cask-drivers
     brew tap homebrew/cask-fonts
     brew tap legnoh/etc
@@ -49,7 +37,7 @@ wait
 
 # settings
 
-## brew + zinit
+## zinit
 ## https://github.com/zsh-users/zsh-completions/issues/433#issuecomment-390600994
 chmod 755 ${HOMEBREW_PREFIX}/share/zsh/site-functions
 chmod 755 ${HOMEBREW_PREFIX}/share/zsh

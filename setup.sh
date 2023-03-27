@@ -6,6 +6,7 @@ DOT_TARBAL="https://codeload.github.com/legnoh/dotfiles/tar.gz/main"; export DOT
 DOT_FILES=(
   .gitconfig
   .gitconfig.optional
+  .ssh/config
   .vimrc
   .zshenv
   .zshrc
@@ -13,7 +14,7 @@ DOT_FILES=(
 ); export DOT_FILES
 
 # prepare install dotfiles
-mkdir -p ~/.gnupg ~/code/bin ~/code/pkg ${DOT}
+mkdir -p ~/.gnupg ~/code/bin ~/code/pkg ~/.ssh ${DOT}
 touch ~/.hushlogin
 
 # install dotfiles by tarball

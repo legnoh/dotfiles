@@ -1,4 +1,5 @@
 brew 'aria2'
+brew 'minicom'
 brew 'youtube-dl'
 
 cask 'cycliq-cycliqplus'

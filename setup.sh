@@ -14,7 +14,7 @@ DOT_FILES=(
 ); export DOT_FILES
 
 # prepare install dotfiles
-mkdir -p ~/.gnupg ~/code/bin ~/code/pkg ~/.ssh ${DOT}
+mkdir -p ~/.gnupg ~/code/{bin,pkg} ~/.ssh/conf.d ${DOT}
 touch ~/.hushlogin
 
 # install dotfiles by tarball

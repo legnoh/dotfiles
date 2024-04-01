@@ -1,13 +1,7 @@
-brew 'aria2'
-brew 'minicom'
-brew 'youtube-dl'
-
 cask 'cycliq-cycliqplus'
 cask 'discord'
 cask 'homebrew/cask-drivers/fujitsu-scansnap-home'
 cask 'obs'
-cask 'onecomme'
-cask 'raspberry-pi-imager'
 
 mas 'Apple Developer', id:640199958
 mas 'Deliveries', id:290986013

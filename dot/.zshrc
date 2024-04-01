@@ -10,7 +10,7 @@ else
   UNAME_MACHINE="$(uname -m)"
   HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
 fi
-export PATH=${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:$DOT/bin:${GOPATH}/bin:${HOMEBREW_PREFIX}/opt/go/bin:${HOMEBREW_PREFIX}/opt/node/bin:${PATH}:${HOME}/.docker/bin
+export PATH=${HOMEBREW_PREFIX}/bin:/opt/homebrew/opt/grep/libexec/gnubin:${HOMEBREW_PREFIX}/sbin:$DOT/bin:${GOPATH}/bin:${HOMEBREW_PREFIX}/opt/go/bin:${HOMEBREW_PREFIX}/opt/node/bin:${PATH}:${HOME}/.docker/bin
 export FPATH=${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}
 
 source ~/.zinit/bin/zinit.zsh

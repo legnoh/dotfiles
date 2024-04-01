@@ -23,7 +23,6 @@ export PATH=${HOMEBREW_PREFIX}/bin:${PATH}
 if test ! $(which brew); then
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew tap homebrew/bundle
-    brew tap homebrew/cask-drivers
     brew tap homebrew/cask-fonts
     brew tap legnoh/etc
 fi

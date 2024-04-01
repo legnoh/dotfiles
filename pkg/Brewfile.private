@@ -1,6 +1,5 @@
-cask 'cycliq-cycliqplus'
 cask 'discord'
-cask 'homebrew/cask-drivers/fujitsu-scansnap-home'
+cask 'fujitsu-scansnap-home'
 cask 'obs'
 
 mas 'Apple Developer', id:640199958

@@ -4,9 +4,9 @@ brew 'ghq'
 brew 'gibo'
 brew 'go'
 brew 'goreleaser'
+brew 'helm'
 brew 'jq'
 brew 'kubernetes-cli'
-brew 'kubernetes-helm'
 brew 'kustomize'
 brew 'mas'
 brew 'node'
@@ -26,7 +26,7 @@ cask 'bettertouchtool'
 cask 'docker'
 cask 'elgato-wave-link'
 cask 'homebrew/cask-fonts/font-jetbrains-mono'
-cask 'homebrew/cask-drivers/logi-options-plus'
+cask 'logi-options-plus'
 cask 'notion'
 cask 'rapidapi'
 cask 'visual-studio-code'
@@ -35,7 +35,7 @@ cask 'zoom'
 mas '1 Password for Safari', id:1569813296
 mas 'Copy Link to Pasteboard', id:1551527433
 mas 'Keynote', id:409183694
-mas 'Kindle', id:405399194
+mas 'Kindle', id:302584613
 mas 'Meeter', id:1510445899
 mas 'Numbers', id:409203825
 mas 'OverPicture for Safari', id:1188020834

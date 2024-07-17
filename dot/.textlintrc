@@ -1,0 +1,11 @@
+{
+  "plugins": {
+    "@textlint/markdown": {
+        "extensions": [".mdx"]
+      }
+  },
+  "filters": {},
+  "rules": {
+    "preset-ja-technical-writing": true
+  }
+}

@@ -13,11 +13,7 @@ fi
 export PATH=\
 ${HOMEBREW_PREFIX}/bin\
 :${HOMEBREW_PREFIX}/sbin\
-:${HOMEBREW_PREFIX}/opt/grep/libexec/gnubin\
-:${HOMEBREW_PREFIX}/opt/go/bin\
-:${HOMEBREW_PREFIX}/opt/node/bin\
 :${GOPATH}/bin\
-:${HOME}/.docker/bin\
 :${HOME}/.local/bin\
 :${DOT}/bin\
 :${PATH}

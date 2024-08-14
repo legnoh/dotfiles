@@ -23,7 +23,6 @@ export PATH=${HOMEBREW_PREFIX}/bin:${PATH}
 if test ! $(which brew); then
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew tap homebrew/bundle
-    brew tap homebrew/cask-fonts
     brew tap legnoh/etc
 fi
 
@@ -85,12 +84,10 @@ open "/Applications/1Password.app"
 open "/Applications/Alfred 5.app"
 open "/Applications/BetterTouchTool.app"
 open "/Applications/Kindle.app"
-open "/Applications/Meeter.app"
 open "/Applications/Notion.app"
 open "/Applications/Todoist.app"
 open "/Applications/PopClip.app"
 open "/Applications/Slack.app"
-open "/Applications/zoom.us.app"
 if [[ "${PRIVATE}" = "y" ]]; then
     open "/Applications/Discord.app"
     open "/Applications/LINE.app"

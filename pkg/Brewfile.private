@@ -1,4 +1,5 @@
 cask 'discord'
+cask 'docker'
 cask 'fujitsu-scansnap-home'
 cask 'obs'
 

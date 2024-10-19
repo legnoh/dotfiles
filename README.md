@@ -15,8 +15,6 @@ bash -c "$(curl -L dot.lkj.io)"
 
 ### manual setting
 
-- Brusfri
-  - [Brusfri - Noise Reducer](https://klevgrand.com/products/brusfri)
 - Popclip extension
   ```sh
   open /tmp/PasteAndMatch.popclipextz

@@ -94,3 +94,7 @@ if [[ "${PRIVATE}" = "y" ]]; then
     open "/Applications/ScanSnapHomeMain.app"
     sudo xcodebuild -license accept
 fi
+
+# sudo touch id setting in sonoma
+# https://dev.to/siddhantkcode/enable-touch-id-authentication-for-sudo-on-macos-sonoma-14x-4d28
+sed -e 's/^#auth/auth/' /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local

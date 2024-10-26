@@ -13,6 +13,10 @@ if [[ $(/usr/bin/uname -m) == "arm64" ]]; then
     if [[ "${PRIVATE}" = "y" ]]; then
         sudo softwareupdate --install-rosetta
     fi
+
+    # sudo touch id setting in sonoma
+    # https://dev.to/siddhantkcode/enable-touch-id-authentication-for-sudo-on-macos-sonoma-14x-4d28
+    sed -e 's/^#auth/auth/' /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
 else
     echo "architecture: Intel Mac"
     HOMEBREW_PREFIX="/usr/local"
@@ -76,25 +80,20 @@ curl -L https://pilotmoon.com/popclip/extensions/ext/UnixTime.popclipextz -o /tm
 ## terminal theme
 open ${DOT}/pkg/iceberg.terminal
 
+# xcode licence agreement
+sudo xcodebuild -license accept
+
 # open gui installers
 open "${HOMEBREW_PREFIX}/Caskroom/logi-options-plus/latest/logioptionsplus_installer.app"
 
 # other gui app setting
 open "/Applications/1Password.app"
 open "/Applications/Alfred 5.app"
-open "/Applications/BetterTouchTool.app"
 open "/Applications/Kindle.app"
 open "/Applications/Notion.app"
-open "/Applications/Todoist.app"
 open "/Applications/PopClip.app"
 open "/Applications/Slack.app"
 if [[ "${PRIVATE}" = "y" ]]; then
     open "/Applications/Discord.app"
-    open "/Applications/LINE.app"
-    open "/Applications/ScanSnapHomeMain.app"
-    sudo xcodebuild -license accept
 fi
 
-# sudo touch id setting in sonoma
-# https://dev.to/siddhantkcode/enable-touch-id-authentication-for-sudo-on-macos-sonoma-14x-4d28
-sed -e 's/^#auth/auth/' /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local

@@ -15,6 +15,7 @@ ${HOMEBREW_PREFIX}/bin\
 :${HOMEBREW_PREFIX}/sbin\
 :${GOPATH}/bin\
 :${HOME}/.local/bin\
+:${HOME}/.rd/bin\
 :${DOT}/bin\
 :${PATH}
 

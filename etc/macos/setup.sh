@@ -23,11 +23,10 @@ else
 fi
 export PATH=${HOMEBREW_PREFIX}/bin:${PATH}
 
-# install Homebrew(with CommandLineTools), bundle
+# install Homebrew(with CommandLineTools)
 if test ! $(which brew); then
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew tap homebrew/bundle
-    brew tap legnoh/etc
 fi
 
 # install brew packages
@@ -39,10 +38,10 @@ wait
 
 # settings
 
-## zinit
-## https://github.com/zsh-users/zsh-completions/issues/433#issuecomment-390600994
-chmod 755 ${HOMEBREW_PREFIX}/share/zsh/site-functions
-chmod 755 ${HOMEBREW_PREFIX}/share/zsh
+# ## zinit
+# ## https://github.com/zsh-users/zsh-completions/issues/433#issuecomment-390600994
+# chmod 755 ${HOMEBREW_PREFIX}/share/zsh/site-functions
+# chmod 755 ${HOMEBREW_PREFIX}/share/zsh
 
 ## gitignore
 gibo update && gibo dump macOS VisualStudioCode Vim > ~/.gitignore
@@ -96,4 +95,3 @@ open "/Applications/Slack.app"
 if [[ "${PRIVATE}" = "y" ]]; then
     open "/Applications/Discord.app"
 fi
-

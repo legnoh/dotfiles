@@ -17,7 +17,6 @@
     "go.useLanguageServer": true,
     "screencastMode.onlyKeyboardShortcuts": true,
     "search.globalFindClipboard": true,
-    "terminal.integrated.enableBell": true,
     "terminal.integrated.fontSize": 14,
     "terminal.integrated.rendererType": "dom",
     "vsicons.dontShowNewVersionMessage": true,
@@ -55,5 +54,9 @@
     "files.associations": {
         ".env": "shellscript"
     },
-    "editor.accessibilitySupport": "off"
+    "editor.accessibilitySupport": "off",
+    "accessibility.signals.terminalBell": {
+        "sound": "on"
+    },
+    "terminal.integrated.enableVisualBell": true
 }

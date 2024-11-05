@@ -1,64 +1,34 @@
-if [[ -z "${HOMEBREW_ON_LINUX-}" ]]; then
-  UNAME_MACHINE="$(/usr/bin/uname -m)"
+export HISTFILE=~/.zsh_history
+export HISTSIZE=1000000000000
+export SAVEHIST=1000000000000
+export PROMPT_COMMAND='history -a; history -r'
+export DOT=$HOME/code/src/github.com/legnoh/dotfiles
+export GOPATH=$HOME/code
 
-  if [[ "$UNAME_MACHINE" == "arm64" ]]; then
-    HOMEBREW_PREFIX="/opt/homebrew"
-  else
-    HOMEBREW_PREFIX="/usr/local"
-  fi
-else
-  UNAME_MACHINE="$(uname -m)"
+if [[ $(/usr/bin/uname) == "Linux" ]]; then
+  # linux
   HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+elif [[ $(/usr/bin/uname -m) == "arm64" ]]; then
+  # mac-arm
+  HOMEBREW_PREFIX="/opt/homebrew"
+else
+  # mac-amd
+  HOMEBREW_PREFIX="/usr/local"
 fi
+
 export PATH=\
 ${HOMEBREW_PREFIX}/bin\
-:${HOMEBREW_PREFIX}/sbin\
-:${GOPATH}/bin\
 :${HOME}/.local/bin\
 :${HOME}/.rd/bin\
-:${DOT}/bin\
+:${GOPATH}/bin\
 :${PATH}
 
-export FPATH=${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}
-
-source ~/.zinit/bin/zinit.zsh
-
-zinit light denysdovhan/spaceship-prompt
-
-zinit ice wait"0" silent
-zinit light zdharma/fast-syntax-highlighting
-
-zinit ice wait"0" silent
-zinit load psprint/zsh-navigation-tools
-
-zinit ice wait"0" silent
-zinit load zsh-users/zsh-completions
-
-zinit ice wait"!0" atload"_zsh_autosuggest_start" silent
-zinit load zsh-users/zsh-autosuggestions
-
-zinit ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' src"zhook.zsh" silent
-zinit light direnv/direnv
-
-zinit ice wait"0" silent
-zinit light "marzocchi/zsh-notify"
-
-zinit ice as"program" make'!' atclone'echo "source ~/.zplugin/plugins/b4b4r07---enhancd/init.sh" > zhook.zsh' src"zhook.zsh" silent
-zinit load "b4b4r07/enhancd"
+export FPATH=\
+${HOMEBREW_PREFIX}/share/zsh/site-functions\
+:${FPATH}
 
 alias gsw='gsw && source ~/.zshenv'
 alias ls="ls -alhG"
 
-gg() {
-  ghq get --look $1
-}
-
-gcd() {
-  local repo_path=`ghq list --full-path | fzf --reverse --preview "less {1}/README.md"`
-  \cd ${repo_path}
-}
-
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
-zpcompinit
-zpcdreplay
+eval "$(starship init zsh)"
+source ~/.zshrc.local

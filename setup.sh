@@ -1,9 +1,10 @@
 #!/bin/bash
 
-DOT=~/code/src/github.com/legnoh/dotfiles; export DOT
-DOT_GITHUB="https://github.com/legnoh/dotfiles.git"; export DOT_GITHUB
-DOT_TARBAL="https://codeload.github.com/legnoh/dotfiles/tar.gz/main"; export DOT_TARBAL
-DOT_FILES=(
+export DOT="$HOME/code/src/github.com/legnoh/dotfiles"
+export DOT_GITHUB="https://github.com/legnoh/dotfiles.git"
+export DOT_TARBAL="https://codeload.github.com/legnoh/dotfiles/tar.gz/main"
+export DOT_FILES=(
+  .config/starship.toml
   .gitconfig
   .gitconfig.optional
   .ssh/config
@@ -11,10 +12,10 @@ DOT_FILES=(
   .zshenv
   .zshrc
   .zshrc.local
-); export DOT_FILES
+)
 
 # prepare install dotfiles
-mkdir -p ~/.gnupg ~/code/{bin,pkg} ~/.ssh/conf.d ${DOT}
+mkdir -p ~/.config ~/code/{bin,pkg} ~/.ssh/conf.d ${DOT}
 touch ~/.hushlogin
 
 # install dotfiles by tarball
@@ -33,10 +34,6 @@ fi
 # re-install dotfiles by https
 rm -rf ${DOT}
 git clone ${DOT_GITHUB} ${DOT}
-
-# install zplugin
-mkdir ~/.zinit
-git clone https://github.com/zdharma-continuum/zinit.git ~/.zinit/bin
 
 echo "Complete: please restart Terminal and continue manual settings"
 echo "https://github.com/legnoh/dotfiles#manual-setting"

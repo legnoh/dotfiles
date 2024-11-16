@@ -22,9 +22,8 @@ cask 'legnoh/etc/dell-u4025qw-driver'
 cask 'legnoh/etc/dell-u4025qw-firmware-update-utility'
 cask 'fujitsu-scansnap-home'
 cask 'google-chrome'
-cask 'homebrew/cask-fonts/font-jetbrains-mono-nerd-font'
+cask 'font-jetbrains-mono-nerd-font'
 cask 'logi-options+'
-cask 'monitorcontrol'
 cask 'notion'
 cask 'rancher'
 cask 'rapidapi'
@@ -37,7 +36,7 @@ mas '1 Password for Safari', id:1569813296
 mas 'Apple Developer', id:640199958
 mas 'Copy Link to Pasteboard', id:1551527433
 mas 'Keynote', id:409183694
-mas 'Kindle', id:405399194
+mas 'Kindle', id:302584613
 mas 'Numbers', id:409203825
 mas 'OverPicture for Safari', id:1188020834
 mas 'Pages', id:409201541

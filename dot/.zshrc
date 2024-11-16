@@ -17,7 +17,8 @@ else
 fi
 
 export PATH=\
-${HOMEBREW_PREFIX}/bin\
+${DOT}/bin\
+:${HOMEBREW_PREFIX}/bin\
 :${HOME}/.local/bin\
 :${HOME}/.rd/bin\
 :${GOPATH}/bin\

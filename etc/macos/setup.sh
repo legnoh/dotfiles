@@ -55,21 +55,19 @@ ln -fs ${DOT}/pkg/vsc-settings.json ${VSCODE_CONF_DIR}/settings.json
 ln -fs ${DOT}/pkg/vsc-locale.json ${VSCODE_CONF_DIR}/locale.json
 
 ## VSCode plugins
-code --install-extension bungcip.better-toml
 code --install-extension cocopon.iceberg-theme
-code --install-extension GitHub.vscode-pull-request-github
+code --install-extension github.vscode-pull-request-github
+code --install-extension golang.go
 code --install-extension ms-azuretools.vscode-docker
-code --install-extension MS-CEINTL.vscode-language-pack-ja
+code --install-extension ms-ceintl.vscode-language-pack-ja
 code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
-code --install-extension ms-vscode.Go
+code --install-extension ms-python.python
 code --install-extension ms-vscode-remote.remote-containers
 code --install-extension redhat.vscode-yaml
+code --install-extension tamasfe.even-better-toml
 code --install-extension tyriar.sort-lines
-code --install-extension VisualStudioExptTeam.vscodeintellicode
+code --install-extension visualstudioexptteam.vscodeintellicode
 code --install-extension vscode-icons-team.vscode-icons
-
-## BetterTouchTool
-open ${DOT}/pkg/Default.bttpreset
 
 ## PopClip
 curl -L https://pilotmoon.com/popclip/extensions/ext/PasteAndMatch.popclipextz -o /tmp/PasteAndMatch.popclipextz

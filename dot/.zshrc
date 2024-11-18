@@ -4,6 +4,7 @@ export SAVEHIST=1000000000000
 export PROMPT_COMMAND='history -a; history -r'
 export DOT=$HOME/code/src/github.com/legnoh/dotfiles
 export GOPATH=$HOME/code
+export ICLOUD_DRIVE="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
 
 if [[ $(/usr/bin/uname) == "Linux" ]]; then
   # linux

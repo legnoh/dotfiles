@@ -3,16 +3,19 @@ brew 'coreutils'
 brew 'direnv'
 brew 'ghq'
 brew 'gibo'
+brew 'git-lfs'
 brew 'go'
 brew 'goreleaser'
 brew 'jq'
 brew 'mike-engel/jwt-cli/jwt-cli'
 brew 'mas'
 brew 'node'
-brew 'ripgrep'
+brew 'pipenv'
+brew 'python'
 brew 'terminal-notifier'
 brew 'tree'
 brew 'uv'
+brew 'zsh-autosuggestions'
 
 cask '1password'
 cask '1password-cli'
@@ -42,7 +45,6 @@ mas 'OverPicture for Safari', id:1188020834
 mas 'Pages', id:409201541
 mas 'Pixelmator Pro', id:1289583905
 mas 'PopClip', id:445189367
-mas 'RSS Button for Safari', id:1437501942
 mas 'Slack for Desktop', id:803453959
 mas 'Userscripts', id:1463298887
 mas 'Xcode', id:497799835

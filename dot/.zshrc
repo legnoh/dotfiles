@@ -7,13 +7,10 @@ export GOPATH=$HOME/code
 export ICLOUD_DRIVE="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
 
 if [[ $(/usr/bin/uname) == "Linux" ]]; then
-  # linux
   HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
 elif [[ $(/usr/bin/uname -m) == "arm64" ]]; then
-  # mac-arm
   HOMEBREW_PREFIX="/opt/homebrew"
 else
-  # mac-amd
   HOMEBREW_PREFIX="/usr/local"
 fi
 
@@ -31,6 +28,8 @@ ${HOMEBREW_PREFIX}/share/zsh/site-functions\
 
 alias gsw='gsw && source ~/.zshenv'
 alias ls="ls -alhG"
+
+source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 eval "$(starship init zsh)"
 source ~/.zshrc.local

@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
       - name: Setup homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
@@ -49,7 +51,7 @@ jobs:
       - name: Setup homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
-      - name: Test(cask)
+      - name: Test(private)
         env:
           HOMEBREW_BUNDLE_MAS_SKIP: "Speedtest"
         run: |

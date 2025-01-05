@@ -28,7 +28,7 @@ jobs:
             echo "BREW_PACKAGE_NAME=${BREW_PACKAGE_NAME}" >> "$GITHUB_ENV"
       
       - name: edit Brewfiles
-        if: ${{ github.env.LTS_VERSION_GLOBAL == github.env.LTS_VERSION_DOTFILES }}
+        if: ${{ env.LTS_VERSION_GLOBAL == env.LTS_VERSION_DOTFILES }}
         env:
           BREWFILE: pkg/Brewfile
         run: |
@@ -48,7 +48,8 @@ jobs:
         id: create-pull-request
         uses: peter-evans/create-pull-request@v7
         with:
-          title: "bump: ${{ github.env.BREW_PACKAGE_NAME }} v${{ github.env.LTS_VERSION_GLOBAL }}"
-          commit-message: "bump: ${{ github.env.BREW_PACKAGE_NAME }} v${{ github.env.LTS_VERSION_GLOBAL }}"
+          title: "bump: ${{ env.BREW_PACKAGE_NAME }} v${{ env.LTS_VERSION_GLOBAL }}"
+          commit-message: "bump: ${{ env.BREW_PACKAGE_NAME }} v${{ env.LTS_VERSION_GLOBAL }}"
           committer: "${{ steps.app-token.outputs.app-slug }}[bot] <${{ steps.get-user-id.outputs.user-id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com>"
-          branch: "${{ github.env.BREW_PACKAGE_NAME }}-${{ github.env.BREW_PACKAGE_NAME }}"
+          branch: ${{ env.BREW_PACKAGE_NAME }}-${{ env.LTS_VERSION_GLOBAL }}
+          token: ${{ steps.app-token.outputs.token }}

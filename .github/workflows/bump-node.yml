@@ -1,4 +1,4 @@
-name: Bump Version(Python)
+name: Bump Version(Node)
 
 on:
   workflow_dispatch:
@@ -11,15 +11,15 @@ jobs:
         uses: actions/checkout@v4
       - name: Check LTS version
         env:
-          EOL_PACKAGE_NAME: python
-          JQ_QUERY: ".[0].cycle"
+          EOL_PACKAGE_NAME: nodejs
+          JQ_QUERY: "[.[] | select(.lts != false)] | .[0].cycle"
         run: |
-            LTS_VERSION_GLOBAL=$(curl -s https://endoflife.date/api/${EOL_PACKAGE_NAME}.json | jq -r "${{ env.JQ_QUERY }}")
+            LTS_VERSION_GLOBAL=$(curl -s https://endoflife.date/api/${EOL_PACKAGE_NAME}.json | jq -r "${{ env.JQ_QUERY }}"
             echo "LTS_VERSION_GLOBAL: ${LTS_VERSION_GLOBAL}"
             echo "LTS_VERSION_GLOBAL=${LTS_VERSION_GLOBAL}" >> "$GITHUB_ENV"
       - name: Check dotfiles version
         env:
-          BREW_PACKAGE_NAME: python
+          BREW_PACKAGE_NAME: node
         run: |
             LTS_VERSION_DOTFILES=$(grep "${BREW_PACKAGE_NAME}@" pkg/Brewfile | awk 'match($0, "([0-9\.]+)") {print substr($0, RSTART, RLENGTH)}')
             echo "LTS_VERSION_DOTFILES: ${LTS_VERSION_DOTFILES}"
@@ -49,8 +49,8 @@ jobs:
         if: env.LTS_VERSION_GLOBAL != env.LTS_VERSION_DOTFILES
         uses: peter-evans/create-pull-request@v7
         env:
-          RELEASE_POLICY_URL: https://devguide.python.org/versions/
-          RELEASE_NOTES_URL: https://docs.python.org/3/whatsnew/${{ env.LTS_VERSION_GLOBAL }}.html
+          RELEASE_POLICY_URL: https://nodejs.org/en/about/previous-releases
+          RELEASE_NOTES_URL: https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V${{ env.LTS_VERSION_GLOBAL }}.md
         with:
           title: "bump: ${{ env.BREW_PACKAGE_NAME }} v${{ env.LTS_VERSION_GLOBAL }}"
           committer: "${{ steps.app-token.outputs.app-slug }}[bot] <${{ steps.get-user-id.outputs.user-id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com>"

@@ -5,6 +5,7 @@ export DOT_GITHUB="https://github.com/legnoh/dotfiles.git"
 export DOT_TARBAL="https://codeload.github.com/legnoh/dotfiles/tar.gz/main"
 export DOT_FILES=(
   .config/starship.toml
+  .config/sheldon/plugins.toml
   .gitconfig
   .gitconfig.optional
   .ssh/config
@@ -15,7 +16,7 @@ export DOT_FILES=(
 )
 
 # prepare install dotfiles
-mkdir -p ~/.config ~/code/{bin,pkg} ~/.ssh/conf.d ${DOT}
+mkdir -p ~/.config/{sheldon} ~/code/{bin,pkg} ~/.ssh/conf.d ${DOT}
 touch ~/.hushlogin
 
 # install dotfiles by tarball

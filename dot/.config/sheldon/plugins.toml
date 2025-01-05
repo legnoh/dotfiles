@@ -1,0 +1,30 @@
+shell = "zsh"
+
+# https://sheldon.cli.rs/Examples.html#deferred-loading-of-plugins-in-zsh
+[templates]
+defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
+
+[plugins]
+
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+apply = ["fpath", "defer"]
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+use = ['{{ name }}.zsh']
+apply = ["defer"]
+
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+apply = ["defer"]
+
+[plugins.docker-completion]
+remote = "https://raw.githubusercontent.com/docker/cli/refs/heads/master/contrib/completion/zsh/_docker"
+apply = ["fpath", "defer"]
+
+[plugins.compinit]
+inline = 'autoload -Uz compinit && zsh-defer compinit'

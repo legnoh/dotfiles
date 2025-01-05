@@ -30,18 +30,15 @@ if test ! $(which brew); then
 fi
 
 # install brew packages
-${DOT}/etc/macos/install-brew.sh ${PASSWORD} Brewfile &
+${DOT}/etc/macos/install-brew.sh ${PASSWORD} Brewfile.brew.rb &
+${DOT}/etc/macos/install-brew.sh ${PASSWORD} Brewfile.cask.rb &
+${DOT}/etc/macos/install-brew.sh ${PASSWORD} Brewfile.mas.rb &
 if [[ "${PRIVATE}" = "y" ]]; then
-    ${DOT}/etc/macos/install-brew.sh ${PASSWORD} Brewfile.private &
+    ${DOT}/etc/macos/install-brew.sh ${PASSWORD} Brewfile.private.rb &
 fi
 wait
 
 # settings
-
-# ## zinit
-# ## https://github.com/zsh-users/zsh-completions/issues/433#issuecomment-390600994
-# chmod 755 ${HOMEBREW_PREFIX}/share/zsh/site-functions
-# chmod 755 ${HOMEBREW_PREFIX}/share/zsh
 
 ## gitignore
 gibo update && gibo dump macOS VisualStudioCode Vim > ~/.gitignore

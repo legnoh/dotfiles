@@ -7,11 +7,13 @@ bash -c "$(curl -L dot.lkj.io)"
 
 ## goods
 
-- shell: [Zsh](http://www.zsh.org/)
-  - plugin manager: [Zplugin](https://github.com/zdharma/zplugin)
-  - theme: [Iceberg](https://cocopon.github.io/iceberg.vim/)
-- ide: [Visual Studio Code](https://code.visualstudio.com/)
-- environment: macOS + [Docker CE](https://github.com/docker/docker-ce)
+- Shell: [Zsh](http://www.zsh.org/)
+  - plugin manager: [Sheldon](https://sheldon.cli.rs)
+  - prompt manager: [Starship](https://starship.rs)
+- IDE: [Visual Studio Code](https://code.visualstudio.com/)
+- Container Runtime: [Rancher](https://www.rancher.com)
+- Color Scheme: [Iceberg](https://cocopon.github.io/iceberg.vim/)
+- Font: [JetBrains Mono](https://www.jetbrains.com/lp/mono/) [Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono)
 
 ### manual setting
 

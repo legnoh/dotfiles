@@ -22,14 +22,16 @@ ${DOT}/bin\
 :${GOPATH}/bin\
 :${PATH}
 
-export FPATH=\
-${HOMEBREW_PREFIX}/share/zsh/site-functions\
-:${FPATH}
+# enable zsh plugin provided by homebrew
+export FPATH=${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}
 
+# enable sheldon & starship
+eval "$(sheldon source)"
+eval "$(starship init zsh)"
+
+# enable local settings
+source ~/.zshrc.local
+
+# some alias
 alias gsw='gsw && source ~/.zshenv'
 alias ls="ls -alhG"
-
-source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-eval "$(starship init zsh)"
-source ~/.zshrc.local

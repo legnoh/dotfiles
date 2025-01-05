@@ -50,6 +50,8 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
       - name: Test(cask)
+        env:
+          HOMEBREW_BUNDLE_MAS_SKIP: "Speedtest"
         run: |
             brew install mas
             brew bundle --file=pkg/Brewfile.private.rb

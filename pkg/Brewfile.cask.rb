@@ -1,3 +1,5 @@
+tap 'legnoh/etc'
+
 # Utility
 cask '1password'
 cask '1password-cli'
@@ -19,8 +21,8 @@ cask 'vlc'
 cask 'zoom'
 
 # Device drivers
-cask 'legnoh/etc/dell-u4025qw-driver'
-cask 'legnoh/etc/dell-u4025qw-firmware-update-utility'
+cask 'dell-u4025qw-driver'
+cask 'dell-u4025qw-firmware-update-utility'
 cask 'fujitsu-scansnap-home'
 cask 'logi-options+'
-cask 'legnoh/etc/roland-bridge-cast-app'
+cask 'roland-bridge-cast-app'

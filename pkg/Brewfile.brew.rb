@@ -1,7 +1,9 @@
+tap 'mike-engel/jwt-cli'
+
 # Essential armyknifes
 brew 'coreutils'
 brew 'jq'
-brew 'mike-engel/jwt-cli/jwt-cli'
+brew 'jwt-cli'
 brew 'tree'
 
 # Package managers

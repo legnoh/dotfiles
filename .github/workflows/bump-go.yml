@@ -49,7 +49,7 @@ jobs:
         if: env.LTS_VERSION_GLOBAL != env.LTS_VERSION_DOTFILES
         uses: peter-evans/create-pull-request@v7
         env:
-          RELEASE_NOTES_URL: https://go.dev/doc/devel/release#go${{ env.LTS_VERSION_GLOBAL }}.0
+          RELEASE_NOTES_URL: https://go.dev/doc/go${{ env.LTS_VERSION_GLOBAL }}
           RELEASE_POLICY_URL: https://go.dev/doc/devel/release#policy
         with:
           title: "bump: ${{ env.BREW_PACKAGE_NAME }} v${{ env.LTS_VERSION_GLOBAL }}"

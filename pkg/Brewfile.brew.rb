@@ -24,7 +24,7 @@ brew 'go@1.21'
 brew 'goreleaser'
 
 # Python family
-brew 'python@3.12'
+brew 'python@3.13'
 brew 'pipenv'
 
 # Cloudtools family

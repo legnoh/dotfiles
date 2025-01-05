@@ -20,7 +20,7 @@ brew 'git-lfs'
 brew 'node@20'
 
 # Go family
-brew 'go@1.21'
+brew 'go@1.23'
 brew 'goreleaser'
 
 # Python family

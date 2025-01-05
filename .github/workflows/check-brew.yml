@@ -1,6 +1,8 @@
 name: Check brew bundle
 
 on:
+  pull_request_target:
+    branches: ["main"]
   workflow_dispatch:
 
 jobs:
@@ -27,7 +29,19 @@ jobs:
         uses: Homebrew/actions/setup-homebrew@master
       - name: Test(cask)
         run: brew bundle --file=pkg/Brewfile.cask.rb
-  mas:
+  # mas:
+  #   runs-on: macos-latest
+  #   steps:
+  #     - name: Checkout Repository
+  #       uses: actions/checkout@v4
+  #     - name: Setup homebrew
+  #       id: set-up-homebrew
+  #       uses: Homebrew/actions/setup-homebrew@master
+  #     - name: Test(mas)
+  #       run: |
+  #           brew install mas
+  #           brew bundle --mas --file=pkg/Brewfile.mas.rb
+  private:
     runs-on: macos-latest
     steps:
       - name: Checkout Repository
@@ -35,9 +49,7 @@ jobs:
       - name: Setup homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
-      - name: Test(mas)
-        env:
-          HOMEBREW_BUNDLE_MAS_SKIP: true
+      - name: Test(cask)
         run: |
             brew install mas
-            brew bundle --mas --file=pkg/Brewfile.mas.rb
+            brew bundle --file=pkg/Brewfile.private.rb

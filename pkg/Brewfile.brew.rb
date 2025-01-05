@@ -17,7 +17,7 @@ brew 'gibo'
 brew 'git-lfs'
 
 # Node.js family
-brew 'node@20'
+brew 'node@22'
 
 # Go family
 brew 'go@1.21'

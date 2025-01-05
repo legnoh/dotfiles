@@ -36,6 +36,8 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
       - name: Test(mas)
+        env:
+          HOMEBREW_BUNDLE_MAS_SKIP: true
         run: |
             brew install mas
             brew bundle --mas --file=pkg/Brewfile.mas.rb

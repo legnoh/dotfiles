@@ -13,6 +13,6 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
       - name: Test(brew)
-        run: brew bundle Brewfile.brew.rb
+        run: brew bundle --file=Brewfile.brew.rb
       - name: Test(cask)
-        run: brew bundle Brewfile.cask.rb
+        run: brew bundle --file=Brewfile.cask.rb

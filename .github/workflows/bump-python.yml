@@ -22,6 +22,7 @@ jobs:
           BREW_PACKAGE_NAME: python
           BREWFILE: pkg/Brewfile.brew.rb
         run: |
+            echo "BREWFILE=${BREWFILE}" >> "$GITHUB_ENV"
             LTS_VERSION_DOTFILES=$(grep "${BREW_PACKAGE_NAME}@" ${BREWFILE} | awk 'match($0, "([0-9\.]+)") {print substr($0, RSTART, RLENGTH)}')
             echo "LTS_VERSION_DOTFILES: ${LTS_VERSION_DOTFILES}"
             echo "LTS_VERSION_DOTFILES=${LTS_VERSION_DOTFILES}" >> "$GITHUB_ENV"

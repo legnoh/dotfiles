@@ -4,8 +4,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  check:
-    runs-on: macos-latest
+  brew:
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -14,5 +17,25 @@ jobs:
         uses: Homebrew/actions/setup-homebrew@master
       - name: Test(brew)
         run: brew bundle --file=pkg/Brewfile.brew.rb
+  cask:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Setup homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
       - name: Test(cask)
         run: brew bundle --file=pkg/Brewfile.cask.rb
+  mas:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Setup homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+      - name: Test(cask)
+        run: |
+            brew install mas
+            brew bundle --file=pkg/Brewfile.mas.rb

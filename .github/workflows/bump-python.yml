@@ -22,7 +22,7 @@ jobs:
         env:
           BREW_PACKAGE_NAME: python
         run: |
-            LTS_VERSION_DOTFILES=$(grep "${PACKAGE_NAME}@" pkg/Brewfile | cut -c 14-17)
+            LTS_VERSION_DOTFILES=$(grep "${BREW_PACKAGE_NAME}@" pkg/Brewfile | cut -c 14-17)
             echo "LTS_VERSION_DOTFILES: ${LTS_VERSION_DOTFILES}"
             echo "LTS_VERSION_DOTFILES=${LTS_VERSION_DOTFILES}" >> "$GITHUB_ENV"
             echo "BREW_PACKAGE_NAME=${BREW_PACKAGE_NAME}" >> "$GITHUB_ENV"

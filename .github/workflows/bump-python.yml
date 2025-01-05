@@ -1,0 +1,54 @@
+name: Bump Version(Python)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      
+      - name: check LTS version
+        env:
+          EOL_PACKAGE_NAME: python
+        run: |
+            LTS_VERSION_GLOBAL=$(curl -s https://endoflife.date/api/${PACKAGE_NAME}.json | jq -r .[0].cycle)
+            echo "LTS_VERSION_GLOBAL: ${LTS_VERSION_GLOBAL}"
+            echo "LTS_VERSION_GLOBAL=${LTS_VERSION_GLOBAL}" >> "$GITHUB_ENV"
+      
+      - name: check dotfiles version
+        env:
+          BREW_PACKAGE_NAME: python
+        run: |
+            LTS_VERSION_DOTFILES=$(grep "${PACKAGE_NAME}@" pkg/Brewfile | cut -c 14-17)
+            echo "LTS_VERSION_DOTFILES: ${LTS_VERSION_DOTFILES}"
+            echo "LTS_VERSION_DOTFILES=${LTS_VERSION_DOTFILES}" >> "$GITHUB_ENV"
+            echo "BREW_PACKAGE_NAME=${BREW_PACKAGE_NAME}" >> "$GITHUB_ENV"
+      
+      - name: edit Brewfiles
+        if: ${{ github.env.LTS_VERSION_GLOBAL == github.env.LTS_VERSION_DOTFILES }}
+        env:
+          BREWFILE: pkg/Brewfile
+        run: |
+            sed -i "s/${BREW_PACKAGE_NAME}@${LTS_VERSION_DOTFILES}/${BREW_PACKAGE_NAME}@${LTS_VERSION_GLOBAL}/" ${BREWFILE}
+
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+      - name: Get GitHub App User ID
+        id: get-user-id
+        run: echo "user-id=$(gh api "/users/${{ steps.app-token.outputs.app-slug }}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+      - name: Create bump PR
+        id: create-pull-request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          title: "bump: ${{ github.env.BREW_PACKAGE_NAME }} v${{ github.env.LTS_VERSION_GLOBAL }}"
+          commit-message: "bump: ${{ github.env.BREW_PACKAGE_NAME }} v${{ github.env.LTS_VERSION_GLOBAL }}"
+          committer: "${{ steps.app-token.outputs.app-slug }}[bot] <${{ steps.get-user-id.outputs.user-id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com>"
+          branch: "${{ github.env.BREW_PACKAGE_NAME }}-${{ github.env.BREW_PACKAGE_NAME }}"

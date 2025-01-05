@@ -8,11 +8,11 @@ export ICLOUD_DRIVE="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
 
 # define HOMEBREW_PREFIX
 if [[ $(/usr/bin/uname) == "Linux" ]]; then
-  HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+  export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
 elif [[ $(/usr/bin/uname -m) == "arm64" ]]; then
-  HOMEBREW_PREFIX="/opt/homebrew"
+  export HOMEBREW_PREFIX="/opt/homebrew"
 else
-  HOMEBREW_PREFIX="/usr/local"
+  export HOMEBREW_PREFIX="/usr/local"
 fi
 
 # override PATH

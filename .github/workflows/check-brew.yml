@@ -35,7 +35,7 @@ jobs:
       - name: Setup homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
-      - name: Test(cask)
+      - name: Test(mas)
         run: |
             brew install mas
             brew bundle --file=pkg/Brewfile.mas.rb

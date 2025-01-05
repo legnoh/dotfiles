@@ -14,7 +14,7 @@ jobs:
           EOL_PACKAGE_NAME: nodejs
           JQ_QUERY: "[.[] | select(.lts != false)] | .[0].cycle"
         run: |
-            LTS_VERSION_GLOBAL=$(curl -s https://endoflife.date/api/${EOL_PACKAGE_NAME}.json | jq -r "${{ env.JQ_QUERY }}"
+            LTS_VERSION_GLOBAL=$(curl -s https://endoflife.date/api/${EOL_PACKAGE_NAME}.json | jq -r "${{ env.JQ_QUERY }}")
             echo "LTS_VERSION_GLOBAL: ${LTS_VERSION_GLOBAL}"
             echo "LTS_VERSION_GLOBAL=${LTS_VERSION_GLOBAL}" >> "$GITHUB_ENV"
       - name: Check dotfiles version

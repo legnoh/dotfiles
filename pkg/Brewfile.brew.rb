@@ -7,7 +7,7 @@ brew 'jwt-cli'
 brew 'tree'
 
 # Package managers
-brew 'mas'
+brew 'mas' if OS.mac?
 brew 'sheldon'
 brew 'starship'
 

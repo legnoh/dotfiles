@@ -18,7 +18,7 @@ jobs:
       - name: Test(brew)
         run: brew bundle --file=pkg/Brewfile.brew.rb
   cask:
-    runs-on: macos-latest-xlarge
+    runs-on: macos-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -28,7 +28,7 @@ jobs:
       - name: Test(cask)
         run: brew bundle --file=pkg/Brewfile.cask.rb
   mas:
-    runs-on: macos-latest-xlarge
+    runs-on: macos-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -38,4 +38,4 @@ jobs:
       - name: Test(mas)
         run: |
             brew install mas
-            brew bundle --file=pkg/Brewfile.mas.rb
+            brew bundle --mas --file=pkg/Brewfile.mas.rb

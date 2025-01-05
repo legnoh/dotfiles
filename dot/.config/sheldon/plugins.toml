@@ -26,5 +26,9 @@ apply = ["defer"]
 remote = "https://raw.githubusercontent.com/docker/cli/refs/heads/master/contrib/completion/zsh/_docker"
 apply = ["fpath", "defer"]
 
+[plugins.homebrew]
+local = "/opt/homebrew/share/zsh/site-functions"
+apply = ["fpath", "defer"]
+
 [plugins.compinit]
 inline = 'autoload -Uz compinit && zsh-defer compinit'

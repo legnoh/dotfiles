@@ -6,6 +6,7 @@ export DOT=$HOME/code/src/github.com/legnoh/dotfiles
 export GOPATH=$HOME/code
 export ICLOUD_DRIVE="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
 
+# define HOMEBREW_PREFIX
 if [[ $(/usr/bin/uname) == "Linux" ]]; then
   HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
 elif [[ $(/usr/bin/uname -m) == "arm64" ]]; then
@@ -14,16 +15,8 @@ else
   HOMEBREW_PREFIX="/usr/local"
 fi
 
-export PATH=\
-${DOT}/bin\
-:${HOMEBREW_PREFIX}/bin\
-:${HOME}/.local/bin\
-:${HOME}/.rd/bin\
-:${GOPATH}/bin\
-:${PATH}
-
-# enable zsh plugin provided by homebrew
-export FPATH=${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}
+# override PATH
+export PATH=${DOT}/bin:${GOPATH}/bin:${HOME}/.rd/bin:${HOMEBREW_PREFIX}/bin:${PATH}
 
 # enable sheldon & starship
 eval "$(sheldon source)"
@@ -31,7 +24,3 @@ eval "$(starship init zsh)"
 
 # enable local settings
 source ~/.zshrc.local
-
-# some alias
-alias gsw='gsw && source ~/.zshenv'
-alias ls="ls -alhG"

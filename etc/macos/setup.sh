@@ -52,7 +52,6 @@ defaults write -g NSAutomaticPeriodSubstitutionEnabled -bool false
 defaults write -g NSSpellCheckerContainerTransitionComplete -bool false
 defaults write -g com.apple.sound.beep.feedback -bool true
 
-
 ## Finder
 defaults write "com.apple.finder" FXEnableExtensionChangeWarning -bool false
 defaults write "com.apple.finder" FXPreferredViewStyle -string "clmv"

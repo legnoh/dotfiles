@@ -11,7 +11,6 @@ mas 'Pixelmator Pro', id:1289583905
 
 # Programming
 mas 'Apple Developer', id:640199958
-mas 'Xcode', id:497799835
 
 # Safari Extention
 mas '1 Password for Safari', id:1569813296

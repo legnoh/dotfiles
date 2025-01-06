@@ -1,8 +1,9 @@
-name: Check brew bundle
+name: Check brew bundle(weekly)
 
 on:
-  pull_request_target:
-    branches: ["main"]
+  schedule:
+    - cron: 0 4 * * 1
+  workflow_dispatch:
 
 jobs:
   brew:
@@ -13,8 +14,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
       - name: Setup homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
@@ -25,8 +24,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
       - name: Setup homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
@@ -37,8 +34,6 @@ jobs:
   #   steps:
   #     - name: Checkout Repository
   #       uses: actions/checkout@v4
-  #       with:
-  #         ref: ${{ github.event.pull_request.head.sha }}
   #     - name: Setup homebrew
   #       id: set-up-homebrew
   #       uses: Homebrew/actions/setup-homebrew@master
@@ -51,8 +46,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
       - name: Setup homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master

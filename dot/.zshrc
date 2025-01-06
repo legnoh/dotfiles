@@ -24,3 +24,7 @@ eval "$(starship init zsh)"
 
 # enable local settings
 source ~/.zshrc.local
+
+# some tiny alias
+alias ls="ls -ahlG"
+alias diff="colordiff"

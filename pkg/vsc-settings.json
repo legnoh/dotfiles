@@ -1,62 +1,14 @@
 {
-    "debug.console.fontSize": 14,
-    "diffEditor.ignoreTrimWhitespace": true,
-    "editor.fontFamily": "JetBrainsMono Nerd Font, Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontLigatures": true,
-    "editor.fontSize": 14,
-    "editor.renderWhitespace": "all",
-    "editor.suggestSelection": "first",
+    "editor.fontFamily": "JetBrainsMono Nerd Font, Menlo, Monaco",
     "editor.wordWrap": "on",
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
-    "files.insertFinalNewline": true,
-    "git.autofetch": true,
-    "git.confirmSync": false,
-    "git.enableSmartCommit": true,
-    "githubPullRequests.defaultMergeMethod": "squash",
-    "go.useLanguageServer": true,
-    "screencastMode.onlyKeyboardShortcuts": true,
-    "search.globalFindClipboard": true,
-    "terminal.integrated.fontSize": 14,
-    "terminal.integrated.rendererType": "dom",
+    "lldb.launch.expressions": "native",
+    "lldb.library": "/Library/Developer/CommandLineTools/Library/PrivateFrameworks/LLDB.framework/Versions/A/LLDB",
+    "redhat.telemetry.enabled": true,
     "vsicons.dontShowNewVersionMessage": true,
-    "vsicons.presets.jsOfficial": true,
-    "vsicons.presets.jsonOfficial": true,
-    "vsicons.presets.tsOfficial": true,
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "window.newWindowDimensions": "fullscreen",
-    "window.openFoldersInNewWindow": "on",
     "workbench.colorTheme": "Iceberg",
-    "workbench.fontAliasing": "auto",
     "workbench.iconTheme": "vscode-icons",
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.statusBar.visible": true,
-    "workbench.tips.enabled": false,
-    "editor.inlineSuggest.enabled": true,
-    "github.copilot.enable": {
-        "*": true,
-        "yaml": true,
-        "plaintext": true,
-        "markdown": false,
-        "go": false,
-        "lua": true,
-        "php": false,
-        "python": false
-    },
-    "security.workspace.trust.untrustedFiles": "open",
-    "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "redhat.telemetry.enabled": false,
-    "go.inferGopath": true,
-    "editor.minimap.enabled": false,
-    "go.toolsManagement.autoUpdate": true,
-    "files.associations": {
-        ".env": "shellscript"
-    },
-    "editor.accessibilitySupport": "off",
-    "accessibility.signals.terminalBell": {
-        "sound": "on"
-    },
-    "terminal.integrated.enableVisualBell": true
+    "workbench.startupEditor": "none",
+    "security.workspace.trust.untrustedFiles": "open"
 }

@@ -33,6 +33,7 @@ fi
 ${DOT}/etc/macos/install-brew.sh ${PASSWORD} Brewfile.brew.rb &
 ${DOT}/etc/macos/install-brew.sh ${PASSWORD} Brewfile.cask.rb &
 ${DOT}/etc/macos/install-brew.sh ${PASSWORD} Brewfile.mas.rb &
+${DOT}/etc/macos/install-brew.sh ${PASSWORD} Brewfile.xcode.rb &
 if [[ "${PRIVATE}" = "y" ]]; then
     ${DOT}/etc/macos/install-brew.sh ${PASSWORD} Brewfile.private.rb &
 fi
@@ -40,16 +41,46 @@ wait
 
 # settings
 
+## Global
+defaults write -g AppleLanguages -array ja-JP en-JP
+defaults write -g AppleShowAllExtensions -bool true
+defaults write -g AppleShowScrollBars -string "WhenScrolling"
+defaults write -g KeyRepeat -int 2
+defaults write -g InitialKeyRepeat -int 15
+defaults write -g com.apple.sound.beep.feedback -bool true
+
+## Finder
+defaults write "com.apple.finder" FXEnableExtensionChangeWarning -bool false
+defaults write "com.apple.finder" FXPreferredViewStyle -string "clmv"
+defaults write "com.apple.finder" NewWindowTarget -string "PfLo"
+defaults write "com.apple.finder" NewWindowTargetPath -string "file://${HOME}"
+defaults write "com.apple.Finder" ShowExternalHardDrivesOnDesktop -bool true
+defaults write "com.apple.Finder" ShowMountedServersOnDesktop -bool true
+defaults write "com.apple.Finder" ShowRemovableMediaOnDesktop -bool true
+defaults write "com.apple.finder" ShowPathbar -bool true
+defaults write "com.apple.Finder" ShowStatusBar -bool true
+defaults write "com.apple.Finder" WarnOnEmptyTrash -bool false
+chflags nohidden ~/Library
+killall Finder
+
+## Dock
+defaults write "com.apple.dock" autohide -int 1
+defaults write "com.apple.dock" magnification -bool true
+defaults write "com.apple.dock" mineffect -string "scale"
+defaults write "com.apple.dock" minimize-to-application -bool true
+defaults write "com.apple.dock" show-process-indicators -bool true
+defaults write "com.apple.dock" show-recents -bool false
+killall Dock
+
 ## gitignore
 gibo update && gibo dump macOS VisualStudioCode Vim > ~/.gitignore
 
 ## crontab
 crontab ${DOT}/pkg/crontab.mac
 
-## VSCode settings.json and locale.json
+## VSCode settings
 VSCODE_CONF_DIR=~/Library/Application\ Support/Code/User
 ln -fs ${DOT}/pkg/vsc-settings.json ${VSCODE_CONF_DIR}/settings.json
-ln -fs ${DOT}/pkg/vsc-locale.json ${VSCODE_CONF_DIR}/locale.json
 
 ## VSCode plugins
 code --install-extension astro-build.astro-vscode

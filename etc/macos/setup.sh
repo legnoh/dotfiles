@@ -47,7 +47,11 @@ defaults write -g AppleShowAllExtensions -bool true
 defaults write -g AppleShowScrollBars -string "WhenScrolling"
 defaults write -g KeyRepeat -int 2
 defaults write -g InitialKeyRepeat -int 15
+defaults write -g NSAutomaticCapitalizationEnabled -bool false
+defaults write -g NSAutomaticPeriodSubstitutionEnabled -bool false
+defaults write -g NSSpellCheckerContainerTransitionComplete -bool false
 defaults write -g com.apple.sound.beep.feedback -bool true
+
 
 ## Finder
 defaults write "com.apple.finder" FXEnableExtensionChangeWarning -bool false

@@ -12,6 +12,7 @@ brew 'sheldon'
 brew 'starship'
 
 # Git family
+brew 'gh'
 brew 'ghq'
 brew 'gibo'
 brew 'git-lfs'

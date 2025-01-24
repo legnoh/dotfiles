@@ -22,3 +22,4 @@
       loop:
         - { src: ".zshrc", dst: "{{ ansible_env.HOME }}/.zshrc" }
         - { src: "alias.zsh", dst: "{{ ansible_env.HOME }}/.config/zsh/alias.zsh" }
+        - { src: "go.zsh", dst: "{{ ansible_env.HOME }}/.config/zsh/go.zsh" }

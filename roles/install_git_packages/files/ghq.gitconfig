@@ -1,4 +1,4 @@
 # ghq経由でリポジトリをcloneする際のルートディレクトリ
 # https://github.com/x-motemen/ghq/blob/master/README.adoc#configuration
 [ghq]
-  root = ~/code/src
+  root = ~/code

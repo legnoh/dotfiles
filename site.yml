@@ -3,6 +3,9 @@
 - name: Deploy dotfiles
   hosts: localhost
   roles:
+    - role: set_macos
+      tags: [set_macos]
+
     - role: install_zsh_config
       tags: [install_zsh_config]
 
@@ -10,19 +13,19 @@
       tags: [install_ssh_config]
 
     - role: install_1password
-      tags: [install_1password]
+      tags: [install_1password, gui]
 
     - role: install_core_brews
       tags: [install_core_brews]
 
     - role: install_office_casks
-      tags: [install_office_casks]
+      tags: [install_office_casks, gui]
 
     - role: install_terminal_config
       tags: [install_terminal_config]
 
     - role: install_private_casks
-      tags: [install_private_casks]
+      tags: [install_private_casks, gui]
 
     - role: install_git_packages
       tags: [install_git_packages]
@@ -34,22 +37,22 @@
       tags: [install_direnv]
 
     - role: install_raycast
-      tags: [install_raycast]
+      tags: [install_raycast, gui]
 
     - role: install_vscode
-      tags: [install_vscode]
+      tags: [install_vscode, gui]
 
     - role: install_rancher
-      tags: [install_rancher]
+      tags: [install_rancher, gui]
 
     - role: install_bridgecast
-      tags: [install_bridgecast]
+      tags: [install_bridgecast, device_driver]
 
     - role: install_dell_monitor_driver
-      tags: [install_dell_monitor_driver]
+      tags: [install_dell_monitor_driver, device_driver]
 
     - role: install_logi_options+
-      tags: [install_logi_options+]
+      tags: [install_logi_options+, device_driver]
 
     - role: install_scansnap
-      tags: [install_scansnap]
+      tags: [install_scansnap, device_driver]

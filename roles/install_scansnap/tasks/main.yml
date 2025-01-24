@@ -2,6 +2,12 @@
 
 - name: Install ScanSnap
   block:
+    - name: Install Rosetta2
+      become: true
+      ansible.builtin.command:
+        cmd: /usr/sbin/softwareupdate --install-rosetta
+      changed_when: false
+
     - name: Install Scansnap
       community.general.homebrew_cask:
         name: fujitsu-scansnap-home

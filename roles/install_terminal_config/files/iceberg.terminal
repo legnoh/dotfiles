@@ -293,7 +293,7 @@
 	<key>VisualBell</key>
 	<true/>
 	<key>name</key>
-	<string>iceberg</string>
+	<string>Iceberg</string>
 	<key>noWarnProcesses</key>
 	<array/>
 	<key>shellExitAction</key>

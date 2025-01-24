@@ -18,6 +18,9 @@
     - role: install_office_casks
       tags: [install_office_casks]
 
+    - role: install_terminal_config
+      tags: [install_terminal_config]
+
     - role: install_private_casks
       tags: [install_private_casks]
 

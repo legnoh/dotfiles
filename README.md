@@ -1,11 +1,6 @@
 :innocent: dotfiles :sunglasses:
 ========
 
-```
-sh -c "$(curl -L ansible.lkj.io)"
-sh -c "$(curl -L dot.lkj.io)"
-```
-
 ## goods
 
 - Shell: [Zsh](http://www.zsh.org/)
@@ -16,12 +11,9 @@ sh -c "$(curl -L dot.lkj.io)"
 - Font: [JetBrains Mono](https://www.jetbrains.com/lp/mono/) [Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono)
 - Deployed by: [Ansible](https://docs.ansible.com)
 
-### initialize
-
-- [What to do before you sell, give away, or trade in your Mac \- Apple Support](https://support.apple.com/en-us/HT201065)
-
-### policy
-
+<details>
+  <summary>Policies</summary>
+  
 - 12Factorの思想に基づき、インストール・設定のタイミングと利用のタイミングは明確に分離する。
   - zshプラグインマネージャによく見られる、シェル起動時にデータ取得するツールは採用せず、brewで事前にインストールする。
 - エイリアスを使わず、すべてのファイルはansibleによって実体を配布する。
@@ -32,3 +24,26 @@ sh -c "$(curl -L dot.lkj.io)"
 - 手動インストールが必要な手順は、スティッキーズなどで画面上に情報を掲載するのが望ましい。
 - masのアプリインストールなど、時間がかかる部分は非同期処理(async/poll)を利用するのが望ましい。
 - 基本的にはOS標準のソフトウェアを使うべきだが、力不足な場合は外部ソフトウェアで補うのが望ましい。
+
+</details>
+
+## Usage
+
+> [!WARNING]
+> Please set accesivility window to add Terminal.
+> 
+> <img width="484" alt="termianal-accessibility" src="https://github.com/user-attachments/assets/4441a454-c4fc-42b5-84cf-f0ffdd611c80" />
+
+```
+sh -c "$(curl -L ansible.lkj.io)"
+sh -c "$(curl -L dot.lkj.io)"
+```
+
+## Initialize
+
+```
+cd code/github.com/legnoh/dotfiles/etc/macos
+./destroy.sh
+```
+
+- [What to do before you sell, give away, or trade in your Mac \- Apple Support](https://support.apple.com/en-us/HT201065)

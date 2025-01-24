@@ -2,9 +2,8 @@
 ========
 
 ```
-bash -c "$(curl -L ansible.lkj.io)"
-git clone https://github.com/legnoh/dotfiles.git && cd dotfiles
-ANSIBLE_BECOME_PASSWORD="YOURPASSWORD" ansible-playbook site.yml
+sh -c "$(curl -L ansible.lkj.io)"
+sh -c "$(curl -L dot.lkj.io)"
 ```
 
 ## goods

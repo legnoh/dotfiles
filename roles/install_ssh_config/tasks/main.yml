@@ -2,11 +2,14 @@
 
 - name: Set SSH configs
   block:
-    - name: Create .ssh/ssh.d directory
+    - name: Create config directory
       ansible.builtin.file:
-        path: "{{ ansible_env.HOME }}/.config/ssh"
+        path: "{{ item }}"
         state: directory
         mode: '0755'
+      loop:
+        - "{{ ansible_env.HOME }}/.config/ssh"
+        - "{{ ansible_env.HOME }}/.ssh"
 
     - name: Create .ssh/config file
       when: not ansible_check_mode

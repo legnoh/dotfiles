@@ -5,7 +5,7 @@
     - name: Install Rosetta2
       become: true
       ansible.builtin.command:
-        cmd: /usr/sbin/softwareupdate --install-rosetta
+        cmd: /usr/sbin/softwareupdate --install-rosetta --agree-to-license
       changed_when: false
 
     - name: Install Scansnap
@@ -29,5 +29,5 @@
 
     - name: Open Scansnap
       ansible.builtin.command:
-        cmd: /usr/bin/open -a 'ScanSnapHomeMain'
+        cmd: /usr/bin/open --background -a 'ScanSnapHomeMain'
       changed_when: false

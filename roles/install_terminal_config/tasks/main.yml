@@ -15,7 +15,7 @@
 
     - name: Open with new theme
       ansible.builtin.command:
-        cmd: /usr/bin/open -a Terminal "/tmp/iceberg.terminal"
+        cmd: /usr/bin/open --background -a Terminal "/tmp/iceberg.terminal"
       changed_when: false
 
     - name: Set default theme

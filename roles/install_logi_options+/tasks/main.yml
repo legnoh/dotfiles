@@ -18,5 +18,5 @@
 
     - name: Open app
       ansible.builtin.command:
-        cmd: /usr/bin/open -a "logioptionsplus"
+        cmd: /usr/bin/open --background -a "logioptionsplus"
       changed_when: false

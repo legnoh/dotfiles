@@ -46,9 +46,12 @@ echo "$PASSWORD" > $ANSIBLE_BECOME_PASSWORD_FILE
 # Execute
 echo "########### execute playbooks ###########"
 if [[ "${ANSIBLE_SKIPPED_TAGS}" == "" ]]; then
-    ANSIBLE_BECOME_PASSWORD="${PASSWORD}" ansible-playbook site.yml
+    ANSIBLE_BECOME_PASSWORD="${PASSWORD}" ansible-playbook site.yml \
+        --become-password-file="${ANSIBLE_BECOME_PASSWORD_FILE}"
 else
-    ANSIBLE_BECOME_PASSWORD="${PASSWORD}" ansible-playbook site.yml --skip-tags "${ANSIBLE_SKIPPED_TAGS}"
+    ANSIBLE_BECOME_PASSWORD="${PASSWORD}" ansible-playbook site.yml \
+        --become-password-file="${ANSIBLE_BECOME_PASSWORD_FILE}" \
+        --skip-tags "${ANSIBLE_SKIPPED_TAGS}"
 fi
 
 # remove password file

@@ -28,5 +28,5 @@
 
     - name: Open BRIDGE CAST app
       ansible.builtin.command:
-        cmd: /usr/bin/open -a 'BRIDGE CAST'
+        cmd: /usr/bin/open --background -a 'BRIDGE CAST'
       changed_when: false

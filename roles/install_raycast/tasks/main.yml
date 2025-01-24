@@ -41,5 +41,5 @@
 
     - name: Open Raycast
       ansible.builtin.command:
-        cmd: /usr/bin/open -a Raycast
+        cmd: /usr/bin/open --background -a Raycast
       changed_when: false

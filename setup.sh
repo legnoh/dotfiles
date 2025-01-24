@@ -1,7 +1,7 @@
 #!/bin/bash
 
 GITCLONE_ROOTDIR=$HOME/code/github.com/legnoh
-ANSIBLE_BECOME_PASSWORD_FILE="/tmp/ansible_become_password"
+export ANSIBLE_BECOME_PASSWORD_FILE="/tmp/ansible_become_password"
 
 # read answers
 echo "What's your sudo password?: " && read -sp "Password: " PASSWORD

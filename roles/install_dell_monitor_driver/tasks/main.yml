@@ -12,6 +12,7 @@
           - dell-u4025qw-driver
           - dell-u4025qw-firmware-update-utility
         state: upgraded
+        sudo_password: "{{ ansible_env.ANSIBLE_BECOME_PASSWORD }}"
 
     - name: Create Sticky
       ansible.builtin.import_role:

@@ -1,0 +1,37 @@
+---
+
+- name: Install Offce applications
+  block:
+    - name: Install mas
+      community.general.homebrew:
+        name: mas
+        state: upgraded
+
+    - name: Install Cask apps
+      community.general.homebrew_cask:
+        name: "{{ item }}"
+        install_options: force
+        state: upgraded
+        sudo_password: "{{ ansible_env.ANSIBLE_BECOME_PASSWORD }}"
+      loop:
+        - google-chrome
+        - notion
+        - rapidapi
+        - slack
+        - zoom
+      async: 10000
+      poll: 0
+
+    - name: Install MAS apps
+      when: not ansible_check_mode
+      community.general.mas:
+        id: "{{ item }}"
+        state: latest
+      loop:
+        - 409183694 # Keynote
+        - 409203825 # Numbers
+        - 409201541 # Pages
+        - 302584613 # Kindle
+        - 1289583905 # Pixelmator Pro
+      async: 10000
+      poll: 0

@@ -1,0 +1,45 @@
+---
+
+- name: Install Raycast
+  block:
+    - name: Install app
+      community.general.homebrew_cask:
+        name: raycast
+        state: upgraded
+
+    - name: Install yq
+      community.general.homebrew:
+        name: yq
+        state: upgraded
+
+    - name: Copy temp yaml file
+      when: not ansible_check_mode
+      ansible.builtin.copy:
+        src: "{{ item }}"
+        dest: "/tmp/{{ item }}"
+        mode: '0644'
+      loop:
+        - quicklinks.yml
+        - snippets.yml
+
+    - name: Convert yaml to json
+      ansible.builtin.shell:
+        cmd: >
+          yq --prettyPrint --output-format json /tmp/{{ item }}.yml
+          > {{ ansible_env.HOME }}/Downloads/{{ item }}.json
+      loop:
+        - quicklinks
+        - snippets
+      changed_when: false
+
+    - name: Create Sticky
+      ansible.builtin.import_role:
+        name: create_sticky
+      vars:
+        create_sticky_file: README.md
+        create_sticky_name: raycast
+
+    - name: Open Raycast
+      ansible.builtin.command:
+        cmd: /usr/bin/open -a Raycast
+      changed_when: false

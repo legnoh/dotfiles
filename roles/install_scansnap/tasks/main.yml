@@ -1,0 +1,26 @@
+---
+
+- name: Install ScanSnap
+  block:
+    - name: Install Scansnap
+      community.general.homebrew_cask:
+        name: fujitsu-scansnap-home
+        state: upgraded
+
+    - name: Copy profile
+      ansible.builtin.copy:
+        src: profiles.ssmp
+        dest: "{{ ansible_env.HOME }}/Downloads/scansnap-profiles.ssmp"
+        mode: '0644'
+
+    - name: Create Sticky
+      ansible.builtin.import_role:
+        name: create_sticky
+      vars:
+        create_sticky_file: README.md
+        create_sticky_name: scansnap
+
+    - name: Open Scansnap
+      ansible.builtin.command:
+        cmd: /usr/bin/open -a 'ScanSnapHomeMain'
+      changed_when: false

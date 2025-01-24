@@ -1,0 +1,4 @@
+[user]
+  name = {{ github_profile.json.name }}
+  email = {{ github_profile.json.id }}+{{ github_profile.json.login }}@users.noreply.github.com
+  signingkey = {{ github_ssh_signing_keys.json[0].key }}

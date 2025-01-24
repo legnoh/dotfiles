@@ -1,0 +1,31 @@
+---
+
+- name: Install BRIDGE CAST app
+  block:
+    - name: Tap custom repos
+      community.general.homebrew_tap:
+        name: legnoh/etc
+
+    - name: Install BRIDGE CAST.app
+      community.general.homebrew_cask:
+        name: roland-bridge-cast-app
+        state: upgraded
+
+    - name: Copy settings file
+      when: not ansible_check_mode
+      ansible.builtin.copy:
+        src: "settings.brdgcBackup"
+        dest: "{{ ansible_env.HOME }}/Downloads/settings.brdgcBackup"
+        mode: '0644'
+
+    - name: Create Sticky
+      ansible.builtin.import_role:
+        name: create_sticky
+      vars:
+        create_sticky_file: README.md
+        create_sticky_name: bridgecast
+
+    - name: Open BRIDGE CAST app
+      ansible.builtin.command:
+        cmd: /usr/bin/open -a 'BRIDGE CAST'
+      changed_when: false

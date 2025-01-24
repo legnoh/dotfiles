@@ -29,7 +29,10 @@ if [[ $(/usr/bin/uname -m) == "arm64" ]]; then
 else
     HOMEBREW_PREFIX="/usr/local"
 fi
-sudo rm -rf ${HOMEBREW_PREFIX}/Caskroom ${HOMEBREW_PREFIX}/Celler ${HOMEBREW_PREFIX}/Homebrew ${HOMEBREW_PREFIX}/MacGPG2 /opt/*
+sudo rm -rf ${HOMEBREW_PREFIX}/Caskroom \
+  ${HOMEBREW_PREFIX}/Celler \
+  ${HOMEBREW_PREFIX}/Homebrew \
+  /opt/*
 
 # remove users files
 echo "#5: uninstall users file"

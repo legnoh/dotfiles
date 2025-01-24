@@ -21,18 +21,18 @@ jobs:
             echo "LTS_VERSION_GLOBAL=${LTS_VERSION_GLOBAL}" >> "$GITHUB_ENV"
       - name: Check dotfiles version
         env:
-          BREW_PACKAGE_NAME: go
-          BREWFILE: pkg/Brewfile.brew.rb
+          BREW_PKGNAME: go
+          ROLE_VARFILE: roles/install_vscode/defaults/main.yml
         run: |
-            echo "BREWFILE=${BREWFILE}" >> "$GITHUB_ENV"
-            LTS_VERSION_DOTFILES=$(grep "${BREW_PACKAGE_NAME}@" ${BREWFILE} | awk 'match($0, "([0-9\.]+)") {print substr($0, RSTART, RLENGTH)}')
+            LTS_VERSION_DOTFILES=$(yq -r ".install_vscode_${BREW_PKGNAME}_version" ${ROLE_VARFILE})
             echo "LTS_VERSION_DOTFILES: ${LTS_VERSION_DOTFILES}"
+            echo "BREW_PKG_NAME=${BREW_PKG_NAME}"               >> "$GITHUB_ENV"
+            echo "ROLE_VARFILE=${ROLE_VARFILE}"                 >> "$GITHUB_ENV"
             echo "LTS_VERSION_DOTFILES=${LTS_VERSION_DOTFILES}" >> "$GITHUB_ENV"
-            echo "BREW_PACKAGE_NAME=${BREW_PACKAGE_NAME}" >> "$GITHUB_ENV"
       - name: Edit Brewfiles
         if: env.LTS_VERSION_GLOBAL != env.LTS_VERSION_DOTFILES
         run: |
-            sed -i "s/${BREW_PACKAGE_NAME}@${LTS_VERSION_DOTFILES}/${BREW_PACKAGE_NAME}@${LTS_VERSION_GLOBAL}/" ${BREWFILE}
+          yq e ".install_vscode_${BREW_PKG_NAME}_version=${LTS_VERSION_GLOBAL}" -i ${ROLE_VARFILE}
       - name: Create GitHub App Token
         uses: actions/create-github-app-token@v1
         id: app-token
@@ -54,10 +54,10 @@ jobs:
           RELEASE_NOTES_URL: https://go.dev/doc/go${{ env.LTS_VERSION_GLOBAL }}
           RELEASE_POLICY_URL: https://go.dev/doc/devel/release#policy
         with:
-          title: "bump: ${{ env.BREW_PACKAGE_NAME }} v${{ env.LTS_VERSION_GLOBAL }}"
+          title: "bump: ${{ env.BREW_PKG_NAME }} v${{ env.LTS_VERSION_GLOBAL }}"
           committer: "${{ steps.app-token.outputs.app-slug }}[bot] <${{ steps.get-user-id.outputs.user-id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com>"
-          commit-message: "bump: ${{ env.BREW_PACKAGE_NAME }} v${{ env.LTS_VERSION_GLOBAL }}"
-          branch: ${{ env.BREW_PACKAGE_NAME }}-${{ env.LTS_VERSION_GLOBAL }}
+          commit-message: "bump: ${{ env.BREW_PKG_NAME }} v${{ env.LTS_VERSION_GLOBAL }}"
+          branch: ${{ env.BREW_PKG_NAME }}-${{ env.LTS_VERSION_GLOBAL }}
           token: ${{ steps.app-token.outputs.token }}
           body: |
               - [Release Policy](${{ env.RELEASE_POLICY_URL }})

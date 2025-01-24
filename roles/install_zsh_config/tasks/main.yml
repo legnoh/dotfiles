@@ -1,0 +1,24 @@
+---
+
+- name: Install terminal configs
+  block:
+    - name: Create .hushlogin for omit login prompt
+      ansible.builtin.file:
+        path: "{{ ansible_env.HOME }}/.hushlogin"
+        state: touch
+        mode: '0644'
+
+    - name: Create conf directory
+      ansible.builtin.file:
+        path: "{{ ansible_env.HOME }}/.config/zsh"
+        state: directory
+        mode: '0755'
+
+    - name: Copy config files
+      ansible.builtin.copy:
+        src: "{{ item.src }}"
+        dest: "{{ item.dst }}"
+        mode: '0644'
+      loop:
+        - { src: ".zshrc", dst: "{{ ansible_env.HOME }}/.zshrc" }
+        - { src: "alias.zsh", dst: "{{ ansible_env.HOME }}/.config/zsh/alias.zsh" }

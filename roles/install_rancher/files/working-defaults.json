@@ -1,0 +1,30 @@
+{
+  "application": {
+    "pathManagementStrategy": "manual",
+    "telemetry": {
+      "enabled": false
+    },
+    "updater": {
+      "enabled": false
+    },
+    "autoStart": true,
+    "startInBackground": true,
+    "hideNotificationIcon": true,
+    "window": {
+      "quitOnClose": false
+    }
+  },
+  "virtualMachine": {
+    "memoryInGB": 4,
+    "numberCPUs": 2
+  },
+  "kubernetes": {
+    "enabled": false
+  },
+  "diagnostics": {
+    "showMuted": false,
+    "mutedChecks": {
+      "RD_BIN_IN_BASH_PATH": true
+    }
+  }
+}

@@ -1,0 +1,74 @@
+---
+
+- name: Install Git Packages
+  block:
+    - name: Install Git packages
+      when: not ansible_check_mode
+      community.general.homebrew:
+        name:
+          - gh
+          - ghq
+          - gibo
+          - git-lfs
+        state: upgraded
+
+    - name: Create config directory
+      ansible.builtin.file:
+        path: "{{ ansible_env.HOME }}/.config/git"
+        state: directory
+        mode: '0755'
+
+    - name: Copy config files
+      when: not ansible_check_mode
+      ansible.builtin.copy:
+        src: "{{ item.src }}"
+        dest: "{{ item.dst }}"
+        mode: '0644'
+      loop:
+        - { src: ".gitconfig", dst: "{{ ansible_env.HOME }}/.gitconfig" }
+        - { src: "common.gitconfig", dst: "{{ ansible_env.HOME }}/.config/git/common.gitconfig" }
+        - { src: "ghq.gitconfig", dst: "{{ ansible_env.HOME }}/.config/git/ghq.gitconfig" }
+        - { src: "git-lfs.gitconfig", dst: "{{ ansible_env.HOME }}/.config/git/git-lfs.gitconfig" }
+
+    - name: Create gh for git credential-helper from template
+      when: not ansible_check_mode
+      ansible.builtin.template:
+        src: gh.gitconfig.j2
+        dest: "{{ ansible_env.HOME }}/.config/git/gh.gitconfig"
+        mode: '0644'
+
+    - name: Get my github profile
+      ansible.builtin.uri:
+        url: "https://api.github.com/users/{{ install_git_packages_github_username }}"
+        status_code: 200
+        body_format: json
+        return_content: true
+      register: github_profile
+
+    - name: Get my github signing keys
+      ansible.builtin.uri:
+        url: "https://api.github.com/users/{{ install_git_packages_github_username }}/ssh_signing_keys"
+        status_code: 200
+        body_format: json
+        return_content: true
+      register: github_ssh_signing_keys
+
+    - name: Create user.gitconfig file
+      when: not ansible_check_mode
+      ansible.builtin.template:
+        src: user.gitconfig.j2
+        dest: "{{ ansible_env.HOME }}/.config/git/user.gitconfig"
+        mode: '0644'
+
+    - name: Download global ignore file from gibo
+      when: not ansible_check_mode
+      ansible.builtin.shell:
+        cmd: "gibo dump macOS VisualStudioCode > {{ ansible_env.HOME }}/.config/git/ignore"
+      changed_when: false
+
+    - name: Create Sticky
+      ansible.builtin.import_role:
+        name: create_sticky
+      vars:
+        create_sticky_file: README.md
+        create_sticky_name: git

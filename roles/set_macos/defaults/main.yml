@@ -1,0 +1,18 @@
+---
+
+set_macos_defaults:
+
+  # Disable Siri
+  - com.apple.assistant.support "Assistant Enabled" -bool false
+  - com.apple.Siri StatusMenuVisible -bool false
+  ## killall -9 Siri
+  ## killall -9 assistantd
+
+  # Disable Spotlight
+  - com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "{enabled = 0;}"
+  - com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 65 "{enabled = 0;}"
+  ## killall Dock
+
+  # keyrepeat/initialkeyrepeat to maximize
+  - -g KeyRepeat -int 2
+  - -g InitialKeyRepeat -int 15

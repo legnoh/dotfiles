@@ -1,0 +1,16 @@
+---
+
+- name: Install Private applications
+  block:
+    - name: Install Cask apps
+      community.general.homebrew_cask:
+        name: "{{ item }}"
+        install_options: force
+        state: upgraded
+        sudo_password: "{{ ansible_env.ANSIBLE_BECOME_PASSWORD }}"
+      loop:
+        - betterzip
+        - discord
+        - obs
+      async: 10000
+      poll: 0

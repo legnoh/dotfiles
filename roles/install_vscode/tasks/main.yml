@@ -1,0 +1,65 @@
+---
+
+- name: Install Visual Studio code & font
+  block:
+    - name: Install Cask app
+      community.general.homebrew_cask:
+        name:
+          - font-jetbrains-mono-nerd-font
+          - visual-studio-code
+        state: upgraded
+
+    - name: Install required tool/runtime
+      community.general.homebrew:
+        name:
+          - ansible-lint
+          - dlv
+          - "go@{{ install_vscode_go_version }}"
+          - goreleaser
+          - gopls
+          - "node@{{ install_vscode_node_version }}"
+          - staticcheck
+          - uv
+        state: upgraded
+
+    - name: Install latest extensions
+      ansible.builtin.command:
+        cmd: /opt/homebrew/bin/code --force --install-extension {{ item }}
+      changed_when: false
+      loop:
+        - astro-build.astro-vscode
+        - cocopon.iceberg-theme
+        - gamunu.opentofu
+        - github.vscode-github-actions
+        - golang.go
+        - hrst.yamaha-rt
+        - hrst.yamaha-wlx
+        - idleberg.applescript
+        - ms-azuretools.vscode-docker
+        - ms-ceintl.vscode-language-pack-ja
+        - ms-kubernetes-tools.vscode-kubernetes-tools
+        - ms-python.python
+        - ms-vscode-remote.remote-containers
+        - ms-vscode.hexeditor
+        - redhat.ansible
+        - redhat.vscode-yaml
+        - sswg.swift-lang
+        - stripe.markdoc-language-support
+        - tamasfe.even-better-toml
+        - tyriar.sort-lines
+        - unifiedjs.vscode-mdx
+        - visualstudioexptteam.vscodeintellicode
+        - vscode-icons-team.vscode-icons
+
+    - name: Create/Check conf directory
+      ansible.builtin.file:
+        path: "{{ ansible_env.HOME }}/Library/Application Support/Code/User"
+        state: directory
+        mode: '0755'
+
+    - name: Copy config file
+      when: not ansible_check_mode
+      ansible.builtin.copy:
+        src: settings.json
+        dest: "{{ ansible_env.HOME }}/Library/Application Support/Code/User/settings.json"
+        mode: '0644'

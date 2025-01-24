@@ -1,0 +1,30 @@
+---
+
+- name: Install direnv
+  block:
+    - name: Install app
+      when: not ansible_check_mode
+      community.general.homebrew:
+        name: direnv
+        state: upgraded
+
+    - name: Create config directory
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        mode: '0755'
+      loop:
+        - "{{ ansible_env.HOME }}/.config/direnv"
+        - "{{ ansible_env.HOME }}/.config/zsh"
+
+    - name: Copy config file
+      when: not ansible_check_mode
+      ansible.builtin.copy:
+        src: "direnv.toml"
+        dest: "{{ ansible_env.HOME }}/.config/direnv/direnv.toml"
+        mode: '0644'
+
+    - name: Create hook code from direnv hook command
+      ansible.builtin.shell:
+        cmd: "direnv hook zsh > {{ ansible_env.HOME }}/.config/zsh/direnv.zsh"
+      changed_when: false

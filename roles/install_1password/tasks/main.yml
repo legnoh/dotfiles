@@ -1,0 +1,52 @@
+---
+
+- name: Install 1Password
+  block:
+    - name: Install mas-cli
+      community.general.homebrew:
+        name: mas
+        state: upgraded
+
+    - name: Install 1Password & CLI
+      community.general.homebrew_cask:
+        name:
+          - 1password
+          - 1password-cli
+        state: upgraded
+
+    - name: Install 1 Password for Safari extension
+      when: not ansible_check_mode
+      community.general.mas:
+        id: 1569813296 # 1 Password for Safari
+        state: latest
+
+    - name: Create config directory
+      ansible.builtin.file:
+        path: "{{ ansible_env.HOME }}/{{ item }}"
+        state: directory
+        mode: '0755'
+      loop:
+        - ".config/git"
+        - ".config/ssh"
+
+    - name: Copy config files
+      when: not ansible_check_mode
+      ansible.builtin.copy:
+        src: "{{ item.src }}"
+        dest: "{{ item.dst }}"
+        mode: '0644'
+      loop:
+        - { src: "1password.conf", dst: "{{ ansible_env.HOME }}/.config/ssh/1password.conf" }
+        - { src: "1password.gitconfig", dst: "{{ ansible_env.HOME }}/.config/git/1password.gitconfig" }
+
+    - name: Create Sticky
+      ansible.builtin.import_role:
+        name: create_sticky
+      vars:
+        create_sticky_file: README.md
+        create_sticky_name: 1password
+
+    - name: Open 1Password
+      ansible.builtin.command:
+        cmd: /usr/bin/open -a 1Password
+      changed_when: false

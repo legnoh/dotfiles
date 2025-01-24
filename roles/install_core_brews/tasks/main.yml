@@ -1,0 +1,11 @@
+---
+
+- name: Install Core apps
+  block:
+    - name: Install core formulae
+      community.general.homebrew:
+        name:
+          - awscli
+          - jq
+          - yq
+        state: upgraded

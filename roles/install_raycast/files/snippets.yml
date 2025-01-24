@@ -1,0 +1,207 @@
+- name: task / 質問(メール)
+  text: |
+    いつもお世話になっております。fooです。
+    掲題の件について質問させてください。
+    ■悩んでいること・背景
+    foo
+    ■お伺いしたいこと
+    foo
+    ----
+    以上、よろしくお願いします。
+
+- name: task / チケット作成
+  text: |
+    h2. Why
+    * 
+    h2. AC
+    * 
+    h2. Appendix
+    * 
+
+- name: task / レビュー依頼
+  text: | 
+    <!here> 下記変更点のレビューをお願いします。
+    **概要・目的**
+      -	〇〇を達成するための変更を行います。
+        -	(資料URL)
+
+    **変更点**
+      -	〇〇を変更しました。
+
+    **レビューポイント**
+      -	××について問題がないか
+
+    **リリース中のユーザ影響**
+      -	ユーザ影響はありません。 or ××分のユーザ影響が発生します。
+
+    **リリース手順**
+      -	下記の手順に従って作業を行います。
+        -	(手順URL)
+
+    **調査・検証結果**
+      -	以下の内容で検証を行いました。
+        - (検証結果URL)
+
+    **リリース日程**
+      -	xx/xx(?) を予定しています。
+
+- name: flea / 出品用
+  text: |
+    商品に興味をもっていただき、ありがとうございます。
+    以下商品詳細をお読みの上、ご検討よろしくお願いします。
+
+    【商品の説明】
+    ブランド・メーカー：
+    商品名：
+    型番：
+    公式サイトURL: ttps://
+
+    【商品の状態】
+    購入時期：
+    使用状況： 
+    注意事項： 特にありません。
+
+    【その他】
+    - コメントでの値下げ交渉は受け付けません。
+    - 出品中は常に在庫を確保していますので、購入前の確認コメントは不要です。
+    - そのほか不明点はコメントでご質問ください。
+
+- name: ansible / copy
+  text: |
+    - name: Copy config file
+      when: not ansible_check_mode
+      ansible.builtin.copy:
+        src: foo.txt
+        dest: /tmp/foo.txt
+        mode: '0644'
+
+- name: ansible / template
+  text: |
+    - name: Create file from template
+      when: not ansible_check_mode
+      ansible.builtin.template:
+        src: template.yml.j2
+        dest: /tmp/template.yml
+        mode: '0644'
+
+- name: ansible / file(dir)
+  text: |
+    - name: Create directory
+      ansible.builtin.file:
+        path: /tmp/foo/bar
+        state: directory
+        mode: '0755'
+
+- name: ansible / file(remove)
+  text: |
+    - name: Remove temp file
+      ansible.builtin.file:
+        path: /tmp/foo
+        state: absent
+
+- name: ansible / get_url
+  text: |
+    - name: Download file
+      when: not ansible_check_mode
+      ansible.builtin.get_url:
+        url: https://foo.com/bar.txt
+        dest: /tmp/bar.txt
+        mode: '0644'
+
+- name: ansible / uri
+  text: |
+    - name: get data from url
+      ansible.builtin.uri:
+        url: https://foo.com/
+        force_basic_auth: true
+        user: user
+        password: "{{ password }}"
+        status_code: 200
+        body_format: json
+        return_content: true
+      register: get_data
+
+- name: ansible / command
+  text: |
+    - name: Execute
+      ansible.builtin.command:
+        cmd: >
+          foo
+          bar
+      changed_when: false
+
+- name: ansible / shell
+  text: |
+    - name: Execute
+      ansible.builtin.shell:
+        cmd: >
+          foo
+          bar
+      changed_when: false
+
+- name: ansible / homebrew
+  text: |
+    - name: Install app
+      when: not ansible_check_mode
+      community.general.homebrew:
+        name: foo
+        state: upgraded
+
+- name: ansible / homebrew_cask
+  text: |
+    - name: Install Cask app
+      community.general.homebrew_cask:
+        name: foo
+        state: upgraded
+        sudo_password: "{{ ansible_env.ANSIBLE_BECOME_PASSWORD }}"
+
+- name: ansible / mas
+  text: |
+    - name: Install app
+      when: not ansible_check_mode
+      community.general.mas:
+        id: 12345 # foo
+        state: latest
+
+- name: ansible / dnf(yum)
+  text: |
+    - name: Install package
+      ansible.builtin.dnf:
+        name: foo
+
+- name: ansible / homebrew_services
+  text: |
+    - name: Start Service
+      when: not ansible_check_mode
+      community.general.homebrew_services:
+        name: foo
+        state: restarted
+
+- name: ansible / homebrew_tap
+  text: |
+    - name: Tap custom repos
+      community.general.homebrew_tap:
+        name: foo/bar
+
+- name: mdx / linkcard
+  text: |
+    <OGLinkCard url=""
+      url_amazon="https://www.amazon.co.jp/dp/"
+      url_yahoo="https://shopping.yahoo.co.jp/"
+      keyword_rakuten=""
+    />
+
+- name: gfm / expand
+  text: |
+    <details>
+      <summary>title</summary>
+
+      ```sh
+      foo
+      ```
+    </details>
+
+- name: gfm / alerts(note/tip/important/warning/caution)
+  text: |
+    > [!NOTE] [!TIP] [!IMPORTANT] [!WARNING] [!CAUTION]
+    > {selection}

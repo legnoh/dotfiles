@@ -1,0 +1,34 @@
+---
+
+- name: Create Sticky
+  block:
+    - name: Tap custom repos
+      community.general.homebrew_tap:
+        name: legnoh/etc
+
+    - name: Install sticky-cli
+      community.general.homebrew:
+        name: sticky-cli
+        state: upgraded
+
+    - name: Set sticky language to en-us
+      ansible.builtin.command:
+        cmd: /usr/bin/defaults write com.apple.Stickies AppleLanguages '("en-US")'
+      changed_when: false
+
+    - name: Create Snippet file
+      ansible.builtin.copy:
+        src: "{{ create_sticky_file }}"
+        dest: "/tmp/{{ create_sticky_name }}.txt"
+        mode: '0644'
+
+    - name: Create Sticky
+      ansible.builtin.command:
+        cmd: /opt/homebrew/bin/sticky "/tmp/{{ create_sticky_name }}.txt"
+      changed_when: false
+
+  always:
+    - name: Remove Snippet file
+      ansible.builtin.file:
+        path: "/tmp/{{ create_sticky_name }}.txt"
+        state: absent

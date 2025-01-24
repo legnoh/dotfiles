@@ -1,0 +1,96 @@
+#### bookmarks ####
+
+- name: Hide My Email / hide
+  link: https://www.icloud.com/icloudplus/hidemyemail
+
+- name: 雨雲レーダー / ame
+  link: https://weather.yahoo.co.jp/weather/zoomradar/
+
+- name: 粗大ゴミ回収申込(柏市) / sodai
+  link: https://kashiwa.sodai.jp/
+
+#### Search engines ####
+- name: Google / g
+  link: https://google.com/search?q={query}
+
+#### AI ####
+
+- name: 質問 / gpt
+  link: https://chatgpt.com/?q={question}
+
+- name: Translate(メール用/日→英) / enmail
+  link: https://chatgpt.com/?q=%E4%B8%8B%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%81%AE%E6%96%87%E7%AB%A0%E3%82%92%E3%80%81%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E3%83%A1%E3%83%BC%E3%83%AB%E3%81%A7%E5%87%BA%E3%81%99%E3%81%93%E3%81%A8%E3%82%92%E6%84%8F%E8%AD%98%E3%81%97%E3%81%9F%E4%B8%81%E5%AF%A7%E3%81%AA%E6%9B%B8%E3%81%8D%E8%A8%80%E8%91%89%E3%81%AE%E8%8B%B1%E8%AA%9E%E3%81%B8%E7%BF%BB%E8%A8%B3%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%0D%0A%E3%81%BE%E3%81%9F%E3%80%81%E3%81%93%E3%81%AE%E6%96%87%E7%AB%A0%E3%82%92%E3%83%A1%E3%83%BC%E3%83%AB%E3%81%A7%E5%87%BA%E3%81%99%E9%9A%9B%E3%81%AE%E9%81%A9%E5%88%87%E3%81%AA%E4%BB%B6%E5%90%8D%E3%82%82%E4%BD%B5%E3%81%9B%E3%81%A6%E6%95%B0%E5%80%8B%E6%8F%90%E6%A1%88%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%0D%0A---%0D%0A{clipboard}
+
+- name: Translate(メール用/英→日) / enmail
+  link: https://chatgpt.com/?q=%E4%B8%8B%E3%81%AE%E8%8B%B1%E8%AA%9E%E3%81%AE%E6%96%87%E7%AB%A0%E3%82%92%E3%80%81%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E3%83%A1%E3%83%BC%E3%83%AB%E3%81%A7%E5%87%BA%E3%81%95%E3%82%8C%E3%81%9F%E3%81%93%E3%81%A8%E3%82%92%E6%84%8F%E8%AD%98%E3%81%97%E3%81%A6%E8%A6%81%E7%82%B9%E3%82%92%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%81%AE3%E8%A1%8C%E3%81%A7%E3%81%BE%E3%81%A8%E3%82%81%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%0D%0A++++%E3%81%9D%E3%81%AE%E4%B8%8A%E3%81%A7%E3%80%81%E4%B8%81%E5%AF%A7%E3%81%AA%E6%9B%B8%E3%81%8D%E8%A8%80%E8%91%89%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%81%B8%E7%BF%BB%E8%A8%B3%E3%81%97%E3%81%9F%E3%82%82%E3%81%AE%E3%82%92%E3%81%9D%E3%81%AE%E4%B8%8B%E3%81%AB%E6%94%B9%E3%82%81%E3%81%A6%E6%9B%B8%E3%81%84%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%0D%0A++++---{clipboard}
+
+#### Shopping ####
+
+# rh=...:全ジャンルで以下のストアに限定して表示
+# AN1VRQENFRJN5: Amazon.co.jp, A2Q9OW6QVJC5XE: AnkerDirect, A9R64JPBW6UFH : Ugreen Japan
+# A3SH5YQPQNRLHA: CIO, A5O0RDAVK17: オウルテックダイレクト, A2I7D1HC7GTDYI : オーディオファン
+- name: Amazon(jp) / ama
+  link: https://www.amazon.co.jp/s?k={query}&rh=i%3Aaps%2Cp_6%3AAN1VRQENFRJN5%257CA2Q9OW6QVJC5XE%257CA9R64JPBW6UFH%257CA3SH5YQPQNRLHA%257CA5O0RDAVK17%257CA2I7D1HC7GTDYI
+
+# ATVPDKIKX0DER: Amazon.com
+- name: Amazon(us) / amau
+  link: https://www.amazon.com/s?k={query}&rh=i%3Aaps%2Cp_6%3AATVPDKIKX0DER
+
+# pview=1:実質価格 X=14:おすすめ順(優良配送優先) used=2:新品 area=12:千葉県
+- name: Yahoo!ショッピング / shp
+  link: https://search.shopping.yahoo.co.jp/search?p={query}&pview=1&X=14&used=2&area=12
+  iconName: cart-16
+
+# itemTag=outOfStock:在庫切れも表示
+- name: LOHACO / lh
+  link: https://lohaco.yahoo.co.jp/search?p={query}&itemTag=outOfStock
+  iconName: cart-16
+
+- name: ビックカメラ / bic
+  link: https://www.biccamera.com/bc/category/?q={query}
+  iconName: cart-16
+
+- name: ヨドバシカメラ / yodo
+  link: https://www.yodobashi.com/?word={query}&count=48
+  iconName: cart-16
+
+# item_types=mercari: 個人出品商品のみ表示
+- name: メルカリ / mer
+  link: https://www.mercari.com/jp/search/?keyword={query}&item_types=mercari
+
+# pref=chiba:千葉県 他:「商品価格＋送料−獲得予定ポイント」で価格表示
+- name: 楽天市場 / rak
+  link: https://search.rakuten.co.jp/search/mall?sitem={query}&pref=chiba&p=1&s=1&filter=fs-fsl&set=priceDisplay&_mp=%7B%22display_options%3Aprice%22%3A0%2C%22pricedisplay%22%3A2%7D&pd=2
+  iconName: cart-16
+
+#### Programming ####
+
+- name: DockerHub / dhub
+  link: https://hub.docker.com/search/?q={query}&type=image
+
+- name: GitHub Repositories / ghr
+  link: https://github.com/search?q={query}&type=repositories
+
+- name: GitHub Marketplace actions / gha
+  link: https://github.com/marketplace?query={query}&type=actions
+
+- name: Whois / whois
+  link: https://who.is/whois/{query}
+
+- name: Ansible Galaxy / ans
+  link: https://galaxy.ansible.com/ui/search/?keywords={query}
+
+#### Others ####
+
+- name: HOMES不動産アーカイブ / homes
+  link: https://www.homes.co.jp/archive/list/search/?keyword={query}
+
+- name: いらすとや / ira
+  link: https://www.irasutoya.com/search?q={query}
+
+- name: X(Twitter) / x
+  link: https://x.com/search?q={query}&src=typed_query&f=live
+
+- name: 食品組成 / food
+  link: https://fooddb.mext.go.jp/freeword/fword_select.pl?SEARCH_WORD={query}
+  iconName: pie-chart-16

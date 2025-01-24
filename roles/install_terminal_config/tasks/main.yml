@@ -1,0 +1,21 @@
+---
+
+- name: Install Terminal config
+  block:
+    - name: Install font
+      community.general.homebrew_cask:
+        name: font-jetbrains-mono-nerd-font
+        state: upgraded
+
+- name: Install terminal configs
+  block:
+    - name: Copy iceberg color theme file
+      ansible.builtin.copy:
+        src: iceberg.terminal
+        dest: "/tmp/iceberg.terminal"
+        mode: '0644'
+
+    - name: Execute
+      ansible.builtin.command:
+        cmd: /usr/bin/open -a Terminal "/tmp/iceberg.terminal"
+      changed_when: false

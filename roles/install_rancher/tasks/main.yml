@@ -1,0 +1,63 @@
+---
+
+- name: Install Rancher Desktop
+  block:
+    - name: Check Rancher Desktop was installed
+      ansible.builtin.stat:
+        path: "/Applications/Rancher\ Desktop.app"
+      register: check_installed
+
+    - name: Stop Rancher Desktop
+      when: check_installed.stat.exists
+      ansible.builtin.shell:
+        cmd: >
+          /Applications/Rancher\ Desktop.app/Contents/Resources/resources/darwin/bin/rdctl --verbose shutdown
+      changed_when: false
+
+    - name: Install app
+      community.general.homebrew_cask:
+        name: rancher
+        state: upgraded
+
+    - name: Install docker-completion
+      community.general.homebrew:
+        name: docker-completion
+        state: upgraded
+
+    - name: Create config directory
+      ansible.builtin.file:
+        path: "{{ ansible_env.HOME }}/.config/zsh"
+        state: directory
+        mode: '0755'
+
+    - name: Copy setting files
+      when: not ansible_check_mode
+      ansible.builtin.copy:
+        src: "{{ item.src }}"
+        dest: "{{ item.dst }}"
+        mode: '0644'
+      loop:
+        - { src: "rancher.zsh", dst: "{{ ansible_env.HOME }}/.config/zsh/rancher.zsh" }
+        - { src: "working-defaults.json", dst: "/tmp/rancher-working-defaults.json" }
+
+    # https://docs.rancherdesktop.io/how-to-guides/generating-deployment-profiles#generating-deployments
+    - name: Create default profile
+      ansible.builtin.shell:
+        cmd: >
+          /Applications/Rancher\ Desktop.app/Contents/Resources/resources/darwin/bin/rdctl
+          create-profile
+          --output plist
+          --input /tmp/rancher-working-defaults.json
+          > ~/Library/Preferences/io.rancherdesktop.profile.defaults.plist
+      changed_when: false
+
+    - name: Start Rancher Desktop in background
+      ansible.builtin.command:
+        cmd: /usr/bin/open --background -a 'Rancher Desktop'
+      changed_when: false
+
+  always:
+    - name: Remove tempfile
+      ansible.builtin.file:
+        path: /tmp/rancher-working-defaults.json
+        state: absent

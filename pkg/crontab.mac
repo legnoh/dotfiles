@@ -1,7 +1,0 @@
-# daily update homebrew package
-0 10 * * * /opt/homebrew/bin/brew update --greedy && /opt/homebrew/bin/brew cleanup
-0 10 * * * /opt/homebrew/bin/mas upgrade
-0 10 * * * rm -rf /var/mail/$USER
-
-# daily update ~/.gitignore
-0 10 * * * /opt/homebrew/bin/gibo update && /opt/homebrew/bin/gibo dump macOS Linux VSCode Vim > ~/.gitignore

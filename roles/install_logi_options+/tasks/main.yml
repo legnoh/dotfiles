@@ -1,0 +1,21 @@
+---
+
+- name: Install Dell monitor driver
+  block:
+    - name: Install app
+      community.general.homebrew_cask:
+        name:
+          - logi-options+
+        state: upgraded
+
+    - name: Create Sticky
+      ansible.builtin.import_role:
+        name: create_sticky
+      vars:
+        create_sticky_file: README.md
+        create_sticky_name: logi
+
+    - name: Open app
+      ansible.builtin.command:
+        cmd: /usr/bin/open -a "logioptionsplus"
+      changed_when: false

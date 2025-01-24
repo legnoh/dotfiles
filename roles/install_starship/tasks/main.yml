@@ -1,0 +1,29 @@
+---
+
+- name: Install starship
+  block:
+    - name: Install app
+      when: not ansible_check_mode
+      community.general.homebrew:
+        name: starship
+        state: upgraded
+
+    - name: Create config directory
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        mode: '0755'
+      loop:
+        - "{{ ansible_env.HOME }}/.config/zsh"
+
+    - name: Copy config file
+      when: not ansible_check_mode
+      ansible.builtin.copy:
+        src: "starship.toml"
+        dest: "{{ ansible_env.HOME }}/.config/starship.toml"
+        mode: '0644'
+
+    - name: Create init code from starship init command
+      ansible.builtin.shell:
+        cmd: "starship init zsh > {{ ansible_env.HOME }}/.config/zsh/starship.zsh"
+      changed_when: false

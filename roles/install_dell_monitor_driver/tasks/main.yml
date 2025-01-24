@@ -1,0 +1,21 @@
+---
+
+- name: Install Dell monitor driver
+  block:
+    - name: Tap custom repos
+      community.general.homebrew_tap:
+        name: legnoh/etc
+
+    - name: Install driver app
+      community.general.homebrew_cask:
+        name:
+          - dell-u4025qw-driver
+          - dell-u4025qw-firmware-update-utility
+        state: upgraded
+
+    - name: Create Sticky
+      ansible.builtin.import_role:
+        name: create_sticky
+      vars:
+        create_sticky_file: README.md
+        create_sticky_name: dell

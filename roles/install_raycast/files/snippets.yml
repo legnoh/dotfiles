@@ -153,7 +153,7 @@
       community.general.homebrew_cask:
         name: foo
         state: upgraded
-        sudo_password: "{{ ansible_env.ANSIBLE_BECOME_PASSWORD }}"
+        sudo_password: "{{ ansible_env.BECOME_PASSWORD }}"
 
 - name: ansible / mas
   text: |

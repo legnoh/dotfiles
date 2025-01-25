@@ -12,13 +12,13 @@
         name: "{{ item }}"
         install_options: force
         state: upgraded
-        sudo_password: "{{ ansible_env.ANSIBLE_BECOME_PASSWORD }}"
+        sudo_password: "{{ ansible_env.BECOME_PASSWORD }}"
       loop:
         - google-chrome
         - notion
         - rapidapi
         - slack
-        - zoom
+        - zoom # sudo required
       async: 10000
       poll: 0
 

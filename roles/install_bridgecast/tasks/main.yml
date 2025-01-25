@@ -10,7 +10,7 @@
       community.general.homebrew_cask:
         name: roland-bridge-cast-app
         state: upgraded
-        sudo_password: "{{ ansible_env.ANSIBLE_BECOME_PASSWORD }}"
+        sudo_password: "{{ ansible_env.BECOME_PASSWORD }}"
 
     - name: Copy settings file
       when: not ansible_check_mode

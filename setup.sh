@@ -1,7 +1,7 @@
 #!/bin/bash
 
 GITCLONE_ROOTDIR=$HOME/code/github.com/legnoh
-export ANSIBLE_BECOME_PASSWORD_FILE="/tmp/ansible_become_password"
+export BECOME_PASSWORD_FILE="/tmp/BECOME_PASSWORD"
 
 # read answers
 echo "What's your sudo password?: " && read -sp "Password: " PASSWORD
@@ -41,21 +41,21 @@ if [[ "${NEED_DRIVER}" == "n" ]]; then
 fi
 
 # prepare password file
-echo "$PASSWORD" > $ANSIBLE_BECOME_PASSWORD_FILE
+echo "$PASSWORD" > $BECOME_PASSWORD_FILE
 
 # Execute
 echo "########### execute playbooks ###########"
 if [[ "${ANSIBLE_SKIPPED_TAGS}" == "" ]]; then
-    ANSIBLE_BECOME_PASSWORD="${PASSWORD}" ansible-playbook site.yml \
-        --become-password-file="${ANSIBLE_BECOME_PASSWORD_FILE}"
+    BECOME_PASSWORD="${PASSWORD}" ansible-playbook site.yml \
+        --become-password-file="${BECOME_PASSWORD_FILE}"
 else
-    ANSIBLE_BECOME_PASSWORD="${PASSWORD}" ansible-playbook site.yml \
-        --become-password-file="${ANSIBLE_BECOME_PASSWORD_FILE}" \
+    BECOME_PASSWORD="${PASSWORD}" ansible-playbook site.yml \
+        --become-password-file="${BECOME_PASSWORD_FILE}" \
         --skip-tags "${ANSIBLE_SKIPPED_TAGS}"
 fi
 
 # remove password file
-rm -rf $ANSIBLE_BECOME_PASSWORD_FILE
+rm -rf $BECOME_PASSWORD_FILE
 
 # Finish!
 echo "========================================================="

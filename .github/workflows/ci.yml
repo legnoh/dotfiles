@@ -27,3 +27,5 @@ jobs:
       with:
         playbook: site.yml
         options: --check
+      env:
+        BECOME_PASSWORD: dummy

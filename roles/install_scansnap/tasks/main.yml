@@ -12,7 +12,7 @@
       community.general.homebrew_cask:
         name: fujitsu-scansnap-home
         state: upgraded
-        sudo_password: "{{ ansible_env.ANSIBLE_BECOME_PASSWORD }}"
+        sudo_password: "{{ ansible_env.BECOME_PASSWORD }}"
 
     - name: Copy profile
       ansible.builtin.copy:

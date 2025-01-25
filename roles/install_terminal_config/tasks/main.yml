@@ -18,12 +18,10 @@
         cmd: /usr/bin/open --background -a Terminal "/tmp/iceberg.terminal"
       changed_when: false
 
-    - name: Set default theme
+    - name: Set default&startup theme
       ansible.builtin.command:
-        cmd: /usr/bin/defaults write com.apple.Terminal "Startup Window Settings" -string "Iceberg"
+        cmd: /usr/bin/defaults write com.apple.Terminal "{{ item }} Window Settings" -string "Iceberg"
       changed_when: false
-
-    - name: Set startup theme
-      ansible.builtin.command:
-        cmd: /usr/bin/defaults write com.apple.Terminal "Startup Window Settings" -string "Iceberg"
-      changed_when: false
+      loop:
+        - Default
+        - Startup

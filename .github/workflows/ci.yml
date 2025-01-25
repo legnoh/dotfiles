@@ -9,7 +9,6 @@ on:
 
 jobs:
   execute:
-    needs: [setup]
     runs-on: macos-latest
     steps:
     - name: Checkout Repository

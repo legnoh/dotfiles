@@ -9,6 +9,8 @@
 - Container Runtime: [Rancher](https://www.rancher.com)
 - Color Scheme: [Iceberg](https://cocopon.github.io/iceberg.vim/)
 - Font: [JetBrains Mono](https://www.jetbrains.com/lp/mono/) [Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono)
+- and some macOS applications & drivers!
+  - Raycast
 - Deployed by: [Ansible](https://docs.ansible.com)
 
 <details>
@@ -47,3 +49,5 @@ cd code/github.com/legnoh/dotfiles/etc/macos
 ```
 
 - [What to do before you sell, give away, or trade in your Mac \- Apple Support](https://support.apple.com/en-us/HT201065)
+  - [Erase your Mac and reset it to factory settings \- Apple Support](https://support.apple.com/en-us/102664)
+  - [How to reinstall macOS \- Apple Support](https://support.apple.com/en-us/102655)

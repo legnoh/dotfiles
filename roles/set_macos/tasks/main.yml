@@ -3,7 +3,6 @@
 - name: Set macOS preferences
   block:
     - name: Copy script files
-      when: not ansible_check_mode
       ansible.builtin.copy:
         src: "defaults.sh"
         dest: "/tmp/defaults.sh"
@@ -13,6 +12,12 @@
       ansible.builtin.command:
         cmd: "/tmp/defaults.sh"
       changed_when: false
+
+    - name: Copy dictionary files
+      ansible.builtin.copy:
+        src: "dictionary.plist"
+        dest: "{{ ansible_env.HOME }}/Downloads/dictionary.plist"
+        mode: '0644'
 
     - name: Create Sticky
       ansible.builtin.import_role:

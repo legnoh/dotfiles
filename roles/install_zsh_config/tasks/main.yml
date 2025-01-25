@@ -8,6 +8,14 @@
         state: touch
         mode: '0644'
 
+    - name: Install zsh-plugins
+      when: not ansible_check_mode
+      community.general.homebrew:
+        name:
+          - zsh-autosuggestions
+          - zsh-syntax-highlighting
+        state: upgraded
+
     - name: Create conf directory
       ansible.builtin.file:
         path: "{{ ansible_env.HOME }}/.config/zsh"
@@ -23,3 +31,6 @@
         - { src: ".zshrc", dst: "{{ ansible_env.HOME }}/.zshrc" }
         - { src: "alias.zsh", dst: "{{ ansible_env.HOME }}/.config/zsh/alias.zsh" }
         - { src: "go.zsh", dst: "{{ ansible_env.HOME }}/.config/zsh/go.zsh" }
+        - { src: "history.zsh", dst: "{{ ansible_env.HOME }}/.config/zsh/history.zsh" }
+        - { src: "zsh-autosuggestions.zsh", dst: "{{ ansible_env.HOME }}/.config/zsh/zsh-autosuggestions.zsh" }
+        - { src: "zsh-syntax-highlighting.zsh", dst: "{{ ansible_env.HOME }}/.config/zsh/zsh-syntax-highlighting.zsh" }

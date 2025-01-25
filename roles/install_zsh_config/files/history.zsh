@@ -1,0 +1,3 @@
+export HISTSIZE=5000000000000000
+export SAVEHIST=5000000000000000
+export PROMPT_COMMAND='history -a; history -r'

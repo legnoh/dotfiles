@@ -4,6 +4,7 @@
   hosts: localhost
   roles:
     - role: set_macos
+      when: ansible_distribution == 'MacOSX'
       tags: [set_macos]
 
     - role: install_zsh_config
@@ -12,20 +13,8 @@
     - role: install_ssh_config
       tags: [install_ssh_config]
 
-    - role: install_1password
-      tags: [install_1password, gui]
-
     - role: install_core_brews
       tags: [install_core_brews]
-
-    - role: install_office_casks
-      tags: [install_office_casks, gui]
-
-    - role: install_terminal_config
-      tags: [install_terminal_config]
-
-    - role: install_private_casks
-      tags: [install_private_casks, gui]
 
     - role: install_git_packages
       tags: [install_git_packages]
@@ -36,23 +25,50 @@
     - role: install_direnv
       tags: [install_direnv]
 
+    - role: install_1password
+      when: ansible_distribution == 'MacOSX'
+      tags: [install_1password, gui]
+
+    - role: install_terminal_config
+      when: ansible_distribution == 'MacOSX'
+      tags: [install_terminal_config]
+
+    - role: install_office_casks
+      when: ansible_distribution == 'MacOSX'
+      tags: [install_office_casks, gui]
+
+    - role: install_private_casks
+      when: ansible_distribution == 'MacOSX'
+      tags: [install_private_casks, gui]
+
     - role: install_raycast
+      when: ansible_distribution == 'MacOSX'
       tags: [install_raycast, gui]
 
     - role: install_vscode
+      when: ansible_distribution == 'MacOSX'
       tags: [install_vscode, gui]
 
     - role: install_rancher
+      when: ansible_distribution == 'MacOSX'
       tags: [install_rancher, gui]
 
     - role: install_bridgecast
+      when: ansible_distribution == 'MacOSX'
       tags: [install_bridgecast, device_driver]
 
     - role: install_dell_monitor_driver
+      when: ansible_distribution == 'MacOSX'
       tags: [install_dell_monitor_driver, device_driver]
 
     - role: install_logi_options+
+      when: ansible_distribution == 'MacOSX'
       tags: [install_logi_options+, device_driver]
 
     - role: install_scansnap
+      when: ansible_distribution == 'MacOSX'
       tags: [install_scansnap, device_driver]
+
+    - role: destroy
+      when: ansible_distribution == 'MacOSX'
+      tags: [never, destroy]

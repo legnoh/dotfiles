@@ -1,0 +1,87 @@
+---
+
+- name: Destroy
+  block:
+    - name: Create askpass script
+      when: not ansible_check_mode
+      ansible.builtin.template:
+        src: askpass.j2
+        dest: "/tmp/askpass"
+        mode: '0755'
+
+    - name: Get MAS app list
+      ansible.builtin.command:
+        cmd: /opt/homebrew/bin/mas list
+      changed_when: false
+      register: mas_list
+
+    - name: Get App id list
+      ansible.builtin.set_fact:
+        mas_app_ids: "{{ mas_list.stdout_lines | map('split', ' ') | map('first') | list }}"
+
+    - name: Remove all MAS applications
+      ansible.builtin.command:
+        cmd: sudo -A /opt/homebrew/bin/mas uninstall {{ item }}
+      loop: "{{ mas_app_ids }}"
+      environment:
+        SUDO_ASKPASS: /tmp/askpass
+      failed_when: false
+      changed_when: false
+
+    - name: Get Cask app list
+      ansible.builtin.command:
+        cmd: /opt/homebrew/bin/brew list --cask
+      changed_when: false
+      register: cask_list
+
+    - name: Remove all Cask applications
+      ansible.builtin.command:
+        cmd: sudo -A /opt/homebrew/bin/brew --cask --force --zap uninstall "{{ item }}"
+      loop: "{{ mas_app_ids }}"
+      environment:
+        SUDO_ASKPASS: /tmp/askpass
+      failed_when: false
+      changed_when: false
+
+    - name: Get brew formula list
+      ansible.builtin.command:
+        cmd: /opt/homebrew/bin/brew list --formula
+      changed_when: false
+      register: formula_list
+
+    - name: Get ansible dependency list
+      ansible.builtin.shell:
+        cmd: |
+          set -o pipefail
+          /opt/homebrew/bin/brew info ansible --json | jq -r ".[].dependencies[0] |= \"ansible\" | .[].dependencies[]"
+      changed_when: false
+      register: ansible_dependency_list
+
+    - name: Remove items from formula_list that are in ansible_dependency_list
+      ansible.builtin.set_fact:
+        exclude_ansible_formula_list: "{{ formula_list.stdout_lines | difference(ansible_dependency_list.stdout_lines) }}"
+
+    - name: Uninstall all formula without ansible
+      community.general.homebrew:
+        name: "{{ exclude_ansible_formula_list }}"
+        state: absent
+
+    - name: Create deletefile Script file
+      ansible.builtin.copy:
+        src: "remove_files.sh"
+        dest: "/tmp/remove_files.sh"
+        mode: '0755'
+
+    - name: Execute
+      ansible.builtin.command:
+        cmd: /tmp/remove_files.sh
+      changed_when: false
+
+  always:
+    - name: Remove temp file
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: absent
+      loop:
+        - /tmp/askpass
+        - /tmp/remove_files.sh

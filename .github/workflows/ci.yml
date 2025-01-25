@@ -20,21 +20,26 @@ jobs:
       uses: Homebrew/actions/setup-homebrew@master
 
     - name: Install ansible
-      run: brew install ansible
-
-    - name: Set ansible mode
-      id: set-mode
       run: |
-          if [[ "${{ github.event_name }}" == "pull_request_target" ]]; then
-            echo "execute with check mode"
-            echo "options=--check" >> $GITHUB_OUTPUT
-          else
-            echo "execute with normal mode"
-            echo "options=" >> $GITHUB_OUTPUT
-          fi
+        brew install ansible mas
 
-    - name: Run playbook
-      uses: dawidd6/action-ansible-playbook@v2
-      with:
-        playbook: site.yml
-        options: ${{ steps.set-mode.outputs.options }}
+    - name: Install ansible
+      run: |
+        mas install 1569813296
+
+    # - name: Set ansible mode
+    #   id: set-mode
+    #   run: |
+    #       if [[ "${{ github.event_name }}" == "pull_request_target" ]]; then
+    #         echo "execute with check mode"
+    #         echo "options=--check" >> $GITHUB_OUTPUT
+    #       else
+    #         echo "execute with normal mode"
+    #         echo "options=" >> $GITHUB_OUTPUT
+    #       fi
+
+    # - name: Run playbook
+    #   uses: dawidd6/action-ansible-playbook@v2
+    #   with:
+    #     playbook: site.yml
+    #     options: ${{ steps.set-mode.outputs.options }}

@@ -31,11 +31,6 @@
 
 ## Usage
 
-> [!WARNING]
-> Please set accesivility window to add Terminal.
-> 
-> <img width="484" alt="termianal-accessibility" src="https://github.com/user-attachments/assets/4441a454-c4fc-42b5-84cf-f0ffdd611c80" />
-
 ```
 sh -c "$(curl -L ansible.lkj.io)"
 sh -c "$(curl -L dot.lkj.io)"

@@ -7,10 +7,16 @@
         name: "{{ item }}"
         install_options: force
         state: upgraded
-        sudo_password: "{{ ansible_env.BECOME_PASSWORD }}"
+        sudo_password: "{{ install_private_casks_sudo_pass }}"
       loop:
         - betterzip
         - discord
-        - obs
+        - obs # sudo required
       async: 10000
       poll: 0
+
+    - name: Open README
+      ansible.builtin.import_role:
+        name: open_readme
+      vars:
+        open_readme_rolename: install_private_casks

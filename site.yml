@@ -22,9 +22,6 @@
     - role: install_starship
       tags: [install_starship]
 
-    - role: install_direnv
-      tags: [install_direnv]
-
     - role: install_1password
       when: ansible_distribution == 'MacOSX'
       tags: [install_1password, gui]
@@ -69,6 +66,6 @@
       when: ansible_distribution == 'MacOSX'
       tags: [install_scansnap, device_driver]
 
-    - role: destroy
+    - role: uninstall_everything
       when: ansible_distribution == 'MacOSX'
-      tags: [never, destroy]
+      tags: [never, uninstall_everything]

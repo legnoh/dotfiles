@@ -7,14 +7,13 @@
         name:
           - logi-options+
         state: upgraded
-        sudo_password: "{{ ansible_env.BECOME_PASSWORD }}"
+        sudo_password: "{{ install_logi_options_sudo_password }}"
 
-    - name: Create Sticky
+    - name: Open README
       ansible.builtin.import_role:
-        name: create_sticky
+        name: open_readme
       vars:
-        create_sticky_file: README.md
-        create_sticky_name: logi
+        open_readme_rolename: install_logi_options+
 
     - name: Open app
       ansible.builtin.command:

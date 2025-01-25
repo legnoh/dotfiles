@@ -1,0 +1,10 @@
+---
+
+- name: Open README in browser
+  block:
+    - name: Open README.md
+      ansible.builtin.command:
+        cmd: >
+          /usr/bin/open --background -a Safari
+          "https://github.com/legnoh/dotfiles/blob/main/roles/{{ open_readme_rolename }}/README.md"
+      changed_when: false

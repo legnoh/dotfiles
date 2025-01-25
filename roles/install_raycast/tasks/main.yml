@@ -32,12 +32,11 @@
         - snippets
       changed_when: false
 
-    - name: Create Sticky
+    - name: Open README
       ansible.builtin.import_role:
-        name: create_sticky
+        name: open_readme
       vars:
-        create_sticky_file: README.md
-        create_sticky_name: raycast
+        open_readme_rolename: install_raycast
 
     - name: Open Raycast
       ansible.builtin.command:

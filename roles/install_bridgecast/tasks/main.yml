@@ -19,12 +19,11 @@
         dest: "{{ ansible_env.HOME }}/Downloads/settings.brdgcBackup"
         mode: '0644'
 
-    - name: Create Sticky
+    - name: Open README
       ansible.builtin.import_role:
-        name: create_sticky
+        name: open_readme
       vars:
-        create_sticky_file: README.md
-        create_sticky_name: bridgecast
+        open_readme_rolename: install_bridgecast
 
     - name: Open BRIDGE CAST app
       ansible.builtin.command:

@@ -1,1 +1,3 @@
 ---
+
+install_scansnap_sudo_pass: "{{ ansible_env.BECOME_PASSWORD }}"

@@ -66,9 +66,8 @@
         cmd: "gibo dump macOS VisualStudioCode > {{ ansible_env.HOME }}/.config/git/ignore"
       changed_when: false
 
-    - name: Create Sticky
+    - name: Open README
       ansible.builtin.import_role:
-        name: create_sticky
+        name: open_readme
       vars:
-        create_sticky_file: README.md
-        create_sticky_name: git
+        open_readme_rolename: install_git_packages

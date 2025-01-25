@@ -1,1 +1,3 @@
 ---
+
+install_dell_monitor_driver_sudo_password: "{{ ansible_env.BECOME_PASSWORD }}"

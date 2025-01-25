@@ -39,14 +39,13 @@
         - { src: "1password.conf", dst: "{{ ansible_env.HOME }}/.config/ssh/1password.conf" }
         - { src: "1password.gitconfig", dst: "{{ ansible_env.HOME }}/.config/git/1password.gitconfig" }
 
-    - name: Create Sticky
+    - name: Open README
       ansible.builtin.import_role:
-        name: create_sticky
+        name: open_readme
       vars:
-        create_sticky_file: README.md
-        create_sticky_name: 1password
+        open_readme_rolename: install_1password
 
-    - name: Open 1Password
+    - name: Open App
       ansible.builtin.command:
         cmd: /usr/bin/open -a 1Password
       changed_when: false

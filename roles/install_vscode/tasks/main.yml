@@ -22,6 +22,12 @@
           - uv
         state: upgraded
 
+    - name: Copy Go config files
+      ansible.builtin.copy:
+        src: "go.zsh"
+        dest: "{{ ansible_env.HOME }}/.config/zsh/go.zsh"
+        mode: '0644'
+
     - name: Install latest extensions
       ansible.builtin.command:
         cmd: /opt/homebrew/bin/code --force --install-extension {{ item }}

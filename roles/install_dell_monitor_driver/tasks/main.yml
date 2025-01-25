@@ -12,11 +12,10 @@
           - dell-u4025qw-driver
           - dell-u4025qw-firmware-update-utility
         state: upgraded
-        sudo_password: "{{ ansible_env.BECOME_PASSWORD }}"
+        sudo_password: "{{ install_dell_monitor_driver_sudo_password }}"
 
-    - name: Create Sticky
+    - name: Open README
       ansible.builtin.import_role:
-        name: create_sticky
+        name: open_readme
       vars:
-        create_sticky_file: README.md
-        create_sticky_name: dell
+        open_readme_rolename: install_dell_monitor_driver

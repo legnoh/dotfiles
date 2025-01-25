@@ -12,7 +12,7 @@
       community.general.homebrew_cask:
         name: fujitsu-scansnap-home
         state: upgraded
-        sudo_password: "{{ ansible_env.BECOME_PASSWORD }}"
+        sudo_password: "{{ install_scansnap_sudo_pass }}"
 
     - name: Copy profile
       ansible.builtin.copy:
@@ -20,12 +20,11 @@
         dest: "{{ ansible_env.HOME }}/Downloads/scansnap-profiles.ssmp"
         mode: '0644'
 
-    - name: Create Sticky
+    - name: Open README
       ansible.builtin.import_role:
-        name: create_sticky
+        name: open_readme
       vars:
-        create_sticky_file: README.md
-        create_sticky_name: scansnap
+        open_readme_rolename: install_scansnap
 
     - name: Open Scansnap
       ansible.builtin.command:

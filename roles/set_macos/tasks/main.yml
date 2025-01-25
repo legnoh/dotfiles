@@ -28,12 +28,11 @@
         - https://www.icloud.com/shortcuts/4ac45afa7bae47e398fce01c6ee4727b # LinkCopy(md)
         - https://www.icloud.com/shortcuts/2056e1323aa0497080a482547707819b # LinkCopy(rtf)
 
-    - name: Create Sticky
+    - name: Open README
       ansible.builtin.import_role:
-        name: create_sticky
+        name: open_readme
       vars:
-        create_sticky_file: README.md
-        create_sticky_name: macosdefaults
+        open_readme_rolename: set_macos
 
     # - name: Quit pref window
     #   ansible.builtin.command:

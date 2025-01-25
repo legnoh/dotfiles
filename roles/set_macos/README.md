@@ -1,6 +1,24 @@
-# 1Password
+# install_*
 
-## TODO
+Install macOS configurations and Shortcuts.
+
+- [はてブする](https://www.icloud.com/shortcuts/fbd290c7e1c44286a2422f8c17a076ce)
+- [LinkCopy(md)](https://www.icloud.com/shortcuts/4ac45afa7bae47e398fce01c6ee4727b) 
+- [LinkCopy(rtf)](https://www.icloud.com/shortcuts/2056e1323aa0497080a482547707819b)
+
+## Requirements
+
+- OS: macOS Only
+
+## Role Variables
+
+None
+
+## Dependencies
+
+None
+
+## Manual TODO
 
 - システム設定
   - 一般
@@ -20,7 +38,7 @@
         - `Safari.app`
           - `日本語に翻訳` → `⇧+⌘+J`
     - テキスト入力
-      - `ユーザ辞書…` → ~/Downloads/dictionary.plist をドラッグ&ドロップ
+      - `ユーザ辞書…` → `~/Downloads/dictionary.plist` をドラッグ&ドロップ
   - スクリーンタイム
     - デバイス間で共有: 有効
 - Dock

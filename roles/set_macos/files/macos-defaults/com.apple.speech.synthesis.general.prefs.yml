@@ -1,0 +1,12 @@
+---
+description: com.apple.speech.synthesis.general.prefs
+sudo: false
+current_host: false
+data:
+  com.apple.speech.synthesis.general.prefs:
+    TimeAnnouncementPrefs:
+      TimeAnnouncementsEnabled: true
+      TimeAnnouncementsPhraseIdentifier: ShortTime
+      TimeAnnouncementsIntervalIdentifier: EveryHalfHourInterval
+      TimeAnnouncementsVoiceSettings:
+        CustomVolume: 0.5

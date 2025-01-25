@@ -1,0 +1,8 @@
+---
+description: com.apple.Spotlight
+sudo: false
+current_host: false
+data:
+  com.apple.Spotlight:
+    NSStatusItem Visible Item-0:
+      "!": {} # delete

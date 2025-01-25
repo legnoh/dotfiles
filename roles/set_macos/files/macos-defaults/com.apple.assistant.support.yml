@@ -1,0 +1,8 @@
+---
+description: com.apple.assistant.support
+sudo: false
+current_host: false
+data:
+  com.apple.assistant.support:
+    Assistant Enabled: false
+    Search Queries Data Sharing Status: 2

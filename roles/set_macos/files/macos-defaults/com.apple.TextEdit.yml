@@ -1,0 +1,14 @@
+---
+description: com.apple.TextEdit
+sudo: false
+current_host: false
+data:
+  com.apple.TextEdit:
+    CheckSpellingWhileTyping: false
+    NSFixedPitchFont: JetBrainsMonoNFP-Regular
+    NSFixedPitchFontSize: "14"
+    RichText: 0
+    ShowRuler: false
+    SmartCopyPaste: false
+    SmartSubstitutionsEnabledInRichTextOnly: false
+    TextReplacement: false

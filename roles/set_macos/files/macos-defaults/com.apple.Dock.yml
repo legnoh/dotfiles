@@ -1,0 +1,10 @@
+---
+description: com.apple.Dock
+sudo: false
+current_host: false
+data:
+  com.apple.Dock:
+    mineffect: scale
+    minimize-to-application: true
+    show-process-indicators: true
+    show-recents: false

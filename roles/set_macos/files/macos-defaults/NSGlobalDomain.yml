@@ -1,0 +1,18 @@
+---
+description: NSGlobalDomain
+sudo: false
+current_host: false
+data:
+  NSGlobalDomain:
+    AppleShowAllExtensions: true
+    AppleShowScrollBars: WhenScrolling
+    InitialKeyRepeat: 15
+    KeyRepeat: 2
+    NSAutomaticCapitalizationEnabled: false
+    NSAutomaticDashSubstitutionEnabled: false
+    NSAutomaticInlinePredictionEnabled: false
+    NSAutomaticPeriodSubstitutionEnabled: false
+    NSAutomaticQuoteSubstitutionEnabled: false
+    NSAutomaticSpellingCorrectionEnabled: false
+    WebAutomaticSpellingCorrectionEnabled: false
+    com.apple.sound.beep.feedback: true

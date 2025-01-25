@@ -1,0 +1,9 @@
+---
+description: com.apple.symbolichotkeys
+sudo: false
+current_host: false
+data:
+  com.apple.symbolichotkeys:
+    AppleSymbolicHotKeys:
+      "64": # spotlight
+        enabled: "0"

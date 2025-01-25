@@ -1,0 +1,9 @@
+---
+description: com.apple.inputmethod.Kotoeri
+sudo: false
+current_host: false
+data:
+  com.apple.inputmethod.Kotoeri:
+    JIMPrefAutocorrectionKey: false
+    JIMPrefCharacterForYenKey: 1
+    JIMPrefFullWidthNumeralCharactersKey: false

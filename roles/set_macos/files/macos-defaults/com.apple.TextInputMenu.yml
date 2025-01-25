@@ -1,0 +1,7 @@
+---
+description: com.apple.TextInputMenu
+sudo: false
+current_host: false
+data:
+  com.apple.TextInputMenu:
+    visible: false

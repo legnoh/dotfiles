@@ -35,8 +35,57 @@
         create_sticky_file: README.md
         create_sticky_name: macosdefaults
 
+    # - name: Quit pref window
+    #   ansible.builtin.command:
+    #     cmd: /usr/bin/osascript -e 'tell application "System Preferences" to quit'
+    #   changed_when: false
+
+    # - name: Tap custom repos
+    #   community.general.homebrew_tap:
+    #     name: dsully/tap
+
+    # - name: Install core formulae
+    #   community.general.homebrew:
+    #     name: macos-defaults
+    #     state: upgraded
+
+    # - name: Create temp directory
+    #   ansible.builtin.file:
+    #     path: /tmp/macos-defaults
+    #     state: directory
+    #     mode: '0755'
+
+    # - name: Copy yaml files
+    #   ansible.builtin.copy:
+    #     src: macos-defaults
+    #     dest: /tmp/
+    #     mode: '0644'
+
+    # - name: Apply defaults
+    #   ansible.builtin.command:
+    #     cmd: "/opt/homebrew/bin/macos-defaults apply /tmp/macos-defaults/"
+    #   changed_when: false
+
+    # - name: Killall Dock & Finder
+    #   ansible.builtin.command:
+    #     cmd: "/usr/bin/killall {{ item }}"
+    #   loop:
+    #     - Dock
+    #     - Finder
+    #   changed_when: false
+
+    # - name: Unhidden ~/Library
+    #   ansible.builtin.command:
+    #     cmd: /usr/bin/chflags nohidden ~/Library
+    #   changed_when: false
+
   always:
     - name: Remove Script file
       ansible.builtin.file:
         path: "/tmp/defaults.sh"
         state: absent
+
+    # - name: Remove yaml file
+    #   ansible.builtin.file:
+    #     path: /tmp/macos-defaults
+    #     state: absent

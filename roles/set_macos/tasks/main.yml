@@ -19,6 +19,15 @@
         dest: "{{ ansible_env.HOME }}/Downloads/dictionary.plist"
         mode: '0644'
 
+    - name: Import Shortcuts
+      ansible.builtin.command:
+        cmd: "/usr/bin/open -a Shortcuts {{ item }}"
+      changed_when: false
+      loop:
+        - https://www.icloud.com/shortcuts/fbd290c7e1c44286a2422f8c17a076ce # はてブする
+        - https://www.icloud.com/shortcuts/4ac45afa7bae47e398fce01c6ee4727b # LinkCopy(md)
+        - https://www.icloud.com/shortcuts/2056e1323aa0497080a482547707819b # LinkCopy(rtf)
+
     - name: Create Sticky
       ansible.builtin.import_role:
         name: create_sticky

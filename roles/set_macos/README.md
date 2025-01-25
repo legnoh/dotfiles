@@ -4,7 +4,10 @@
 
 - システム設定
   - 一般
-    - コンピュータ名を分かりやすいものに変更
+    - 情報
+      - `コンピュータ名`: (分かりやすいものに変更)
+    - ソフトウェアアップデート
+      - `App Storeからのアプリケーションアップデートをインストール`: 有効
   - ディスプレイ
     - `ハイダイナミックレンジ`: 有効
     - Night Shift…
@@ -46,3 +49,8 @@
     - `Webサイトの完全なアドレスを表示`: 有効
     - `デフォルトのエンコーディング`: `Unicode(UTF-8)`
     - `Webデベロッパ用の機能を表示`: 有効
+- ショートカット
+  - 以下の3つをインポートする
+    - [はてブする](https://www.icloud.com/shortcuts/fbd290c7e1c44286a2422f8c17a076ce)
+    - [LinkCopy(md)](https://www.icloud.com/shortcuts/4ac45afa7bae47e398fce01c6ee4727b)
+    - [LinkCopy(rtf)](https://www.icloud.com/shortcuts/2056e1323aa0497080a482547707819b)

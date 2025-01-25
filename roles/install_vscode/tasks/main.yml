@@ -51,15 +51,15 @@
         - visualstudioexptteam.vscodeintellicode
         - vscode-icons-team.vscode-icons
 
-    - name: Create/Check conf directory
+    - name: Create conf directory
       ansible.builtin.file:
         path: "{{ ansible_env.HOME }}/Library/Application Support/Code/User"
         state: directory
         mode: '0755'
 
-    - name: Copy config file
+    - name: Create config file
       when: not ansible_check_mode
-      ansible.builtin.copy:
-        src: settings.json
+      ansible.builtin.template:
+        src: settings.json.j2
         dest: "{{ ansible_env.HOME }}/Library/Application Support/Code/User/settings.json"
         mode: '0644'

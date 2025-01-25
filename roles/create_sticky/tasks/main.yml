@@ -7,6 +7,7 @@
         name: legnoh/etc
 
     - name: Install sticky-cli
+      when: not ansible_check_mode
       community.general.homebrew:
         name: sticky-cli
         state: upgraded

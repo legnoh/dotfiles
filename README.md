@@ -1,6 +1,12 @@
 :innocent: dotfiles :sunglasses:
 ========
 
+```
+sh -c "$(curl -L ansible.lkj.io)"
+source ~/.zprofile
+sh -c "$(curl -L dot.lkj.io)"
+```
+
 ## goods
 
 - Shell: [Zsh](http://www.zsh.org/)
@@ -28,10 +34,3 @@
 - 基本的にはOS標準のソフトウェアを使うべきだが、力不足な場合は外部ソフトウェアで補うのが望ましい。
 
 </details>
-
-## Usage
-
-```
-sh -c "$(curl -L ansible.lkj.io)"
-sh -c "$(curl -L dot.lkj.io)"
-```

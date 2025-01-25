@@ -19,19 +19,7 @@ jobs:
     - name: Set up Homebrew
       uses: Homebrew/actions/setup-homebrew@master
 
-    - name: Check ansible installed
-      id: check-ansible
-      run: |
-        if which ansible > /dev/null; then
-          echo "ansible has already installed"
-          echo "installed=true" >> $GITHUB_OUTPUT
-        else
-          echo "ansible is not installed"
-          echo "installed=false" >> $GITHUB_OUTPUT
-        fi
-
     - name: Install ansible
-      if: ${{ !steps.check-ansible.outputs.installed || github.event_name == 'pull_request_target' }}
       run: brew install ansible
 
     - name: Set ansible mode

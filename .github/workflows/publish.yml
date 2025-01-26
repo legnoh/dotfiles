@@ -11,6 +11,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Edit galaxy.yml
+      run: |
+        export VERSION="${{ github.ref_name }}"
+        envsubst < galaxy.yml.tpl > galaxy.yml
+
     - name: Deploy the collection
       uses: artis3n/ansible_galaxy_collection@v2
       with:

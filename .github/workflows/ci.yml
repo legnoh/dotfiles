@@ -6,6 +6,8 @@ on:
   pull_request_target:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: 0 4 * * 1
 
 jobs:
   execute:
@@ -21,6 +23,9 @@ jobs:
 
     - name: Install ansible
       run: brew install ansible
+
+    - name: edit site.yml temporary
+      run: sed -i 's/legnoh.dotfiles.//g' site.yml
 
     - name: Run playbook
       uses: dawidd6/action-ansible-playbook@v2

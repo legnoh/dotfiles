@@ -2,7 +2,7 @@
 namespace: legnoh
 name: dotfiles
 description: my dotfiles
-version: "0.1.0"
+version: "${VERSION}"
 readme: README.md
 authors:
     - Ryoma Kai (https://github.com/legnoh)

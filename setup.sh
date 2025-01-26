@@ -38,11 +38,17 @@ EOF
 echo "# 🌐 Clone dotfiles playbooks..."
 if [[ ! -d "${GITCLONE_ROOTDIR}" ]]; then
     git clone https://github.com/legnoh/dotfiles.git ${GITCLONE_ROOTDIR}
-    echo "--> 🌐 git clone process was successfull!"
+    echo "--> 👍 git clone process was successfull!"
 else
     echo "--> 👍 git repo has already cloned!"
 fi
 cd ${GITCLONE_ROOTDIR}
+echo ""
+
+# Download Collection
+echo "# Download Collection..."
+ansible-galaxy collection install --upgrade legnoh.dotfiles
+echo "--> 👍 download collection process was successfull!"
 echo ""
 
 # create skip options

@@ -3,9 +3,9 @@
 - name: Deploy dotfiles
   hosts: localhost
   roles:
-    - role: legnoh.dotfiles.set_macos
+    - role: legnoh.dotfiles.install_macos_config
       when: ansible_distribution == 'MacOSX'
-      tags: [set_macos]
+      tags: [install_macos_config]
 
     - role: legnoh.dotfiles.install_zsh_config
       tags: [install_zsh_config]

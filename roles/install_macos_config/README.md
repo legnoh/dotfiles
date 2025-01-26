@@ -1,4 +1,4 @@
-# install_*
+# install_macos_config
 
 Install macOS configurations and Shortcuts.
 

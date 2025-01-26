@@ -13,7 +13,7 @@
       ansible.builtin.import_role:
         name: open_readme
       vars:
-        open_readme_rolename: install_logi_options+
+        open_readme_rolename: install_logi_options_plus
 
     - name: Open app
       ansible.builtin.command:

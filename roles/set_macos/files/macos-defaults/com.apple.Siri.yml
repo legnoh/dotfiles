@@ -1,8 +1,8 @@
 ---
-description: com.apple.Siri
+description: com.apple.siri
 sudo: false
 current_host: false
 data:
-  com.apple.Siri:
+  com.apple.siri:
     StatusMenuVisible: false
     VoiceTriggerUserEnabled: false

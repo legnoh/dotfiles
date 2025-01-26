@@ -5,18 +5,20 @@ current_host: false
 data:
   com.apple.finder:
     DesktopViewSettings:
+      GroupBy: Kind
       IconViewSettings:
         arrangeBy: kind
         gridSpacing: 1.0
         iconSize: 128.0
+        textSize: 16.0
         labelOnBottom: true
         showItemInfo: true
-        textSize: 14.0
     FXEnableExtensionsChangeWarning: false
     FXPreferredViewStyle: icnv
     NewWindowTarget: PfHm
-    ShowPathbar: true
     ShowRecentTags: false
     ShowStatusBar: true
     SidebarWidth: 175
     WarnOnEmptyTrash: false
+
+kill: ["Finder"]

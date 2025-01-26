@@ -6,4 +6,18 @@ data:
   com.apple.symbolichotkeys:
     AppleSymbolicHotKeys:
       "64": # spotlight
-        enabled: "0"
+        enabled: false
+        value:
+          type: standard
+          parameters:
+            - 65535
+            - 49
+            - 1048576
+      "65": # finder search
+        enabled: false
+        value:
+          type: standard
+          parameters:
+            - 65535
+            - 49
+            - 1572864

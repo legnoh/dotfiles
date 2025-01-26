@@ -2,6 +2,7 @@
 
 Install macOS configurations and Shortcuts.
 
+- [dsully/macos-defaults: A tool for managing macOS defaults declaratively via YAML files.](https://github.com/dsully/macos-defaults)
 - [はてブする](https://www.icloud.com/shortcuts/fbd290c7e1c44286a2422f8c17a076ce)
 - [LinkCopy(md)](https://www.icloud.com/shortcuts/4ac45afa7bae47e398fce01c6ee4727b) 
 - [LinkCopy(rtf)](https://www.icloud.com/shortcuts/2056e1323aa0497080a482547707819b)
@@ -26,6 +27,8 @@ None
       - `コンピュータ名`: (分かりやすいものに変更)
     - ソフトウェアアップデート
       - `App Storeからのアプリケーションアップデートをインストール`: 有効
+  - コントロールセンター
+    - Spotlight → `メニューバーに非表示`
   - ディスプレイ
     - `ハイダイナミックレンジ`: 有効
     - Night Shift…
@@ -47,6 +50,7 @@ None
 - Finder
   - サイドバーから「最近の項目」を削除する
   - 「"デスクトップ"と"書類"フォルダ」を有効化
+  - 表示 → パスバーを表示する
 - LaunchPad
   - 以下の順番で整理する
     1. `ボイスメモ` に `天気` を入れる(自動的に`ユーティリティ`というフォルダになる)

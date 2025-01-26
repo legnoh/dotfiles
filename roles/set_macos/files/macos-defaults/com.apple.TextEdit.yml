@@ -1,9 +1,9 @@
 ---
-description: com.apple.TextEdit
+description: com.apple.textedit
 sudo: false
 current_host: false
 data:
-  com.apple.TextEdit:
+  com.apple.textedit:
     CheckSpellingWhileTyping: false
     NSFixedPitchFont: JetBrainsMonoNFP-Regular
     NSFixedPitchFontSize: "14"

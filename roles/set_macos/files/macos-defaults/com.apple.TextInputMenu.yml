@@ -1,7 +1,7 @@
 ---
-description: com.apple.TextInputMenu
+description: com.apple.textinputmenu
 sudo: false
 current_host: false
 data:
-  com.apple.TextInputMenu:
+  com.apple.textinputmenu:
     visible: false

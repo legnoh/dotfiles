@@ -1,10 +1,14 @@
 ---
-description: com.apple.Dock
+description: com.apple.dock
 sudo: false
 current_host: false
 data:
-  com.apple.Dock:
+  com.apple.dock:
+    autohide: true
+    magnification: true
     mineffect: scale
     minimize-to-application: true
     show-process-indicators: true
     show-recents: false
+
+kill: ["Dock"]

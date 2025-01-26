@@ -1,0 +1,2 @@
+---
+install_logi_options_plus_sudo_password: "{{ ansible_env.BECOME_PASSWORD }}"

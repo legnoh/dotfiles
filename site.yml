@@ -58,9 +58,9 @@
       when: ansible_distribution == 'MacOSX'
       tags: [install_dell_monitor_driver, device_driver]
 
-    - role: install_logi_options+
+    - role: install_logi_options_plus
       when: ansible_distribution == 'MacOSX'
-      tags: [install_logi_options+, device_driver]
+      tags: [install_logi_options_plus, device_driver]
 
     - role: install_scansnap
       when: ansible_distribution == 'MacOSX'

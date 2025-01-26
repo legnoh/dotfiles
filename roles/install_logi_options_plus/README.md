@@ -1,4 +1,4 @@
-# install_logi_options+
+# install_logi_options_plus
 
 Install Logi Options+.
 
@@ -10,9 +10,9 @@ Install Logi Options+.
 
 ## Role Variables
 
-| Variable                             | Required | Default            | Choices | Comments      |
-|--------------------------------------|----------|--------------------|---------|---------------|
-| `install_logi_options_sudo_password` | true     | `$BECOME_PASSWORD` | -       | sudo password |
+| Variable                                  | Required | Default            | Choices | Comments      |
+|-------------------------------------------|----------|--------------------|---------|---------------|
+| `install_logi_options_plus_sudo_password` | true     | `$BECOME_PASSWORD` | -       | sudo password |
 
 ## Dependencies
 

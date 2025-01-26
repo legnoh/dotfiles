@@ -12,6 +12,7 @@
         name: dsully/tap
 
     - name: Install core formulae
+      when: not ansible_check_mode
       community.general.homebrew:
         name: macos-defaults
         state: upgraded

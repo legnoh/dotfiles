@@ -2,9 +2,9 @@
 ========
 
 ```
-sh -c "$(curl -L ansible.lkj.io)"
+zsh -c "$(curl -L ansible.lkj.io)"
 source ~/.zprofile
-sh -c "$(curl -L dot.lkj.io)"
+zsh -c "$(curl -L dot.lkj.io)"
 ```
 
 ## goods

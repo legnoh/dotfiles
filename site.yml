@@ -3,69 +3,69 @@
 - name: Deploy dotfiles
   hosts: localhost
   roles:
-    - role: set_macos
+    - role: legnoh.dotfiles.set_macos
       when: ansible_distribution == 'MacOSX'
       tags: [set_macos]
 
-    - role: install_zsh_config
+    - role: legnoh.dotfiles.install_zsh_config
       tags: [install_zsh_config]
 
-    - role: install_ssh_config
+    - role: legnoh.dotfiles.install_ssh_config
       tags: [install_ssh_config]
 
-    - role: install_core_brews
+    - role: legnoh.dotfiles.install_core_brews
       tags: [install_core_brews]
 
-    - role: install_git_packages
+    - role: legnoh.dotfiles.install_git_packages
       tags: [install_git_packages]
 
-    - role: install_starship
+    - role: legnoh.dotfiles.install_starship
       tags: [install_starship]
 
-    - role: install_1password
+    - role: legnoh.dotfiles.install_1password
       when: ansible_distribution == 'MacOSX'
       tags: [install_1password, gui]
 
-    - role: install_terminal_config
+    - role: legnoh.dotfiles.install_terminal_config
       when: ansible_distribution == 'MacOSX'
       tags: [install_terminal_config]
 
-    - role: install_office_casks
+    - role: legnoh.dotfiles.install_office_casks
       when: ansible_distribution == 'MacOSX'
       tags: [install_office_casks, gui]
 
-    - role: install_private_casks
+    - role: legnoh.dotfiles.install_private_casks
       when: ansible_distribution == 'MacOSX'
       tags: [install_private_casks, gui]
 
-    - role: install_raycast
+    - role: legnoh.dotfiles.install_raycast
       when: ansible_distribution == 'MacOSX'
       tags: [install_raycast, gui]
 
-    - role: install_vscode
+    - role: legnoh.dotfiles.install_vscode
       when: ansible_distribution == 'MacOSX'
       tags: [install_vscode, gui]
 
-    - role: install_rancher
+    - role: legnoh.dotfiles.install_rancher
       when: ansible_distribution == 'MacOSX'
       tags: [install_rancher, gui]
 
-    - role: install_bridgecast
+    - role: legnoh.dotfiles.install_bridgecast
       when: ansible_distribution == 'MacOSX'
       tags: [install_bridgecast, device_driver]
 
-    - role: install_dell_monitor_driver
+    - role: legnoh.dotfiles.install_dell_monitor_driver
       when: ansible_distribution == 'MacOSX'
       tags: [install_dell_monitor_driver, device_driver]
 
-    - role: install_logi_options_plus
+    - role: legnoh.dotfiles.install_logi_options_plus
       when: ansible_distribution == 'MacOSX'
       tags: [install_logi_options_plus, device_driver]
 
-    - role: install_scansnap
+    - role: legnoh.dotfiles.install_scansnap
       when: ansible_distribution == 'MacOSX'
       tags: [install_scansnap, device_driver]
 
-    - role: uninstall
+    - role: legnoh.dotfiles.uninstall
       when: ansible_distribution == 'MacOSX'
-      tags: [never, uninstall_everything]
+      tags: [never, uninstall]

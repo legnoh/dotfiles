@@ -4,10 +4,9 @@
   block:
     - name: Install app
       community.general.homebrew_cask:
-        name:
-          - logi-options+
+        name: logi-options+
         state: upgraded
-        sudo_password: "{{ install_logi_options_sudo_password }}"
+        sudo_password: "{{ install_logi_options_plus_sudo_password }}"
 
     - name: Open README
       ansible.builtin.import_role:

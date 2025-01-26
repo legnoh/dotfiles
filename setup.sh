@@ -1,63 +1,80 @@
 #!/bin/bash
 
-GITCLONE_ROOTDIR=$HOME/code/github.com/legnoh
-export BECOME_PASSWORD_FILE="/tmp/BECOME_PASSWORD"
+set -e
+
+export BECOME_PASS_FILE="/tmp/BECOME_PASS"
+GITCLONE_ROOTDIR=$HOME/code/github.com/legnoh/dotfiles
+
+cat << 'EOF'
+######################################################################
+ _                        _        __  _       _    __ _ _           
+| | ___  __ _ _ __   ___ | |__    / /_| | ___ | |_ / _(_) | ___  ___ 
+| |/ _ \/ _` | '_ \ / _ \| '_ \  / / _` |/ _ \| __| |_| | |/ _ \/ __|
+| |  __/ (_| | | | | (_) | | | |/ / (_| | (_) | |_|  _| | |  __/\__ \
+|_|\___|\__, |_| |_|\___/|_| |_/_/ \__,_|\___/ \__|_| |_|_|\___||___/
+        |___/                                                        
+######################################################################
+
+EOF
 
 # read answers
-echo "What's your sudo password?: " && read -sp "Password: " PASSWORD
-echo "Do you need private App? [Y/n]: " && read NEED_PRIVATE
-echo "Do you need GUI Application? [Y/n]: " && read NEED_GUIAPP
-echo "Do you need device driver App? [Y/n]: " && read NEED_DRIVER
+echo -n "🔐 What's your sudo password?: " && read -s BECOME_PASSWORD
+echo ""
+echo -n "🎮 Do you need private App? [Y/n]: " && read NEED_PRIVATE
+echo -n "🖥️  Do you need GUI Application? [Y/n]: " && read NEED_GUIAPP
+echo -n "🛠️  Do you need device driver App? [Y/n]: " && read NEED_DRIVER
+export BECOME_PASSWORD
+echo "$BECOME_PASSWORD" > $BECOME_PASS_FILE
 
 # Get dotfiles playbook
 echo "########### clone dotfiles playbooks ###########"
-mkdir -p ${GITCLONE_ROOTDIR}
-cd ${GITCLONE_ROOTDIR}
-if [[ ! -d "${GITCLONE_ROOTDIR}/dotfiles" ]]; then
-    git clone https://github.com/legnoh/dotfiles.git
+if [[ ! -d "${GITCLONE_ROOTDIR}" ]]; then
+    git clone https://github.com/legnoh/dotfiles.git ${GITCLONE_ROOTDIR}
 fi
-cd dotfiles
+cd ${GITCLONE_ROOTDIR}
 
 # create skip options
-ANSIBLE_SKIPPED_TAGS=""
+SKIP_TAGS=""
 if [[ "${NEED_PRIVATE}" == "n" ]]; then
-    ANSIBLE_SKIPPED_TAGS="install_private_casks"
+    SKIP_TAGS="install_private_casks"
 fi
 
 if [[ "${NEED_GUIAPP}" == "n" ]]; then
-    if [[ "${ANSIBLE_SKIPPED_TAGS}" == "" ]]; then
-        ANSIBLE_SKIPPED_TAGS="gui"
+    if [[ "${SKIP_TAGS}" == "" ]]; then
+        SKIP_TAGS="gui"
     else
-        ANSIBLE_SKIPPED_TAGS="${ANSIBLE_SKIPPED_TAGS},gui"
+        SKIP_TAGS="${SKIP_TAGS},gui"
     fi
 fi
 
 if [[ "${NEED_DRIVER}" == "n" ]]; then
-    if [[ "${ANSIBLE_SKIPPED_TAGS}" == "" ]]; then
-        ANSIBLE_SKIPPED_TAGS="device_driver"
+    if [[ "${SKIP_TAGS}" == "" ]]; then
+        SKIP_TAGS="device_driver"
     else
-        ANSIBLE_SKIPPED_TAGS="${ANSIBLE_SKIPPED_TAGS},device_driver"
+        SKIP_TAGS="${SKIP_TAGS},device_driver"
     fi
 fi
 
-# prepare password file
-echo "$PASSWORD" > $BECOME_PASSWORD_FILE
-
 # Execute
 echo "########### execute playbooks ###########"
-if [[ "${ANSIBLE_SKIPPED_TAGS}" == "" ]]; then
-    BECOME_PASSWORD="${PASSWORD}" ansible-playbook site.yml \
-        --become-password-file="${BECOME_PASSWORD_FILE}"
+set +e
+if [[ "${SKIP_TAGS}" == "" ]]; then
+    ansible-playbook site.yml --become-pass-file="${BECOME_PASS_FILE}"
+    result=$?
+    rm -rf $BECOME_PASS_FILE
 else
-    BECOME_PASSWORD="${PASSWORD}" ansible-playbook site.yml \
-        --become-password-file="${BECOME_PASSWORD_FILE}" \
-        --skip-tags "${ANSIBLE_SKIPPED_TAGS}"
+    ansible-playbook site.yml --become-pass-file="${BECOME_PASS_FILE}" --skip-tags="${SKIP_TAGS}"
+    result=$?
+    rm -rf $BECOME_PASS_FILE
 fi
+set -e
 
-# remove password file
-rm -rf $BECOME_PASSWORD_FILE
-
-# Finish!
+# Finish
 echo "========================================================="
-echo "Congrats! Your dotfile operation was done successfully!🎉"
-echo "After gui settings, please reboot your machine:)"
+if [[ "$result" == "0" ]]; then
+    echo "Congrats! Your dotfile operation was done successfully!🎉"
+    echo "After gui settings, please reboot your machine:)"
+else
+    echo "Setup machine process was failed...🫨"
+    exit 1
+fi

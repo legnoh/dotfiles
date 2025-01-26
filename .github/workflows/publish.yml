@@ -1,4 +1,4 @@
-name: Ansible Galaxy
+name: Publish to Galaxy
 
 on:
   release:

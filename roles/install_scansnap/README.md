@@ -11,7 +11,7 @@ Install Scansnap Home.
 ## Role Variables
 
 | Variable                         | Required | Default            | Choices | Comments      |
-|---------------------- -----------|----------|--------------------|---------|---------------|
+|----------------------------------|----------|--------------------|---------|---------------|
 | `install_scansnap_sudo_password` | true     | `$BECOME_PASSWORD` | -       | sudo password |
 
 ## Dependencies

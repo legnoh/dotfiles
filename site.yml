@@ -66,6 +66,6 @@
       when: ansible_distribution == 'MacOSX'
       tags: [install_scansnap, device_driver]
 
-    - role: uninstall_everything
+    - role: uninstall
       when: ansible_distribution == 'MacOSX'
       tags: [never, uninstall_everything]

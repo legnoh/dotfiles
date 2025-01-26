@@ -1,6 +1,8 @@
 :innocent: dotfiles :sunglasses:
 ========
 
+[![Static Badge](https://img.shields.io/badge/anslble--galaxy-legnoh.dotfiles-blue?style=flat&logo=ansible)](https://galaxy.ansible.com/ui/repo/published/legnoh/dotfiles/)
+
 ```
 zsh -c "$(curl -L ansible.lkj.io)"
 source ~/.zprofile

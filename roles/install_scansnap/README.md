@@ -22,3 +22,10 @@ None
 
 - [ ] install profile
   - `~/Downloads/scansnap-profiles.ssmp`
+- [ ] Config
+  - 一般
+    - `macへのログイン時にScanSnap Homeを起動します`: 無効
+  - スキャン時の動作
+    - `ScanSnapの電源ON時に、スキャン画面を自動的に表示します`: 有効
+    - `スキャンデータの保存完了を通知します`: 無効
+  - `メニューバーにアイコンを表示します`: 無効

@@ -46,5 +46,8 @@ None
       - Start Typing Practice
       - Translate
       - Window Management
+    - Hotkey
+      - Clipboard History: `⇧+⌘+V`
+      - Snippets → Search Snippets: `⇧+⌘+B`
   - Advanced
     - `Auto-switch Input Source` → `ABC`

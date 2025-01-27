@@ -9,56 +9,48 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout Repository
         uses: actions/checkout@v4
+
       - name: Check LTS version
+        id: lts
         env:
           EOL_PACKAGE_NAME: go
           JQ_QUERY: ".[0].cycle"
         run: |
             LTS_VERSION_GLOBAL=$(curl -s https://endoflife.date/api/${EOL_PACKAGE_NAME}.json | jq -r "${{ env.JQ_QUERY }}")
-            echo "LTS_VERSION_GLOBAL: ${LTS_VERSION_GLOBAL}"
-            echo "LTS_VERSION_GLOBAL=${LTS_VERSION_GLOBAL}" >> "$GITHUB_ENV"
+            echo "LTS: ${LTS_VERSION_GLOBAL}"
+            echo "v=${LTS_VERSION_GLOBAL}" >> "$GITHUB_OUTPUT"
+
       - name: Check dotfiles version
+        id: dot
         env:
           BREW_PKGNAME: go
           ROLE_VARFILE: roles/install_vscode/defaults/main.yml
         run: |
             LTS_VERSION_DOTFILES=$(yq -r ".install_vscode_${BREW_PKGNAME}_version" ${ROLE_VARFILE})
-            echo "LTS_VERSION_DOTFILES: ${LTS_VERSION_DOTFILES}"
-            echo "BREW_PKG_NAME=${BREW_PKG_NAME}"               >> "$GITHUB_ENV"
-            echo "ROLE_VARFILE=${ROLE_VARFILE}"                 >> "$GITHUB_ENV"
-            echo "LTS_VERSION_DOTFILES=${LTS_VERSION_DOTFILES}" >> "$GITHUB_ENV"
-      - name: Edit Brewfiles
-        if: env.LTS_VERSION_GLOBAL != env.LTS_VERSION_DOTFILES
+            echo "DOTFILE: ${LTS_VERSION_DOTFILES}"
+            echo "brew_pkgname=${BREW_PKG_NAME}" >> "$GITHUB_OUTPUT"
+            echo "role_varfile=${ROLE_VARFILE}"  >> "$GITHUB_OUTPUT"
+            echo "v=${LTS_VERSION_DOTFILES}"     >> "$GITHUB_OUTPUT"
+
+      - name: Edit varfile
+        if: steps.lts.outputs.v != steps.dot.outputs.v
         run: |
           yq e ".install_vscode_${BREW_PKG_NAME}_version=${LTS_VERSION_GLOBAL}" -i ${ROLE_VARFILE}
-      - name: Create GitHub App Token
-        uses: actions/create-github-app-token@v1
-        id: app-token
-        if: env.LTS_VERSION_GLOBAL != env.LTS_VERSION_DOTFILES
-        with:
-          app-id: ${{ secrets.APP_ID }}
-          private-key: ${{ secrets.APP_PRIVATE_KEY }}
-      - name: Get GitHub App User ID
-        id: get-user-id
-        if: env.LTS_VERSION_GLOBAL != env.LTS_VERSION_DOTFILES
-        run: echo "user-id=$(gh api "/users/${{ steps.app-token.outputs.app-slug }}[bot]" --jq .id)" >> "$GITHUB_OUTPUT"
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+
       - name: Create bump PR
-        id: create-pull-request
-        if: env.LTS_VERSION_GLOBAL != env.LTS_VERSION_DOTFILES
+        if: steps.lts.outputs.v != steps.dot.outputs.v
         uses: peter-evans/create-pull-request@v7
         env:
-          RELEASE_NOTES_URL: https://go.dev/doc/go${{ env.LTS_VERSION_GLOBAL }}
+          RELEASE_NOTES_URL: https://go.dev/doc/go${{ steps.lts.outputs.v }}
           RELEASE_POLICY_URL: https://go.dev/doc/devel/release#policy
         with:
-          title: "bump: ${{ env.BREW_PKG_NAME }} v${{ env.LTS_VERSION_GLOBAL }}"
-          committer: "${{ steps.app-token.outputs.app-slug }}[bot] <${{ steps.get-user-id.outputs.user-id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com>"
-          commit-message: "bump: ${{ env.BREW_PKG_NAME }} v${{ env.LTS_VERSION_GLOBAL }}"
-          branch: ${{ env.BREW_PKG_NAME }}-${{ env.LTS_VERSION_GLOBAL }}
-          token: ${{ steps.app-token.outputs.token }}
+          branch: ${{ steps.dot.outputs.brew_pkgname }}-${{ steps.lts.outputs.v }}
+          commit-message: "bump: ${{ steps.dot.outputs.brew_pkgname }} v${{ steps.lts.outputs.v }}"
+          sign-commits: true
+          title: "bump: ${{ steps.dot.outputs.brew_pkgname }} v${{ steps.lts.outputs.v }}"
           body: |
               - [Release Policy](${{ env.RELEASE_POLICY_URL }})
               - [Release Notes](${{ env.RELEASE_NOTES_URL }})

@@ -1,22 +1,20 @@
 name: CI
 
 on:
+  pull_request:
+    branches: [main]
   push:
     branches: [main]
-  pull_request_target:
-    branches: [main]
-  workflow_dispatch:
   schedule:
     - cron: 0 4 * * 1
+  workflow_dispatch:
 
 jobs:
-  execute:
+  check:
     runs-on: macos-latest
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
-      with: 
-        ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
     - name: Set up Homebrew
       uses: Homebrew/actions/setup-homebrew@master
@@ -34,3 +32,38 @@ jobs:
         options: --check
       env:
         BECOME_PASSWORD: dummy
+
+  publish:
+    needs: check
+    if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Bump Version & Tagging
+        id: bump_tag
+        uses: anothrNick/github-tag-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: patch
+      
+      - name: Create Release notes
+        run: |
+          gh release create ${{ steps.bump_tag.outputs.new_tag }} \
+            --title "v${{ steps.bump_tag.outputs.new_tag }}" \
+            --generate-notes
+
+      - name: Generate galaxy.yml
+        run: |
+          export VERSION="${{ steps.bump_tag.outputs.new_tag }}"
+          envsubst < galaxy.yml.template > galaxy.yml
+
+      - name: Deploy collection to Ansible Galaxy
+        uses: artis3n/ansible_galaxy_collection@v2
+        with:
+          api_key: ${{ secrets.GALAXY_API_KEY }}

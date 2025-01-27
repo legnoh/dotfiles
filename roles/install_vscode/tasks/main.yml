@@ -22,12 +22,6 @@
           - uv
         state: upgraded
 
-    - name: Copy Go config files
-      ansible.builtin.copy:
-        src: "go.zsh"
-        dest: "{{ ansible_env.HOME }}/.config/zsh/go.zsh"
-        mode: '0644'
-
     - name: Install latest extensions
       ansible.builtin.command:
         cmd: /opt/homebrew/bin/code --force --install-extension {{ item }}
@@ -59,11 +53,24 @@
 
     - name: Create conf directory
       ansible.builtin.file:
-        path: "{{ ansible_env.HOME }}/Library/Application Support/Code/User"
+        path: "{{ item }}"
         state: directory
         mode: '0755'
+      loop:
+        - "{{ ansible_env.HOME }}/.config/git"
+        - "{{ ansible_env.HOME }}/.config/zsh"
+        - "{{ ansible_env.HOME }}/Library/Application Support/Code/User"
 
-    - name: Create config file
+    - name: Copy Git/Go config files
+      ansible.builtin.copy:
+        src: "{{ item.src }}"
+        dest: "{{ item.dst }}"
+        mode: '0644'
+      loop:
+        - { src: "go.zsh", dst: "{{ ansible_env.HOME }}/.config/zsh/go.zsh" }
+        - { src: "vscode.gitconfig", dst: "{{ ansible_env.HOME }}/.config/git/vscode.gitconfig" }
+
+    - name: Create VSCode config file
       when: not ansible_check_mode
       ansible.builtin.template:
         src: settings.json.j2

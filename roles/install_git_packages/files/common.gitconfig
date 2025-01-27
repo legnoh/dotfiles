@@ -12,10 +12,6 @@
   l = log --oneline
 
 [branch]
-  # pullでローカルブランチを作成する際、自動的にremoteの同名ブランチをupstreamに設定する
-  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-branchautoSetupMerge
-  autoSetupMerge = always
-
   # (新ブランチ含め)pullを常時rebaseにする(マージコミットを作らない)
   # https://git-scm.com/docs/git-config#Documentation/git-config.txt-branchautoSetupRebase
   autoSetupRebase = always
@@ -24,30 +20,15 @@
   # git commit時に改行コードをLFに変換する
   # https://git-scm.com/docs/git-config#Documentation/git-config.txt-coreautocrlf
   autocrlf = input
-  
-  # git commit時のエディタにVS Codeを利用する
-  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-coreeditor
-  editor = code --wait
 
   # git statusで日本語のファイル名が読めるようにする
   # https://git-scm.com/docs/git-config#Documentation/git-config.txt-corequotePath
   quotepath = false
 
 [merge]
-  # git merge時のエディタにVS Codeを利用する
-  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-mergetool
-  # https://code.visualstudio.com/updates/v1_70#_command-line-option-merge
-  tool = code
-
   # git mergeでは必要がなくてもマージコミットを作る(mergeを明示的にする)
   # https://git-scm.com/docs/git-config#Documentation/git-config.txt-mergeff
   ff = false
-
-[mergetool "code"]
-  # マージエディタ(VS Code)で利用するコマンドを指定
-  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-mergetoollttoolgtcmd
-  # https://code.visualstudio.com/updates/v1_70#_command-line-option-merge
-  cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 
 [pull]
   # (既存ブランチ含め)git pullを常時rebaseにする(マージコミットを作らない)

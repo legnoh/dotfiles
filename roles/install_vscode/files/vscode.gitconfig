@@ -1,0 +1,22 @@
+# VS Code as Git editor
+# https://code.visualstudio.com/docs/sourcecontrol/overview#_vs-code-as-git-editor
+
+[core]
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-coreeditor  
+  editor = code --wait
+
+[diff]
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-difftool
+  tool = default-difftool
+
+[difftool "default-difftool"]
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-difftoollttoolgtcmd
+  cmd = code --wait --diff $LOCAL $REMOTE
+
+[merge]
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-mergetool
+  tool = code
+
+[mergetool "code"]
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-mergetoollttoolgtcmd
+  cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED

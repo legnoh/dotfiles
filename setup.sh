@@ -4,7 +4,7 @@ set -e
 
 export BECOME_PASS_FILE="/tmp/BECOME_PASS"
 GITCLONE_ROOTDIR=$HOME/code/github.com/legnoh/dotfiles
-PLAYBOOK_TARGET="${1:-"site.yml"}"
+PLAYBOOK="${1:-"site.yml"}"
 
 cat << 'EOF'
 ######################################################################
@@ -80,13 +80,14 @@ echo ""
 
 # Execute
 echo "# 🏃 execute playbooks..."
+echo "  --> 📕 Playbook: ${PLAYBOOK}"
 set +e
 if [[ "${SKIP_TAGS}" == "" ]]; then
-    ansible-playbook site.yml --become-pass-file="${BECOME_PASS_FILE}"
+    ansible-playbook ${PLAYBOOK} --become-pass-file="${BECOME_PASS_FILE}"
     result=$?
     rm -rf $BECOME_PASS_FILE
 else
-    ansible-playbook site.yml --become-pass-file="${BECOME_PASS_FILE}" --skip-tags="${SKIP_TAGS}"
+    ansible-playbook ${PLAYBOOK} --become-pass-file="${BECOME_PASS_FILE}" --skip-tags="${SKIP_TAGS}"
     result=$?
     rm -rf $BECOME_PASS_FILE
 fi

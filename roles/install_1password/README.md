@@ -21,5 +21,11 @@ None
 ## Manual TODO
 
 - [ ] Login
-- [ ] Enable TouchID
-- [ ] Enable SSH Agent
+  - Enable TouchID in onboarding
+- [] Config
+  - 一般
+    - `メニューバーに1Passwordを固定する`: 無効
+  - 開発者
+    - `SSHエージェント`: 有効
+    - `1Password CLIと連携`: 有効
+    - `WatchTower`: 有効

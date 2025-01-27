@@ -1,0 +1,9 @@
+---
+description: com.apple.ical
+sudo: false
+current_host: false
+data:
+  com.apple.ical:
+    Show Week Numbers: true
+
+kill: ["Calendar"]

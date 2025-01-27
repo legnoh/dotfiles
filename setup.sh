@@ -4,6 +4,7 @@ set -e
 
 export BECOME_PASS_FILE="/tmp/BECOME_PASS"
 GITCLONE_ROOTDIR=$HOME/code/github.com/legnoh/dotfiles
+PLAYBOOK_TARGET="${1:-"site.yml"}"
 
 cat << 'EOF'
 ######################################################################

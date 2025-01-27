@@ -41,3 +41,10 @@ zsh -c "$(curl -L dot.lkj.io)"
 - 基本的にはOS標準のソフトウェアを使うべきだが、力不足な場合は外部ソフトウェアで補うのが望ましい。
 
 </details>
+
+## Debug
+
+```
+git clone https://github.com/legnoh/dotfiles.git && dotfiles
+ansible-playbook site-local.yml -t "install_foo" -v
+```

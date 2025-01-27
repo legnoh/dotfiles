@@ -3,6 +3,7 @@
 - name: Install Dell monitor driver
   block:
     - name: Tap custom repos
+      check_mode: false
       community.general.homebrew_tap:
         name: legnoh/etc
 

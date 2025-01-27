@@ -8,11 +8,11 @@
       changed_when: false
 
     - name: Tap custom repos
+      check_mode: false
       community.general.homebrew_tap:
         name: dsully/tap
 
     - name: Install core formulae
-      when: not ansible_check_mode
       community.general.homebrew:
         name: macos-defaults
         state: upgraded

@@ -142,7 +142,6 @@
 - name: ansible / homebrew
   text: |
     - name: Install app
-      when: not ansible_check_mode
       community.general.homebrew:
         name: foo
         state: upgraded
@@ -180,6 +179,7 @@
 - name: ansible / homebrew_tap
   text: |
     - name: Tap custom repos
+      check_mode: false
       community.general.homebrew_tap:
         name: foo/bar
 

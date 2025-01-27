@@ -14,7 +14,7 @@ jobs:
     - name: Edit galaxy.yml
       run: |
         export VERSION="${{ github.ref_name }}"
-        envsubst < galaxy.yml.tpl > galaxy.yml
+        envsubst < galaxy.yml.template > galaxy.yml
 
     - name: Deploy the collection
       uses: artis3n/ansible_galaxy_collection@v2

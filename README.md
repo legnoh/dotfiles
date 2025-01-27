@@ -18,12 +18,15 @@ zsh -c "$(curl -L dot.lkj.io)"
 - Color Scheme: [Iceberg](https://cocopon.github.io/iceberg.vim/)
 - Font: [JetBrains Mono](https://www.jetbrains.com/lp/mono/) [Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono)
 - and some macOS applications & drivers!
+  - jq/yq
+  - GitHub CLI
   - 1Password
   - Raycast
   - Dell monitor driver(U4025QW)
   - Logi Options+
   - Roland BRIDGE CAST
   - ScanSnap Home
+  - ...
 - Deployed by: [Ansible](https://docs.ansible.com)
 
 <details>

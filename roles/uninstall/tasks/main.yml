@@ -3,7 +3,6 @@
 - name: Destroy
   block:
     - name: Create askpass script
-      when: not ansible_check_mode
       ansible.builtin.template:
         src: askpass.j2
         dest: "/tmp/askpass"

@@ -3,7 +3,6 @@
 - name: Install Git Packages
   block:
     - name: Install Git packages
-      when: not ansible_check_mode
       community.general.homebrew:
         name:
           - gh

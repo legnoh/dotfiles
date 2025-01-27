@@ -17,10 +17,15 @@
           - "go@{{ install_vscode_go_version }}"
           - goreleaser
           - gopls
-          - "node@{{ install_vscode_node_version }}"
           - staticcheck
           - uv
+          - volta
         state: upgraded
+
+    - name: Install LTS Node.js
+      ansible.builtin.command:
+        cmd: /opt/homebrew/bin/volta install node@lts
+      changed_when: false
 
     - name: Install latest extensions
       ansible.builtin.command:

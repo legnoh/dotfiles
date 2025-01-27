@@ -1,9 +1,18 @@
+# Configuration - Starship
+# https://starship.rs/config/
+
+# Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
+# https://starship.rs/config/#prompt
+command_timeout = 5000
+
+# https://starship.rs/config/#character
 [character]
 success_symbol = '[\$](bold green)'
 error_symbol = '[\$](bold red)'
 
+# https://starship.rs/config/#time
 [time]
 disabled = false
 format = '[\[$time\]]($style) '

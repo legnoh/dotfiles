@@ -25,6 +25,19 @@
   # https://git-scm.com/docs/git-config#Documentation/git-config.txt-corequotePath
   quotepath = false
 
+[fetch]
+  # デフォルトですべての更新を取得する
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-fetchall
+  all = true
+
+  # フェッチする前にリモートに存在しなくなったリモート追跡参照を削除する
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-fetchprune
+  prune = true
+
+  # フェッチする前にリモートに存在しなくなったローカルタグもすべて削除する
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-fetchpruneTags
+  pruneTags = true
+
 [merge]
   # git mergeでは必要がなくてもマージコミットを作る(mergeを明示的にする)
   # https://git-scm.com/docs/git-config#Documentation/git-config.txt-mergeff

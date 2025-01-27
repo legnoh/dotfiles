@@ -23,8 +23,6 @@ None
 - [ ] Login
   - Enable TouchID in onboarding
 - [] Config
-  - 一般
-    - `メニューバーに1Passwordを固定する`: 無効
   - 開発者
     - `SSHエージェント`: 有効
     - `1Password CLIと連携`: 有効

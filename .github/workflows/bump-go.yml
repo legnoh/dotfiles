@@ -5,6 +5,10 @@ on:
     - cron: 0 4 * * 1
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -40,6 +44,14 @@ jobs:
         run: |
           yq e ".install_vscode_${BREW_PKG_NAME}_version=${LTS_VERSION_GLOBAL}" -i ${ROLE_VARFILE}
 
+      - name: Get GitHub App Token
+        uses: actions/create-github-app-token@v1
+        id: github-app
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+
       - name: Create bump PR
         if: steps.lts.outputs.v != steps.dot.outputs.v
         uses: peter-evans/create-pull-request@v7
@@ -47,6 +59,7 @@ jobs:
           RELEASE_NOTES_URL: https://go.dev/doc/go${{ steps.lts.outputs.v }}
           RELEASE_POLICY_URL: https://go.dev/doc/devel/release#policy
         with:
+          token: ${{ steps.github-app.outputs.token }}
           branch: ${{ steps.dot.outputs.brew_pkgname }}-${{ steps.lts.outputs.v }}
           commit-message: "bump: ${{ steps.dot.outputs.brew_pkgname }} v${{ steps.lts.outputs.v }}"
           sign-commits: true

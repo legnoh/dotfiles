@@ -26,21 +26,21 @@ jobs:
           EOL_PACKAGE_NAME: go
           JQ_QUERY: ".[0].cycle"
         run: |
-            LTS_VERSION_GLOBAL=$(curl -s https://endoflife.date/api/${EOL_PACKAGE_NAME}.json | jq -r "${{ env.JQ_QUERY }}")
-            echo "LTS: ${LTS_VERSION_GLOBAL}"
-            echo "v=${LTS_VERSION_GLOBAL}" >> "$GITHUB_OUTPUT"
+            v=$(curl -s https://endoflife.date/api/${{ env.EOL_PACKAGE_NAME }}.json | jq -r "${{ env.JQ_QUERY }}")
+            echo "GLOBAL: ${v}"
+            echo "v=${v}" >> "$GITHUB_OUTPUT"
 
       - name: Check dotfiles version
         id: dot
         run: |
-            LTS_VERSION_DOTFILES=$(yq -r ".install_vscode_${BREW_PKGNAME}_version" ${ROLE_VARFILE})
-            echo "DOTFILE: ${LTS_VERSION_DOTFILES}"
-            echo "v=${LTS_VERSION_DOTFILES}" >> "$GITHUB_OUTPUT"
+            v=$(yq -r ".install_vscode_${{ env.BREW_PKGNAME }}_version" ${{ env.ROLE_VARFILE }})
+            echo "DOTFILE: ${v}"
+            echo "v=${v}" >> "$GITHUB_OUTPUT"
 
       - name: Edit varfile
         if: steps.lts.outputs.v != steps.dot.outputs.v
         run: |
-          yq e ".install_vscode_${BREW_PKG_NAME}_version=${{ steps.lts.outputs.v }}" -i ${ROLE_VARFILE}
+          yq e ".install_vscode_${{ env.BREW_PKGNAME }}_version=${{ steps.lts.outputs.v }}" -i ${{ env.ROLE_VARFILE }}
 
       - name: Get GitHub App Token
         uses: actions/create-github-app-token@v1
@@ -59,9 +59,9 @@ jobs:
         with:
           token: ${{ steps.github-app.outputs.token }}
           branch: ${{ env.BREW_PKGNAME }}-${{ steps.lts.outputs.v }}
-          commit-message: "bump: ${BREW_PKGNAME} v${{ steps.lts.outputs.v }}"
+          commit-message: "bump: ${{ env.BREW_PKGNAME }} v${{ steps.lts.outputs.v }}"
           sign-commits: true
-          title: "bump: ${BREW_PKGNAME} v${{ steps.lts.outputs.v }}"
+          title: "bump: ${{ env.BREW_PKGNAME }} v${{ steps.lts.outputs.v }}"
           body: |
               - [Release Policy](${{ env.RELEASE_POLICY_URL }})
               - [Release Notes](${{ env.RELEASE_NOTES_URL }})

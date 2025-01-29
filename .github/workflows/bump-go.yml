@@ -12,6 +12,9 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-latest
+    env:
+      BREW_PKGNAME: go
+      ROLE_VARFILE: roles/install_vscode/defaults/main.yml
     steps:
 
       - name: Checkout Repository
@@ -29,15 +32,10 @@ jobs:
 
       - name: Check dotfiles version
         id: dot
-        env:
-          BREW_PKGNAME: go
-          ROLE_VARFILE: roles/install_vscode/defaults/main.yml
         run: |
             LTS_VERSION_DOTFILES=$(yq -r ".install_vscode_${BREW_PKGNAME}_version" ${ROLE_VARFILE})
             echo "DOTFILE: ${LTS_VERSION_DOTFILES}"
-            echo "brew_pkgname=${BREW_PKG_NAME}" >> "$GITHUB_OUTPUT"
-            echo "role_varfile=${ROLE_VARFILE}"  >> "$GITHUB_OUTPUT"
-            echo "v=${LTS_VERSION_DOTFILES}"     >> "$GITHUB_OUTPUT"
+            echo "v=${LTS_VERSION_DOTFILES}" >> "$GITHUB_OUTPUT"
 
       - name: Edit varfile
         if: steps.lts.outputs.v != steps.dot.outputs.v
@@ -60,10 +58,10 @@ jobs:
           RELEASE_POLICY_URL: https://go.dev/doc/devel/release#policy
         with:
           token: ${{ steps.github-app.outputs.token }}
-          branch: ${{ steps.dot.outputs.brew_pkgname }}-${{ steps.lts.outputs.v }}
-          commit-message: "bump: ${{ steps.dot.outputs.brew_pkgname }} v${{ steps.lts.outputs.v }}"
+          branch: ${{ env.BREW_PKGNAME }}-${{ steps.lts.outputs.v }}
+          commit-message: "bump: ${BREW_PKGNAME} v${{ steps.lts.outputs.v }}"
           sign-commits: true
-          title: "bump: ${{ steps.dot.outputs.brew_pkgname }} v${{ steps.lts.outputs.v }}"
+          title: "bump: ${BREW_PKGNAME} v${{ steps.lts.outputs.v }}"
           body: |
               - [Release Policy](${{ env.RELEASE_POLICY_URL }})
               - [Release Notes](${{ env.RELEASE_NOTES_URL }})

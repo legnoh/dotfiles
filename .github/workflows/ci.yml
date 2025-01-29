@@ -21,14 +21,13 @@ jobs:
 
     - name: Install ansible
       run: brew install ansible
-
-    - name: edit site.yml temporary
-      run: sed -i '' 's/legnoh.dotfiles.//g' site.yml
+      env:
+        HOMEBREW_NO_AUTO_UPDATE: 1
 
     - name: Run playbook
       uses: dawidd6/action-ansible-playbook@v2
       with:
-        playbook: site.yml
+        playbook: site-local.yml
         options: --check
       env:
         BECOME_PASSWORD: dummy

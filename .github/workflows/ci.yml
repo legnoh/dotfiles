@@ -22,7 +22,7 @@ jobs:
     - name: Install ansible
       run: brew install ansible
       env:
-        HOMEBREW_NO_AUTO_UPDATE: 1
+        HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK: 1
 
     - name: Run playbook
       uses: dawidd6/action-ansible-playbook@v2

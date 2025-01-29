@@ -19,6 +19,12 @@ jobs:
     - name: Set up Homebrew
       uses: Homebrew/actions/setup-homebrew@master
 
+    - name: Cache Homebrew downloads
+      uses: actions/cache@v4
+      with:
+        path: ~/Library/Caches/Homebrew
+        key: brew-cache-${{ runner.os }}
+
     - name: Install ansible
       run: brew install ansible
       env:
@@ -28,7 +34,7 @@ jobs:
       uses: dawidd6/action-ansible-playbook@v2
       with:
         playbook: site-local.yml
-        options: --check -vvv
+        options: --check
       env:
         BECOME_PASSWORD: dummy
 

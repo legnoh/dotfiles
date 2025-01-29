@@ -40,7 +40,7 @@ jobs:
       - name: Edit varfile
         if: steps.lts.outputs.v != steps.dot.outputs.v
         run: |
-          yq e ".install_vscode_${BREW_PKG_NAME}_version=${LTS_VERSION_GLOBAL}" -i ${ROLE_VARFILE}
+          yq e ".install_vscode_${BREW_PKG_NAME}_version=${{ steps.lts.outputs.v }}" -i ${ROLE_VARFILE}
 
       - name: Get GitHub App Token
         uses: actions/create-github-app-token@v1

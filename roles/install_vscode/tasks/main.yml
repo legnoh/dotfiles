@@ -13,13 +13,16 @@
       community.general.homebrew:
         name:
           - ansible-lint
-          - dlv
-          - "go@{{ install_vscode_go_version }}"
-          - goreleaser
-          - gopls
-          - staticcheck
           - uv
           - volta
+
+          # Go Tools: https://github.com/golang/vscode-go/wiki/tools
+          - go@{{ install_vscode_go_version }}
+          - dlv
+          - gomodifytags
+          - gopls
+          - goreleaser
+          - staticcheck
         state: upgraded
 
     - name: Install LTS Node.js
@@ -35,6 +38,7 @@
         - astro-build.astro-vscode
         - cocopon.iceberg-theme
         - gamunu.opentofu
+        - github.copilot
         - github.vscode-github-actions
         - golang.go
         - hrst.yamaha-rt
@@ -52,7 +56,6 @@
         - stripe.markdoc-language-support
         - tamasfe.even-better-toml
         - tyriar.sort-lines
-        - unifiedjs.vscode-mdx
         - visualstudioexptteam.vscodeintellicode
         - vscode-icons-team.vscode-icons
 

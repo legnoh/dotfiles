@@ -18,7 +18,7 @@ zsh -c "$(curl -L dot.lkj.io)"
 - Color Scheme: [Iceberg](https://cocopon.github.io/iceberg.vim/)
 - Font: [JetBrains Mono](https://www.jetbrains.com/lp/mono/) [Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono)
 - and some macOS applications & drivers!
-  - jq/yq
+  - jq/yq/ghq
   - GitHub CLI
   - 1Password
   - Raycast

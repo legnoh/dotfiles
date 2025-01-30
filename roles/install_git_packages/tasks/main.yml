@@ -13,9 +13,12 @@
 
     - name: Create config directory
       ansible.builtin.file:
-        path: "{{ ansible_env.HOME }}/.config/git"
+        path: "{{ item }}"
         state: directory
         mode: '0755'
+      loop:
+        - "{{ ansible_env.HOME }}/.config/git"
+        - "{{ ansible_env.HOME }}/.config/zsh"
 
     - name: Copy config files
       when: not ansible_check_mode
@@ -27,6 +30,7 @@
         - { src: ".gitconfig", dst: "{{ ansible_env.HOME }}/.gitconfig" }
         - { src: "common.gitconfig", dst: "{{ ansible_env.HOME }}/.config/git/common.gitconfig" }
         - { src: "ghq.gitconfig", dst: "{{ ansible_env.HOME }}/.config/git/ghq.gitconfig" }
+        - { src: "ghq.zsh", dst: "{{ ansible_env.HOME }}/.config/zsh/ghq.zsh" }
         - { src: "git-lfs.gitconfig", dst: "{{ ansible_env.HOME }}/.config/git/git-lfs.gitconfig" }
 
     - name: Create gh for git credential-helper from template

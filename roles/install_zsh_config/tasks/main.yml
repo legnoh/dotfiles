@@ -1,6 +1,6 @@
 ---
 
-- name: Install terminal configs
+- name: Install zsh configs
   block:
     - name: Create .hushlogin for omit login prompt
       ansible.builtin.file:

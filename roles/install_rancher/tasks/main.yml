@@ -2,6 +2,12 @@
 
 - name: Install Rancher Desktop
   block:
+    - name: Install Rosetta2
+      become: true
+      ansible.builtin.command:
+        cmd: /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+      changed_when: false
+
     - name: Check Rancher Desktop was installed
       ansible.builtin.stat:
         path: "/Applications/Rancher\ Desktop.app"

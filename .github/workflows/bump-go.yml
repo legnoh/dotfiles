@@ -46,8 +46,8 @@ jobs:
         uses: actions/create-github-app-token@v1
         id: github-app
         with:
-          app-id: ${{ secrets.APP_ID }}
-          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          app-id: ${{ secrets.G_BUMP_BOT_ID }}
+          private-key: ${{ secrets.G_BUMP_BOT_PRIVATEKEY }}
           owner: ${{ github.repository_owner }}
 
       - name: Create bump PR

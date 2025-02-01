@@ -11,10 +11,11 @@ Install Rancher Desktop for Mac.
 
 ## Role Variables
 
-| Variable                       | Required | Default  | Choices | Comments              |
-|--------------------------------|----------|----------|---------|-----------------------|
-| `install_rancher_memory_in_gb` | no       | `4`      | -       | Rancher VM Memory(GB) |
-| `install_rancher_number_cpus`  | no       | `2`      | -       | Rancher CPU Cores     |
+| Variable                              | Required | Default  | Choices    | Comments                       |
+|---------------------------------------|----------|----------|------------|--------------------------------|
+| `install_rancher_memory_in_gb`        | no       | `4`      | -          | Rancher VM Memory(GB)          |
+| `install_rancher_number_cpus`         | no       | `2`      | -          | Rancher CPU Cores              |
+| `install_rancher_start_in_background` | no       | `true`   | true/false | Enable start in background     |
 
 ## Dependencies
 

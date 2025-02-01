@@ -62,7 +62,7 @@
       changed_when: false
 
     - name: Start Rancher Desktop in background
-      ansible.builtin.shell:
+      ansible.builtin.command:
         cmd: /usr/bin/open -a 'Rancher Desktop'
       changed_when: false
 

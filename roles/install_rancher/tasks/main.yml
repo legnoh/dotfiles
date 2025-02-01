@@ -66,8 +66,8 @@
         cmd: /usr/bin/open -a 'Rancher Desktop'
       changed_when: false
 
-  always:
-    - name: Remove tempfile
-      ansible.builtin.file:
-        path: /tmp/rancher-working-locked.json
-        state: absent
+  # always:
+  #   - name: Remove tempfile
+  #     ansible.builtin.file:
+  #       path: /tmp/rancher-working-locked.json
+  #       state: absent

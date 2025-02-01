@@ -33,12 +33,16 @@
     - name: Copy setting files
       when: not ansible_check_mode
       ansible.builtin.copy:
-        src: "{{ item.src }}"
-        dest: "{{ item.dst }}"
+        src: rancher.zsh
+        dest: "{{ ansible_env.HOME }}/.config/zsh/rancher.zsh"
         mode: '0644'
-      loop:
-        - { src: "rancher.zsh", dst: "{{ ansible_env.HOME }}/.config/zsh/rancher.zsh" }
-        - { src: "working-defaults.json", dst: "/tmp/rancher-working-defaults.json" }
+
+    - name: Create working-locked.json from template
+      when: not ansible_check_mode
+      ansible.builtin.template:
+        src: working-locked.json.j2
+        dest: /tmp/rancher-working-locked.json
+        mode: '0644'
 
     # https://docs.rancherdesktop.io/how-to-guides/generating-deployment-profiles#generating-deployments
     - name: Create default profile
@@ -47,8 +51,8 @@
           /Applications/Rancher\ Desktop.app/Contents/Resources/resources/darwin/bin/rdctl
           create-profile
           --output plist
-          --input /tmp/rancher-working-defaults.json
-          > ~/Library/Preferences/io.rancherdesktop.profile.defaults.plist
+          --input /tmp/rancher-working-locked.json
+          > ~/Library/Preferences/io.rancherdesktop.profile.locked.plist
       changed_when: false
 
     - name: Start Rancher Desktop in background
@@ -59,5 +63,5 @@
   always:
     - name: Remove tempfile
       ansible.builtin.file:
-        path: /tmp/rancher-working-defaults.json
+        path: /tmp/rancher-working-locked.json
         state: absent

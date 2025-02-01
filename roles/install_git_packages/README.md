@@ -14,9 +14,9 @@ None
 
 ## Role Variables
 
-| Variable                | Required | Default | Choices                   | Comments                                 |
-|-------------------------|----------|---------|---------------------------|------------------------------------------|
-| `install_git_packages_github_username`                     | no       | `legnoh`   | -               | Your github username                         |
+| Variable                               | Required | Default  | Choices | Comments             |
+|----------------------------------------|----------|----------|---------|----------------------|
+| `install_git_packages_github_username` | no       | `legnoh` | -       | Your github username |
 
 ## Dependencies
 

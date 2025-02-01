@@ -15,8 +15,8 @@
     }
   },
   "virtualMachine": {
-    "memoryInGB": 4,
-    "numberCPUs": 2
+    "memoryInGB": {{ install_rancher_memory_in_gb }},
+    "numberCPUs": {{ install_rancher_number_cpus }}
   },
   "kubernetes": {
     "enabled": false
@@ -25,6 +25,15 @@
     "showMuted": false,
     "mutedChecks": {
       "RD_BIN_IN_BASH_PATH": true
+    }
+  },
+  "experimental": {
+    "virtualMachine": {
+      "type": "vz",
+      "useRosetta": true,
+      "mount": {
+        "type": "virtiofs"
+      }
     }
   }
 }

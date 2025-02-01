@@ -3,6 +3,7 @@
 Install Rancher Desktop for Mac.
 
 - [Rancher Desktop by SUSE](https://rancherdesktop.io/)
+  - With [VZ emulation](https://docs.rancherdesktop.io/ui/preferences/virtual-machine/emulation#vz) and [virtiofs volume](https://docs.rancherdesktop.io/ui/preferences/virtual-machine/volumes#virtiofs)
 
 ## Requirements
 
@@ -10,7 +11,10 @@ Install Rancher Desktop for Mac.
 
 ## Role Variables
 
-None
+| Variable                       | Required | Default  | Choices | Comments              |
+|--------------------------------|----------|----------|---------|-----------------------|
+| `install_rancher_memory_in_gb` | no       | `4`      | -       | Rancher VM Memory(GB) |
+| `install_rancher_number_cpus`  | no       | `2`      | -       | Rancher CPU Cores     |
 
 ## Dependencies
 

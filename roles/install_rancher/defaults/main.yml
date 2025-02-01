@@ -1,1 +1,4 @@
 ---
+
+install_rancher_memory_in_gb: 4
+install_rancher_number_cpus: 2

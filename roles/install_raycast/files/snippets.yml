@@ -183,14 +183,6 @@
       community.general.homebrew_tap:
         name: foo/bar
 
-- name: mdx / linkcard
-  text: |
-    <OGLinkCard url=""
-      url_amazon="https://www.amazon.co.jp/dp/"
-      url_yahoo="https://shopping.yahoo.co.jp/"
-      keyword_rakuten=""
-    />
-
 - name: gfm / expand
   text: |
     <details>
@@ -205,3 +197,33 @@
   text: |
     > [!NOTE] [!TIP] [!IMPORTANT] [!WARNING] [!CAUTION]
     > {selection}
+
+- name: markdoc(sl) / oglinkcard
+  text: |
+    {% oglinkcard url="{clipboard}"
+      url_amazon="https://www.amazon.co.jp/dp/"
+      url_yahoo="https://shopping.yahoo.co.jp/"
+      keyword_rakuten=""
+    / %}
+
+- name: markdoc(sl) / X
+  text: |
+    {% x url="{clipboard}" / %}
+
+- name: markdoc(sl) / Instagram
+  text: |
+    {% instagram url="{clipboard}" / %}
+
+- name: markdoc(sl) / YouTube
+  text: |
+    {% youtube url="{clipboard}" / %}
+
+- name: markdoc(sl) / aside(alerts)
+  text: |
+    {% aside type="note|tip|caution|danger" %}
+    {clipboard}
+    {% /aside %}
+
+- name: markdoc(starlight) / badge
+  text: |
+    {% badge variant="note|success|tip|caution|danger|default" size="small|medium|large" text="" /%}

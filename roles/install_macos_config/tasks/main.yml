@@ -15,7 +15,7 @@
     - name: Install core formulae
       when: not ansible_check_mode
       community.general.homebrew:
-        name: macos-defaults
+        name: dsully/tap/macos-defaults
         state: upgraded
 
     - name: Create temp directory

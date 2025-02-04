@@ -21,6 +21,7 @@ EOF
 # read answers
 echo -n "🔐 What's your sudo password?: " && read -s BECOME_PASSWORD
 echo ""
+echo -n "🐙 What's your github.com username? [$USER]: " && read GITHUB_USERNAME
 echo -n "🎮 Do you need private App? [Y/n]: " && read NEED_PRIVATE
 echo -n "🖥️  Do you need GUI Application? [Y/n]: " && read NEED_GUIAPP
 echo -n "🛠️  Do you need device driver App? [Y/n]: " && read NEED_DRIVER
@@ -52,46 +53,47 @@ ansible-galaxy collection install --upgrade legnoh.dotfiles
 echo "--> 👍 download collection process was successfull!"
 echo ""
 
+OPTIONS=()
+OPTIONS+=("--become_pass_file=${BECOME_PASS_FILE}")
+
+# create extra-vars
+if [[ "${GITHUB_USERNAME}" != "" ]]; then
+    OPTIONS+=("--extra-vars='install_git_packages_github_username=${GITHUB_USERNAME}'")
+fi
+
 # create skip options
 echo "# 🦾 Create skip options..."
-SKIP_TAGS=""
+SKIP_TAGS=()
 if [[ "${NEED_PRIVATE}" == "n" ]]; then
     echo "--> 🙅 SKIP: Private application"
-    SKIP_TAGS="install_private_casks"
+    SKIP_TAGS+=("install_private_casks")
 fi
 if [[ "${NEED_GUIAPP}" == "n" ]]; then
     echo "--> 🙅 SKIP: GUI application"
-    if [[ "${SKIP_TAGS}" == "" ]]; then
-        SKIP_TAGS="gui"
-    else
-        SKIP_TAGS="${SKIP_TAGS},gui"
-    fi
+    SKIP_TAGS+=("gui")
 fi
 if [[ "${NEED_DRIVER}" == "n" ]]; then
     echo "--> 🙅 SKIP: Driver application"
-    if [[ "${SKIP_TAGS}" == "" ]]; then
-        SKIP_TAGS="device_driver"
-    else
-        SKIP_TAGS="${SKIP_TAGS},device_driver"
-    fi
+    SKIP_TAGS+=("device_driver")
 fi
+SKIP_TAGS_STR=$(IFS=,; echo "${SKIP_TAGS[*]}")
+OPTIONS+=("--skip-tags='${SKIP_TAGS_STR}'")
 echo "--> 🫡 OK."
 echo ""
+
+# merge
+OPTIONS_STR=$(IFS=" "; echo "${OPTIONS[*]}")
 
 # Execute
 echo "# 🏃 execute playbooks..."
 echo "  --> 📕 Playbook: ${PLAYBOOK}"
+echo "  --> 🛠️ Options: ${OPTIONS_STR}"
 set +e
-if [[ "${SKIP_TAGS}" == "" ]]; then
-    ansible-playbook ${PLAYBOOK} --become-pass-file="${BECOME_PASS_FILE}"
-    result=$?
-    rm -rf $BECOME_PASS_FILE
-else
-    ansible-playbook ${PLAYBOOK} --become-pass-file="${BECOME_PASS_FILE}" --skip-tags="${SKIP_TAGS}"
-    result=$?
-    rm -rf $BECOME_PASS_FILE
-fi
+ansible-playbook ${PLAYBOOK} ${OPTIONS_STR}
+result=$?
+rm -rf $BECOME_PASS_FILE
 set -e
+
 echo ""
 
 # Finish

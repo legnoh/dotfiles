@@ -20,7 +20,7 @@
 
     - name: Set default&startup theme
       ansible.builtin.command:
-        cmd: /usr/bin/defaults write com.apple.Terminal "{{ item }} Window Settings" -string "Iceberg"
+        cmd: /usr/bin/defaults write com.apple.Terminal "{{ item }} Window Settings" -string "iceberg"
       changed_when: false
       loop:
         - Default

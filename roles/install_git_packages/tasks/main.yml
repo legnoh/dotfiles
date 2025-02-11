@@ -27,18 +27,25 @@
         dest: "{{ item.dst }}"
         mode: '0644'
       loop:
-        - { src: ".gitconfig", dst: "{{ ansible_env.HOME }}/.gitconfig" }
         - { src: "common.gitconfig", dst: "{{ ansible_env.HOME }}/.config/git/common.gitconfig" }
+        - { src: "credential.github.com.gitconfig", dst: "{{ ansible_env.HOME }}/.config/git/credential.github.com.gitconfig" }
         - { src: "ghq.gitconfig", dst: "{{ ansible_env.HOME }}/.config/git/ghq.gitconfig" }
-        - { src: "ghq.zsh", dst: "{{ ansible_env.HOME }}/.config/zsh/ghq.zsh" }
         - { src: "git-lfs.gitconfig", dst: "{{ ansible_env.HOME }}/.config/git/git-lfs.gitconfig" }
+        - { src: "ghq.zsh", dst: "{{ ansible_env.HOME }}/.config/zsh/ghq.zsh" }
 
-    - name: Create gh for git credential-helper from template
+    - name: Add gitconfig to global gitconfig
       when: not ansible_check_mode
-      ansible.builtin.template:
-        src: gh.gitconfig.j2
-        dest: "{{ ansible_env.HOME }}/.config/git/gh.gitconfig"
+      ansible.builtin.blockinfile:
+        path: "{{ ansible_env.HOME }}/.gitconfig"
+        create: true
         mode: '0644'
+        marker: "# {mark} ANSIBLE MANAGED BLOCK - Global"
+        block: |
+          [include]
+            path = ~/.config/git/common.gitconfig
+            path = ~/.config/git/credential.github.com.gitconfig
+            path = ~/.config/git/ghq.gitconfig
+            path = ~/.config/git/git-lfs.gitconfig
 
     - name: Get my github profile
       ansible.builtin.uri:
@@ -62,6 +69,15 @@
         src: user.gitconfig.j2
         dest: "{{ ansible_env.HOME }}/.config/git/user.gitconfig"
         mode: '0644'
+
+    - name: Add gitconfig to global gitconfig
+      when: not ansible_check_mode
+      ansible.builtin.blockinfile:
+        path: "{{ ansible_env.HOME }}/.gitconfig"
+        marker: "# {mark} ANSIBLE MANAGED BLOCK - User"
+        block: |
+          [include]
+            path = ~/.config/git/user.gitconfig
 
     - name: Download global ignore file from gibo
       when: not ansible_check_mode

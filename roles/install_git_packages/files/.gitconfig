@@ -1,8 +1,0 @@
-[include]
-  path = ~/.config/git/common.gitconfig
-  path = ~/.config/git/1password.gitconfig
-  path = ~/.config/git/gh.gitconfig
-  path = ~/.config/git/ghq.gitconfig
-  path = ~/.config/git/git-lfs.gitconfig
-  path = ~/.config/git/user.gitconfig
-  path = ~/.config/git/vscode.gitconfig

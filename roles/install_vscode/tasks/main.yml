@@ -14,7 +14,9 @@
         name:
           - ansible-lint
           - uv
-          - volta
+
+          # Node.js
+          - node@{{ install_vscode_node_version }}
 
           # Go Tools: https://github.com/golang/vscode-go/wiki/tools
           - go@{{ install_vscode_go_version }}
@@ -24,11 +26,6 @@
           - goreleaser
           - staticcheck
         state: upgraded
-
-    - name: Install LTS Node.js
-      ansible.builtin.command:
-        cmd: /opt/homebrew/bin/volta install node@lts
-      changed_when: false
 
     - name: Install latest extensions
       ansible.builtin.command:
@@ -46,7 +43,6 @@
         - idleberg.applescript
         - ms-azuretools.vscode-docker
         - ms-ceintl.vscode-language-pack-ja
-        - ms-kubernetes-tools.vscode-kubernetes-tools
         - ms-python.python
         - ms-vscode-remote.remote-containers
         - ms-vscode.hexeditor
@@ -77,6 +73,15 @@
       loop:
         - { src: "go.zsh", dst: "{{ ansible_env.HOME }}/.config/zsh/go.zsh" }
         - { src: "vscode.gitconfig", dst: "{{ ansible_env.HOME }}/.config/git/vscode.gitconfig" }
+
+    - name: Add gitconfig to global gitconfig
+      when: not ansible_check_mode
+      ansible.builtin.blockinfile:
+        path: "{{ ansible_env.HOME }}/.gitconfig"
+        marker: "# {mark} ANSIBLE MANAGED BLOCK - VSCode"
+        block: |
+          [include]
+            path = ~/.config/git/vscode.gitconfig
 
     - name: Create VSCode config file
       when: not ansible_check_mode

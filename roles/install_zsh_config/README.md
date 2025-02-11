@@ -21,6 +21,20 @@ None
 
 None
 
-## Why is HISTSIZE so large?
+## Appendix
+
+### Concept: Modular Zsh Configuration for Enhanced Flexibility
+
+This Role is responsible for placing the .zshrc file, which contains only the following two lines:
+
+```
+for f in $HOME/.config/zsh/*; source $f;
+autoload -Uz compinit && compinit
+```
+
+This means that any files placed under the `$HOME/.config/zsh/` directory by other Ansible Roles will be automatically loaded, including shell completion functionality.
+With this mechanism, other Ansible Roles can freely add their required Zsh configurations later as needed.
+
+### Why is HISTSIZE so large?
 
 - [5000兆円欲しい! (ごせんちょうえんほしい)とは【ピクシブ百科事典】](https://dic.pixiv.net/a/5000%E5%85%86%E5%86%86%E6%AC%B2%E3%81%97%E3%81%84%21)

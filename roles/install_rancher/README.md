@@ -8,6 +8,8 @@ Install Rancher Desktop for Mac.
 ## Requirements
 
 - OS: macOS Only
+- Role:
+  - `install_zsh_config`
 
 ## Role Variables
 

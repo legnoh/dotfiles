@@ -1,4 +1,4 @@
-name: Bump Version(Go)
+name: Bump Version(Node)
 
 on:
   schedule:
@@ -13,7 +13,7 @@ jobs:
   check:
     runs-on: ubuntu-latest
     env:
-      BREW_PKGNAME: go
+      BREW_PKGNAME: node
       ROLE_VARFILE: roles/install_vscode/defaults/main.yml
     steps:
       - name: Checkout Repository
@@ -22,8 +22,8 @@ jobs:
       - name: Check LTS version
         id: lts
         env:
-          EOL_PACKAGE_NAME: go
-          JQ_QUERY: ".[0].cycle"
+          EOL_PACKAGE_NAME: nodejs
+          JQ_QUERY: "[.[] | select(.lts != false)] | .[0].cycle"
         run: |
           v=$(curl -s https://endoflife.date/api/${{ env.EOL_PACKAGE_NAME }}.json | jq -r "${{ env.JQ_QUERY }}")
           echo "GLOBAL: ${v}"
@@ -53,8 +53,8 @@ jobs:
         if: steps.lts.outputs.v != steps.dot.outputs.v
         uses: peter-evans/create-pull-request@v7
         env:
-          RELEASE_NOTES_URL: https://go.dev/doc/go${{ steps.lts.outputs.v }}
-          RELEASE_POLICY_URL: https://go.dev/doc/devel/release#policy
+          RELEASE_POLICY_URL: https://nodejs.org/en/about/previous-releases
+          RELEASE_NOTES_URL: https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V${{ steps.lts.outputs.v }}.md
         with:
           token: ${{ steps.github-app.outputs.token }}
           branch: ${{ env.BREW_PKGNAME }}-${{ steps.lts.outputs.v }}

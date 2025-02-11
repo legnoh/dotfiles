@@ -10,8 +10,9 @@
     - name: Install driver app
       community.general.homebrew_cask:
         name:
-          - dell-u4025qw-driver
-          - dell-u4025qw-firmware-update-utility
+          - ddpm
+          - legnoh/etc/dell-u4025qw-driver
+          - legnoh/etc/dell-u4025qw-firmware-update-utility
         state: upgraded
         sudo_password: "{{ install_dell_monitor_driver_sudo_password }}"
 

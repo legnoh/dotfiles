@@ -2,7 +2,7 @@
 
 - name: Install Offce applications
   block:
-    - name: Install mas
+    - name: Install mas-cli
       community.general.homebrew:
         name: mas
         state: upgraded

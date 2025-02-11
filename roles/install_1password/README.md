@@ -9,6 +9,9 @@ Install 1Password family.
 ## Requirements
 
 - OS: macOS Only
+- Role:
+  - `install_git_packages`
+  - `install_ssh_config`
 
 ## Role Variables
 

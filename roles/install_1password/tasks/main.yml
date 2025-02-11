@@ -39,6 +39,15 @@
         - { src: "1password.conf", dst: "{{ ansible_env.HOME }}/.config/ssh/1password.conf" }
         - { src: "1password.gitconfig", dst: "{{ ansible_env.HOME }}/.config/git/1password.gitconfig" }
 
+    - name: Add gitconfig to global gitconfig
+      when: not ansible_check_mode
+      ansible.builtin.blockinfile:
+        path: "{{ ansible_env.HOME }}/.gitconfig"
+        marker: "# {mark} ANSIBLE MANAGED BLOCK - 1Password"
+        block: |
+          [include]
+            path = ~/.config/git/1password.gitconfig
+
     - name: Open README
       ansible.builtin.import_role:
         name: open_readme

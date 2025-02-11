@@ -19,8 +19,8 @@ jobs:
     - name: Set up Homebrew
       uses: Homebrew/actions/setup-homebrew@master
 
-    - name: Install ansible
-      run: brew install ansible
+    - name: Install ansible / rsync
+      run: brew install ansible rsync
       env:
         HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK: 1
 

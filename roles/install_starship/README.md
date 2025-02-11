@@ -6,7 +6,8 @@ Install Starship and configurations.
 
 ## Requirements
 
-None
+- Role:
+  - `install_zsh_config`
 
 ## Role Variables
 

@@ -39,10 +39,10 @@ EOF
 # Get dotfiles playbook
 echo "# 🌐 Clone dotfiles playbooks..."
 if [[ ! -d "${GITCLONE_ROOTDIR}" ]]; then
-    git clone https://github.com/legnoh/dotfiles.git ${GITCLONE_ROOTDIR}
-    echo "--> 👍 git clone process was successfull!"
+  git clone https://github.com/legnoh/dotfiles.git ${GITCLONE_ROOTDIR}
+  echo "--> 👍 git clone process was successfull!"
 else
-    echo "--> 👍 git repo has already cloned!"
+  echo "--> 👍 git repo has already cloned!"
 fi
 cd ${GITCLONE_ROOTDIR}
 echo ""
@@ -54,30 +54,32 @@ echo "--> 👍 download collection process was successfull!"
 echo ""
 
 OPTIONS=()
-OPTIONS+=("--become_pass_file=${BECOME_PASS_FILE}")
+OPTIONS+=("--become-password-file=${BECOME_PASS_FILE}")
 
 # create extra-vars
 if [[ "${GITHUB_USERNAME}" != "" ]]; then
-    OPTIONS+=("--extra-vars='install_git_packages_github_username=${GITHUB_USERNAME}'")
+  OPTIONS+=("--extra-vars='install_git_packages_github_username=${GITHUB_USERNAME}'")
 fi
 
 # create skip options
 echo "# 🦾 Create skip options..."
 SKIP_TAGS=()
 if [[ "${NEED_PRIVATE}" == "n" ]]; then
-    echo "--> 🙅 SKIP: Private application"
-    SKIP_TAGS+=("install_private_casks")
+  echo "--> 🙅 SKIP: Private application"
+  SKIP_TAGS+=("install_private_casks")
 fi
 if [[ "${NEED_GUIAPP}" == "n" ]]; then
-    echo "--> 🙅 SKIP: GUI application"
-    SKIP_TAGS+=("gui")
+  echo "--> 🙅 SKIP: GUI application"
+  SKIP_TAGS+=("gui")
 fi
 if [[ "${NEED_DRIVER}" == "n" ]]; then
-    echo "--> 🙅 SKIP: Driver application"
-    SKIP_TAGS+=("device_driver")
+  echo "--> 🙅 SKIP: Driver application"
+  SKIP_TAGS+=("device_driver")
 fi
 SKIP_TAGS_STR=$(IFS=,; echo "${SKIP_TAGS[*]}")
-OPTIONS+=("--skip-tags='${SKIP_TAGS_STR}'")
+if [[ "${SKIP_TAGS_STR}" != "" ]]; then
+  OPTIONS+=("--skip-tags='${SKIP_TAGS_STR}'")
+fi
 echo "--> 🫡 OK."
 echo ""
 
@@ -98,11 +100,11 @@ echo ""
 
 # Finish
 if [[ "$result" == "0" ]]; then
-    echo "# 🏁 FINISH!!!"
-    echo "🎉🎉🎉 Congrats! Your dotfile operation was done successfully! 🎉🎉🎉"
-    echo "🙏 After gui settings, PLEASE REBOOT your machine!!👋"
+  echo "# 🏁 FINISH!!!"
+  echo "🎉🎉🎉 Congrats! Your dotfile operation was done successfully! 🎉🎉🎉"
+  echo "🙏 After gui settings, PLEASE REBOOT your machine!!👋"
 else
-    echo "# 🚨 ERROR..."
-    echo "Setup machine process was failed...🫨"
-    exit 1
+  echo "# 🚨 ERROR..."
+  echo "Setup machine process was failed...🫨"
+  exit 1
 fi

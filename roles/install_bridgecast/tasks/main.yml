@@ -22,9 +22,9 @@
 
     - name: Open README
       ansible.builtin.import_role:
-        name: open_readme
+        name: misc_open_readme
       vars:
-        open_readme_rolename: install_bridgecast
+        misc_open_readme_rolename: install_bridgecast
 
     - name: Open BRIDGE CAST app
       ansible.builtin.command:

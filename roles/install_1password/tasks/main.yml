@@ -20,39 +20,23 @@
         id: 1569813296 # 1 Password for Safari
         state: latest
 
-    - name: Create config directory
-      ansible.builtin.file:
-        path: "{{ ansible_env.HOME }}/{{ item }}"
-        state: directory
-        mode: '0755'
-      loop:
-        - ".config/git"
-        - ".config/ssh"
+    - name: Copy SSH config file
+      ansible.builtin.import_role:
+        name: misc_create_sshconf
+      vars:
+        misc_create_sshconf_src: 1password.conf
 
-    - name: Copy config files
-      when: not ansible_check_mode
-      ansible.builtin.copy:
-        src: "{{ item.src }}"
-        dest: "{{ item.dst }}"
-        mode: '0644'
-      loop:
-        - { src: "1password.conf", dst: "{{ ansible_env.HOME }}/.config/ssh/1password.conf" }
-        - { src: "1password.gitconfig", dst: "{{ ansible_env.HOME }}/.config/git/1password.gitconfig" }
-
-    - name: Add gitconfig to global gitconfig
-      when: not ansible_check_mode
-      ansible.builtin.blockinfile:
-        path: "{{ ansible_env.HOME }}/.gitconfig"
-        marker: "# {mark} ANSIBLE MANAGED BLOCK - 1Password"
-        block: |
-          [include]
-            path = ~/.config/git/1password.gitconfig
+    - name: Copy Gitconfig file
+      ansible.builtin.import_role:
+        name: misc_create_gitconf
+      vars:
+        misc_create_gitconf_src: 1password.gitconfig
 
     - name: Open README
       ansible.builtin.import_role:
-        name: open_readme
+        name: misc_open_readme
       vars:
-        open_readme_rolename: install_1password
+        misc_open_readme_rolename: install_1password
 
     - name: Open App
       ansible.builtin.command:

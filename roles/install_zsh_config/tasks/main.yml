@@ -15,20 +15,19 @@
           - zsh-syntax-highlighting
         state: upgraded
 
-    - name: Create conf directory
-      ansible.builtin.file:
-        path: "{{ ansible_env.HOME }}/.config/zsh"
-        state: directory
-        mode: '0755'
-
-    - name: Copy config files
-      ansible.builtin.copy:
-        src: "{{ item.src }}"
-        dest: "{{ item.dst }}"
-        mode: '0644'
+    - name: Copy Zsh config files
+      ansible.builtin.include_role:
+        name: misc_create_zshconf
+      vars:
+        misc_create_zshconf_src: "{{ item }}"
       loop:
-        - { src: ".zshrc", dst: "{{ ansible_env.HOME }}/.zshrc" }
-        - { src: "alias.zsh", dst: "{{ ansible_env.HOME }}/.config/zsh/alias.zsh" }
-        - { src: "history.zsh", dst: "{{ ansible_env.HOME }}/.config/zsh/history.zsh" }
-        - { src: "zsh-autosuggestions.zsh", dst: "{{ ansible_env.HOME }}/.config/zsh/zsh-autosuggestions.zsh" }
-        - { src: "zsh-syntax-highlighting.zsh", dst: "{{ ansible_env.HOME }}/.config/zsh/zsh-syntax-highlighting.zsh" }
+        - alias.zsh
+        - history.zsh
+        - zsh-autosuggestions.zsh
+        - zsh-syntax-highlighting.zsh
+
+    - name: Copy root Zsh config files
+      ansible.builtin.copy:
+        src: .zshrc
+        dest: "{{ ansible_env.HOME }}/.zshrc"
+        mode: '0644'

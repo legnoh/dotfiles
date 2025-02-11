@@ -8,14 +8,6 @@
         name: starship
         state: upgraded
 
-    - name: Create config directory
-      ansible.builtin.file:
-        path: "{{ item }}"
-        state: directory
-        mode: '0755'
-      loop:
-        - "{{ ansible_env.HOME }}/.config/zsh"
-
     - name: Copy config file
       when: not ansible_check_mode
       ansible.builtin.copy:
@@ -23,7 +15,9 @@
         dest: "{{ ansible_env.HOME }}/.config/starship.toml"
         mode: '0644'
 
-    - name: Create init code from starship init command
-      ansible.builtin.shell:
-        cmd: "starship init zsh > {{ ansible_env.HOME }}/.config/zsh/starship.zsh"
-      changed_when: false
+    - name: Copy Zsh config file
+      ansible.builtin.import_role:
+        name: misc_create_zshconf
+      vars:
+        misc_create_zshconf_src: starship.zsh
+        misc_create_zshconf_cmd: starship init zsh

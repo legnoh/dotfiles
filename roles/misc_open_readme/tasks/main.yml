@@ -6,5 +6,5 @@
       ansible.builtin.command:
         cmd: >
           /usr/bin/open --background -a Safari
-          "https://github.com/legnoh/dotfiles/blob/main/roles/{{ open_readme_rolename }}/README.md"
+          "https://github.com/legnoh/dotfiles/blob/main/roles/{{ misc_open_readme_rolename }}/README.md"
       changed_when: false

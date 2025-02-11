@@ -30,18 +30,11 @@
         name: docker-completion
         state: upgraded
 
-    - name: Create config directory
-      ansible.builtin.file:
-        path: "{{ ansible_env.HOME }}/.config/zsh"
-        state: directory
-        mode: '0755'
-
-    - name: Copy setting files
-      when: not ansible_check_mode
-      ansible.builtin.copy:
-        src: rancher.zsh
-        dest: "{{ ansible_env.HOME }}/.config/zsh/rancher.zsh"
-        mode: '0644'
+    - name: Copy Zsh config file
+      ansible.builtin.import_role:
+        name: misc_create_zshconf
+      vars:
+        misc_create_zshconf_src: rancher.zsh
 
     - name: Create working-locked.json from template
       when: not ansible_check_mode

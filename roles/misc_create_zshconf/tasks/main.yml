@@ -1,0 +1,39 @@
+---
+
+- name: Create Zsh config directory and target file
+  block:
+    - name: Create conf directory
+      ansible.builtin.file:
+        path: "{{ ansible_env.HOME }}/.config/zsh"
+        state: directory
+        mode: '0755'
+
+    - name: Copy config file
+      when:
+        - not ansible_check_mode
+        - not misc_create_zshconf_cmd
+        - not misc_create_zshconf_src | regex_search('\\.j2$')
+      ansible.builtin.copy:
+        src: "{{ misc_create_zshconf_src }}"
+        dest: "{{ ansible_env.HOME }}/.config/zsh/{{ misc_create_zshconf_src }}"
+        mode: '0644'
+
+    - name: Create config file with cmd
+      when:
+        - not ansible_check_mode
+        - misc_create_zshconf_cmd
+        - not misc_create_zshconf_src | regex_search('\.j2$')
+      ansible.builtin.shell:
+        cmd: |
+          {{ misc_create_zshconf_cmd }} > {{ ansible_env.HOME }}/.config/zsh/{{ misc_create_zshconf_src }}
+      changed_when: false
+
+    - name: Create config file with template
+      when:
+        - not ansible_check_mode
+        - not misc_create_zshconf_cmd
+        - misc_create_zshconf_src | regex_search('\.j2$')
+      ansible.builtin.template:
+        src: "{{ misc_create_zshconf_src }}"
+        dest: "{{ ansible_env.HOME }}/.config/zsh/{{ misc_create_zshconf_src | regex_replace('\\.j2$', '') }}"
+        mode: '0644'

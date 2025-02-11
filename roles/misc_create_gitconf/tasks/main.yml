@@ -1,0 +1,38 @@
+---
+
+- name: Create gitconf directory and target file
+  block:
+    - name: Create conf directory
+      ansible.builtin.file:
+        path: "{{ ansible_env.HOME }}/.config/git"
+        state: directory
+        mode: '0755'
+
+    - name: Copy config file
+      when:
+        - not ansible_check_mode
+        - not misc_create_gitconf_src | regex_search('\.j2$')
+      ansible.builtin.copy:
+        src: "{{ misc_create_gitconf_src }}"
+        dest: "{{ ansible_env.HOME }}/.config/git/{{ misc_create_gitconf_src }}"
+        mode: '0644'
+
+    - name: Create config file with template
+      when:
+        - not ansible_check_mode
+        - misc_create_gitconf_src | regex_search('\.j2$')
+      ansible.builtin.template:
+        src: "{{ misc_create_gitconf_src }}"
+        dest: "{{ ansible_env.HOME }}/.config/git/{{ misc_create_gitconf_src | regex_replace('\\.j2$', '') }}"
+        mode: '0644'
+
+    - name: Add gitconfig to global gitconfig
+      when: not ansible_check_mode
+      ansible.builtin.blockinfile:
+        path: "{{ ansible_env.HOME }}/.gitconfig"
+        create: true
+        mode: '0644'
+        marker: "# {mark} ANSIBLE MANAGED BLOCK - {{ misc_create_gitconf_src | regex_replace('\\.j2$', '') | regex_replace('\\.gitconfig$', '') }}"
+        block: |
+          [include]
+            path = ~/.config/git/{{ misc_create_gitconf_src | regex_replace('\.j2$', '') }}

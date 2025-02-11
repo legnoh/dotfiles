@@ -11,42 +11,6 @@
           - git-lfs
         state: upgraded
 
-    - name: Create config directory
-      ansible.builtin.file:
-        path: "{{ item }}"
-        state: directory
-        mode: '0755'
-      loop:
-        - "{{ ansible_env.HOME }}/.config/git"
-        - "{{ ansible_env.HOME }}/.config/zsh"
-
-    - name: Copy config files
-      when: not ansible_check_mode
-      ansible.builtin.copy:
-        src: "{{ item.src }}"
-        dest: "{{ item.dst }}"
-        mode: '0644'
-      loop:
-        - { src: "common.gitconfig", dst: "{{ ansible_env.HOME }}/.config/git/common.gitconfig" }
-        - { src: "credential.github.com.gitconfig", dst: "{{ ansible_env.HOME }}/.config/git/credential.github.com.gitconfig" }
-        - { src: "ghq.gitconfig", dst: "{{ ansible_env.HOME }}/.config/git/ghq.gitconfig" }
-        - { src: "git-lfs.gitconfig", dst: "{{ ansible_env.HOME }}/.config/git/git-lfs.gitconfig" }
-        - { src: "ghq.zsh", dst: "{{ ansible_env.HOME }}/.config/zsh/ghq.zsh" }
-
-    - name: Add gitconfig to global gitconfig
-      when: not ansible_check_mode
-      ansible.builtin.blockinfile:
-        path: "{{ ansible_env.HOME }}/.gitconfig"
-        create: true
-        mode: '0644'
-        marker: "# {mark} ANSIBLE MANAGED BLOCK - Global"
-        block: |
-          [include]
-            path = ~/.config/git/common.gitconfig
-            path = ~/.config/git/credential.github.com.gitconfig
-            path = ~/.config/git/ghq.gitconfig
-            path = ~/.config/git/git-lfs.gitconfig
-
     - name: Get my github profile
       ansible.builtin.uri:
         url: "https://api.github.com/users/{{ install_git_packages_github_username }}"
@@ -63,21 +27,23 @@
         return_content: true
       register: github_ssh_signing_keys
 
-    - name: Create user.gitconfig file
-      when: not ansible_check_mode
-      ansible.builtin.template:
-        src: user.gitconfig.j2
-        dest: "{{ ansible_env.HOME }}/.config/git/user.gitconfig"
-        mode: '0644'
+    - name: Copy Zsh config file
+      ansible.builtin.import_role:
+        name: misc_create_zshconf
+      vars:
+        misc_create_zshconf_src: ghq.zsh
 
-    - name: Add gitconfig to global gitconfig
-      when: not ansible_check_mode
-      ansible.builtin.blockinfile:
-        path: "{{ ansible_env.HOME }}/.gitconfig"
-        marker: "# {mark} ANSIBLE MANAGED BLOCK - User"
-        block: |
-          [include]
-            path = ~/.config/git/user.gitconfig
+    - name: Copy Gitconfig files
+      ansible.builtin.include_role:
+        name: misc_create_gitconf
+      vars:
+        misc_create_gitconf_src: "{{ item }}"
+      loop:
+        - common.gitconfig
+        - credential.github.com.gitconfig
+        - ghq.gitconfig
+        - git-lfs.gitconfig
+        - user.gitconfig.j2
 
     - name: Download global ignore file from gibo
       when: not ansible_check_mode
@@ -87,6 +53,6 @@
 
     - name: Open README
       ansible.builtin.import_role:
-        name: open_readme
+        name: misc_open_readme
       vars:
-        open_readme_rolename: install_git_packages
+        misc_open_readme_rolename: install_git_packages

@@ -55,33 +55,11 @@
         - visualstudioexptteam.vscodeintellicode
         - vscode-icons-team.vscode-icons
 
-    - name: Create conf directory
+    - name: Create VSCode conf directory
       ansible.builtin.file:
-        path: "{{ item }}"
+        path: "{{ ansible_env.HOME }}/Library/Application Support/Code/User"
         state: directory
         mode: '0755'
-      loop:
-        - "{{ ansible_env.HOME }}/.config/git"
-        - "{{ ansible_env.HOME }}/.config/zsh"
-        - "{{ ansible_env.HOME }}/Library/Application Support/Code/User"
-
-    - name: Copy Git/Go config files
-      ansible.builtin.copy:
-        src: "{{ item.src }}"
-        dest: "{{ item.dst }}"
-        mode: '0644'
-      loop:
-        - { src: "go.zsh", dst: "{{ ansible_env.HOME }}/.config/zsh/go.zsh" }
-        - { src: "vscode.gitconfig", dst: "{{ ansible_env.HOME }}/.config/git/vscode.gitconfig" }
-
-    - name: Add gitconfig to global gitconfig
-      when: not ansible_check_mode
-      ansible.builtin.blockinfile:
-        path: "{{ ansible_env.HOME }}/.gitconfig"
-        marker: "# {mark} ANSIBLE MANAGED BLOCK - VSCode"
-        block: |
-          [include]
-            path = ~/.config/git/vscode.gitconfig
 
     - name: Create VSCode config file
       when: not ansible_check_mode
@@ -89,3 +67,15 @@
         src: settings.json.j2
         dest: "{{ ansible_env.HOME }}/Library/Application Support/Code/User/settings.json"
         mode: '0644'
+
+    - name: Copy Git config file
+      ansible.builtin.import_role:
+        name: misc_create_gitconf
+      vars:
+        misc_create_gitconf_src: vscode.gitconfig
+
+    - name: Copy Go config file
+      ansible.builtin.import_role:
+        name: misc_create_zshconf
+      vars:
+        misc_create_zshconf_src: go.zsh

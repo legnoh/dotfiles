@@ -10,7 +10,7 @@ The tiny role for open README.md URL in backend browser
 
 | Variable               | Required | Default | Choices     | Comments |
 |------------------------|----------|---------|-------------|----------|
-| `open_readme_rolename` | true     | -       | my rolename | -        |
+| `misc_open_readme_rolename` | true     | -       | my rolename | -        |
 
 ## Dependencies
 

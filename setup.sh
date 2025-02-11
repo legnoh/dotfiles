@@ -2,7 +2,7 @@
 
 set -e
 
-export BECOME_PASS_FILE="/tmp/BECOME_PASS"
+export BECOME_PASS_FILE="$HOME/BECOME_PASS"
 GITCLONE_ROOTDIR=$HOME/code/github.com/legnoh/dotfiles
 PLAYBOOK="${1:-"site.yml"}"
 

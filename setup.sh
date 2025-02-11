@@ -82,15 +82,12 @@ fi
 echo "--> 🫡 OK."
 echo ""
 
-# merge
-OPTIONS_STR="${(j: :)OPTIONS}"
-
 # Execute
 echo "# 🏃 execute playbooks..."
 echo "  --> 📕 Playbook: ${PLAYBOOK}"
-echo "  --> 🛠️ Options: ${OPTIONS_STR}"
+echo "  --> 🛠️ Options: ${OPTIONS[@]}"
 set +e
-ansible-playbook ${PLAYBOOK} ${OPTIONS_STR}
+ansible-playbook ${PLAYBOOK} "${OPTIONS[@]}"
 result=$?
 rm -rf $BECOME_PASS_FILE
 set -e

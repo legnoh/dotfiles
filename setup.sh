@@ -53,11 +53,11 @@ ansible-galaxy collection install --upgrade legnoh.dotfiles
 echo "--> 👍 download collection process was successfull!"
 echo ""
 
-OPTIONS=("--become-password-file='${BECOME_PASS_FILE}'")
+OPTIONS=("--become-password-file=${BECOME_PASS_FILE}")
 
 # create extra-vars
 if [[ "${GITHUB_USERNAME}" != "" ]]; then
-  OPTIONS+=("--extra-vars='install_git_packages_github_username=${GITHUB_USERNAME}'")
+  OPTIONS+=("--extra-vars=install_git_packages_github_username=${GITHUB_USERNAME}")
 fi
 
 # create skip options
@@ -75,15 +75,15 @@ if [[ "${NEED_DRIVER}" == "n" ]]; then
   echo "--> 🙅 SKIP: Driver application"
   SKIP_TAGS+=("device_driver")
 fi
-SKIP_TAGS_STR=$(IFS=,; echo "${SKIP_TAGS[*]}")
+SKIP_TAGS_STR="${(j:,:)SKIP_TAGS}"
 if [[ "${SKIP_TAGS_STR}" != "" ]]; then
-  OPTIONS+=("--skip-tags='${SKIP_TAGS_STR}'")
+  OPTIONS+=("--skip-tags=${SKIP_TAGS_STR}")
 fi
 echo "--> 🫡 OK."
 echo ""
 
 # merge
-OPTIONS_STR=$(IFS=" "; echo "${OPTIONS[*]}")
+OPTIONS_STR="${(j: :)OPTIONS}"
 
 # Execute
 echo "# 🏃 execute playbooks..."

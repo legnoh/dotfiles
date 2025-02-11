@@ -2,7 +2,7 @@
 
 set -e
 
-export BECOME_PASS_FILE="$HOME/BECOME_PASS"
+export BECOME_PASS_FILE="/tmp/BECOME_PASS"
 GITCLONE_ROOTDIR=$HOME/code/github.com/legnoh/dotfiles
 PLAYBOOK="${1:-"site.yml"}"
 
@@ -53,8 +53,7 @@ ansible-galaxy collection install --upgrade legnoh.dotfiles
 echo "--> 👍 download collection process was successfull!"
 echo ""
 
-OPTIONS=()
-OPTIONS+=("--become-password-file=${BECOME_PASS_FILE}")
+OPTIONS=("--become-password-file='${BECOME_PASS_FILE}'")
 
 # create extra-vars
 if [[ "${GITHUB_USERNAME}" != "" ]]; then

@@ -1,0 +1,15 @@
+---
+
+- name: Install Node.js
+  block:
+    - name: Install runtime
+      community.general.homebrew:
+        name:
+          - node@{{ install_node_version }}
+        state: upgraded
+
+    - name: Copy Node config file
+      ansible.builtin.import_role:
+        name: misc_create_zshconf
+      vars:
+        misc_create_zshconf_src: node.zsh.j2

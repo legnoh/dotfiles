@@ -19,6 +19,12 @@
     - role: install_git_packages
       tags: [install_git_packages]
 
+    - role: install_go
+      tags: [install_go]
+
+    - role: install_node
+      tags: [install_node]
+
     - role: install_starship
       tags: [install_starship]
 

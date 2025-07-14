@@ -1,0 +1,16 @@
+---
+
+- name: Install Go
+  block:
+    - name: Install runtime
+      community.general.homebrew:
+        name:
+          - go@{{ install_go_version }}
+          - goreleaser
+        state: upgraded
+
+    - name: Copy Go config file
+      ansible.builtin.import_role:
+        name: misc_create_zshconf
+      vars:
+        misc_create_zshconf_src: go.zsh

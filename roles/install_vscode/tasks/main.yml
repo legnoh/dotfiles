@@ -15,15 +15,10 @@
           - ansible-lint
           - uv
 
-          # Node.js
-          - node@{{ install_vscode_node_version }}
-
           # Go Tools: https://github.com/golang/vscode-go/wiki/tools
-          - go@{{ install_vscode_go_version }}
           - dlv
           - gomodifytags
           - gopls
-          - goreleaser
           - staticcheck
         state: upgraded
 
@@ -73,9 +68,3 @@
         name: misc_create_gitconf
       vars:
         misc_create_gitconf_src: vscode.gitconfig
-
-    - name: Copy Go config file
-      ansible.builtin.import_role:
-        name: misc_create_zshconf
-      vars:
-        misc_create_zshconf_src: go.zsh

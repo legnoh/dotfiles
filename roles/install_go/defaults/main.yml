@@ -1,4 +1,4 @@
 ---
 
 install_go_version: 1.24
-install_go_go_version: 1.24
+install_go_go_version: 1.25

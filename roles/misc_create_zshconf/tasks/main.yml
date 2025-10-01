@@ -1,6 +1,8 @@
 ---
 
 - name: Create Zsh config directory and target file
+  vars:
+    is_template: "{{ misc_create_zshconf_src is defined and (misc_create_zshconf_src | regex_search('\\.j2$')) }}"
   block:
     - name: Create conf directory
       ansible.builtin.file:

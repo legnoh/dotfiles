@@ -2,7 +2,11 @@
 
 - name: Create Zsh config directory and target file
   vars:
-    is_template: "{{ misc_create_zshconf_src is defined and (misc_create_zshconf_src | regex_search('\\.j2$')) }}"
+    src_clean: "{{ misc_create_zshconf_src | default('') | trim }}"
+    cmd_clean: "{{ misc_create_zshconf_cmd | default('') | trim }}"
+    has_src: "{{ src_clean | length > 0 }}"
+    has_cmd: "{{ cmd_clean | length > 0 }}"
+    is_template: "{{ has_src and (src_clean | regex_search('\\.j2$')) }}"
   block:
     - name: Create conf directory
       ansible.builtin.file:
@@ -13,32 +17,32 @@
     - name: Copy config file
       when:
         - not ansible_check_mode
-        - misc_create_zshconf_src is defined
-        - misc_create_zshconf_cmd is undefined
-        - not (is_template)
+        - has_src
+        - not has_cmd
+        - not is_template
       ansible.builtin.copy:
-        src: "{{ misc_create_zshconf_src }}"
-        dest: "{{ ansible_env.HOME }}/.config/zsh/{{ misc_create_zshconf_src }}"
+        src: "{{ src_clean }}"
+        dest: "{{ ansible_env.HOME }}/.config/zsh/{{ src_clean }}"
         mode: '0644'
 
     - name: Create config file with cmd
       when:
         - not ansible_check_mode
-        - misc_create_zshconf_cmd is defined
-        - misc_create_zshconf_src is defined
-        - not (is_template)
+        - has_src
+        - has_cmd
+        - not is_template
       ansible.builtin.shell:
         cmd: |
-          {{ misc_create_zshconf_cmd }} > {{ ansible_env.HOME }}/.config/zsh/{{ misc_create_zshconf_src }}
+          {{ cmd_clean }} > {{ ansible_env.HOME }}/.config/zsh/{{ src_clean }}
       changed_when: false
 
     - name: Create config file with template
       when:
         - not ansible_check_mode
-        - misc_create_zshconf_src is defined
-        - misc_create_zshconf_cmd is undefined
+        - has_src
+        - not has_cmd
         - is_template
       ansible.builtin.template:
-        src: "{{ misc_create_zshconf_src }}"
-        dest: "{{ ansible_env.HOME }}/.config/zsh/{{ misc_create_zshconf_src | regex_replace('\\.j2$', '') }}"
+        src: "{{ src_clean }}"
+        dest: "{{ ansible_env.HOME }}/.config/zsh/{{ src_clean | regex_replace('\\.j2$', '') }}"
         mode: '0644'

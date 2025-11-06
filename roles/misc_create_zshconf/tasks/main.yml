@@ -2,8 +2,8 @@
 
 - name: Create Zsh config directory and target file
   vars:
-    src_clean: "{{ misc_create_zshconf_src | default('') | trim }}"
-    cmd_clean: "{{ misc_create_zshconf_cmd | default('') | trim }}"
+    src_clean: "{{ misc_create_zshconf_src | d('', true) | string | trim }}"
+    cmd_clean: "{{ misc_create_zshconf_cmd | d('', true) | string | trim }}"
     has_src: "{{ src_clean | length > 0 }}"
     has_cmd: "{{ cmd_clean | length > 0 }}"
     is_template: "{{ has_src and (src_clean | regex_search('\\.j2$')) }}"

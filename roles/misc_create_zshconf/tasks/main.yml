@@ -6,7 +6,7 @@
     cmd_clean: "{{ misc_create_zshconf_cmd | d('', true) | string | trim }}"
     has_src: "{{ src_clean | length > 0 }}"
     has_cmd: "{{ cmd_clean | length > 0 }}"
-    is_template: "{{ has_src and (src_clean | regex_search('\\.j2$')) }}"
+    is_template: "{{ has_src and (src_clean | regex_search('\\.j2$')) | bool }}"
   block:
     - name: Create conf directory
       ansible.builtin.file:

@@ -25,7 +25,7 @@ jobs:
         HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK: 1
 
     - name: Run playbook
-      uses: dawidd6/action-ansible-playbook@v2
+      uses: dawidd6/action-ansible-playbook@v9
       with:
         playbook: site-local.yml
         options: --check

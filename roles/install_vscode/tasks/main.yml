@@ -52,7 +52,7 @@
 
     - name: Create VSCode conf directory
       ansible.builtin.file:
-        path: "{{ ansible_env.HOME }}/Library/Application Support/Code/User"
+        path: "{{ ansible_facts['env']['HOME'] }}/Library/Application Support/Code/User"
         state: directory
         mode: '0755'
 
@@ -60,7 +60,7 @@
       when: not ansible_check_mode
       ansible.builtin.template:
         src: settings.json.j2
-        dest: "{{ ansible_env.HOME }}/Library/Application Support/Code/User/settings.json"
+        dest: "{{ ansible_facts['env']['HOME'] }}/Library/Application Support/Code/User/settings.json"
         mode: '0644'
 
     - name: Copy Git config file

@@ -43,7 +43,7 @@
     - name: Copy dictionary files
       ansible.builtin.copy:
         src: "dictionary.plist"
-        dest: "{{ ansible_env.HOME }}/Downloads/dictionary.plist"
+        dest: "{{ ansible_facts['env']['HOME'] }}/Downloads/dictionary.plist"
         mode: '0644'
 
     - name: Import Shortcuts

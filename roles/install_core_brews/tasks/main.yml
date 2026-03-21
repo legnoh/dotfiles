@@ -7,5 +7,6 @@
         name:
           - awscli
           - jq
+          - opentofu
           - yq
         state: upgraded

@@ -17,7 +17,7 @@
         status_code: 200
         body_format: json
         return_content: true
-      register: github_profile
+      register: install_git_packages_github_profile
 
     - name: Get my github signing keys
       ansible.builtin.uri:
@@ -25,7 +25,7 @@
         status_code: 200
         body_format: json
         return_content: true
-      register: github_ssh_signing_keys
+      register: install_git_packages_github_ssh_signing_keys
 
     - name: Copy Zsh config file
       ansible.builtin.import_role:
@@ -48,7 +48,7 @@
     - name: Download global ignore file from gibo
       when: not ansible_check_mode
       ansible.builtin.shell:
-        cmd: "gibo dump macOS VisualStudioCode > {{ ansible_env.HOME }}/.config/git/ignore"
+        cmd: "gibo dump macOS VisualStudioCode > {{ ansible_facts['env']['HOME'] }}/.config/git/ignore"
       changed_when: false
 
     - name: Open README

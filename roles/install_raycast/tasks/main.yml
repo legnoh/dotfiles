@@ -26,7 +26,7 @@
       ansible.builtin.shell:
         cmd: >
           yq --prettyPrint --output-format json /tmp/{{ item }}.yml
-          > {{ ansible_env.HOME }}/Downloads/{{ item }}.json
+          > {{ ansible_facts['env']['HOME'] }}/Downloads/{{ item }}.json
       loop:
         - quicklinks
         - snippets

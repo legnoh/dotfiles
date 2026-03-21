@@ -11,13 +11,13 @@
       community.general.homebrew_cask:
         name: roland-bridge-cast-app
         state: upgraded
-        sudo_password: "{{ ansible_env.BECOME_PASSWORD }}"
+        sudo_password: "{{ ansible_facts['env']['BECOME_PASSWORD'] }}"
 
     - name: Copy settings file
       when: not ansible_check_mode
       ansible.builtin.copy:
         src: "settings.brdgcBackup"
-        dest: "{{ ansible_env.HOME }}/Downloads/settings.brdgcBackup"
+        dest: "{{ ansible_facts['env']['HOME'] }}/Downloads/settings.brdgcBackup"
         mode: '0644'
 
     - name: Open README

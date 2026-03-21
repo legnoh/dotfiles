@@ -4,7 +4,7 @@
   block:
     - name: Create .hushlogin for omit login prompt
       ansible.builtin.file:
-        path: "{{ ansible_env.HOME }}/.hushlogin"
+        path: "{{ ansible_facts['env']['HOME'] }}/.hushlogin"
         state: touch
         mode: '0644'
 
@@ -29,5 +29,5 @@
     - name: Copy root Zsh config files
       ansible.builtin.copy:
         src: .zshrc
-        dest: "{{ ansible_env.HOME }}/.zshrc"
+        dest: "{{ ansible_facts['env']['HOME'] }}/.zshrc"
         mode: '0644'

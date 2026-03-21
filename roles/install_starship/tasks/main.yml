@@ -12,7 +12,7 @@
       when: not ansible_check_mode
       ansible.builtin.copy:
         src: "starship.toml"
-        dest: "{{ ansible_env.HOME }}/.config/starship.toml"
+        dest: "{{ ansible_facts['env']['HOME'] }}/.config/starship.toml"
         mode: '0644'
 
     - name: Copy Zsh config file

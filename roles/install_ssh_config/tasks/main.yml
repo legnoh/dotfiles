@@ -8,12 +8,12 @@
         state: directory
         mode: '0755'
       loop:
-        - "{{ ansible_env.HOME }}/.config/ssh"
-        - "{{ ansible_env.HOME }}/.ssh"
+        - "{{ ansible_facts['env']['HOME'] }}/.config/ssh"
+        - "{{ ansible_facts['env']['HOME'] }}/.ssh"
 
     - name: Create .ssh/config file
       when: not ansible_check_mode
       ansible.builtin.copy:
         src: ".ssh/config"
-        dest: "{{ ansible_env.HOME }}/.ssh/config"
+        dest: "{{ ansible_facts['env']['HOME'] }}/.ssh/config"
         mode: '0644'

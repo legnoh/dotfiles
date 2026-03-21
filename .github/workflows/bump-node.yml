@@ -51,7 +51,7 @@ jobs:
 
       - name: Create bump PR
         if: steps.lts.outputs.v != steps.dot.outputs.v
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         env:
           RELEASE_POLICY_URL: https://nodejs.org/en/about/previous-releases
           RELEASE_NOTES_URL: https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V${{ steps.lts.outputs.v }}.md

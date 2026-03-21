@@ -42,7 +42,7 @@ jobs:
           yq e ".install_${{ env.BREW_PKGNAME }}_version=${{ steps.lts.outputs.v }}" -i ${{ env.ROLE_VARFILE }}
 
       - name: Get GitHub App Token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v3
         id: github-app
         with:
           app-id: ${{ vars.G_BUMP_BOT_ID }}

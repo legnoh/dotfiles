@@ -65,6 +65,6 @@ jobs:
           envsubst < galaxy.yml.template > galaxy.yml
 
       - name: Deploy collection to Ansible Galaxy
-        uses: artis3n/ansible_galaxy_collection@v2
+        uses: artis3n/ansible_galaxy_collection@v3
         with:
           api_key: ${{ secrets.GALAXY_API_KEY }}

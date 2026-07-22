@@ -12,6 +12,12 @@
       community.general.homebrew_tap:
         name: dsully/tap
 
+    - name: Trust custom repos
+      check_mode: false
+      community.general.command:
+        cmd: brew trust dsully/tap/macos-defaults
+        changed_when: false
+
     - name: Install core formulae
       when: not ansible_check_mode
       community.general.homebrew:

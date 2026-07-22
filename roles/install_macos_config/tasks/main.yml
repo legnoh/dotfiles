@@ -14,9 +14,9 @@
 
     - name: Trust custom repos
       check_mode: false
-      community.general.command:
+      ansible.builtin.command:
         cmd: brew trust dsully/tap/macos-defaults
-        changed_when: false
+      changed_when: false
 
     - name: Install core formulae
       when: not ansible_check_mode

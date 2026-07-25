@@ -11,10 +11,10 @@
     - name: Check Rancher Desktop was installed
       ansible.builtin.stat:
         path: "/Applications/Rancher\ Desktop.app"
-      register: check_installed
+      register: install_rancher_check_installed
 
     - name: Stop Rancher Desktop
-      when: check_installed.stat.exists
+      when: install_rancher_check_installed.stat.exists
       ansible.builtin.shell:
         cmd: >
           /Applications/Rancher\ Desktop.app/Contents/Resources/resources/darwin/bin/rdctl --verbose shutdown

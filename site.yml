@@ -4,7 +4,7 @@
   hosts: localhost
   roles:
     - role: legnoh.dotfiles.install_macos_config
-      when: ansible_distribution == 'MacOSX'
+      when: ansible_facts["distribution"] == 'MacOSX'
       tags: [install_macos_config]
 
     - role: legnoh.dotfiles.install_zsh_config
@@ -29,49 +29,49 @@
       tags: [install_starship]
 
     - role: legnoh.dotfiles.install_1password
-      when: ansible_distribution == 'MacOSX'
+      when: ansible_facts["distribution"] == 'MacOSX'
       tags: [install_1password, gui]
 
     - role: legnoh.dotfiles.install_terminal_config
-      when: ansible_distribution == 'MacOSX'
+      when: ansible_facts["distribution"] == 'MacOSX'
       tags: [install_terminal_config]
 
     - role: legnoh.dotfiles.install_office_casks
-      when: ansible_distribution == 'MacOSX'
+      when: ansible_facts["distribution"] == 'MacOSX'
       tags: [install_office_casks, gui]
 
     - role: legnoh.dotfiles.install_private_casks
-      when: ansible_distribution == 'MacOSX'
+      when: ansible_facts["distribution"] == 'MacOSX'
       tags: [install_private_casks, gui]
 
     - role: legnoh.dotfiles.install_raycast
-      when: ansible_distribution == 'MacOSX'
+      when: ansible_facts["distribution"] == 'MacOSX'
       tags: [install_raycast, gui]
 
     - role: legnoh.dotfiles.install_vscode
-      when: ansible_distribution == 'MacOSX'
+      when: ansible_facts["distribution"] == 'MacOSX'
       tags: [install_vscode, gui]
 
     - role: legnoh.dotfiles.install_rancher
-      when: ansible_distribution == 'MacOSX'
+      when: ansible_facts["distribution"] == 'MacOSX'
       tags: [install_rancher, gui]
 
     - role: legnoh.dotfiles.install_bridgecast
-      when: ansible_distribution == 'MacOSX'
+      when: ansible_facts["distribution"] == 'MacOSX'
       tags: [install_bridgecast, device_driver]
 
     - role: legnoh.dotfiles.install_dell_monitor_driver
-      when: ansible_distribution == 'MacOSX'
+      when: ansible_facts["distribution"] == 'MacOSX'
       tags: [install_dell_monitor_driver, device_driver]
 
     - role: legnoh.dotfiles.install_logi_options_plus
-      when: ansible_distribution == 'MacOSX'
+      when: ansible_facts["distribution"] == 'MacOSX'
       tags: [install_logi_options_plus, device_driver]
 
     - role: legnoh.dotfiles.install_scansnap
-      when: ansible_distribution == 'MacOSX'
+      when: ansible_facts["distribution"] == 'MacOSX'
       tags: [install_scansnap, device_driver]
 
     - role: legnoh.dotfiles.uninstall
-      when: ansible_distribution == 'MacOSX'
+      when: ansible_facts["distribution"] == 'MacOSX'
       tags: [never, uninstall]

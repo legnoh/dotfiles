@@ -1,5 +1,15 @@
 {
+  "version": 18,
   "application": {
+    "adminAccess": false,
+    "debug": false,
+    "extensions": {
+      "allowed": {
+        "enabled": false,
+        "list": []
+      },
+      "installed": {}
+    },
     "pathManagementStrategy": "manual",
     "telemetry": {
       "enabled": false
@@ -12,28 +22,101 @@
     "hideNotificationIcon": true,
     "window": {
       "quitOnClose": false
-    }
+    },
+    "theme": "system"
+  },
+  "containerEngine": {
+    "allowedImages": {
+      "enabled": false,
+      "patterns": []
+    },
+    "mobyStorageDriver": "auto",
+    "name": "moby"
   },
   "virtualMachine": {
     "memoryInGB": {{ install_rancher_memory_in_gb }},
-    "numberCPUs": {{ install_rancher_number_cpus }}
+    "numberCPUs": {{ install_rancher_number_cpus }},
+    "type": "vz",
+    "useRosetta": true,
+    "mount": {
+      "type": "virtiofs"
+    }
+  },
+  "WSL": {
+    "integrations": {}
   },
   "kubernetes": {
-    "enabled": false
+    "version": "1.36.2",
+    "port": 6443,
+    "enabled": false,
+    "options": {
+      "traefik": true,
+      "flannel": true
+    },
+    "ingress": {
+      "localhostOnly": false
+    }
+  },
+  "portForwarding": {
+    "includeKubernetesServices": false
+  },
+  "images": {
+    "showAll": true,
+    "namespace": "default"
+  },
+  "containers": {
+    "showAll": true,
+    "namespace": "default"
   },
   "diagnostics": {
     "showMuted": false,
     "mutedChecks": {
       "RD_BIN_IN_BASH_PATH": true
+    },
+    "connectivity": {
+      "interval": 5000,
+      "timeout": 5000
     }
   },
   "experimental": {
-    "virtualMachine": {
-      "type": "vz",
-      "useRosetta": true,
-      "mount": {
-        "type": "virtiofs"
+    "containerEngine": {
+      "webAssembly": {
+        "enabled": false
       }
+    },
+    "kubernetes": {
+      "options": {
+        "spinkube": false
+      }
+    },
+    "virtualMachine": {
+      "diskSize": "100GiB",
+      "mount": {
+        "9p": {
+          "securityModel": "none",
+          "protocolVersion": "9p2000.L",
+          "msizeInKib": 128,
+          "cacheMode": "mmap"
+        }
+      },
+      "proxy": {
+        "enabled": false,
+        "address": "",
+        "password": "",
+        "port": 3128,
+        "username": "",
+        "noproxy": [
+          "0.0.0.0/8",
+          "10.0.0.0/8",
+          "127.0.0.0/8",
+          "169.254.0.0/16",
+          "172.16.0.0/12",
+          "192.168.0.0/16",
+          "224.0.0.0/4",
+          "240.0.0.0/4"
+        ]
+      },
+      "sshPortForwarder": true
     }
   }
 }

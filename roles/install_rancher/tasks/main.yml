@@ -59,6 +59,12 @@
         cmd: /usr/bin/open -a 'Rancher Desktop'
       changed_when: false
 
+    - name: Wait for Rancher Desktop to start
+      ansible.builtin.wait_for:
+        path: "{{ ansible_facts['env']['HOME'] }}/.rd/docker.sock"
+        state: present
+        timeout: 180
+
   always:
     - name: Remove tempfile
       ansible.builtin.file:

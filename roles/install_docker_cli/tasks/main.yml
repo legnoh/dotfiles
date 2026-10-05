@@ -1,0 +1,32 @@
+---
+
+- name: Install Docker CLI
+  block:
+    - name: Install Docker CLI tools
+      community.general.homebrew:
+        name:
+          - docker
+          - docker-credential-helper
+          - docker-compose
+          - docker-buildx
+        state: present
+
+    - name: Create Docker CLI plugin directory
+      ansible.builtin.file:
+        path: "{{ ansible_facts['env']['HOME'] }}/.docker/cli-plugins"
+        state: directory
+        mode: "0755"
+
+    - name: Link Docker Compose CLI plugin
+      ansible.builtin.file:
+        src: "/opt/homebrew/lib/docker/cli-plugins/docker-compose"
+        dest: "{{ ansible_facts['env']['HOME'] }}/.docker/cli-plugins/docker-compose"
+        state: link
+        force: true
+
+    - name: Link Docker Buildx CLI plugin
+      ansible.builtin.file:
+        src: "/opt/homebrew/lib/docker/cli-plugins/docker-buildx"
+        dest: "{{ ansible_facts['env']['HOME'] }}/.docker/cli-plugins/docker-buildx"
+        state: link
+        force: true

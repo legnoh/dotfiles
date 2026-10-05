@@ -12,16 +12,16 @@
       ansible.builtin.command:
         cmd: /opt/homebrew/bin/mas list
       changed_when: false
-      register: mas_list
+      register: uninstall_mas_list
 
     - name: Get App id list
       ansible.builtin.set_fact:
-        mas_app_ids: "{{ mas_list.stdout_lines | map('split', ' ') | map('first') | list }}"
+        uninstall_mas_app_ids: "{{ uninstall_mas_list.stdout_lines | map('split', ' ') | map('first') | list }}"
 
     - name: Remove all MAS applications
       ansible.builtin.command:
         cmd: sudo -A /opt/homebrew/bin/mas uninstall {{ item }}
-      loop: "{{ mas_app_ids }}"
+      loop: "{{ uninstall_mas_app_ids }}"
       environment:
         SUDO_ASKPASS: /tmp/askpass
       failed_when: false
@@ -31,12 +31,12 @@
       ansible.builtin.command:
         cmd: /opt/homebrew/bin/brew list --cask
       changed_when: false
-      register: cask_list
+      register: uninstall_cask_list
 
     - name: Remove all Cask applications
       ansible.builtin.command:
         cmd: sudo -A /opt/homebrew/bin/brew --cask --force --zap uninstall "{{ item }}"
-      loop: "{{ mas_app_ids }}"
+      loop: "{{ uninstall_mas_app_ids }}"
       environment:
         SUDO_ASKPASS: /tmp/askpass
       failed_when: false
@@ -46,7 +46,7 @@
       ansible.builtin.command:
         cmd: /opt/homebrew/bin/brew list --formula
       changed_when: false
-      register: formula_list
+      register: uninstall_formula_list
 
     - name: Get ansible dependency list
       ansible.builtin.shell:
@@ -54,15 +54,15 @@
           set -o pipefail
           /opt/homebrew/bin/brew info ansible --json | jq -r ".[].dependencies[0] |= \"ansible\" | .[].dependencies[]"
       changed_when: false
-      register: ansible_dependency_list
+      register: uninstall_ansible_dependency_list
 
     - name: Remove items from formula_list that are in ansible_dependency_list
       ansible.builtin.set_fact:
-        exclude_ansible_formula_list: "{{ formula_list.stdout_lines | difference(ansible_dependency_list.stdout_lines) }}"
+        uninstall_exclude_ansible_formula_list: "{{ uninstall_formula_list.stdout_lines | difference(uninstall_ansible_dependency_list.stdout_lines) }}"
 
     - name: Uninstall all formula without ansible
       community.general.homebrew:
-        name: "{{ exclude_ansible_formula_list }}"
+        name: "{{ uninstall_exclude_ansible_formula_list }}"
         state: absent
 
     - name: Create deletefile Script file

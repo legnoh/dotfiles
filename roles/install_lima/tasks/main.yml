@@ -1,0 +1,93 @@
+---
+
+- name: Install Lima
+  block:
+    - name: Install Lima and Docker CLI tools
+      community.general.homebrew:
+        name:
+          - lima
+        state: present
+
+    - name: Create Lima config directory
+      ansible.builtin.file:
+        path: "{{ ansible_facts['env']['HOME'] }}/.config/lima"
+        state: directory
+        mode: "0755"
+
+    - name: Install Lima Docker instance definition
+      ansible.builtin.template:
+        src: docker.yaml.j2
+        dest: "{{ ansible_facts['env']['HOME'] }}/.config/lima/docker.yaml"
+        mode: "0644"
+      register: install_lima_config
+
+    - name: Copy Zsh config file
+      ansible.builtin.import_role:
+        name: misc_create_zshconf
+      vars:
+        misc_create_zshconf_src: lima.zsh
+
+    - name: Check existing Lima instances
+      ansible.builtin.command:
+        argv:
+          - limactl
+          - list
+          - --format
+          - "{{ '{{.Name}}' }}"
+      register: install_lima_instances
+      changed_when: false
+
+    - name: Stop Lima instance before recreation
+      ansible.builtin.command:
+        argv:
+          - limactl
+          - stop
+          - "{{ install_lima_instance_name }}"
+      when:
+        - install_lima_recreate_instance
+        - install_lima_instance_name in install_lima_instances.stdout_lines
+      changed_when: true
+
+    - name: Delete Lima instance before recreation
+      ansible.builtin.command:
+        argv:
+          - limactl
+          - delete
+          - --force
+          - "{{ install_lima_instance_name }}"
+      when:
+        - install_lima_recreate_instance
+        - install_lima_instance_name in install_lima_instances.stdout_lines
+      changed_when: true
+
+    - name: Create Lima Docker instance
+      ansible.builtin.command:
+        argv:
+          - limactl
+          - create
+          - --name
+          - "{{ install_lima_instance_name }}"
+          - --tty=false
+          - "{{ ansible_facts['env']['HOME'] }}/.config/lima/docker.yaml"
+      when:
+        - install_lima_instance_name not in install_lima_instances.stdout_lines or install_lima_recreate_instance
+      changed_when: true
+
+    - name: Start Lima Docker instance
+      ansible.builtin.command:
+        argv:
+          - limactl
+          - start
+          - "{{ install_lima_instance_name }}"
+          - --tty=false
+      register: install_lima_start
+      changed_when: "'Already running' not in install_lima_start.stdout"
+
+    - name: Enable Lima autostart
+      ansible.builtin.command:
+        argv:
+          - limactl
+          - autostart
+          - enable
+          - "{{ install_lima_instance_name }}"
+      changed_when: false

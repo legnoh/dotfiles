@@ -1,0 +1,18 @@
+---
+# https://github.com/lima-vm/lima/blob/master/templates/default.yaml
+base:
+  - template:docker
+
+vmType: "vz"
+
+cpus: {{ install_lima_docker_cpus }}
+memory: "{{ install_lima_docker_memory }}"
+disk: "{{ install_lima_docker_disk }}"
+
+rosetta:
+  enabled: true
+  binfmt: true
+
+mounts:
+  - location: "~"
+    writable: true

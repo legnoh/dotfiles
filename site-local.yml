@@ -28,6 +28,14 @@
     - role: install_starship
       tags: [install_starship]
 
+    - role: install_lima
+      when: ansible_facts["distribution"] == 'MacOSX'
+      tags: [install_lima]
+
+    - role: install_docker_cli
+      when: ansible_facts["distribution"] == 'MacOSX'
+      tags: [install_docker_cli]
+
     - role: install_1password
       when: ansible_facts["distribution"] == 'MacOSX'
       tags: [install_1password, gui]
@@ -51,10 +59,6 @@
     - role: install_vscode
       when: ansible_facts["distribution"] == 'MacOSX'
       tags: [install_vscode, gui]
-
-    - role: install_rancher
-      when: ansible_facts["distribution"] == 'MacOSX'
-      tags: [install_rancher, gui]
 
     - role: install_bridgecast
       when: ansible_facts["distribution"] == 'MacOSX'

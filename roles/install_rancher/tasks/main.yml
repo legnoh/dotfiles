@@ -24,11 +24,13 @@
       community.general.homebrew_cask:
         name: rancher
         state: upgraded
+        sudo_password: "{{ ansible_become_pass }}"
 
     - name: Install docker-completion
       community.general.homebrew:
         name: docker-completion
         state: upgraded
+        sudo_password: "{{ ansible_become_pass }}"
 
     - name: Copy Zsh config file
       ansible.builtin.import_role:

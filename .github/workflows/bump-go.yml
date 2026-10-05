@@ -45,7 +45,7 @@ jobs:
         uses: actions/create-github-app-token@v3
         id: github-app
         with:
-          app-id: ${{ vars.G_BUMP_BOT_ID }}
+          client-id: ${{ vars.G_BUMP_BOT_ID }}
           private-key: ${{ secrets.G_BUMP_BOT_PRIVATEKEY }}
           owner: ${{ github.repository_owner }}
 

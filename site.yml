@@ -59,10 +59,10 @@
     - role: legnoh.dotfiles.install_vscode
       when: ansible_facts["distribution"] == 'MacOSX'
       tags: [install_vscode, gui]
-
-    - role: legnoh.dotfiles.install_bridgecast
+    
+    - role: legnoh.dotfiles.install_wavelink
       when: ansible_facts["distribution"] == 'MacOSX'
-      tags: [install_bridgecast, device_driver]
+      tags: [install_wavelink, device_driver]
 
     - role: legnoh.dotfiles.install_dell_monitor_driver
       when: ansible_facts["distribution"] == 'MacOSX'

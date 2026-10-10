@@ -1,0 +1,14 @@
+---
+
+- name: Install Elgato Wave Link
+  block:
+    - name: Install Elgato Wave Link.app
+      community.general.homebrew_cask:
+        name: elgato-wave-link
+        state: upgraded
+        sudo_password: "{{ ansible_facts['env']['BECOME_PASSWORD'] }}"
+
+    - name: Open Elgato Wave Link app
+      ansible.builtin.command:
+        cmd: /usr/bin/open --background -a 'Elgato Wave Link'
+      changed_when: false

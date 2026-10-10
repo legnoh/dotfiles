@@ -24,7 +24,7 @@ zsh -c "$(curl -L dot.lkj.io)"
   - Raycast
   - Dell monitor driver(U4025QW)
   - Logi Options+
-  - Roland BRIDGE CAST
+  - Elgato Wave Link
   - ScanSnap Home
   - ...
 - Deployed by: [Ansible](https://docs.ansible.com)

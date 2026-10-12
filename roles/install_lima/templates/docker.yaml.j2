@@ -19,7 +19,7 @@ mounts:
   - location: "~"
     writable: true
 
-{{- if install_lima_enable_external_access }}
+{% if install_lima_enable_external_access %}
 portForwards:
   - guestIP: "0.0.0.0"
     guestIPMustBeZero: true
@@ -27,4 +27,4 @@ portForwards:
     hostIP: "0.0.0.0"
     hostPortRange: [1, 65535]
     proto: any
-{{- endif }}
+{% endif %}

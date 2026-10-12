@@ -5,4 +5,5 @@ install_lima_docker_memory: 4GiB
 install_lima_docker_disk: 100GiB
 
 install_lima_instance_name: docker
+install_lima_enable_external_access: false
 install_lima_recreate_instance: false

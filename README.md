@@ -14,7 +14,7 @@ zsh -c "$(curl -L dot.lkj.io)"
 - Shell: [Zsh](http://www.zsh.org/)
   - prompt manager: [Starship](https://starship.rs)
 - IDE: [Visual Studio Code](https://code.visualstudio.com/)
-- Container Runtime: [Rancher](https://www.rancher.com)
+- Container Runtime: [Lima](https://lima-vm.io) + [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/)
 - Color Scheme: [Iceberg](https://cocopon.github.io/iceberg.vim/)
 - Font: [JetBrains Mono](https://www.jetbrains.com/lp/mono/) [Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono)
 - and some macOS applications & drivers!

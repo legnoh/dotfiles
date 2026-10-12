@@ -79,6 +79,35 @@
         - install_lima_instance_name not in install_lima_instances.stdout_lines or install_lima_recreate_instance
       changed_when: true
 
+    - name: Check Lima instance status before restarting for config changes
+      ansible.builtin.command:
+        argv:
+          - limactl
+          - list
+          - "{{ install_lima_instance_name }}"
+          - --json
+      register: install_lima_status_before_restart
+      changed_when: false
+      when:
+        - not ansible_check_mode
+        - install_lima_config.changed
+        - not install_lima_recreate_instance
+        - install_lima_instance_name in install_lima_instances.stdout_lines
+
+    - name: Stop Lima instance when its config changed
+      ansible.builtin.command:
+        argv:
+          - limactl
+          - stop
+          - "{{ install_lima_instance_name }}"
+      when:
+        - not ansible_check_mode
+        - install_lima_config.changed
+        - not install_lima_recreate_instance
+        - install_lima_instance_name in install_lima_instances.stdout_lines
+        - (install_lima_status_before_restart.stdout | from_json)['status'] == 'Running'
+      changed_when: true
+
     - name: Start Lima Docker instance
       ansible.builtin.command:
         argv:

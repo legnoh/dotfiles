@@ -89,6 +89,19 @@
       register: install_lima_start
       changed_when: "'Already running' not in install_lima_start.stdout"
 
+    - name: Wait for Lima Docker instance to be fully running
+      ansible.builtin.command:
+        argv:
+          - limactl
+          - list
+          - "{{ install_lima_instance_name }}"
+          - --json
+      register: install_lima_status
+      changed_when: false
+      until: (install_lima_status.stdout | from_json)['status'] == 'Running'
+      retries: 60
+      delay: 5
+
     - name: Enable Lima autostart
       ansible.builtin.command:
         argv:

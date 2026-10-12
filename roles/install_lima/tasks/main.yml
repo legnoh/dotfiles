@@ -101,6 +101,7 @@
       until: (install_lima_status.stdout | from_json)['status'] == 'Running'
       retries: 60
       delay: 5
+      when: not ansible_check_mode
 
     - name: Enable Lima autostart
       ansible.builtin.command:

@@ -11,7 +11,7 @@
     - name: Copy config file
       when:
         - not ansible_check_mode
-        - not misc_create_gitconf_src is not search('[.]j2$')
+        - misc_create_gitconf_src is not search('[.]j2$')
       ansible.builtin.copy:
         src: "{{ misc_create_gitconf_src }}"
         dest: "{{ ansible_facts['env']['HOME'] }}/.config/git/{{ misc_create_gitconf_src }}"

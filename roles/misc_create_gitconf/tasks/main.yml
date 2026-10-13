@@ -11,7 +11,7 @@
     - name: Copy config file
       when:
         - not ansible_check_mode
-        - not misc_create_gitconf_src | regex_search('\.j2$')
+        - not misc_create_gitconf_src is not search('[.]j2$')
       ansible.builtin.copy:
         src: "{{ misc_create_gitconf_src }}"
         dest: "{{ ansible_facts['env']['HOME'] }}/.config/git/{{ misc_create_gitconf_src }}"
@@ -20,7 +20,7 @@
     - name: Create config file with template
       when:
         - not ansible_check_mode
-        - misc_create_gitconf_src | regex_search('\.j2$')
+        - misc_create_gitconf_src is search('[.]j2$')
       ansible.builtin.template:
         src: "{{ misc_create_gitconf_src }}"
         dest: "{{ ansible_facts['env']['HOME'] }}/.config/git/{{ misc_create_gitconf_src | regex_replace('\\.j2$', '') }}"
